@@ -134,25 +134,25 @@ X Bot curates high-quality data from projects and KOL teams through a selection 
 
 {% stepper %}
 {% step %}
-### X Bot Installation
+#### X Bot Installation
 
 Must have successfully installed and configured X Bot in their Telegram community. Demonstrates commitment to transparent analytics.
 {% endstep %}
 
 {% step %}
-### Minimum Performance Threshold
+#### Minimum Performance Threshold
 
 Achieve a minimum performance score indicating sustained X activity, showing genuine engagement over time.
 {% endstep %}
 
 {% step %}
-### Active Community Engagement
+#### Active Community Engagement
 
 Consistent posting and meaningful interactions, authentic community growth patterns, and regular engagement from community members.
 {% endstep %}
 
 {% step %}
-### Quality Content Standards
+#### Quality Content Standards
 
 High-quality X presence with genuine engagement metrics, no artificial inflation or bot-driven activity, and authentic interactions and conversations.
 {% endstep %}

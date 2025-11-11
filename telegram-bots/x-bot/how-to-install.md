@@ -27,7 +27,7 @@ Goal: Track your project's X engagement and community activity (optionally use f
 
 {% stepper %}
 {% step %}
-### Find and Add the Bot
+#### Find and Add the Bot
 
 * Search for [@BWS\_X\_Bot](https://t.me/BWS_X_Bot) in Telegram
 * Add the bot to your project's main Telegram group
@@ -37,7 +37,7 @@ Goal: Track your project's X engagement and community activity (optionally use f
 {% endstep %}
 
 {% step %}
-### Create Your X Analytics Query
+#### Create Your X Analytics Query
 
 The following is a simple example for first-time installation. You can customize tracking later.
 
@@ -75,7 +75,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Schedule Daily Reports
+#### Schedule Daily Reports
 
 Set up automatic daily analytics reports:
 
@@ -96,7 +96,7 @@ Tip: Choose a time when your community is most active for maximum engagement.
 {% endstep %}
 
 {% step %}
-### Verify Installation
+#### Verify Installation
 
 Force an initial report to verify everything is working:
 
@@ -115,7 +115,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Add Project Metadata (Optional)
+#### Add Project Metadata (Optional)
 
 Add project information to be featured on the [xbot.ninja](https://xbot.ninja/) website:
 
@@ -135,7 +135,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Customize Your Reports (Optional)
+#### Customize Your Reports (Optional)
 
 Personalize reports with custom branding.
 
@@ -173,7 +173,7 @@ Goal: Get publicly listed on [xbot.ninja](https://xbot.ninja/) to showcase your 
 
 {% stepper %}
 {% step %}
-### Create Your Analytics Group
+#### Create Your Analytics Group
 
 * Open Telegram and create a new group
 * Name it something like "My X Analytics" or "KOL Performance Tracker"
@@ -183,7 +183,7 @@ Tip: Keep this group private or share it with potential clients to showcase your
 {% endstep %}
 
 {% step %}
-### Find and Add X Bot
+#### Find and Add X Bot
 
 * Search for [@BWS\_X\_Bot](https://t.me/BWS_X_Bot) in Telegram
 * Add the bot to your newly created group
@@ -193,7 +193,7 @@ Tip: Keep this group private or share it with potential clients to showcase your
 {% endstep %}
 
 {% step %}
-### Track Your X Account
+#### Track Your X Account
 
 Monitor your personal X account performance:
 
@@ -220,7 +220,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Add Your Topics
+#### Add Your Topics
 
 Track keywords relevant to your content:
 
@@ -239,7 +239,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Enable Regular Reports
+#### Enable Regular Reports
 
 Get daily performance insights:
 
@@ -258,7 +258,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Create Your First Report
+#### Create Your First Report
 
 Generate your first analytics report:
 
@@ -277,7 +277,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Add Your Profile Metadata (Optional)
+#### Add Your Profile Metadata (Optional)
 
 Add profile information to be featured on the [xbot.ninja](https://xbot.ninja/) website:
 
@@ -313,7 +313,7 @@ Goal: Track team performance accurately and show clients real, measurable result
 
 {% stepper %}
 {% step %}
-### Create Team Analytics Group
+#### Create Team Analytics Group
 
 * Open Telegram and create a new group
 * Name it "KOL Team Analytics" or "\[Team Name] Performance Tracker"
@@ -323,7 +323,7 @@ Tip: Make this group private and invite only team members and trusted clients.
 {% endstep %}
 
 {% step %}
-### Find and Add Bot as Admin
+#### Find and Add Bot as Admin
 
 * Search for [@BWS\_X\_Bot](https://t.me/BWS_X_Bot) in Telegram
 * Add the bot to your team group
@@ -333,7 +333,7 @@ Tip: Make this group private and invite only team members and trusted clients.
 {% endstep %}
 
 {% step %}
-### Add Team Members
+#### Add Team Members
 
 Invite all KOL team members to the group:
 
@@ -344,7 +344,7 @@ Invite all KOL team members to the group:
 {% endstep %}
 
 {% step %}
-### Track All Team Accounts
+#### Track All Team Accounts
 
 Add all team members' X accounts for tracking:
 
@@ -371,7 +371,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Set Projects You Work For
+#### Set Projects You Work For
 
 Monitor client projects with cashtags:
 
@@ -398,7 +398,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Schedule Team Reports
+#### Schedule Team Reports
 
 Set up daily team performance reports:
 
@@ -419,7 +419,7 @@ Tip: Schedule for team standups or planning meetings.
 {% endstep %}
 
 {% step %}
-### Create Your First Report
+#### Create Your First Report
 
 Generate your first team analytics report:
 
@@ -438,7 +438,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Add Team Metadata (Optional)
+#### Add Team Metadata (Optional)
 
 Feature your team on [xbot.ninja](https://xbot.ninja/):
 
@@ -458,7 +458,7 @@ What this does:
 {% endstep %}
 
 {% step %}
-### Customize Team Branding (Optional)
+#### Customize Team Branding (Optional)
 
 Personalize reports with custom titles:
 
@@ -471,7 +471,7 @@ Personalize reports with custom titles:
 {% endstep %}
 
 {% step %}
-### Exclude Internal Accounts (Optional)
+#### Exclude Internal Accounts (Optional)
 
 Hide internal/test accounts from leaderboards:
 
@@ -489,31 +489,31 @@ Hide internal/test accounts from leaderboards:
 
 {% stepper %}
 {% step %}
-### Check bot status
+#### Check bot status
 
 * The bot should appear as an admin in your group
 {% endstep %}
 
 {% step %}
-### Test a command
+#### Test a command
 
 * Run `/help` to see all available commands
 {% endstep %}
 
 {% step %}
-### Generate a report
+#### Generate a report
 
 * Run `/recreate` to create your first analytics report
 {% endstep %}
 
 {% step %}
-### Review the output
+#### Review the output
 
 * Ensure accounts and keywords are tracked correctly
 {% endstep %}
 
 {% step %}
-### Check scheduled reports
+#### Check scheduled reports
 
 * Wait for your scheduled time to verify automation
 {% endstep %}

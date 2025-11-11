@@ -457,7 +457,7 @@ How to use named filters:
 
 {% stepper %}
 {% step %}
-### Create a named filter
+#### Create a named filter
 
 Add items with the `filter=name` parameter, for example:
 
@@ -468,7 +468,7 @@ Add items with the `filter=name` parameter, for example:
 {% endstep %}
 
 {% step %}
-### Generate reports for a named filter
+#### Generate reports for a named filter
 
 Use the recreate command with the filter parameter:
 
@@ -478,7 +478,7 @@ Use the recreate command with the filter parameter:
 {% endstep %}
 
 {% step %}
-### View filter configuration
+#### View filter configuration
 
 Inspect items in a filter:
 
@@ -1084,31 +1084,31 @@ How to purchase privately in DM:
 
 {% stepper %}
 {% step %}
-### Open a Direct Message with the bot
+#### Open a Direct Message with the bot
 
 Open a Direct Message with [@BWS\_X\_Bot](https://t.me/BWS_X_Bot).
 {% endstep %}
 
 {% step %}
-### Send the buy command
+#### Send the buy command
 
 Send `/buy` command in the DM (not in the group).
 {% endstep %}
 
 {% step %}
-### Receive private link
+#### Receive private link
 
 Bot sends you a private purchase link that only you can see.
 {% endstep %}
 
 {% step %}
-### Complete purchase
+#### Complete purchase
 
 Complete your purchase privately - no one in the group will see any part of the transaction.
 {% endstep %}
 
 {% step %}
-### Credits applied
+#### Credits applied
 
 Credits are automatically added to your group upon successful payment.
 {% endstep %}
@@ -1199,7 +1199,7 @@ Response: Number of remaining Pro credits for report generation and other Pro fe
 
 {% stepper %}
 {% step %}
-### No Data in Reports
+#### No Data in Reports
 
 * Verify accounts/keywords are configured: `/get_accounts`, `/get_keywords`
 * Wait a few hours for X API to collect data
@@ -1207,7 +1207,7 @@ Response: Number of remaining Pro credits for report generation and other Pro fe
 {% endstep %}
 
 {% step %}
-### Reports Not Generating
+#### Reports Not Generating
 
 * Check schedule is set: `/get_schedule`
 * Verify time is in UTC
@@ -1215,7 +1215,7 @@ Response: Number of remaining Pro credits for report generation and other Pro fe
 {% endstep %}
 
 {% step %}
-### Bot Not Responding
+#### Bot Not Responding
 
 * Verify bot has admin status in the group
 * Check if bot was removed or banned
