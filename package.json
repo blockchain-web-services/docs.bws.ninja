@@ -1,0 +1,15 @@
+{
+  "name": "docs.bws.ninja",
+  "version": "1.0.0",
+  "description": "Blockchain Web Services documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "worktree:create": "node scripts/worktree/create-worktree.mjs",
+    "worktree:list": "node scripts/worktree/list-worktrees.mjs",
+    "worktree:merge": "node scripts/worktree/merge-worktree.mjs",
+    "worktree:remove": "node scripts/worktree/remove-worktree.mjs"
+  },
+  "author": "",
+  "license": "ISC"
+}
