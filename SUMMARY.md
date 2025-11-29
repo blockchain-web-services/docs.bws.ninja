@@ -78,11 +78,8 @@
     * [Impacts](marketplace-solutions/bws.esg.credits/esg-credits-api/impacts.md)
     * [Blockchain](marketplace-solutions/bws.esg.credits/esg-credits-api/blockchain.md)
     * [Users](marketplace-solutions/bws.esg.credits/esg-credits-api/users.md)
-
-## TELEGRAM BOTS
-
-* [X BOT](telegram-bots/x-bot/README.md)
-  * [Overview](telegram-bots/x-bot/overview.md)
-  * [How To Install](telegram-bots/x-bot/how-to-install.md)
-  * [X Bot Commands](telegram-bots/x-bot/x-bot-commands.md)
-  * [Getting Support](telegram-bots/x-bot/getting-support.md)
+* [BWS.X.Bot](marketplace-solutions/bws.x.bot/README.md)
+  * [X Bot Overview](marketplace-solutions/bws.x.bot/x-bot-overview.md)
+  * [X Bot Installation](marketplace-solutions/bws.x.bot/x-bot-installation.md)
+  * [X Bot Commands](marketplace-solutions/bws.x.bot/x-bot-commands.md)
+  * [Getting Support](marketplace-solutions/bws.x.bot/x-bot-support.md)
