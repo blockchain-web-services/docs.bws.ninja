@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "Blockchain Web Services documentation",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "worktree:create": "node scripts/worktree/create-worktree.mjs",
     "worktree:list": "node scripts/worktree/list-worktrees.mjs",
     "worktree:merge": "node scripts/worktree/merge-worktree.mjs",
-    "worktree:remove": "node scripts/worktree/remove-worktree.mjs"
+    "worktree:remove": "node scripts/worktree/remove-worktree.mjs",
+    "media:snapshot": "node scripts/media-capture/capture-snapshot.cjs",
+    "media:snapshot-sections": "node scripts/media-capture/capture-snapshot-with-sections.cjs",
+    "media:workflow-badges": "node scripts/media-capture/workflows/capture-badges-workflow.cjs",
+    "media:analyze-sections": "node scripts/media-capture/analyze-sections.cjs"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1",
+    "sharp": "^0.33.0"
   },
   "author": "",
   "license": "ISC"

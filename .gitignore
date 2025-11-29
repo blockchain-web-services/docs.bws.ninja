@@ -11,3 +11,11 @@ test/docker-compose.worktree.yml
 
 # Ignore the entire .trees/ directory (contains all worktrees)
 .trees/
+
+# Node
+node_modules/
+package-lock.json
+
+# Media capture temporary files
+media/**/*.webm
+media/**/debug-*.png
