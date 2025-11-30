@@ -1,13 +1,13 @@
 {
   "productKey": "BWS.Blockchain.Badges",
   "productName": "Blockchain Badges",
-  "generated": "2025-11-30T19:24:37.993Z",
+  "generated": "2025-11-30T19:38:23.016Z",
   "errors": {},
   "summary": {
     "totalAudiences": 3,
-    "totalChannels": 2,
-    "totalCombinations": 6,
-    "successful": 6,
+    "totalChannels": 4,
+    "totalCombinations": 12,
+    "successful": 12,
     "failed": 0
   }
 }
