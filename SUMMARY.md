@@ -18,8 +18,7 @@
 * [Media Assets](media-assets/README.md)
   * [BWS Logo](media-assets/bws-logo.md)
   * [Snapshots](media-assets/snapshots/README.md)
-    * [BWS.IPFS.Upload](media-assets/snapshots/bws.ipfs.upload.md)
-
+    * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
 * [BWS.IPFS.Upload](solutions/bws.ipfs.upload/README.md)
