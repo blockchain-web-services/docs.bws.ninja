@@ -71,13 +71,6 @@ Desktop resolution images are ideal for:
 * Help center content
 * Internal wikis
 
-### Access Original Files
-
-High-resolution timestamped originals are available in the repository:
-```
-.trees/product-media-assets/media/blockchain-badges/sections/
-```
-
 ---
 
 ## Related Documentation
