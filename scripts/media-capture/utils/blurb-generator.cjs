@@ -11,20 +11,12 @@ const Anthropic = require('@anthropic-ai/sdk');
  * Channel specifications with character/word limits and format requirements
  */
 const CHANNEL_SPECS = {
-  x: {
-    name: 'X (Twitter) Thread',
-    charLimit: 280,
-    threadLength: { min: 4, max: 6 },
-    format: 'ready-to-post thread with emojis and hashtags',
-    tone: 'engaging and conversational',
-    structure: '1/ Hook with emojis, 2-4/ Key benefits and features, 5/ Blockchain value, 6/ CTA with hashtags'
-  },
   'x-single': {
     name: 'X (Twitter) Single Post',
     charLimit: 280,
-    format: 'single tweet with emojis and hashtags',
+    format: 'single tweet with emojis, hashtags, and natural line breaks for readability',
     tone: 'punchy and attention-grabbing',
-    structure: 'Hook + value proposition + 2-3 hashtags, all under 280 chars'
+    structure: 'Hook + value proposition + 2-3 hashtags, all under 280 chars. Use line breaks to separate different parts of the message for better readability.'
   },
   telegram: {
     name: 'Telegram Post',
@@ -81,10 +73,9 @@ REQUIREMENTS:
 8. ${spec.wordLimit ? `Strictly adhere to ${spec.wordLimit.min}-${spec.wordLimit.max} word count` : 'Follow character limits precisely'}
 9. Use emojis appropriately for the platform (more for Telegram, moderate for X)
 10. For Telegram: Use **bold** for emphasis, line breaks for readability
-11. For X threads: Number each tweet (1/, 2/, etc.), ensure each tweet is under ${spec.charLimit || 280} chars, separate tweets with blank lines
-12. For X posts: Use natural line breaks within tweets for better readability (not one long line)
-13. DO NOT invent or guess URLs - do not include [link] placeholders or made-up links
-14. Make content ready to copy-paste directly into the platform
+11. For X posts: Use 2-3 natural line breaks to separate different parts (hook, value, hashtags) for better readability - NOT one long line
+12. DO NOT invent or guess URLs - do not include [link] placeholders or made-up links
+13. Make content ready to copy-paste directly into the platform
 
 OUTPUT: Provide ONLY the ready-to-post content in the exact format needed for the platform. No explanations or metadata.`;
 }
@@ -242,23 +233,7 @@ function validateBlurb(content, channel) {
     stats: {}
   };
 
-  if (channel === 'x' || channel === 'twitter') {
-    // Parse tweets (X thread)
-    const tweets = content.split(/\n+/).filter(t => t.trim());
-    validation.stats.tweetCount = tweets.length;
-
-    if (tweets.length < spec.threadLength.min || tweets.length > spec.threadLength.max) {
-      validation.warnings.push(`Tweet count ${tweets.length} outside range ${spec.threadLength.min}-${spec.threadLength.max}`);
-    }
-
-    tweets.forEach((tweet, i) => {
-      const cleanTweet = tweet.replace(/^\d+[\/\).]\s*/, ''); // Remove numbering
-      if (cleanTweet.length > spec.charLimit) {
-        validation.warnings.push(`Tweet ${i + 1} exceeds ${spec.charLimit} characters (${cleanTweet.length})`);
-        validation.valid = false;
-      }
-    });
-  } else if (channel === 'x-single') {
+  if (channel === 'x-single') {
     // Single tweet validation
     validation.stats.charCount = content.length;
     if (content.length > spec.charLimit) {
@@ -395,8 +370,6 @@ function formatBlurbForMarkdown(blurb) {
   const spec = CHANNEL_SPECS[blurb.channel];
   if (spec.wordLimit) {
     markdown += `**Target:** ${spec.wordLimit.min}-${spec.wordLimit.max} words | `;
-  } else if (spec.charLimit && spec.threadLength) {
-    markdown += `**Target:** ${spec.charLimit} chars/post × ${spec.threadLength.min}-${spec.threadLength.max} posts | `;
   } else if (spec.charLimit) {
     markdown += `**Target:** ${spec.charLimit} chars | `;
   }
@@ -405,25 +378,10 @@ function formatBlurbForMarkdown(blurb) {
   if (blurb.validation.stats.wordCount) {
     markdown += `${blurb.validation.stats.wordCount} words, `;
   }
-  if (blurb.validation.stats.tweetCount) {
-    markdown += `${blurb.validation.stats.tweetCount} posts, `;
-  }
   markdown += `${blurb.validation.stats.charCount} chars\n\n`;
 
-  // For X threads, display each tweet separately without "Ready to Copy & Paste"
-  if (blurb.channel === 'x') {
-    // Split thread into individual tweets
-    const tweets = blurb.content.split(/\n\n/).filter(t => t.trim());
-
-    tweets.forEach((tweet, index) => {
-      const tweetNum = index + 1;
-      const charCount = tweet.length;
-      markdown += `**Tweet ${tweetNum}** (${charCount} chars):\n\n`;
-      markdown += '```\n' + tweet.trim() + '\n```\n\n';
-    });
-  }
-  // For other channels, add "ready to copy-paste" label and single code block
-  else if (blurb.channel === 'x-single' || blurb.channel === 'telegram' || blurb.channel === 'telegram-short') {
+  // For all channels, add "ready to copy-paste" label and single code block
+  if (blurb.channel === 'x-single' || blurb.channel === 'telegram' || blurb.channel === 'telegram-short') {
     markdown += `📋 **Ready to Copy & Paste:**\n\n`;
     markdown += '```\n' + blurb.content + '\n```\n\n';
   }
