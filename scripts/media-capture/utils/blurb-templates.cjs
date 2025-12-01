@@ -18,7 +18,7 @@ function generateBlurbsPage(productKey, productName, blurbsData, websiteUrl = nu
   let markdown = `---
 description: >-
   Marketing blurbs and partner communications for ${productName} -
-  AI-generated content optimized for different channels including email,
+  content optimized for different channels including email,
   social media, and technical briefs.
 ---
 
@@ -46,7 +46,6 @@ key highlights for end-customers, blockchain integration, and benefits.
   markdown += `{% hint style="info" %}
 **About These Blurbs**
 
-All blurbs are AI-generated from the product's official documentation using Claude 3.5 Sonnet.
 Content is optimized for different communication channels with appropriate tone, length, and format.
 Each blurb explains the solution's value proposition, blockchain integration, and business benefits.
 {% endhint %}
@@ -159,18 +158,17 @@ function generateBlurbsOverview(products) {
   let markdown = `---
 description: >-
   Marketing blurbs and partner communications for all BWS products -
-  AI-generated content explaining solutions, blockchain integration, and business benefits.
+  content explaining solutions, blockchain integration, and business benefits.
 ---
 
 # Marketing Blurbs
 
-AI-generated partner communications for all BWS products. Each product page includes
+Partner communications for all BWS products. Each product page includes
 channel-specific blurbs optimized for email, social media, executive summaries, and technical briefs.
 
 {% hint style="info" %}
-**AI-Generated Content**
+**About These Blurbs**
 
-All blurbs are generated using Claude 3.5 Sonnet based on official product documentation.
 Content explains what each solution is, how it works, key highlights for end-customers,
 blockchain integration details, and business benefits.
 {% endhint %}
@@ -410,7 +408,7 @@ function generateAudienceBlurbsPage(productKey, productName, blurbsData, website
   let markdown = `---
 description: >-
   End-customer marketing blurbs for ${productName} -
-  AI-generated content tailored for specific target audiences across
+  content tailored for specific target audiences across
   multiple channels including email, social media, and technical briefs.
 ---
 
@@ -438,7 +436,6 @@ and why it matters to different types of end-customers.
   markdown += `{% hint style="info" %}
 **About These Blurbs**
 
-All blurbs are AI-generated from the product's official documentation using Claude 3 Opus.
 Content is tailored for specific end-customer audiences and optimized for different communication channels.
 Each blurb speaks directly to the audience's needs and explains blockchain benefits in accessible terms.
 {% endhint %}
