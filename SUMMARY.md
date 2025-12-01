@@ -19,11 +19,12 @@
   * [BWS Logo](media-assets/bws-logo.md)
   * [Snapshots](media-assets/snapshots/README.md)
     * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
+  * [Blurbs](media-assets/blurbs/README.md)
+    * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
+
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
 * [BWS.IPFS.Upload](solutions/bws.ipfs.upload/README.md)
-  * [Blurbs](media-assets/blurbs/README.md)
-    * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
   * [Solution Overview](solutions/bws.ipfs.upload/solution-overview.md)
   * [Operations](solutions/bws.ipfs.upload/operations.md)
 * [BWS.Blockchain.Save](solutions/bws.blockchain.save/README.md)
