@@ -401,7 +401,7 @@ function generateSummaryReport(results) {
 /**
  * Generate audience-segmented blurbs page for GitBook
  */
-function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null) {
+function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null, productDescription = null) {
   const { audiences, audienceBlurbs } = blurbsData;
 
   // Build frontmatter
@@ -444,30 +444,21 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ## Product Blurb
 
-📋 **Ready to Copy & Paste:**
+${productDescription || `${productName} is a blockchain-powered solution that combines cutting-edge technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations powered by blockchain technology.`}
 
-\`\`\`
-🚀 **${productName}** - Blockchain-Powered Solution
+### Learn More
 
-${productName} combines cutting-edge blockchain technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations.
-
-📚 **Learn More:**
-• BWS Platform: https://www.bws.ninja`;
-
-  if (docsUrl) {
-    markdown += `\n• ${productName} Documentation: ${docsUrl}`;
-  }
+* **BWS Platform:** [https://www.bws.ninja](https://www.bws.ninja)
+* **Documentation:** [https://docs.bws.ninja](https://docs.bws.ninja)`;
 
   if (websiteUrl) {
-    markdown += `\n• ${productName} Website: ${websiteUrl}`;
+    markdown += `\n* **${productName} Website:** [${websiteUrl}](${websiteUrl})`;
   }
 
   markdown += `
-
-💬 **Join Our Community:**
-• Telegram: https://t.me/BlockchainWebServices
-• X/Twitter: https://x.com/BWScommunity
-\`\`\`
+* **Community:**
+  * Telegram: [https://t.me/BlockchainWebServices](https://t.me/BlockchainWebServices)
+  * X/Twitter: [https://x.com/BWScommunity](https://x.com/BWScommunity)
 
 ---
 
