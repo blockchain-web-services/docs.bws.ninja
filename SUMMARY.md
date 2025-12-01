@@ -17,10 +17,10 @@
 * [Certificate Of Trust](certificate-of-trust.md)
 * [Media Assets](media-assets/README.md)
   * [BWS Logo](media-assets/bws-logo.md)
-  * [Snapshots](media-assets/snapshots/README.md)
-    * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
   * [Blurbs](media-assets/blurbs/README.md)
     * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
+  * [Snapshots](media-assets/snapshots/README.md)
+    * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
 
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
