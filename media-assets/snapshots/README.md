@@ -16,15 +16,9 @@ All product snapshots are automatically captured and updated weekly from live we
 
 ---
 
-## Available Products
+## Marketplace Solutions
 
-### Platform APIs
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>IPFS Upload</strong></td><td>View media assets and snapshots</td><td><a href="BWS.IPFS.Upload/">BWS.IPFS.Upload/</a></td></tr><tr><td><strong>Blockchain Save</strong></td><td>View media assets and snapshots</td><td><a href="BWS.Blockchain.Save/">BWS.Blockchain.Save/</a></td></tr><tr><td><strong>Blockchain Hash</strong></td><td>View media assets and snapshots</td><td><a href="BWS.Blockchain.Hash/">BWS.Blockchain.Hash/</a></td></tr><tr><td><strong>NFT.zK</strong></td><td>View media assets and snapshots</td><td><a href="BWS.NFT.zK/">BWS.NFT.zK/</a></td></tr></tbody></table>
-
-### Marketplace Solutions
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Blockchain Badges</strong></td><td>View media assets and snapshots</td><td><a href="BWS.Blockchain.Badges/">BWS.Blockchain.Badges/</a></td></tr><tr><td><strong>NFT Game Cube</strong></td><td>View media assets and snapshots</td><td><a href="BWS.NFT.GameCube/">BWS.NFT.GameCube/</a></td></tr><tr><td><strong>ESG Credits</strong></td><td>View media assets and snapshots</td><td><a href="BWS.ESG.Credits/">BWS.ESG.Credits/</a></td></tr><tr><td><strong>X Bot</strong></td><td>View media assets and snapshots</td><td><a href="BWS.X.Bot/">BWS.X.Bot/</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Blockchain Badges</strong></td><td>View media assets and snapshots</td><td><a href="BWS.Blockchain.Badges/">BWS.Blockchain.Badges/</a></td></tr></tbody></table>
 
 ---
 
