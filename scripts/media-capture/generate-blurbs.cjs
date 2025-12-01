@@ -218,7 +218,7 @@ async function generateProductBlurbs(productKey, options) {
   // Step 4: Generate GitBook page
   console.log('\nStep 4: Generating GitBook page...');
   const pageContent = options.audienceSegmented
-    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl, productInfo.keyInfo.description)
+    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl, productInfo.keyInfo)
     : generateBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl);
 
   // Step 5: Save files

@@ -8,6 +8,80 @@
 const { formatBlurbForMarkdown } = require('./blurb-generator.cjs');
 
 /**
+ * Build a detailed 2-paragraph product blurb with Telegram-style formatting
+ */
+function buildDetailedBlurb(productName, keyInfo, websiteUrl, docsUrl) {
+  if (!keyInfo || !keyInfo.description) {
+    // Fallback if no keyInfo provided
+    return `${productName} is a blockchain-powered solution that combines cutting-edge technology with practical business applications.
+
+📚 **Learn More:**
+• BWS Platform: https://www.bws.ninja
+• Documentation: https://docs.bws.ninja${websiteUrl ? `\n• ${productName} Website: ${websiteUrl}` : ''}
+
+💬 **Join Our Community:**
+• Telegram: https://t.me/BlockchainWebServices
+• X/Twitter: https://x.com/BWScommunity`;
+  }
+
+  // Extract features from keyInfo sections
+  const features = [];
+  if (keyInfo.sections) {
+    // Extract feature highlights from various sections
+    if (keyInfo.sections.features) {
+      const featureText = keyInfo.sections.features;
+      // Extract bullet points or key phrases
+      const bullets = featureText.match(/[•\-\*]\s*(.+)/g);
+      if (bullets) {
+        bullets.slice(0, 3).forEach(bullet => {
+          features.push(bullet.replace(/^[•\-\*]\s*/, '').trim());
+        });
+      }
+    }
+    if (keyInfo.sections.benefits && features.length < 3) {
+      const benefitText = keyInfo.sections.benefits;
+      const bullets = benefitText.match(/[•\-\*]\s*(.+)/g);
+      if (bullets) {
+        bullets.slice(0, 3 - features.length).forEach(bullet => {
+          features.push(bullet.replace(/^[•\-\*]\s*/, '').trim());
+        });
+      }
+    }
+  }
+
+  // Build the blurb
+  let blurb = keyInfo.description;
+
+  // Add second paragraph with features if available
+  if (features.length > 0) {
+    blurb += `\n\n✨ **Key Features:**\n`;
+    features.forEach(feature => {
+      // Clean up the feature text and limit length
+      const cleanFeature = feature.split(/[:\n]/)[0].substring(0, 80);
+      blurb += `• ${cleanFeature}\n`;
+    });
+  } else {
+    // If no specific features found, add generic second paragraph
+    blurb += `\n\nBuilt on the BWS platform, it provides secure, transparent, and verifiable operations powered by blockchain technology.`;
+  }
+
+  // Add links section
+  blurb += `\n\n📚 **Learn More:**
+• BWS Platform: https://www.bws.ninja
+• Documentation: ${docsUrl || 'https://docs.bws.ninja'}`;
+
+  if (websiteUrl) {
+    blurb += `\n• ${productName} Website: ${websiteUrl}`;
+  }
+
+  blurb += `\n\n💬 **Join Our Community:**
+• Telegram: https://t.me/BlockchainWebServices
+• X/Twitter: https://x.com/BWScommunity`;
+
+  return blurb;
+}
+
+/**
  * Generate product blurbs page for GitBook
  */
 function generateBlurbsPage(productKey, productName, blurbsData, websiteUrl = null) {
@@ -401,7 +475,7 @@ function generateSummaryReport(results) {
 /**
  * Generate audience-segmented blurbs page for GitBook
  */
-function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null, productDescription = null) {
+function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null, keyInfo = null) {
   const { audiences, audienceBlurbs } = blurbsData;
 
   // Build frontmatter
@@ -444,21 +518,13 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ## Product Blurb
 
-${productDescription || `${productName} is a blockchain-powered solution that combines cutting-edge technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations powered by blockchain technology.`}
+📋 **Ready to Copy & Paste:**
 
-### Learn More
+\`\`\`
+🚀 **${productName}**
 
-* **BWS Platform:** [https://www.bws.ninja](https://www.bws.ninja)
-* **Documentation:** [https://docs.bws.ninja](https://docs.bws.ninja)`;
-
-  if (websiteUrl) {
-    markdown += `\n* **${productName} Website:** [${websiteUrl}](${websiteUrl})`;
-  }
-
-  markdown += `
-* **Community:**
-  * Telegram: [https://t.me/BlockchainWebServices](https://t.me/BlockchainWebServices)
-  * X/Twitter: [https://x.com/BWScommunity](https://x.com/BWScommunity)
+${buildDetailedBlurb(productName, keyInfo, websiteUrl, docsUrl)}
+\`\`\`
 
 ---
 
