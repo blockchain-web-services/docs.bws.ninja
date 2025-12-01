@@ -142,8 +142,8 @@ These blurbs are starting points for partner communications. Feel free to:
     markdown += `<tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="${productPaths[productKey]}">${productPaths[productKey]}</a></td></tr>`;
   }
 
-  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">../</a></td></tr>`;
-  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="../../snapshots/${productKey}/">../../snapshots/${productKey}/</a></td></tr>`;
+  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr>`;
+  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/${productKey}">/media-assets/snapshots/${productKey}</a></td></tr>`;
   markdown += `</tbody></table>
 
 `;
@@ -518,8 +518,8 @@ Each set of blurbs is optimized for a specific audience:
     markdown += `<tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="${productPaths[productKey]}">${productPaths[productKey]}</a></td></tr>`;
   }
 
-  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">../</a></td></tr>`;
-  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="../../snapshots/${productKey}/">../../snapshots/${productKey}/</a></td></tr>`;
+  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr>`;
+  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/${productKey}">/media-assets/snapshots/${productKey}</a></td></tr>`;
   markdown += `</tbody></table>
 
 `;
