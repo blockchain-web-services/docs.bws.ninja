@@ -73,6 +73,28 @@ When editing documentation:
 - Reference internal pages with relative paths
 - Reference images in `.gitbook/assets/` using relative paths
 
+### GitBook Link Nomenclature (CRITICAL)
+
+**When creating links in GitBook card tables (`data-type="content-ref"`):**
+
+- **ALWAYS use absolute paths** starting with `/` (e.g., `/media-assets/blurbs`)
+- **NEVER use relative paths** like `../` or `../../` in card tables
+- Relative paths in card tables cause GitBook to generate GitHub repository URLs instead of internal docs.bws.ninja links
+- **For directories**: Use directory path with trailing slash (e.g., `/media-assets/snapshots/BWS.Product/`)
+- **For files**: Use full file path (e.g., `/media-assets/bws-logo.md`)
+
+**Example of CORRECT card table link:**
+```html
+<a href="/media-assets/blurbs">/media-assets/blurbs</a>
+```
+
+**Example of INCORRECT card table link (creates GitHub URLs):**
+```html
+<a href="../">../</a>  <!-- GitBook converts this to github.com URL -->
+```
+
+This rule applies specifically to card tables with `data-type="content-ref"`. Regular markdown links can still use relative paths.
+
 ### API Documentation Pattern
 
 Each solution follows this structure:

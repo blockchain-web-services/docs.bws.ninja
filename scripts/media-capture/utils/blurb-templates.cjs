@@ -142,8 +142,8 @@ These blurbs are starting points for partner communications. Feel free to:
     markdown += `<tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="${productPaths[productKey]}">${productPaths[productKey]}</a></td></tr>`;
   }
 
-  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">../</a></td></tr>`;
-  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="../../snapshots/${productKey}/">../../snapshots/${productKey}/</a></td></tr>`;
+  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr>`;
+  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/${productKey}">/media-assets/snapshots/${productKey}</a></td></tr>`;
   markdown += `</tbody></table>
 
 `;
@@ -442,6 +442,26 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ---
 
+## Product Blurb
+
+${productName} is a blockchain-powered solution that combines cutting-edge technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations powered by blockchain technology.
+
+### Learn More
+
+* **BWS Platform:** [https://www.bws.ninja](https://www.bws.ninja)
+* **Documentation:** [https://docs.bws.ninja](https://docs.bws.ninja)`;
+
+  if (websiteUrl) {
+    markdown += `\n* **${productName} Website:** [${websiteUrl}](${websiteUrl})`;
+  }
+
+  markdown += `
+* **Community:**
+  * Telegram: [https://t.me/BlockchainWebServices](https://t.me/BlockchainWebServices)
+  * X/Twitter: [https://x.com/BWScommunity](https://x.com/BWScommunity)
+
+---
+
 ## Target Audiences
 
 `;
@@ -518,8 +538,8 @@ Each set of blurbs is optimized for a specific audience:
     markdown += `<tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="${productPaths[productKey]}">${productPaths[productKey]}</a></td></tr>`;
   }
 
-  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">../</a></td></tr>`;
-  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="../../snapshots/${productKey}/">../../snapshots/${productKey}/</a></td></tr>`;
+  markdown += `<tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr>`;
+  markdown += `<tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/${productKey}">/media-assets/snapshots/${productKey}</a></td></tr>`;
   markdown += `</tbody></table>
 
 `;
