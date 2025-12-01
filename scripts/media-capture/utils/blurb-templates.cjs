@@ -442,6 +442,26 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ---
 
+## Product Blurb
+
+${productName} is a blockchain-powered solution that combines cutting-edge technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations powered by blockchain technology.
+
+### Learn More
+
+* **BWS Platform:** [https://www.bws.ninja](https://www.bws.ninja)
+* **Documentation:** [https://docs.bws.ninja](https://docs.bws.ninja)`;
+
+  if (websiteUrl) {
+    markdown += `\n* **${productName} Website:** [${websiteUrl}](${websiteUrl})`;
+  }
+
+  markdown += `
+* **Community:**
+  * Telegram: [https://t.me/BlockchainWebServices](https://t.me/BlockchainWebServices)
+  * X/Twitter: [https://x.com/BWScommunity](https://x.com/BWScommunity)
+
+---
+
 ## Target Audiences
 
 `;
