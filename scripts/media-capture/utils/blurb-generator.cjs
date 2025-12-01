@@ -81,8 +81,10 @@ REQUIREMENTS:
 8. ${spec.wordLimit ? `Strictly adhere to ${spec.wordLimit.min}-${spec.wordLimit.max} word count` : 'Follow character limits precisely'}
 9. Use emojis appropriately for the platform (more for Telegram, moderate for X)
 10. For Telegram: Use **bold** for emphasis, line breaks for readability
-11. For X threads: Number each tweet (1/, 2/, etc.), ensure each tweet is under ${spec.charLimit || 280} chars
-12. Make content ready to copy-paste directly into the platform
+11. For X threads: Number each tweet (1/, 2/, etc.), ensure each tweet is under ${spec.charLimit || 280} chars, separate tweets with blank lines
+12. For X posts: Use natural line breaks within tweets for better readability (not one long line)
+13. DO NOT invent or guess URLs - do not include [link] placeholders or made-up links
+14. Make content ready to copy-paste directly into the platform
 
 OUTPUT: Provide ONLY the ready-to-post content in the exact format needed for the platform. No explanations or metadata.`;
 }
@@ -408,13 +410,27 @@ function formatBlurbForMarkdown(blurb) {
   }
   markdown += `${blurb.validation.stats.charCount} chars\n\n`;
 
-  // Add "ready to copy-paste" label for social channels
-  if (blurb.channel === 'x' || blurb.channel === 'x-single' || blurb.channel === 'telegram' || blurb.channel === 'telegram-short') {
-    markdown += `📋 **Ready to Copy & Paste:**\n\n`;
-  }
+  // For X threads, display each tweet separately without "Ready to Copy & Paste"
+  if (blurb.channel === 'x') {
+    // Split thread into individual tweets
+    const tweets = blurb.content.split(/\n\n/).filter(t => t.trim());
 
-  // Add content in code block for all channels for easy copy-paste
-  markdown += '```\n' + blurb.content + '\n```\n\n';
+    tweets.forEach((tweet, index) => {
+      const tweetNum = index + 1;
+      const charCount = tweet.length;
+      markdown += `**Tweet ${tweetNum}** (${charCount} chars):\n\n`;
+      markdown += '```\n' + tweet.trim() + '\n```\n\n';
+    });
+  }
+  // For other channels, add "ready to copy-paste" label and single code block
+  else if (blurb.channel === 'x-single' || blurb.channel === 'telegram' || blurb.channel === 'telegram-short') {
+    markdown += `📋 **Ready to Copy & Paste:**\n\n`;
+    markdown += '```\n' + blurb.content + '\n```\n\n';
+  }
+  // For all other channels
+  else {
+    markdown += '```\n' + blurb.content + '\n```\n\n';
+  }
 
   return markdown;
 }
