@@ -6,11 +6,20 @@
  */
 
 const Anthropic = require('@anthropic-ai/sdk');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Channel specifications with character/word limits and format requirements
  */
 const CHANNEL_SPECS = {
+  'product-blurb': {
+    name: 'Product Blurb',
+    wordLimit: { min: 100, max: 200 },
+    format: 'detailed 2-paragraph summary in plain text',
+    tone: 'professional and informative',
+    structure: 'First paragraph: What it is, core problem it solves, main value proposition. Second paragraph: Key features, benefits, and how it works. Focus on being comprehensive yet concise.'
+  },
   'x-single': {
     name: 'X (Twitter) Single Post',
     charLimit: 280,
@@ -35,6 +44,20 @@ const CHANNEL_SPECS = {
 };
 
 /**
+ * Load full consolidated documentation for a product
+ */
+function loadFullDocumentation(productKey) {
+  const docsDir = path.resolve(__dirname, '../../../product-docs');
+  const docPath = path.join(docsDir, productKey, 'complete-docs.md');
+
+  if (fs.existsSync(docPath)) {
+    return fs.readFileSync(docPath, 'utf8');
+  }
+
+  return null;
+}
+
+/**
  * Build system prompt for blurb generation
  */
 function buildSystemPrompt(channel, targetAudience = null, productName = null) {
@@ -48,9 +71,15 @@ function buildSystemPrompt(channel, targetAudience = null, productName = null) {
     ? `\nPRODUCT NAME: Always use "${productName}" (the commercial name) when referring to the product. NEVER use technical names like "BWS.X.Y" format.`
     : '';
 
+  // Special handling for product-blurb channel
+  const isProductBlurb = channel === 'product-blurb';
+  const documentationNote = isProductBlurb
+    ? `\n\nIMPORTANT: You will receive the COMPLETE product documentation. Use ALL available information to create a comprehensive yet concise 2-paragraph summary. Extract key features, benefits, use cases, and technical capabilities from the full documentation to create the most detailed and accurate description possible.`
+    : '';
+
   return `You are a professional marketing content writer specializing in blockchain technology and B2B SaaS solutions. Your task is to create compelling content for end-customers.
 
-${audienceDescription}${productNameInstruction}
+${audienceDescription}${productNameInstruction}${documentationNote}
 
 YOUR GOAL: Explain what the solution is, how it works, and key benefits for this specific audience based ONLY on the provided documentation.
 
@@ -156,11 +185,14 @@ Provide ONLY the JSON array, no other text.`;
 /**
  * Build user prompt with product documentation
  */
-function buildUserPrompt(productInfo, channel, targetAudience = null) {
+function buildUserPrompt(productInfo, channel, targetAudience = null, documentationContent = null) {
   const { summary, keyInfo } = productInfo;
 
+  // Use provided documentation content, or fall back to summary
+  const content = documentationContent || summary;
+
   let prompt = `Create a ${CHANNEL_SPECS[channel].name} for the following product:\n\n`;
-  prompt += summary;
+  prompt += content;
 
   if (targetAudience) {
     prompt += `\n\nTarget this specifically to: ${targetAudience.name} - ${targetAudience.description}`;
@@ -185,8 +217,18 @@ async function generateBlurb(productInfo, channel, apiKey, targetAudience = null
 
   const client = new Anthropic({ apiKey });
 
+  // For product-blurb channel, load full documentation
+  let documentationContent = null;
+  if (channel === 'product-blurb' && productInfo.productKey) {
+    const fullDocs = loadFullDocumentation(productInfo.productKey);
+    if (fullDocs) {
+      documentationContent = fullDocs;
+      console.log(`  Loaded full documentation (${fullDocs.length.toLocaleString()} chars)`);
+    }
+  }
+
   const systemPrompt = buildSystemPrompt(channel, targetAudience, productInfo.keyInfo.productName);
-  const userPrompt = buildUserPrompt(productInfo, channel, targetAudience);
+  const userPrompt = buildUserPrompt(productInfo, channel, targetAudience, documentationContent);
 
   const audienceLabel = targetAudience ? ` for ${targetAudience.name}` : '';
   console.log(`Generating ${CHANNEL_SPECS[channel].name} blurb${audienceLabel}...`);

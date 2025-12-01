@@ -1,13 +1,13 @@
 {
   "productKey": "BWS.Blockchain.Hash",
   "productName": "Blockchain Hash",
-  "generated": "2025-12-01T10:46:48.997Z",
+  "generated": "2025-12-01T18:32:39.957Z",
   "errors": {},
   "summary": {
     "totalAudiences": 3,
-    "totalChannels": 3,
-    "totalCombinations": 9,
-    "successful": 9,
+    "totalChannels": 4,
+    "totalCombinations": 12,
+    "successful": 12,
     "failed": 0
   }
 }

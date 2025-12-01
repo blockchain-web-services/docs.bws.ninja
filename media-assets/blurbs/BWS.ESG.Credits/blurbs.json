@@ -1,13 +1,13 @@
 {
   "productKey": "BWS.ESG.Credits",
   "productName": "ESG Credits",
-  "generated": "2025-12-01T10:43:39.232Z",
+  "generated": "2025-12-01T18:27:46.810Z",
   "errors": {},
   "summary": {
     "totalAudiences": 3,
-    "totalChannels": 3,
-    "totalCombinations": 9,
-    "successful": 9,
+    "totalChannels": 4,
+    "totalCombinations": 12,
+    "successful": 12,
     "failed": 0
   }
 }
