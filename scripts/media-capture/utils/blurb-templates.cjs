@@ -401,7 +401,7 @@ function generateSummaryReport(results) {
 /**
  * Generate audience-segmented blurbs page for GitBook
  */
-function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null) {
+function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null) {
   const { audiences, audienceBlurbs } = blurbsData;
 
   // Build frontmatter
@@ -452,11 +452,14 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 ${productName} combines cutting-edge blockchain technology with practical business applications. Built on the BWS platform, it provides secure, transparent, and verifiable operations.
 
 📚 **Learn More:**
-• BWS Platform: https://www.bws.ninja
-• Documentation: https://docs.bws.ninja`;
+• BWS Platform: https://www.bws.ninja`;
+
+  if (docsUrl) {
+    markdown += `\n• ${productName} Documentation: ${docsUrl}`;
+  }
 
   if (websiteUrl) {
-    markdown += `\n• ${productName}: ${websiteUrl}`;
+    markdown += `\n• ${productName} Website: ${websiteUrl}`;
   }
 
   markdown += `

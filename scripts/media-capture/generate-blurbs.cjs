@@ -31,41 +31,49 @@ const PRODUCTS = {
   'BWS.Blockchain.Badges': {
     name: 'Blockchain Badges',
     website: 'https://blockchainbadges.com',
+    docsUrl: 'https://docs.bws.ninja/marketplace-solutions/bws.blockchain.badges',
     category: 'marketplace'
   },
   'BWS.NFT.GameCube': {
     name: 'NFT Game Cube',
     website: 'https://nftgamecube.com',
+    docsUrl: 'https://docs.bws.ninja/marketplace-solutions/bws.nft.gamecube',
     category: 'marketplace'
   },
   'BWS.ESG.Credits': {
     name: 'ESG Credits',
     website: 'https://esgcredits.io',
+    docsUrl: 'https://docs.bws.ninja/marketplace-solutions/bws.esg.credits',
     category: 'marketplace'
   },
   'BWS.X.Bot': {
     name: 'X Bot',
     website: null,
+    docsUrl: 'https://docs.bws.ninja/marketplace-solutions/bws.x.bot',
     category: 'marketplace'
   },
   'BWS.Blockchain.Save': {
     name: 'Blockchain Save',
     website: null,
+    docsUrl: 'https://docs.bws.ninja/solutions/bws.blockchain.save',
     category: 'platform'
   },
   'BWS.Blockchain.Hash': {
     name: 'Blockchain Hash',
     website: null,
+    docsUrl: 'https://docs.bws.ninja/solutions/bws.blockchain.hash',
     category: 'platform'
   },
   'BWS.IPFS.Upload': {
     name: 'IPFS Upload',
     website: null,
+    docsUrl: 'https://docs.bws.ninja/solutions/bws.ipfs.upload',
     category: 'platform'
   },
   'BWS.NFT.zK': {
     name: 'NFT.zK',
     website: null,
+    docsUrl: 'https://docs.bws.ninja/solutions/bws.nft.zk',
     category: 'platform'
   }
 };
@@ -210,8 +218,8 @@ async function generateProductBlurbs(productKey, options) {
   // Step 4: Generate GitBook page
   console.log('\nStep 4: Generating GitBook page...');
   const pageContent = options.audienceSegmented
-    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website)
-    : generateBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website);
+    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl)
+    : generateBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl);
 
   // Step 5: Save files
   if (!options.dryRun) {
