@@ -52,7 +52,7 @@ function buildSystemPrompt(channel, targetAudience = null, productName = null) {
 
 ${audienceDescription}${productNameInstruction}
 
-YOUR GOAL: Explain what the solution is, how it works, key benefits for this specific audience, how it uses blockchain, and why it matters to them.
+YOUR GOAL: Explain what the solution is, how it works, and key benefits for this specific audience based ONLY on the provided documentation.
 
 CHANNEL: ${spec.name}
 ${spec.wordLimit ? `WORD COUNT: ${spec.wordLimit.min}-${spec.wordLimit.max} words` : ''}
@@ -62,20 +62,26 @@ FORMAT: ${spec.format}
 TONE: ${spec.tone}
 STRUCTURE: ${spec.structure}
 
-REQUIREMENTS:
-1. Write directly to end-customers (use "you" and "your")
-2. Focus on practical benefits and real-world value
-3. Explain blockchain benefits in simple, relatable terms (not technical jargon)
-4. Show how it solves their specific problems
-5. Use conversational, accessible language
-6. Include clear call-to-action relevant to the audience
-7. Be specific about what they can accomplish with this solution
-8. ${spec.wordLimit ? `Strictly adhere to ${spec.wordLimit.min}-${spec.wordLimit.max} word count` : 'Follow character limits precisely'}
-9. Use emojis appropriately for the platform (more for Telegram, moderate for X)
-10. For Telegram: Use **bold** for emphasis, line breaks for readability
-11. For X posts: Use 2-3 natural line breaks to separate different parts (hook, value, hashtags) for better readability - NOT one long line
-12. DO NOT invent or guess URLs - do not include [link] placeholders or made-up links
-13. Make content ready to copy-paste directly into the platform
+CRITICAL REQUIREMENTS:
+1. ONLY use information explicitly stated in the provided product documentation
+2. DO NOT mention blockchain, on-chain, tamper-proof, or transparency features UNLESS they are explicitly described in the documentation
+3. DO NOT make assumptions about how the product works
+4. DO NOT invent features, benefits, or technical capabilities
+5. If blockchain is mentioned in the docs, explain it EXACTLY as described - do not embellish or assume additional blockchain features
+
+CONTENT REQUIREMENTS:
+6. Write directly to end-customers (use "you" and "your")
+7. Focus on practical benefits and real-world value from the documentation
+8. Show how it solves their specific problems based on documented features
+9. Use conversational, accessible language
+10. Include clear call-to-action relevant to the audience
+11. Be specific about what they can accomplish with this solution
+12. ${spec.wordLimit ? `Strictly adhere to ${spec.wordLimit.min}-${spec.wordLimit.max} word count` : 'Follow character limits precisely'}
+13. Use emojis appropriately for the platform (more for Telegram, moderate for X)
+14. For Telegram: Use **bold** for emphasis, line breaks for readability
+15. For X posts: Use 2-3 natural line breaks to separate different parts (hook, value, hashtags) for better readability - NOT one long line
+16. DO NOT invent or guess URLs - do not include [link] placeholders or made-up links
+17. Make content ready to copy-paste directly into the platform
 
 OUTPUT: Provide ONLY the ready-to-post content in the exact format needed for the platform. No explanations or metadata.`;
 }
