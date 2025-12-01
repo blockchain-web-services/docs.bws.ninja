@@ -1,43 +1,40 @@
 # Blurb Generation Summary
 
 **Product:** ESG Credits (BWS.ESG.Credits)
-**Generated:** 2025-12-01T07:38:17.925Z
+**Generated:** 2025-12-01T09:36:42.911Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
+**Status:** 9/9 successful
 **Audiences:** 3
-**Channels:** 4
+**Channels:** 3
 
 ## Target Audiences
 
 1. **Financial Institutions** - Banks, investment advisors, and institutional investors who want to provide ESG impact reporting to their clients and stakeholders
-2. **Green Asset Issuers** - Organizations issuing green assets who need to create detailed ESG impact reports to attract investors and demonstrate positive impact
-3. **Certification Bodies** - Entities that certify and publish quality-assured ESG impact data to ensure transparency and prevent double-counting of green investments
+2. **Green Asset Issuers** - Organizations that issue green assets and need to report on the ESG impact of their investments
+3. **Certification Bodies** - Entities responsible for publishing quality-assured ESG impact data and certifying green investments
 
 ## Results by Audience
 
 ### Financial Institutions
 
-- ✓ X (Twitter) Thread
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post
-- ✓ Telegram Short
-
-### Green Asset Issuers
-
-- ✓ X (Twitter) Thread ⚠ (1 warning)
 - ✓ X (Twitter) Single Post ⚠ (1 warning)
 - ✓ Telegram Post ⚠ (1 warning)
 - ✓ Telegram Short
 
-### Certification Bodies
+### Green Asset Issuers
 
-- ✓ X (Twitter) Thread ⚠ (1 warning)
 - ✓ X (Twitter) Single Post
 - ✓ Telegram Post
 - ✓ Telegram Short
 
+### Certification Bodies
+
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short ⚠ (1 warning)
+
 ## API Usage
 
-- Input tokens: 15,612
-- Output tokens: 2,393
-- Total tokens: 18,005
+- Input tokens: 11,475
+- Output tokens: 1,379
+- Total tokens: 12,854
