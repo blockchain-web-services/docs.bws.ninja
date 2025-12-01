@@ -1,40 +1,43 @@
 # Blurb Generation Summary
 
 **Product:** NFT Game Cube (BWS.NFT.GameCube)
-**Generated:** 2025-12-01T17:56:49.164Z
+**Generated:** 2025-12-01T18:25:18.734Z
 **Mode:** Audience-Segmented
-**Status:** 9/9 successful
+**Status:** 12/12 successful
 **Audiences:** 3
-**Channels:** 3
+**Channels:** 4
 
 ## Target Audiences
 
-1. **Sports Clubs** - Professional and amateur sports teams looking to engage fans and generate new revenue streams through digital experiences
-2. **Tournament Organizers** - Organizers of sports tournaments and events seeking to enhance fan engagement and monetize their events through innovative digital platforms
-3. **Sports Fans** - Passionate sports enthusiasts who desire immersive, interactive experiences that bring them closer to their favorite teams and events
+1. **Sports Clubs** - Professional and amateur sports clubs looking to engage fans and generate new revenue streams through digital experiences
+2. **Sports Event Organizers** - Organizations that plan and run sporting events, tournaments, and leagues seeking to enhance the fan experience and monetize their events
+3. **Sports Fans** - Enthusiastic supporters of various sports and teams who desire immersive, interactive experiences to connect with their favorite clubs and events
 
 ## Results by Audience
 
 ### Sports Clubs
 
+- ✓ Product Blurb
 - ✓ X (Twitter) Single Post ⚠ (1 warning)
 - ✓ Telegram Post
 - ✓ Telegram Short
 
-### Tournament Organizers
+### Sports Event Organizers
 
+- ✓ Product Blurb
 - ✓ X (Twitter) Single Post ⚠ (1 warning)
 - ✓ Telegram Post
 - ✓ Telegram Short
 
 ### Sports Fans
 
-- ✓ X (Twitter) Single Post
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
 - ✓ Telegram Post
 - ✓ Telegram Short
 
 ## API Usage
 
-- Input tokens: 8,352
-- Output tokens: 1,482
-- Total tokens: 9,834
+- Input tokens: 57,248
+- Output tokens: 2,306
+- Total tokens: 59,554

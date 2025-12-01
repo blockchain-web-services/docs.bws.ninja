@@ -1,13 +1,13 @@
 {
   "productKey": "BWS.IPFS.Upload",
   "productName": "IPFS Upload",
-  "generated": "2025-12-01T18:02:40.730Z",
+  "generated": "2025-12-01T18:34:37.953Z",
   "errors": {},
   "summary": {
     "totalAudiences": 3,
-    "totalChannels": 3,
-    "totalCombinations": 9,
-    "successful": 9,
+    "totalChannels": 4,
+    "totalCombinations": 12,
+    "successful": 12,
     "failed": 0
   }
 }

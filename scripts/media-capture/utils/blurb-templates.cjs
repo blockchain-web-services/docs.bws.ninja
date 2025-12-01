@@ -475,7 +475,7 @@ function generateSummaryReport(results) {
 /**
  * Generate audience-segmented blurbs page for GitBook
  */
-function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null, keyInfo = null) {
+function generateAudienceBlurbsPage(productKey, productName, blurbsData, websiteUrl = null, docsUrl = null, keyInfo = null, productBlurb = null) {
   const { audiences, audienceBlurbs } = blurbsData;
 
   // Build frontmatter
@@ -518,7 +518,13 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ## Product Blurb
 
-📋 **Ready to Copy & Paste:**
+`;
+
+  // Use generated product-blurb if available, otherwise fall back to buildDetailedBlurb
+  if (productBlurb && productBlurb.content) {
+    markdown += formatBlurbForMarkdown(productBlurb);
+  } else {
+    markdown += `📋 **Ready to Copy & Paste:**
 
 \`\`\`
 🚀 **${productName}**
@@ -526,7 +532,10 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 ${buildDetailedBlurb(productName, keyInfo, websiteUrl, docsUrl)}
 \`\`\`
 
----
+`;
+  }
+
+  markdown += `---
 
 ## Target Audiences
 

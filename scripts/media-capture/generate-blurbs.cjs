@@ -194,6 +194,21 @@ async function generateProductBlurbs(productKey, options) {
     throw new Error('ANTHROPIC_API_KEY environment variable is required');
   }
 
+  // Step 3a: Generate product-blurb (detailed summary)
+  const { generateBlurb } = require('./utils/blurb-generator.cjs');
+
+  // Add productKey to productInfo for full documentation loading
+  productInfo.productKey = productKey;
+
+  console.log('Generating Product Blurb (detailed summary)...');
+  let productBlurb = null;
+  try {
+    productBlurb = await generateBlurb(productInfo, 'product-blurb', apiKey);
+    console.log(`✓ Product Blurb generated (${productBlurb.validation.stats.wordCount} words)\n`);
+  } catch (error) {
+    console.error(`⚠ Product Blurb generation failed: ${error.message}\n`);
+  }
+
   let blurbsData;
   if (options.audienceSegmented) {
     console.log('Mode: Audience-segmented blurbs for end-customers\n');
@@ -218,7 +233,7 @@ async function generateProductBlurbs(productKey, options) {
   // Step 4: Generate GitBook page
   console.log('\nStep 4: Generating GitBook page...');
   const pageContent = options.audienceSegmented
-    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl, productInfo.keyInfo)
+    ? generateAudienceBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl, productInfo.keyInfo, productBlurb)
     : generateBlurbsPage(productKey, productConfig.name, blurbsData, productConfig.website, productConfig.docsUrl);
 
   // Step 5: Save files
