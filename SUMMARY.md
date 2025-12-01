@@ -18,16 +18,27 @@
 * [Media Assets](media-assets/README.md)
   * [BWS Logo](media-assets/bws-logo.md)
   * [Blurbs](media-assets/blurbs/README.md)
-    * [BWS.IPFS.Upload](media-assets/blurbs/BWS.IPFS.Upload/README.md)
-    * [BWS.Blockchain.Save](media-assets/blurbs/BWS.Blockchain.Save/README.md)
-    * [BWS.Blockchain.Hash](media-assets/blurbs/BWS.Blockchain.Hash/README.md)
-    * [BWS.NFT.zK](media-assets/blurbs/BWS.NFT.zK/README.md)
-    * [BWS.Blockchain.Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
-    * [BWS.NFT.GameCube](media-assets/blurbs/BWS.NFT.GameCube/README.md)
-    * [BWS.ESG.Credits](media-assets/blurbs/BWS.ESG.Credits/README.md)
-    * [BWS.X.Bot](media-assets/blurbs/BWS.X.Bot/README.md)
+    * Platform APIs
+      * [BWS.IPFS.Upload](media-assets/blurbs/BWS.IPFS.Upload/README.md)
+      * [BWS.Blockchain.Save](media-assets/blurbs/BWS.Blockchain.Save/README.md)
+      * [BWS.Blockchain.Hash](media-assets/blurbs/BWS.Blockchain.Hash/README.md)
+      * [BWS.NFT.zK](media-assets/blurbs/BWS.NFT.zK/README.md)
+    * Marketplace Solutions
+      * [BWS.Blockchain.Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
+      * [BWS.NFT.GameCube](media-assets/blurbs/BWS.NFT.GameCube/README.md)
+      * [BWS.ESG.Credits](media-assets/blurbs/BWS.ESG.Credits/README.md)
+      * [BWS.X.Bot](media-assets/blurbs/BWS.X.Bot/README.md)
   * [Snapshots](media-assets/snapshots/README.md)
-    * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
+    * Platform APIs
+      * [BWS.IPFS.Upload](media-assets/snapshots/BWS.IPFS.Upload/README.md)
+      * [BWS.Blockchain.Save](media-assets/snapshots/BWS.Blockchain.Save/README.md)
+      * [BWS.Blockchain.Hash](media-assets/snapshots/BWS.Blockchain.Hash/README.md)
+      * [BWS.NFT.zK](media-assets/snapshots/BWS.NFT.zK/README.md)
+    * Marketplace Solutions
+      * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
+      * [BWS.NFT.GameCube](media-assets/snapshots/BWS.NFT.GameCube/README.md)
+      * [BWS.ESG.Credits](media-assets/snapshots/BWS.ESG.Credits/README.md)
+      * [BWS.X.Bot](media-assets/snapshots/BWS.X.Bot/README.md)
 
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
