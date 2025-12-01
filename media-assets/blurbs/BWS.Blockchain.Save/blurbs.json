@@ -1,13 +1,13 @@
 {
   "productKey": "BWS.Blockchain.Save",
   "productName": "Blockchain Save",
-  "generated": "2025-12-01T10:45:42.220Z",
+  "generated": "2025-12-01T14:38:23.298Z",
   "errors": {},
   "summary": {
-    "totalAudiences": 2,
+    "totalAudiences": 3,
     "totalChannels": 3,
-    "totalCombinations": 6,
-    "successful": 6,
+    "totalCombinations": 9,
+    "successful": 9,
     "failed": 0
   }
 }
