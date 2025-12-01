@@ -18,7 +18,7 @@
 * [Media Assets](media-assets/README.md)
   * [BWS Logo](media-assets/bws-logo.md)
   * [Blurbs](media-assets/blurbs/README.md)
-    * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
+    * [BWS.Blockchain.Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
   * [Snapshots](media-assets/snapshots/README.md)
     * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
 
