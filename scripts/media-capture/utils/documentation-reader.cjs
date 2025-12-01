@@ -149,8 +149,22 @@ function extractKeyInfo(documentation) {
   const productName = nameMatch ? nameMatch[1].replace(/\[.*?\]/, '').trim() : documentation.productKey;
 
   // Extract description (usually in frontmatter or first paragraph)
+  let description = '';
   const descMatch = content.match(/description:\s*>?\s*\n?\s*(.+?)(?:\n\n|---)/s);
-  const description = descMatch ? descMatch[1].replace(/\n/g, ' ').trim() : '';
+  if (descMatch) {
+    description = descMatch[1].replace(/\n/g, ' ').trim();
+  } else {
+    // Fallback: extract first paragraph after the main heading (ignoring section markers)
+    //Match the first # heading (not ##), then capture text until double newline, next heading, or HTML tag
+    const firstParaMatch = content.match(/\n#\s+.+?\n+(.+?)(?:\n\n|Built on)/s);
+    if (firstParaMatch) {
+      // Get just the first sentence/paragraph, excluding any "Built on" preamble
+      let desc = firstParaMatch[1].replace(/\n/g, ' ').trim();
+      // If we captured "Built on", remove it
+      desc = desc.replace(/Built on.*$/, '').trim();
+      description = desc;
+    }
+  }
 
   // Look for key sections
   const sections = {
