@@ -37,7 +37,6 @@
     * Marketplace Solutions
       * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
       * [BWS.NFT.GameCube](media-assets/snapshots/BWS.NFT.GameCube/README.md)
-      * [BWS.ESG.Credits](media-assets/snapshots/BWS.ESG.Credits/README.md)
       * [BWS.X.Bot](media-assets/snapshots/BWS.X.Bot/README.md)
 
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
