@@ -721,8 +721,40 @@
     "NFT.zK": [
       "https://docs.bws.ninja/solutions/bws.nft.zk"
     ],
-    "X Bot": [
-      "https://docs.bws.ninja/telegram-bots/x-bot"
-    ]
+    "X Bot": {
+      "docs": [
+        "https://docs.bws.ninja/telegram-bots/x-bot"
+      ],
+      "websiteUrl": "https://xbot.ninja",
+      "backofficeUrl": null,
+      "mediaCapture": {
+        "snapshot": {
+          "url": "https://xbot.ninja",
+          "type": "static",
+          "viewports": ["desktop", "mobile"],
+          "sections": [
+            {
+              "name": "hero",
+              "selector": "section.hero",
+              "description": "Hero section - Track KOL Performance with verified engagement analytics",
+              "socialFormats": ["twitter", "linkedin", "instagram-post"]
+            },
+            {
+              "name": "trending",
+              "selector": "section.trending-cashtags",
+              "description": "Trending cashtags - Top performing cryptocurrency cashtags with scores",
+              "socialFormats": ["twitter", "linkedin"]
+            },
+            {
+              "name": "leaderboards",
+              "selector": "section.leaderboards-wrapper",
+              "description": "Performance leaderboards - Top accounts, hashtags, cashtags, and mentions",
+              "socialFormats": ["twitter", "linkedin"]
+            }
+          ]
+        }
+      },
+      "outputPath": "media/x-bot"
+    }
   }
 }
