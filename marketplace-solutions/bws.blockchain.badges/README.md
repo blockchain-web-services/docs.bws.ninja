@@ -2,15 +2,15 @@
 description: Seamlessly issue, manage, and verify digital credentials.
 ---
 
-# BWS.Blockchain.Badges
+# Blockchain Badges
 
 <table><thead><tr><th width="131">Author</th><th width="125">Status</th><th>BWS User Interface Git</th></tr></thead><tbody><tr><td>BWS</td><td><mark style="background-color:green;">Ready</mark></td><td><a href="https://github.com/blockchain-web-services/bws-backoffice-website-badges">blockchain-web-services/bws-backoffice-website-badges</a></td></tr></tbody></table>
 
 
 
-**BWS.Blockchain.Badges** solution revolutionizes how organizations recognize and validate individual achievements by leveraging blockchain technology's immutable and transparent nature.&#x20;
+**Blockchain Badges** solution revolutionizes how organizations recognize and validate individual achievements by leveraging blockchain technology's immutable and transparent nature.&#x20;
 
-By integrating blockchain into the credentialing process, BWS.Blockchain.Badges ensure each badge carries an additional layer of trust, making every achievement recognizable and verifiable across platforms.&#x20;
+By integrating blockchain into the credentialing process, Blockchain Badges ensure each badge carries an additional layer of trust, making every achievement recognizable and verifiable across platforms.&#x20;
 
 ### Quick Start
 

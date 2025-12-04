@@ -1,14 +1,14 @@
 ---
 description: >-
-  Media assets and product snapshots for NFT Game Cube - website screenshots
+  Media assets and product snapshots for FAN Game Cube - website screenshots
   optimized for documentation and social media marketing.
 ---
 
-# NFT Game Cube - Media Assets
+# FAN Game Cube - Media Assets
 
 Product media library including website section captures and social media optimized images from the Fan Game Cube platform.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>NFT Game Cube</td><td>2025-12-03</td><td><a href="https://fangamecube.com">fangamecube.com</a></td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>FAN Game Cube</td><td>2025-12-03</td><td><a href="https://fangamecube.com">fangamecube.com</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Snapshots**

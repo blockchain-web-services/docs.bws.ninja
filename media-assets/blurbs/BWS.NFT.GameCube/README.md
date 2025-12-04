@@ -1,13 +1,13 @@
 ---
 description: >-
-  End-customer marketing blurbs for NFT Game Cube -
+  End-customer marketing blurbs for FAN Game Cube -
   content tailored for specific target audiences across
   multiple channels including email, social media, and technical briefs.
 ---
 
-# NFT Game Cube - Marketing Blurbs
+# FAN Game Cube - Marketing Blurbs
 
-Target audience-specific communications explaining what NFT Game Cube is, how it works,
+Target audience-specific communications explaining what FAN Game Cube is, how it works,
 and why it matters to different types of end-customers.
 
 <table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>NFT Game Cube</td><td>2025-12-01</td><td><a href="https://nftgamecube.com">nftgamecube.com</a></td><td>3</td></tr></tbody></table>

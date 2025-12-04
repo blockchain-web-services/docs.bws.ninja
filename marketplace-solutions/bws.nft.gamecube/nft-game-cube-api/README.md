@@ -1,2 +1,2 @@
-# NFT Game Cube API
+# FAN Game Cube API
 
