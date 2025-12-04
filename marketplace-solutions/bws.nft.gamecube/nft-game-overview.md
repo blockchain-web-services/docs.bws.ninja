@@ -4,13 +4,13 @@ description: Building New Revenue Streams for the Sports Industry
 
 # NFT Game Overview
 
-BWS's **NFT Game Cube** platform revolutionizes fan engagement by allowing sports enthusiasts to own digital assets linked to specific sections of a sports field.&#x20;
+BWS's **FAN Game Cube** platform revolutionizes fan engagement by allowing sports enthusiasts to own digital assets linked to specific sections of a sports field.&#x20;
 
 This extends beyond football to include chess, tennis, cricket, basketball, rugby, baseball, hockey, and any sport with a field that can be split into "cubes".
 
 As real-time events unfold in their selected area, fans earn points and unlock exciting rewards, all while creating new revenue opportunities for sports clubs, former athletes, influencers, and other key figures in the sports industry.\
 \
-Want to launch an NFT Game Cube event? Contact us [here](https://www.bws.ninja/contact-us).
+Want to launch a FAN Game Cube event? Contact us [here](https://www.bws.ninja/contact-us).
 
 ### Cube Allocation for Different Sports
 
@@ -39,7 +39,7 @@ And a long etcetera.
 
 ### NFT Technology for Ownership and Trading
 
-NFT Game Cube utilizes **NFT technology** to ensure verifiable ownership. However, the usage of NFT goes beyond ownership, allowing fans to trade their cubes as they would with traditional assets.
+FAN Game Cube utilizes **NFT technology** to ensure verifiable ownership. However, the usage of NFT goes beyond ownership, allowing fans to trade their cubes as they would with traditional assets.
 
 During a season or tournament, cube owners can buy and sell cubes mid-season on secondary marketplaces, generating additional royalties for sports clubs and organizers.
 
@@ -64,7 +64,7 @@ Your expected revenue is calculated as follows:
 
 > Number of cubes × Average Price per cube = Total income
 
-For example, launching **500 cubes** at an average price of **$500 per cube** on a VIP event can generate **$250,000** in revenue. Larger stadiums, premium tournaments, or full-season NFT Game Cubes can scale this model to generate even higher revenues.
+For example, launching **500 cubes** at an average price of **$500 per cube** on a VIP event can generate **$250,000** in revenue. Larger stadiums, premium tournaments, or full-season FAN Game Cubes can scale this model to generate even higher revenues.
 
 ### Seamless Integration with One-Click Purchase Widget
 
@@ -76,9 +76,9 @@ The widget integrates easily into existing club websites, allowing fans to purch
 
 ### How Fans Can Participate and Win
 
-Once a sports club publishes its **one-click buy widget**, fans can easily purchase NFT Game Cubes using standard credit cards, making participation straightforward and accessible.&#x20;
+Once a sports club publishes its **one-click buy widget**, fans can easily purchase FAN Game Cubes using standard credit cards, making participation straightforward and accessible.&#x20;
 
-<figure><img src="../../.gitbook/assets/Stripe Purchase.png" alt=""><figcaption><p>One-click NFT Game Cube urchase experience </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Stripe Purchase.png" alt=""><figcaption><p>One-click FAN Game Cube purchase experience </p></figcaption></figure>
 
 This experience brings a new layer of engagement to the fan experience while giving them direct ownership of in-game digital assets.
 
@@ -87,7 +87,7 @@ This experience brings a new layer of engagement to the fan experience while giv
 NFT-based cubes offer fans an engaging way to experience their favorite sports, providing:
 
 * **True ownership** of digital sports assets.
-* **Fans can buy, sell, or hold tradeable assets** for future value (full-season NFT Game Cube).
+* **Fans can buy, sell, or hold tradeable assets** for future value (full-season FAN Game Cube).
 * **Passive earnings potential** through resale royalties and long-term value accumulation.
 * **Access to real-time engagement** through a dedicated mobile app.
 
@@ -99,7 +99,7 @@ Once a cube is purchased, fans can:
 * **Track upcoming matches** in real time.
 * **Join live leaderboards** to compete with other fans for top prizes.
 
-## Why Choose BWS NFT Game Cube?
+## Why Choose FAN Game Cube?
 
 **Multi-Sport Scalability**
 

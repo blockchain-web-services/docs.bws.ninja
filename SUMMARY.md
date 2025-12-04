@@ -24,10 +24,10 @@
       * [BWS.Blockchain.Hash](media-assets/blurbs/BWS.Blockchain.Hash/README.md)
       * [BWS.NFT.zK](media-assets/blurbs/BWS.NFT.zK/README.md)
     * Marketplace Solutions
-      * [BWS.Blockchain.Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
-      * [BWS.NFT.GameCube](media-assets/blurbs/BWS.NFT.GameCube/README.md)
-      * [BWS.ESG.Credits](media-assets/blurbs/BWS.ESG.Credits/README.md)
-      * [BWS.X.Bot](media-assets/blurbs/BWS.X.Bot/README.md)
+      * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
+      * [FAN Game Cube](media-assets/blurbs/BWS.NFT.GameCube/README.md)
+      * [ESG Credits](media-assets/blurbs/BWS.ESG.Credits/README.md)
+      * [X Bot](media-assets/blurbs/BWS.X.Bot/README.md)
   * [Snapshots](media-assets/snapshots/README.md)
     * Platform APIs
       * [BWS.IPFS.Upload](media-assets/snapshots/BWS.IPFS.Upload/README.md)
@@ -35,9 +35,9 @@
       * [BWS.Blockchain.Hash](media-assets/snapshots/BWS.Blockchain.Hash/README.md)
       * [BWS.NFT.zK](media-assets/snapshots/BWS.NFT.zK/README.md)
     * Marketplace Solutions
-      * [BWS.Blockchain.Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
-      * [BWS.NFT.GameCube](media-assets/snapshots/BWS.NFT.GameCube/README.md)
-      * [BWS.X.Bot](media-assets/snapshots/BWS.X.Bot/README.md)
+      * [Blockchain Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
+      * [FAN Game Cube](media-assets/snapshots/BWS.NFT.GameCube/README.md)
+      * [X Bot](media-assets/snapshots/BWS.X.Bot/README.md)
 
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
@@ -64,15 +64,15 @@
 
 ## Marketplace Solutions
 
-* [BWS.Blockchain.Badges](marketplace-solutions/bws.blockchain.badges/README.md)
+* [Blockchain Badges](marketplace-solutions/bws.blockchain.badges/README.md)
   * [Badges User Interface](marketplace-solutions/bws.blockchain.badges/badges-user-interface.md)
   * [Badges API](marketplace-solutions/bws.blockchain.badges/badges-api/README.md)
     * [Issuers](marketplace-solutions/bws.blockchain.badges/badges-api/issuers.md)
     * [Badges](marketplace-solutions/bws.blockchain.badges/badges-api/badges.md)
     * [Awards (Credentials)](marketplace-solutions/bws.blockchain.badges/badges-api/awards-credentials.md)
-* [BWS.NFT.GameCube](marketplace-solutions/bws.nft.gamecube/README.md)
-  * [NFT Game Overview](marketplace-solutions/bws.nft.gamecube/nft-game-overview.md)
-  * [NFT Game Cube API](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/README.md)
+* [FAN Game Cube](marketplace-solutions/bws.nft.gamecube/README.md)
+  * [FAN Game Overview](marketplace-solutions/bws.nft.gamecube/nft-game-overview.md)
+  * [FAN Game Cube API](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/README.md)
     * [Calendar](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/calendar.md)
     * [Field](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/field.md)
     * [Cubes](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/cubes.md)
@@ -81,7 +81,7 @@
     * [Prizes](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/prizes.md)
     * [Event Types](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/event-types.md)
     * [Live Events](marketplace-solutions/bws.nft.gamecube/nft-game-cube-api/live-events.md)
-* [BWS.ESG.Credits](marketplace-solutions/bws.esg.credits/README.md)
+* [ESG Credits](marketplace-solutions/bws.esg.credits/README.md)
   * [Solution Overview](marketplace-solutions/bws.esg.credits/solution-overview.md)
   * [ESG Credits API](marketplace-solutions/bws.esg.credits/esg-credits-api/README.md)
     * [Taxonomy](marketplace-solutions/bws.esg.credits/esg-credits-api/taxonomy.md)
@@ -97,7 +97,7 @@
     * [Impacts](marketplace-solutions/bws.esg.credits/esg-credits-api/impacts.md)
     * [Blockchain](marketplace-solutions/bws.esg.credits/esg-credits-api/blockchain.md)
     * [Users](marketplace-solutions/bws.esg.credits/esg-credits-api/users.md)
-* [BWS.X.Bot](marketplace-solutions/bws.x.bot/README.md)
+* [X Bot](marketplace-solutions/bws.x.bot/README.md)
   * [X Bot Overview](marketplace-solutions/bws.x.bot/x-bot-overview.md)
   * [X Bot Installation](marketplace-solutions/bws.x.bot/x-bot-installation.md)
   * [X Bot Commands](marketplace-solutions/bws.x.bot/x-bot-commands.md)
