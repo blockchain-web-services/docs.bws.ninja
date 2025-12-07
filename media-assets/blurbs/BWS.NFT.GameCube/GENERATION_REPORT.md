@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** NFT Game Cube (BWS.NFT.GameCube)
-**Generated:** 2025-12-01T18:57:17.474Z
+**Generated:** 2025-12-07T03:37:56.725Z
 **Mode:** Audience-Segmented
 **Status:** 12/12 successful
 **Audiences:** 3
@@ -9,35 +9,35 @@
 
 ## Target Audiences
 
-1. **Sports Clubs** - Professional and amateur sports clubs looking to engage fans and generate new revenue streams through digital experiences
-2. **Sports Event Organizers** - Organizations that plan and execute sporting events, tournaments, and leagues, seeking to enhance fan experiences and monetization
-3. **Sports Fans** - Enthusiastic supporters of various sports who desire immersive, interactive experiences and deeper connections with their favorite teams and events
+1. **Sports Clubs** - Professional and amateur sports clubs looking to engage fans and generate new revenue streams through interactive gaming experiences
+2. **Tournament Organizers** - Organizers of sports tournaments and events seeking to enhance fan engagement and monetize their events through gamification
+3. **Sports Fans** - Passionate sports enthusiasts looking for immersive, interactive experiences that allow them to engage with their favorite teams and events in new ways
 
 ## Results by Audience
 
 ### Sports Clubs
 
+- ✓ Product Blurb ⚠ (1 warning)
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post
+- ✓ Telegram Short ⚠ (1 warning)
+
+### Tournament Organizers
+
 - ✓ Product Blurb
 - ✓ X (Twitter) Single Post ⚠ (1 warning)
 - ✓ Telegram Post
-- ✓ Telegram Short
-
-### Sports Event Organizers
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post
-- ✓ Telegram Short
+- ✓ Telegram Short ⚠ (1 warning)
 
 ### Sports Fans
 
-- ✓ Product Blurb ⚠ (1 warning)
+- ✓ Product Blurb
 - ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Post
 - ✓ Telegram Short
 
 ## API Usage
 
-- Input tokens: 57,224
-- Output tokens: 2,440
-- Total tokens: 59,664
+- Input tokens: 57,212
+- Output tokens: 2,518
+- Total tokens: 59,730
