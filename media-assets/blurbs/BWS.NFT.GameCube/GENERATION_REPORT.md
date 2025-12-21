@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** NFT Game Cube (BWS.NFT.GameCube)
-**Generated:** 2025-12-14T03:38:35.223Z
+**Generated:** 2025-12-21T03:34:26.722Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Sports Clubs** - Professional and amateur sports clubs looking to increase fan engagement and generate new revenue streams through interactive gaming experiences.
-2. **Tournament Organizers** - Organizers of sports tournaments and events seeking to enhance the fan experience and create additional monetization opportunities.
-3. **Sports Fans** - Passionate sports enthusiasts who desire immersive, interactive experiences that allow them to engage with their favorite teams and events in real-time.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Sports Clubs
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post
-- ✓ Telegram Short
-
-### Tournament Organizers
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post
-- ✓ Telegram Short
-
-### Sports Fans
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short
+- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXHjjnAjBQx823VNX"}
+- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXUedq47pddwZbDe9"}
+- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXgYetTx11M8Na58s"}
+- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXsTpubigLA5fvcUp"}
 
 ## API Usage
 
-- Input tokens: 57,244
-- Output tokens: 2,303
-- Total tokens: 59,547
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

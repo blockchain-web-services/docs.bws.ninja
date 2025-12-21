@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** IPFS Upload (BWS.IPFS.Upload)
-**Generated:** 2025-12-14T03:47:40.271Z
+**Generated:** 2025-12-21T03:34:28.429Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Web Developers** - Developers building decentralized applications who need a reliable and immutable storage solution for images, PDFs, and JSON files.
-2. **Content Creators** - Creators of digital content such as images, documents, and data who want to store their files in a decentralized manner for global accessibility and tamper-proof storage.
-3. **Blockchain Enthusiasts** - Individuals interested in exploring and leveraging decentralized technologies like IPFS for storing and sharing files in a secure and distributed way.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Web Developers
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Content Creators
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Blockchain Enthusiasts
-
-- ✓ Product Blurb ⚠ (1 warning)
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
+- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WeaY5WWAnnTfwJV9t"}
+- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WengRYm9gb2QjwHXf"}
+- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WeyLr7UqpELeTTkQB"}
+- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WfAkndBo1VsPn6ftb"}
 
 ## API Usage
 
-- Input tokens: 17,183
-- Output tokens: 2,056
-- Total tokens: 19,239
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

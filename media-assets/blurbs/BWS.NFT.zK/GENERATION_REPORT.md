@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** NFT.zK (BWS.NFT.zK)
-**Generated:** 2025-12-14T03:49:31.118Z
+**Generated:** 2025-12-21T03:34:28.707Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **NFT Collectors** - Individuals who collect and trade unique digital assets and need a simple way to manage and transfer their NFTs securely.
-2. **Crypto Enthusiasts** - People interested in blockchain technology and cryptocurrencies who want an easy-to-use solution for managing their NFT holdings.
-3. **Digital Artists** - Creators of digital art, music, and other media who mint their works as NFTs and require a streamlined platform to manage and distribute their creations.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### NFT Collectors
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Crypto Enthusiasts
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Digital Artists
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
+- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WfpCDpW4ubF9PdNxR"}
+- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WfzNBegRfHqfMS8mp"}
+- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WgDkmjWCK7uTmbMq3"}
+- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WgRAYv2U9LnGB458Y"}
 
 ## API Usage
 
-- Input tokens: 39,916
-- Output tokens: 1,837
-- Total tokens: 41,753
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

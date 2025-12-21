@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** X Bot (BWS.X.Bot)
-**Generated:** 2025-12-14T03:43:06.594Z
+**Generated:** 2025-12-21T03:34:27.372Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Crypto Projects** - Crypto projects need X Bot to track community engagement, run competitions, and build authentic participation on X (Twitter).
-2. **Individual KOLs** - Individual key opinion leaders (KOLs) need X Bot to showcase their X performance metrics and get discovered by projects seeking influencers.
-3. **KOL Teams** - KOL teams need X Bot to track their collective performance, generate team reports, and demonstrate ROI to their clients with verifiable data.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Crypto Projects
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short
-
-### Individual KOLs
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
-
-### KOL Teams
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short ⚠ (1 warning)
+- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WZrWy1EMcV8ZkJLFE"}
+- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8Wa3gJmRi6nCUH62fz"}
+- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WaF65JxZGBAFH6Mn6"}
+- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WaUEKJdgwYKnfhWXs"}
 
 ## API Usage
 
-- Input tokens: 77,316
-- Output tokens: 2,055
-- Total tokens: 79,371
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0
