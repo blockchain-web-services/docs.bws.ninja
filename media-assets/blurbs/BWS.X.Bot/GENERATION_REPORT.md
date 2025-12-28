@@ -1,27 +1,43 @@
 # Blurb Generation Summary
 
 **Product:** X Bot (BWS.X.Bot)
-**Generated:** 2025-12-21T03:34:27.372Z
+**Generated:** 2025-12-28T03:44:23.136Z
 **Mode:** Audience-Segmented
-**Status:** 0/4 successful
-**Audiences:** 1
+**Status:** 12/12 successful
+**Audiences:** 3
 **Channels:** 4
 
 ## Target Audiences
 
-1. **General Users** - End-customers who want to use this solution for their specific needs
+1. **Crypto Projects** - Crypto projects need X Bot to track community engagement, run competitions, and build authentic participation around their project and token.
+2. **Individual KOLs** - Individual Key Opinion Leaders (KOLs) need X Bot to showcase their X performance metrics and get discovered by projects seeking influencers.
+3. **KOL Teams** - KOL teams and agencies need X Bot to track their collective performance across multiple X accounts and demonstrate ROI to their clients with verifiable data.
 
 ## Results by Audience
 
-### General Users
+### Crypto Projects
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WZrWy1EMcV8ZkJLFE"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8Wa3gJmRi6nCUH62fz"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WaF65JxZGBAFH6Mn6"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WaUEKJdgwYKnfhWXs"}
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post
+- ✓ Telegram Short
+
+### Individual KOLs
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post
+- ✓ Telegram Short ⚠ (1 warning)
+
+### KOL Teams
+
+- ✓ Product Blurb ⚠ (1 warning)
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post
+- ✓ Telegram Short ⚠ (1 warning)
 
 ## API Usage
 
-- Input tokens: 0
-- Output tokens: 0
-- Total tokens: 0
+- Input tokens: 77,332
+- Output tokens: 2,138
+- Total tokens: 79,470

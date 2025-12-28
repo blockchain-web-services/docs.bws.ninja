@@ -1,27 +1,43 @@
 # Blurb Generation Summary
 
 **Product:** Blockchain Badges (BWS.Blockchain.Badges)
-**Generated:** 2025-12-21T03:34:26.443Z
+**Generated:** 2025-12-28T03:37:40.230Z
 **Mode:** Audience-Segmented
-**Status:** 0/4 successful
-**Audiences:** 1
+**Status:** 12/12 successful
+**Audiences:** 3
 **Channels:** 4
 
 ## Target Audiences
 
-1. **General Users** - End-customers who want to use this solution for their specific needs
+1. **Educational Institutions** - Schools, universities, and online course providers need to issue verifiable digital credentials to recognize student achievements.
+2. **Professional Associations** - Industry associations and certification bodies require a secure way to issue and verify professional certifications and memberships.
+3. **Employers** - Companies and organizations need to verify employee credentials and track professional development achievements.
 
 ## Results by Audience
 
-### General Users
+### Educational Institutions
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WVbYLpef1B9eG4XWw"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WWLwBdhhWonCbU8Ea"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WWY6Tn5nLc5vS3DuJ"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WWhX2hiiC9rxK5UBR"}
+- ✓ Product Blurb ⚠ (1 warning)
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short ⚠ (1 warning)
+
+### Professional Associations
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short ⚠ (1 warning)
+
+### Employers
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short ⚠ (1 warning)
 
 ## API Usage
 
-- Input tokens: 0
-- Output tokens: 0
-- Total tokens: 0
+- Input tokens: 35,914
+- Output tokens: 1,862
+- Total tokens: 37,776

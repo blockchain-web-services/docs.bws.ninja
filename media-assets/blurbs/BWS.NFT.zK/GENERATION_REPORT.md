@@ -1,27 +1,43 @@
 # Blurb Generation Summary
 
 **Product:** NFT.zK (BWS.NFT.zK)
-**Generated:** 2025-12-21T03:34:28.707Z
+**Generated:** 2025-12-28T03:51:14.160Z
 **Mode:** Audience-Segmented
-**Status:** 0/4 successful
-**Audiences:** 1
+**Status:** 12/12 successful
+**Audiences:** 3
 **Channels:** 4
 
 ## Target Audiences
 
-1. **General Users** - End-customers who want to use this solution for their specific needs
+1. **NFT Collectors** - Individuals who collect and trade unique digital assets and need a simple way to manage and transfer their NFTs securely.
+2. **Digital Artists** - Creators of digital art who want an easy-to-use platform to mint, manage, and sell their artwork as NFTs without technical complexities.
+3. **Crypto Enthusiasts** - People interested in blockchain technology and cryptocurrencies who want to explore and engage with NFTs without dealing with complex technical details.
 
 ## Results by Audience
 
-### General Users
+### NFT Collectors
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WfpCDpW4ubF9PdNxR"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WfzNBegRfHqfMS8mp"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WgDkmjWCK7uTmbMq3"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WgRAYv2U9LnGB458Y"}
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short
+
+### Digital Artists
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short
+
+### Crypto Enthusiasts
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short
 
 ## API Usage
 
-- Input tokens: 0
-- Output tokens: 0
-- Total tokens: 0
+- Input tokens: 39,908
+- Output tokens: 1,945
+- Total tokens: 41,853

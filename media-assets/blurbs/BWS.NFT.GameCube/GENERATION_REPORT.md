@@ -1,27 +1,43 @@
 # Blurb Generation Summary
 
 **Product:** NFT Game Cube (BWS.NFT.GameCube)
-**Generated:** 2025-12-21T03:34:26.722Z
+**Generated:** 2025-12-28T03:39:47.625Z
 **Mode:** Audience-Segmented
-**Status:** 0/4 successful
-**Audiences:** 1
+**Status:** 12/12 successful
+**Audiences:** 3
 **Channels:** 4
 
 ## Target Audiences
 
-1. **General Users** - End-customers who want to use this solution for their specific needs
+1. **Sports Clubs** - Professional and amateur sports clubs looking to engage fans and generate new revenue streams through interactive gaming experiences
+2. **Sports Event Organizers** - Organizations that plan and execute sporting events, tournaments, and leagues, seeking to enhance fan engagement and monetize their events
+3. **Sports Fans** - Enthusiastic followers of various sports who desire immersive, interactive experiences to connect with their favorite teams and events
 
 ## Results by Audience
 
-### General Users
+### Sports Clubs
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXHjjnAjBQx823VNX"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXUedq47pddwZbDe9"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXgYetTx11M8Na58s"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CWK8WXsTpubigLA5fvcUp"}
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post ⚠ (1 warning)
+- ✓ Telegram Short
+
+### Sports Event Organizers
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post
+- ✓ Telegram Short
+
+### Sports Fans
+
+- ✓ Product Blurb
+- ✓ X (Twitter) Single Post ⚠ (1 warning)
+- ✓ Telegram Post
+- ✓ Telegram Short
 
 ## API Usage
 
-- Input tokens: 0
-- Output tokens: 0
-- Total tokens: 0
+- Input tokens: 57,204
+- Output tokens: 2,293
+- Total tokens: 59,497

@@ -1,18 +1,13 @@
 {
   "productKey": "BWS.Blockchain.Save",
   "productName": "Blockchain Save",
-  "generated": "2025-12-21T03:34:27.744Z",
-  "errors": {
-    "General Users:product-blurb": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CWK8WbGMc1vebNCN9pH3C\"}",
-    "General Users:x-single": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CWK8Wbj8dV8zM2MLsGnbo\"}",
-    "General Users:telegram": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CWK8Wbz1WrDfZitHM7EWP\"}",
-    "General Users:telegram-short": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CWK8WcFP9feHNjsy5d6Eb\"}"
-  },
+  "generated": "2025-12-28T03:45:34.908Z",
+  "errors": {},
   "summary": {
-    "totalAudiences": 1,
+    "totalAudiences": 2,
     "totalChannels": 4,
-    "totalCombinations": 4,
-    "successful": 0,
-    "failed": 4
+    "totalCombinations": 8,
+    "successful": 8,
+    "failed": 0
   }
 }
