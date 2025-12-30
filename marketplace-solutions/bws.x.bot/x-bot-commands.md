@@ -1,1273 +1,1712 @@
-# X Bot Commands
+# X Bot Commands Reference
 
-Complete reference guide for all X Bot commands. Commands are organized by category for easy navigation.
+> **Last Updated:** 2025-12-30
+>
+> This documentation is automatically generated from source code.
+
+This reference lists all available commands for the X Bot. Commands are organized by functional category.
+
+{% hint style="info" %}
+**Admin Only** commands can only be executed by group administrators.
+{% endhint %}
+
 
 ## Basic Commands
 
+### /get_chatid (Admin Only)
+
+Returns the chat ID of the group where the command is executed. Useful for debugging 
+and configuration purposes. Only group administrators can execute this command.
+
+**Usage:**
+```
+/get_chatid
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow: Single-step command execution returning chat ID
+
+**User Messages:**
+- Success: "Chat ID: [chat_id_value]"
+- Error (Non-admin): "Only admins can get the chat ID."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
 ### /help
 
-Display all available bot commands with brief descriptions.
+Displays available bot commands and their descriptions. Shows different command sets based on whether
+the user is a group administrator (full command list) or regular user (limited command list).
 
-Usage: `/help`
-
-Parameters: None
-
-Response: Complete list of commands organized by category.
-
-Example:
-
+**Usage:**
 ```
 /help
 ```
 
-## X API Filtering Setup
+**Parameters:**
+- None required
 
-X Bot's filtering system allows you to define exactly what X (Twitter) content to track and analyze. You can track specific accounts, monitor keywords and hashtags, follow cryptocurrency cashtags, see who's mentioning important accounts, and filter out noise with exclusions.
 
-The filtering system is highly flexible and supports complex setups through **named filters**, which allow you to create multiple independent tracking configurations. This is particularly useful for KOL teams managing multiple clients, projects running different campaigns, or anyone who needs to separate different tracking scenarios. Each named filter can have its own set of accounts, keywords, cashtags, mentions, exclusions, and even independent report schedules.
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Check: Determines which command set to display
+- States: No state management required
+- Flow: Single-step command execution with different outputs based on admin status
 
-### Account Management
+**User Messages:**
+- Success (Admin): Full command list including cashtags management (/add_cashtags, /remove_cashtags, /clear_cashtags) and raid commands
+- Success (Regular User): Limited command list with basic commands (/help, /buy, /subscription, /report)
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): "An error occurred while processing the help command."
 
-Track X (Twitter) accounts to monitor their posts and engagement metrics.
+---
 
-#### /add\_accounts
+### /start
 
-Add one or more X accounts to track.
+Bot initialization command that handles different workflows based on context and user state.
+In groups, shows simple bot running message. In private messages, manages complex state-based workflows
+including payment confirmation, validation codes, and bot setup guidance.
 
-Usage: `/add_accounts @account1 @account2 ... [filter=name]`
-
-Parameters:
-
-* `@account1 @account2 ...`: X (Twitter) handles to track (with @ symbol)
-* `filter=name` (optional): Assign to a named filter
-
-Admin Only: Yes
-
-Examples:
-
-```
-/add_accounts @elonmusk
-/add_accounts @VitalikButerin @SatoshiLite @APompliano
-/add_accounts @ProjectAccount filter=marketing_campaign
-```
-
-What this does:
-
-* Tracks all posts from specified accounts
-* Monitors engagement metrics (likes, retweets, replies, quotes, bookmarks, impressions)
-* Includes accounts in leaderboard rankings
-
-#### /remove\_accounts
-
-Remove one or more X accounts from tracking.
-
-Usage: `/remove_accounts @account1 @account2 ... [filter=name]`
-
-Parameters:
-
-* `@account1 @account2 ...`: X handles to stop tracking
-* `filter=name` (optional): Remove from a named filter
-
-Admin Only: Yes
-
-Examples:
-
-```
-/remove_accounts @elonmusk
-/remove_accounts @Account1 @Account2
-/remove_accounts @ProjectAccount filter=marketing_campaign
-```
-
-#### /get\_accounts
-
-View all currently tracked X accounts.
-
-Usage: `/get_accounts [filter=name]`
-
-Parameters:
-
-* `filter=name` (optional): Show accounts for a specific named filter
-
-Admin Only: No
-
-Examples:
-
-```
-/get_accounts
-/get_accounts filter=marketing_campaign
-```
-
-Response: List of all tracked X accounts, or accounts in the specified filter.
-
-### Keyword Management
-
-Track specific keywords and hashtags to monitor community discussions.
-
-#### /add\_keywords
-
-Add keywords or hashtags to track.
-
-Usage: `/add_keywords "keyword1" "keyword2" ... [filter=name]`
-
-Parameters:
-
-* `"keyword1" "keyword2" ...`: Keywords or hashtags to track (use quotes for multi-word phrases)
-* `filter=name` (optional): Assign to a named filter
-
-Admin Only: Yes
-
-Examples:
-
-```
-/add_keywords "Bitcoin" "#BTC" "cryptocurrency"
-/add_keywords "DeFi" "#DeFi" "decentralized finance"
-/add_keywords "Solana ecosystem" filter=solana_tracking
-```
-
-Note: Use quotes for multi-word phrases. Hashtags should include the # symbol.
-
-#### /remove\_keywords
-
-Remove keywords or hashtags from tracking.
-
-Usage: `/remove_keywords "keyword1" "keyword2" ... [filter=name]`
-
-Parameters:
-
-* `"keyword1" "keyword2" ...`: Keywords or hashtags to stop tracking
-* `filter=name` (optional): Remove from a named filter
-
-Admin Only: Yes
-
-Examples:
-
-```
-/remove_keywords "Bitcoin"
-/remove_keywords "#OldCampaign" filter=marketing_campaign
-```
-
-#### /get\_keywords
-
-View all currently tracked keywords and hashtags.
-
-Usage: `/get_keywords [filter=name]`
-
-Parameters:
-
-* `filter=name` (optional): Show keywords for a specific named filter
-
-Admin Only: No
-
-Examples:
-
+**Usage:**
 ```
-/get_keywords
-/get_keywords filter=marketing_campaign
+/start` - Basic initialization
 ```
-
-Response: List of all tracked keywords and hashtags, or keywords in the specified filter.
-
-### Cashtag Management
-
-Track cryptocurrency cashtags (e.g., $BTC, $ETH) to monitor token discussions.
-
-#### /add\_cashtags
-
-Add cashtags to track.
-
-Usage: `/add_cashtags $TAG1 $TAG2 ... [filter=name]`
-
-Parameters:
-
-* `$TAG1 $TAG2 ...`: Cashtags to track (with $ symbol)
-* `filter=name` (optional): Assign to a named filter
-
-Admin Only: Yes
-
-Examples:
-
 ```
-/add_cashtags $BTC $ETH $SOL
-/add_cashtags $MYTOKEN filter=token_launch
+/start payment_success` - Payment confirmation workflow
 ```
-
-Note: Cashtags must include the $ symbol.
-
-#### /remove\_cashtags
-
-Remove cashtags from tracking.
-
-Usage: `/remove_cashtags $TAG1 $TAG2 ... [filter=name]`
-
-Parameters:
-
-* `$TAG1 $TAG2 ...`: Cashtags to stop tracking
-* `filter=name` (optional): Remove from a named filter
-
-Admin Only: Yes
-
-Examples:
-
 ```
-/remove_cashtags $BTC
-/remove_cashtags $OLDTOKEN filter=token_launch
+/start payment_cancelled` - Payment cancellation workflow
 ```
 
-#### /get\_cashtags
+**Parameters:**
+- Optional: payment status parameter (payment_success, payment_cancelled)
 
-View all currently tracked cashtags.
 
-Usage: `/get_cashtags [filter=name]`
+**Workflow:**
+- Execution Context: Both groups and private messages
+- Group Flow: Simple "X Bot is running" message + help reference
+- Private Message Flow: Complex state-based workflow management
+- States Managed:
+- 'waiting_for_validation_code': Shows validation code to user
+- 'waiting_for_purchase': Handles payment success/failure workflows
+- Multi-step Workflow: Payment process continues from /buy command through private messages
 
-Parameters:
+**User Messages:**
+- Success (Group): "X Bot is running. Please use /help to see the available commands."
+- Success (Private - Default): "Welcome to BWS X Bot!" with "➕ Add to Group" inline button
+- Success (Private - Validation): "Please copy the following code: \n\n [code] \n\n and paste it in the group chat."
+- Success (Payment Success): "Thank you for your payment! Your subscription is getting confirmed and activated."
+- Error (Payment Failed): "Payment failed or not completed.\n\n[Contact Support Message]"
+- Error (Invalid Topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-* `filter=name` (optional): Show cashtags for a specific named filter
+---
 
-Admin Only: No
+### /status (Admin Only)
 
-Examples:
+Checks the bot's operational status and provides basic information about bot availability.
+Only group administrators can execute this command.
 
+**Usage:**
 ```
-/get_cashtags
-/get_cashtags filter=token_launch
+/status
 ```
-
-Response: List of all tracked cashtags, or cashtags in the specified filter.
-
-### Mention Management
-
-Track X account mentions to see who's talking about specific accounts.
-
-#### /add\_mentions
-
-Add X accounts to track mentions of.
-
-Usage: `/add_mentions @account1 @account2 ... [filter=name]`
-
-Parameters:
 
-* `@account1 @account2 ...`: X handles to track mentions of
-* `filter=name` (optional): Assign to a named filter
+**Parameters:**
+- None required
 
-Admin Only: Yes
 
-Examples:
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow: Single-step command execution in group chat
 
-```
-/add_mentions @YourProjectAccount
-/add_mentions @Influencer1 @Influencer2 filter=kol_tracking
-```
-
-What this does:
-
-* Tracks posts that mention the specified accounts
-* Shows who is talking about these accounts
-* Includes mention frequency in reports
-
-#### /remove\_mentions
+**User Messages:**
+- Success: "BWS X Bot is running.\nPlease check https://docs.bws.ninja/telegram-bots/x-bot for more information on how to set up the bot. You can use /help to see the available commands."
+- Error (Non-admin): "Only admins can check the bot status."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-Remove X accounts from mention tracking.
+---
 
-Usage: `/remove_mentions @account1 @account2 ... [filter=name]`
 
-Parameters:
+## Quick Filter Management
 
-* `@account1 @account2 ...`: X handles to stop tracking mentions of
-* `filter=name` (optional): Remove from a named filter
+### /add_accounts
 
-Admin Only: Yes
 
-Examples:
 
-```
-/remove_mentions @OldAccount
-/remove_mentions @Influencer1 filter=kol_tracking
-```
 
-#### /get\_mentions
 
-View all accounts currently tracked for mentions.
 
-Usage: `/get_mentions [filter=name]`
 
-Parameters:
 
-* `filter=name` (optional): Show mentions for a specific named filter
+---
 
-Admin Only: No
+### /add_cashtags
 
-Examples:
 
-```
-/get_mentions
-/get_mentions filter=kol_tracking
-```
 
-Response: List of all accounts being tracked for mentions, or mentions in the specified filter.
 
-### Exclusion Management
 
-Exclude specific keywords or hashtags from reports to filter out noise.
 
-#### /add\_exclusions
 
-Add keywords or hashtags to exclude from tracking.
 
-Usage: `/add_exclusions "keyword1" "keyword2" ... [filter=name]`
+---
 
-Parameters:
+### /add_excludes
 
-* `"keyword1" "keyword2" ...`: Keywords or hashtags to exclude
-* `filter=name` (optional): Assign to a named filter
 
-Admin Only: Yes
 
-Examples:
 
-```
-/add_exclusions "spam" "giveaway scam"
-/add_exclusions "#irrelevant" filter=marketing_campaign
-```
 
-What this does:
 
-* Excludes posts containing these keywords from reports
-* Helps filter out spam, scams, or irrelevant content
-* Improves report quality
 
-#### /remove\_exclusions
 
-Remove keywords or hashtags from exclusion list.
+---
 
-Usage: `/remove_exclusions "keyword1" "keyword2" ... [filter=name]`
+### /add_ignore
 
-Parameters:
 
-* `"keyword1" "keyword2" ...`: Keywords or hashtags to stop excluding
-* `filter=name` (optional): Remove from a named filter
 
-Admin Only: Yes
 
-Examples:
 
-```
-/remove_exclusions "giveaway"
-/remove_exclusions "#campaign" filter=marketing_campaign
-```
 
-#### /get\_exclusions
 
-View all currently excluded keywords and hashtags.
 
-Usage: `/get_exclusions [filter=name]`
+---
 
-Parameters:
+### /add_keywords
 
-* `filter=name` (optional): Show exclusions for a specific named filter
 
-Admin Only: No
 
-Examples:
 
-```
-/get_exclusions
-/get_exclusions filter=marketing_campaign
-```
 
-Response: List of all excluded keywords and hashtags, or exclusions in the specified filter.
 
-### Ignore List Management
 
-Ignore specific X accounts so they don't appear in leaderboards (useful for hiding bots, test accounts, or team admins).
 
-#### /add\_ignore\_list
+---
 
-Add X accounts to the ignore list.
+### /add_mentions
 
-Usage: `/add_ignore_list @account1 @account2 ...`
 
-Parameters:
 
-* `@account1 @account2 ...`: X handles to ignore in leaderboards
 
-Admin Only: Yes
 
-Examples:
 
-```
-/add_ignore_list @TestAccount @BotAccount
-/add_ignore_list @TeamAdmin @InternalAccount
-```
 
-What this does:
 
-* Hides specified accounts from leaderboard rankings
-* Posts are still tracked but not shown in public reports
-* Useful for internal/test accounts
+---
 
-#### /remove\_ignore\_list
+### /clear_accounts
 
-Remove X accounts from the ignore list.
 
-Usage: `/remove_ignore_list @account1 @account2 ...`
 
-Parameters:
 
-* `@account1 @account2 ...`: X handles to stop ignoring
 
-Admin Only: Yes
 
-Examples:
 
-```
-/remove_ignore_list @TestAccount
-```
 
-#### /get\_ignore\_list
+---
 
-View all accounts currently on the ignore list.
+### /clear_cashtags
 
-Usage: `/get_ignore_list`
 
-Parameters: None
 
-Admin Only: No
 
-Example:
 
-```
-/get_ignore_list
-```
 
-Response: List of all ignored X accounts.
 
-### Named Filters
 
-Named filters allow you to create multiple tracking configurations for different purposes (e.g., different clients, campaigns, or projects).
+---
 
-#### Understanding Named Filters
+### /clear_excludes
 
-Named filters let you:
 
-* Track different sets of accounts/keywords for different purposes
-* Generate separate reports for different clients or campaigns
-* Keep configurations organized and separate
 
-How to use named filters:
 
-{% stepper %}
-{% step %}
-#### Create a named filter
 
-Add items with the `filter=name` parameter, for example:
 
-```
-/add_accounts @Client1Account filter=client1
-/add_keywords "client1 keyword" filter=client1
-```
-{% endstep %}
 
-{% step %}
-#### Generate reports for a named filter
 
-Use the recreate command with the filter parameter:
+---
 
-```
-/recreate filter=client1
-```
-{% endstep %}
+### /clear_ignore
 
-{% step %}
-#### View filter configuration
 
-Inspect items in a filter:
 
-```
-/get_accounts filter=client1
-/get_keywords filter=client1
-```
-{% endstep %}
-{% endstepper %}
 
-#### Examples of Named Filter Usage
 
-Example 1: Multiple Client Tracking (KOL Team)
 
-```
-# Client A Setup
-/add_accounts @ClientA_Account filter=client_a
-/add_cashtags $TOKENA filter=client_a
-
-# Client B Setup
-/add_accounts @ClientB_Account filter=client_b
-/add_cashtags $TOKENB filter=client_b
-
-# Generate separate reports
-/recreate filter=client_a
-/recreate filter=client_b
-```
 
-Example 2: Different Campaign Tracking (Project)
 
-```
-# Marketing Campaign
-/add_keywords "#MarketingCampaign" "campaign hashtag" filter=marketing
-
-# Community Competition
-/add_accounts @CommunityAccount1 @CommunityAccount2 filter=competition
-
-# Generate campaign-specific reports
-/recreate filter=marketing
-/recreate filter=competition
-```
+---
 
-## Schedule Management
+### /clear_keywords
 
-Automate report generation with scheduled daily reports.
 
-### /set\_schedule
 
-Schedule automated daily reports.
 
-Usage: `/set_schedule HH:MM [filter=name]`
 
-Parameters:
 
-* `HH:MM`: Time in 24-hour format (UTC timezone)
-* `filter=name` (optional): Schedule for a specific named filter
 
-Admin Only: Yes
 
-Examples:
+---
 
-```
-/set_schedule 12:00
-/set_schedule 09:00 filter=client_a
-/set_schedule 18:30
-```
+### /clear_mentions
 
-What this does:
 
-* Generates automated daily reports at the specified time
-* Posts performance screenshots and leaderboards to the group
-* Time is in UTC (Coordinated Universal Time)
 
-Timezone Conversion Examples:
 
-* New York (EST): 12:00 UTC = 07:00 EST
-* London (GMT): 12:00 UTC = 12:00 GMT
-* Singapore (SGT): 12:00 UTC = 20:00 SGT
 
-### /get\_schedule
 
-View current report schedule.
 
-Usage: `/get_schedule [filter=name]`
 
-Parameters:
+---
 
-* `filter=name` (optional): Show schedule for a specific named filter
+### /list_filters
 
-Admin Only: No
 
-Examples:
 
-```
-/get_schedule
-/get_schedule filter=client_a
-```
 
-Response: Current scheduled report time in UTC, or message if no schedule is set.
 
-### /delete\_schedule
 
-Cancel automated daily reports.
 
-Usage: `/delete_schedule [filter=name]`
 
-Parameters:
+---
 
-* `filter=name` (optional): Delete schedule for a specific named filter
+### /remove_accounts
 
-Admin Only: Yes
 
-Examples:
 
-```
-/delete_schedule
-/delete_schedule filter=client_a
-```
 
-What this does:
 
-* Removes scheduled report generation
-* Reports can still be generated manually with `/recreate`
 
-## Report Generation
 
-Generate analytics reports manually.
 
-### /recreate
+---
 
-Generate a new analytics report immediately.
+### /remove_cashtags
 
-Usage: `/recreate [filter=name]`
 
-Parameters:
 
-* `filter=name` (optional): Generate report for a specific named filter
 
-Admin Only: Yes (for manual generation)
 
-Examples:
 
-```
-/recreate
-/recreate filter=marketing_campaign
-```
 
-What this does:
 
-* Creates performance report with current data
-* Generates leaderboards for accounts, hashtags, cashtags, and mentions
-* Posts performance screenshot to the group
-* Shows engagement metrics and rankings
+---
 
-Note: Report generation can take 1-2 minutes depending on data volume.
+### /remove_excludes
 
-### /report
 
-Alternative command to generate analytics report.
 
-Usage: `/report [filter=name]`
 
-Parameters:
 
-* `filter=name` (optional): Generate report for a specific named filter
 
-Admin Only: Yes
 
-Examples:
 
-```
-/report
-/report filter=client_a
-```
+---
 
-Note: Functions identically to `/recreate`.
+### /remove_ignore
 
-## Customization
 
-Customize report appearance and scoring to match your brand.
 
-### /set\_points
 
-Customize engagement point weights for performance scoring.
 
-Usage: `/set_points <likes> <retweets> <replies> <quotes> <bookmarks> <impressions>`
 
-Parameters:
 
-* `<likes>`: Point weight for likes (default: 1)
-* `<retweets>`: Point weight for retweets (default: 2)
-* `<replies>`: Point weight for replies (default: 1.5)
-* `<quotes>`: Point weight for quote tweets (default: 3)
-* `<bookmarks>`: Point weight for bookmarks (default: 2)
-* `<impressions>`: Point weight for impressions (default: 0.001)
 
-Admin Only: Yes
+---
 
-Examples:
+### /remove_keywords
 
-```
-/set_points 1 2 1.5 3 2 0.001
-/set_points 2 4 3 6 4 0.002
-/set_points 1 1 1 1 1 0
-```
 
-What this does:
 
-* Customizes how performance scores are calculated
-* Higher weights give more importance to that engagement type
-* Affects leaderboard rankings
 
-Default Formula:
 
-```
-Performance Score = (Likes × 1) + (Retweets × 2) + (Replies × 1.5) +
-                   (Quotes × 3) + (Bookmarks × 2) + (Impressions × 0.001)
-```
 
-### /get\_points
 
-View current engagement point weights.
 
-Usage: `/get_points`
+---
 
-Parameters: None
+### /remove_mentions
 
-Admin Only: No
 
-Example:
 
-```
-/get_points
-```
 
-Response: Current point weights for all engagement types.
 
-### /set\_colors
 
-Customize colors used in performance reports.
 
-Usage: `/set_colors <likes> <retweets> <replies> <quotes> <bookmarks> <impressions>`
 
-Parameters:
+---
 
-* `<likes>`: Hex color code for likes (default: #FF6B6B)
-* `<retweets>`: Hex color code for retweets (default: #4ECDC4)
-* `<replies>`: Hex color code for replies (default: #45B7D1)
-* `<quotes>`: Hex color code for quotes (default: #FFA07A)
-* `<bookmarks>`: Hex color code for bookmarks (default: #98D8C8)
-* `<impressions>`: Hex color code for impressions (default: #F7DC6F)
+### /show_filter
 
-Admin Only: Yes
 
-Examples:
 
-```
-/set_colors #FF6B6B #4ECDC4 #45B7D1 #FFA07A #98D8C8 #F7DC6F
-/set_colors #FF0000 #00FF00 #0000FF #FFFF00 #FF00FF #00FFFF
-```
 
-What this does:
 
-* Customizes visual appearance of reports
-* Applies to performance screenshots
-* Helps match your brand colors
 
-Note: Colors must be valid hex codes (e.g., #FF6B6B).
 
-### /get\_colors
 
-View current color configuration.
+---
 
-Usage: `/get_colors`
 
-Parameters: None
+## Advanced Filtering
 
-Admin Only: No
+### /delete_x_filtering (Admin Only)
 
-Example:
+Deletes specific X (Twitter) monitoring filters or all filters for the group. 
+Allows administrators to remove individual filters by name or clear all filters
+using the wildcard "*" parameter. Only group administrators can execute this command.
 
+**Usage:**
 ```
-/get_colors
+/delete_x_filtering my_kols_1` - Delete specific filter named "my_kols_1"
 ```
-
-Response: Current hex color codes for all engagement types.
-
-### /set\_top\_title
-
-Customize the title for the main leaderboard section.
-
-Usage: `/set_top_title "Custom Title" "#HexColor"`
-
-Parameters:
-
-* `"Custom Title"`: Title text for main leaderboard section
-* `"#HexColor"`: Hex color code for the title
-
-Admin Only: Yes
-
-Examples:
-
 ```
-/set_top_title "🏆 Top Community Champions" "#FFD700"
-/set_top_title "Elite KOL Performance" "#4ECDC4"
+/delete_x_filtering *` - Delete all filtering queries for the group
 ```
-
-What this does:
-
-* Replaces default "Top Accounts by Performance" title
-* Adds custom branding to reports
-* Title appears in performance screenshots
 
-### /set\_best\_title
+**Parameters:**
+- filter_identifier (required): 
+- Specific filter name to delete individual filter
+- "*" wildcard to delete all filters
 
-Customize the title for the best tweet section.
 
-Usage: `/set_best_title "Custom Title" "#HexColor"`
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Parameter Validation: Checks for filter name or wildcard
+- Existence Check: Validates filter exists before deletion
+- States: No state management required
+- Flow: Parameter validation → Admin check → Filter lookup → Deletion operation
 
-Parameters:
+**User Messages:**
+- Success (Specific Filter): "Filter '[filter_name]' deleted successfully."
+- Success (All Filters): "All X filtering queries deleted successfully."
+- Error (Missing Parameter): "Please provide the filter name to delete or '*' to delete all. Example: /delete_x_filtering my_filter"
+- Error (Filter Not Found): "Filter '[filter_name]' not found."
+- Error (No Filters): "No filters found to delete."
+- Error (Non-admin): "Only admins can delete X filtering."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-* `"Custom Title"`: Title text for best tweet section
-* `"#HexColor"`: Hex color code for the title
+---
 
-Admin Only: Yes
+### /get_x_filtering
 
-Examples:
+Retrieves and displays all currently configured X (Twitter) monitoring filters for the group.
+Shows filter names and their associated query syntax, helping users understand what content
+is being tracked for report generation.
 
+**Usage:**
 ```
-/set_best_title "⭐ Best Tweet of the Month" "#FFD700"
-/set_best_title "Top Performing Post" "#4ECDC4"
+/get_x_filtering
 ```
 
-### /set\_engagement\_title
+**Parameters:**
+- None required
 
-Customize the title for the engagement scoring section.
 
-Usage: `/set_engagement_title "Custom Title" "#HexColor"`
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view filter configurations
+- States: No state management required
+- Flow: Single-step query retrieval and formatted display
 
-Parameters:
+**User Messages:**
+- Success (With Filters): "Current X filtering queries:\n\n[List of numbered filters with names and queries]"
+- Success (No Filters): "No X filtering queries found. Please set a query using /set_x_filtering <filter name> <filtering>"
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-* `"Custom Title"`: Title text for engagement scoring section
-* `"#HexColor"`: Hex color code for the title
+---
 
-Admin Only: Yes
+### /set_x_filtering (Admin Only)
 
-Examples:
+Sets up monitoring filters for X (Twitter) content that will be tracked and included in reports.
+Supports multiple filter types including user mentions, keywords, and account filtering.
+Each filter is saved with a unique name and can contain complex query syntax.
+Only group administrators can execute this command.
 
+**Usage:**
 ```
-/set_engagement_title "📊 Engagement Metrics" "#45B7D1"
-/set_engagement_title "Performance Breakdown" "#FFA07A"
+/set_x_filtering my_kols_1 from:@CryptoHayes OR from:@IncomeSharks keywords:BWS mention:@BWSCommunity
 ```
-
-## Project Settings
-
-Configure project metadata to enhance your presence on xbot.ninja.
-
-### /set\_project\_name
-
-Set your project or team name.
-
-Usage: `/set_project_name "Project Name"`
-
-Parameters:
-
-* `"Project Name"`: Name of your project or team
-
-Admin Only: Yes
-
-Examples:
-
 ```
-/set_project_name "Solana Foundation"
-/set_project_name "Alpha KOL Team"
+/set_x_filtering project_mentions mention:@MyProject OR #MyProjectToken
 ```
-
-What this does:
-
-* Sets project name displayed on xbot.ninja
-* Appears in public leaderboards if you meet listing criteria
-* Helps projects and KOLs get discovered
-
-### /get\_project\_name
-
-View current project name.
-
-Usage: `/get_project_name`
-
-Parameters: None
-
-Admin Only: No
-
-Example:
-
 ```
-/get_project_name
+/set_x_filtering trending_topics #DeFi OR #crypto OR #blockchain
 ```
-
-### /set\_project\_description
-
-Set your project or team description.
-
-Usage: `/set_project_description "Description text"`
 
-Parameters:
-
-* `"Description text"`: Brief description of your project or team
-
-Admin Only: Yes
-
-Examples:
-
-```
-/set_project_description "High-performance blockchain supporting builders around the world"
-/set_project_description "Elite crypto KOL team specializing in DeFi and trading"
-```
+**Parameters:**
+- filter_name (required): Unique identifier for this filter configuration
+- filtering_query (required): X search query syntax using supported operators
+- Supported operators: from:, mention:, keywords:, OR, AND, hashtags (#), mentions (@)
+- Complex queries with multiple conditions are supported
 
-What this does:
 
-* Sets description shown on xbot.ninja
-* Helps users understand what your project/team does
-* Appears in featured projects list
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Token Validation: Requires X token to be configured
+- Parameter Parsing: Complex parsing of filter name and query syntax
+- Duplicate Check: Prevents overwriting existing filters with same name
+- States: No state management required
+- Flow: Parameter validation → Token check → Query parsing → Database storage
 
-### /get\_project\_description
+**User Messages:**
+- Success: "X filtering set for filter '[filter_name]' with query: [parsed_query]"
+- Error (Missing X Token): "X token not set. Please set the X token using /set_x_token <token>"
+- Error (Missing Parameters): "Please provide filter name and filtering query. Example: /set_x_filtering my_filter from:@user1 OR keywords:crypto"
+- Error (Duplicate Filter): "Filter name '[filter_name]' already exists. Use a different name or delete the existing filter first."
+- Error (Invalid Query): Various parsing error messages based on query format issues
+- Error (Non-admin): "Only admins can set X filtering."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-View current project description.
+---
 
-Usage: `/get_project_description`
 
-Parameters: None
+## Project Configuration
 
-Admin Only: No
+### /get_project_description
 
-Example:
+Retrieves and displays the current project description. If no description is set,
+displays a message indicating no project description has been configured.
 
+**Usage:**
 ```
 /get_project_description
 ```
 
-### /set\_project\_logo
 
-Set your project or team logo URL.
 
-Usage: `/set_project_logo "https://url-to-logo.png"`
 
-Parameters:
 
-* `"https://url-to-logo.png"`: Direct URL to your logo image
+---
 
-Admin Only: Yes
+### /get_project_logo
 
-Examples:
+Retrieves and displays the current project logo URL. If no logo is set,
+displays a message indicating no project logo has been configured.
 
-```
-/set_project_logo "https://example.com/solana-logo.png"
-/set_project_logo "https://cdn.example.com/team-logo.jpg"
-```
-
-What this does:
-
-* Sets logo displayed on xbot.ninja
-* Provides visual branding for your project/team
-* Logo appears in featured projects showcase
-
-Note: Logo should be square format (1:1 ratio) and accessible via HTTPS.
-
-### /get\_project\_logo
-
-View current project logo URL.
-
-Usage: `/get_project_logo`
-
-Parameters: None
-
-Admin Only: No
-
-Example:
-
+**Usage:**
 ```
 /get_project_logo
 ```
 
-### /set\_project\_long\_description
 
-Set detailed project or team description.
 
-Usage: `/set_project_long_description "Long description text"`
 
-Parameters:
 
-* `"Long description text"`: Detailed description of your project or team
+---
 
-Admin Only: Yes
+### /get_project_long_description
 
-Examples:
+Retrieves the current detailed project description.
 
-```
-/set_project_long_description "Solana is a high-performance blockchain that supports builders around the world creating decentralized applications. Known for its speed and low transaction costs..."
-```
-
-What this does:
-
-* Sets extended description for project detail pages
-* Provides more context about your project/team
-* Helps users make informed decisions
-
-### /get\_project\_long\_description
-
-View current long project description.
-
-Usage: `/get_project_long_description`
-
-Parameters: None
-
-Admin Only: No
-
-Example:
-
+**Usage:**
 ```
 /get_project_long_description
 ```
 
-### /set\_project\_urls
+**Parameters:**
+None
 
-Set project or team URLs (website, social media, etc.).
 
-Usage: `/set_project_urls "url1" "url2" "url3" ...`
 
-Parameters:
 
-* `"url1" "url2" ...`: URLs for website, social media, documentation, etc.
+---
 
-Admin Only: Yes
+### /get_project_name
 
-Examples:
+Retrieves and displays the current project name. If no name is set,
+displays a message indicating no project name has been configured.
 
+**Usage:**
 ```
-/set_project_urls "https://solana.com" "https://twitter.com/solana" "https://discord.gg/solana"
-/set_project_urls "https://kolteam.io" "https://twitter.com/alphakols"
+/get_project_name
 ```
 
-What this does:
 
-* Sets links displayed on xbot.ninja
-* Provides ways for users to learn more about your project/team
-* Helps drive traffic to your platforms
 
-### /get\_project\_urls
 
-View current project URLs.
 
-Usage: `/get_project_urls`
+---
 
-Parameters: None
+### /get_project_urls
 
-Admin Only: No
+Retrieves the current project URLs.
 
-Example:
-
+**Usage:**
 ```
 /get_project_urls
 ```
 
-## Getting Credits
+**Parameters:**
+None
 
-X Bot includes **100 FREE credits** to get you started. Each credit corresponds to one post tracked in your filtering setup (accounts, keywords, cashtags, and mentions you've configured). Once you've used your free credits, you can purchase additional credits to continue tracking.
+
+
+
+---
+
+### /set_project_description
+
+Sets the project description for the community. This description provides
+context about the project's goals and purpose. Only group administrators 
+can execute this command.
+
+**Usage:**
+```
+/set_project_description A revolutionary DeFi platform for community governance
+```
+```
+/set_project_description "Building the future of decentralized social networks"
+```
+
+**Parameters:**
+- project_description (required): The description of the project
+
+
+
+
+---
+
+### /set_project_logo
+
+Initiates the project logo upload flow. After executing this command, the bot
+will wait for the user to send an image file which will be saved as the project logo.
+The logo is uploaded to the website S3 bucket for public access.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_project_logo
+```
+
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: Sets user state to 'waiting_for_project_logo' with chatId as info
+- Flow: Command → Set state → Wait for photo message → Process photo → Clear state
+
+
+---
+
+### /set_project_long_description
+
+Sets the detailed project description for the community. This allows for longer,
+more comprehensive project information. Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_project_long_description This is a comprehensive description of our project...
+```
+
+**Parameters:**
+- long_description (required): The detailed description of the project
+
+
+
+
+---
+
+### /set_project_name
+
+Sets the project name for the community. This name will be displayed in reports
+and on the website. Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_project_name My Awesome Project
+```
+```
+/set_project_name "Community Token Project"
+```
+
+**Parameters:**
+- project_name (required): The name of the project
+
+
+
+
+---
+
+### /set_project_urls
+
+Sets project URLs (website, social media, documentation, etc.). 
+Accepts multiple URLs separated by spaces or commas.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_project_urls https://example.com https://twitter.com/project
+```
+```
+/set_project_urls website.com, discord.gg/invite, github.com/project
+```
+
+**Parameters:**
+- urls (required): One or more URLs separated by spaces or commas
+
+
+
+
+---
+
+
+## Raid Commands
+
+### /auto_raid_config
+
+
+
+
+
+
+
+
+---
+
+### /get_auto_raid_config
+
+
+
+
+
+
+
+
+---
+
+### /get_raid_defaults
+
+
+
+
+
+
+
+
+---
+
+### /get_raid_message_behavior
+
+
+
+
+
+
+
+
+---
+
+### /raid_history
+
+
+
+
+
+
+
+
+---
+
+### /raid_status
+
+
+
+
+
+
+
+
+---
+
+### /raid_stop
+
+
+
+
+
+
+
+
+---
+
+### /raidx (Admin Only)
+
+Starts a new raid on an X (Twitter) post. Allows community members to engage with the post
+(likes, retweets, replies, quotes) and tracks progress toward target goals.
+Only group administrators can start raids.
+
+**Usage:**
+```
+/raidx https://x.com/username/status/123456
+```
+```
+/raidx https://x.com/username/status/123456 likes=50 retweets=20
+```
+```
+/raidx https://x.com/username/status/123456 duration=1h mute=yes
+```
+
+**Parameters:**
+- `<post_url>` (required): Full X/Twitter post URL
+- `likes=<number>` (optional): Target number of likes (default from settings)
+- `retweets=<number>` (optional): Target number of retweets (default from settings)
+- `replies=<number>` (optional): Target number of replies (default from settings)
+- `quotes=<number>` (optional): Target number of quotes (default from settings)
+- `bookmarks=<number>` (optional): Target number of bookmarks (default from settings)
+- `duration=<time>` (optional): Raid duration (default from settings) - Format: 30m, 2h, 1d
+- `mute=<yes|no>` (optional): Auto-mute chat until targets met (default: no)
+
+
+
+**User Messages:**
+- Success: Raid announcement with targets and link
+- Error (Non-admin): "Only admins can start raids."
+- Error (Invalid URL): "Invalid X post URL."
+- Error (Raids disabled): "Raids are disabled for this chat."
+- Error (Max active): "Maximum active raids reached. Please wait for current raids to complete."
+
+---
+
+### /set_raid_defaults
+
+
+
+
+
+
+
+
+---
+
+### /set_raid_image (Admin Only)
+
+Initiates the raid image upload flow. After executing this command, the bot
+will wait for the user to send an image file which will be saved as the raid image.
+The image is uploaded to the website S3 bucket for public access and displayed
+in raid announcement messages. Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_raid_image
+```
+
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: Sets user state to 'waiting_for_raid_image' with chatId as info
+- Flow: Command → Set state → Wait for photo message → Process photo → Clear state
+
+**User Messages:**
+- Success (State saved): "Please send the raid image you'd like to use. This image will appear in all raid announcements for this chat."
+- Success (Photo uploaded): "Raid image uploaded successfully! Your image will now appear in future raid announcements."
+- Error (Non-admin): "Only admins can set the raid image."
+- Error (Invalid topic): Topic-specific error message
+- Error (Upload failed): "Failed to upload raid image. Please try again."
+
+---
+
+### /set_raid_message_behavior
+
+
+
+
+
+
+
+
+---
+
+
+## Schedule Management
+
+### /delete_schedule (Admin Only)
+
+Removes the configured daily schedule for automatic report generation. Deletes the 
+EventBridge rule and database entry. Only group administrators can execute this command.
+
+**Usage:**
+```
+/delete_schedule
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Schedule Check: Verifies existing schedule before deletion
+- States: No state management required
+- Flow: Admin check → Schedule lookup → EventBridge rule deletion → Database cleanup
+
+**User Messages:**
+- Success: "Schedule deleted successfully. Reports will no longer be generated automatically at the scheduled time."
+- Success (No Schedule): "No schedule found to delete."
+- Error (EventBridge failure): Error details from EventBridge rule deletion
+- Error (Non-admin): "Only admins can delete the schedule."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /get_schedule
+
+Retrieves and displays the current scheduled time for automatic report generation.
+Shows the configured UTC time or indicates if no schedule is set.
+
+**Usage:**
+```
+/get_schedule
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view schedule configuration
+- States: No state management required
+- Flow: Single-step schedule retrieval and display
+
+**User Messages:**
+- Success (Configured): "Current schedule: Reports are generated daily at [HH:MM] UTC."
+- Success (Not Configured): "No schedule set. Reports will be generated based on calendar settings or manually. Use /set_schedule HH:MM to set a daily schedule."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_schedule (Admin Only)
+
+Sets a schedule for when reports should be automatically generated. Supports both simple
+daily time scheduling (HH:MM format) and advanced cron expressions for complex schedules.
+Creates an EventBridge rule for scheduled report generation. Only group administrators 
+can execute this command.
+
+**Usage:**
+```
+/set_schedule 12:30` - Generate reports daily at 12:30 UTC
+```
+```
+/set_schedule 14:30 Mon Wed Fri` - Generate reports on Monday, Wednesday, Friday at 14:30 UTC
+```
+```
+/set_schedule 09:00 1 7` - Generate reports on Monday (1) and Sunday (7) at 09:00 UTC
+```
+```
+/set_schedule 16:00 Monday Wednesday` - Generate reports on Monday and Wednesday at 16:00 UTC
+```
+```
+/set_schedule cron(0 12 ? * MON-FRI *)` - Generate reports at 12:00 UTC on weekdays only
+```
+```
+/set_schedule cron(0 9 ? * MON *)` - Generate reports every Monday at 09:00 UTC
+```
+
+**Parameters:**
+- schedule (required): Either:
+- Time in HH:MM format (24-hour, UTC timezone) for daily schedules
+- Time and days: HH:MM followed by day names/numbers (e.g. "14:30 Mon Wed Fri")
+- AWS EventBridge cron expression for complex schedules
+- Validation:
+- HH:MM format with valid hours (00-23) and minutes (00-59)
+- Day formats: Numbers (Monday=1-7), short names (Mon-Sun), long names (Monday-Sunday)
+- Valid AWS EventBridge cron syntax: cron(Minutes Hours Day-of-month Month Day-of-week Year)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Schedule Validation: Validates either HH:MM format or cron expression
+- States: No state management required
+- Flow: Parameter validation → EventBridge rule creation → Database storage
+
+**User Messages:**
+- Success (Time): "Schedule set successfully. Reports will be generated daily at [HH:MM] UTC."
+- Success (Cron): "Schedule set successfully with custom cron expression: [expression]"
+- Error (Missing): "Please provide a schedule (HH:MM or cron expression)"
+- Error (Invalid format): "Invalid schedule format. Use HH:MM or cron expression."
+- Error (EventBridge failure): Error details from EventBridge rule creation
+- Error (Non-admin): "Only admins can set the schedule."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Calendar & Time
+
+### /get_calendar
+
+Retrieves and displays the current calendar configuration including start date and cadence 
+for report generation. Shows the configured schedule or indicates if no calendar is set.
+
+**Usage:**
+```
+/get_calendar
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view calendar configuration
+- States: No state management required
+- Flow: Single-step configuration retrieval → Parsing → Display formatting
+
+**User Messages:**
+- Success (Configured): "Calendar is set to start on [formatted_date] and repeat every [N] days.\n\nAll times are processed and displayed in UTC."
+- Success (Not Configured): "No calendar set. Please set the calendar using /set_calendar <start day> <cadence in days>"
+- Error (Parse Failure): "Invalid calendar format found in database. Please reconfigure using /set_calendar."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_calendar (Admin Only)
+
+Configures the start date and cadence (period) for report generation. Sets up a calendar-based 
+schedule that determines when reports are automatically generated. Only group administrators 
+can execute this command.
+
+**Usage:**
+```
+/set_calendar 20/06/2025 7days` - Start reports on June 20, 2025, every 7 days
+```
+```
+/set_calendar 01/01/2025 14days` - Start reports on January 1, 2025, every 14 days
+```
+
+**Parameters:**
+- start_date (required): Date in DD/MM/YYYY format (e.g., "20/06/2025")
+- cadence (required): Period in "Ndays" format (e.g., "7days", "14days")
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Date Validation: Comprehensive parsing and validation of date format and future date requirement
+- States: No state management required
+- Flow: Parameter parsing → Date validation → Future date check → Database storage
+
+**User Messages:**
+- Success: "Calendar set to start on [formatted_date] and repeat every [N] days."
+- Error (Missing params): "Please provide both start date and cadence. Example: /set_calendar 20/06/2025 7days"
+- Error (Invalid date format): "Invalid date format. Please use DD/MM/YYYY format. Example: /set_calendar 20/06/2025 7days"
+- Error (Invalid cadence): "Invalid cadence format. Please use format like '7days' or '14days'. Example: /set_calendar 20/06/2025 7days"
+- Error (Past date): "Start date must be in the future. Please provide a future date."
+- Error (Non-admin): "Only admins can set the calendar."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Reports
+
+### /recreate (Admin Only)
+
+Forces the generation of a new report by triggering the tweet fetching and report generation 
+process. This command consumes credits and can optionally delete existing report history.
+Only group administrators can execute this command, and requires X token and filtering 
+queries to be configured.
+
+**Usage:**
+```
+/recreate` - Generate new report keeping existing data
+```
+```
+/recreate delete-history` - Generate new report and delete all existing tweets/reports
+```
+
+**Parameters:**
+- Optional: `delete-history` flag to remove existing report data from S3 storage
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Prerequisites: X Token must be configured, at least one filtering query must exist
+- Future Date Check: Cannot recreate if period start date is in the future
+- States: No state management required (triggers external workflow)
+- Flow: Validation → Optional S3 cleanup → Step Functions trigger
+
+**User Messages:**
+- Success: "Recreating report (new credits will be consumed)... please wait."
+- Error (Non-admin): "Only admins can recreate the report."
+- Error (No X Token): "X token not set. Please set the X token using /set_x_token <token>"
+- Error (No Queries): "No queries found. Please set a query using /set_x_filtering <filter name> <filtering>"
+- Error (Future Start Date): "Cannot recreate report. The calendar period start date ([date]) is set in the future. The report generation will automatically begin when the period starts."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /report
+
+Displays the last generated report for the group. Retrieves and sends the most recent 
+leaderboard report including both image and text components. The report shows user 
+engagement statistics and rankings based on configured scoring rules.
+
+**Usage:**
+```
+/report
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view reports
+- States: No state management required
+- Flow: Single-step report retrieval and display
+- Content: Sends both image (chart) and text (formatted data) versions
+
+**User Messages:**
+- Success: Sends report image followed by markdown-formatted text report
+- Success (No Reports): Message indicating no reports are available yet
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Leaderboard Customization
+
+### /get_colors
+
+Retrieves and displays the current HTML color configuration for engagement metrics 
+(Likes, Retweets, Replies, Quotes, Views) used in leaderboard reports. Shows either 
+configured colors or default values if none are set.
+
+**Usage:**
+```
+/get_colors
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view color configuration
+- States: No state management required
+- Flow: Single-step command execution with configuration retrieval
+
+**User Messages:**
+- Success (Configured): "Colors setup.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
+- Success (Default): "Colors setup (using default values).\n\nLikes: #7dc9ad\nRetweets: #87a861\nReplies: #d9feb9\nQuotes: #f3fd9c\nViews: #92f327"
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /get_points
+
+Retrieves and displays the current scoring multipliers for engagement metrics 
+(Likes, Retweets, Replies, Quotes, Views) used in leaderboard calculations. 
+Shows either configured values or indicates default values are being used.
+
+**Usage:**
+```
+/get_points
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view points configuration
+- States: No state management required
+- Flow: Single-step command execution with configuration retrieval
+
+**User Messages:**
+- Success (Configured): "Points setup.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
+- Success (Default): "No points set (using default values). Please set the points using /set_points <likes> <retweets> <replies> <quotes> <views>"
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /get_titles
+
+Retrieves and displays all current title configurations for the report sections including
+top title (main leaderboard), best title (best tweet), and engagement title (scoring rules).
+Shows either configured values or default values for each section.
+
+**Usage:**
+```
+/get_titles
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view title configurations
+- States: No state management required
+- Flow: Single-step configuration retrieval and display formatting
+
+**User Messages:**
+- Success: "🎨 Current Title Configuration:\n\n**📊 Top Title (Main Leaderboard):**\nText: \"[text]\"\nColor: `[color]`\n\n**🏆 Best Title (Best Tweet):**\nText: \"[text]\"\nColor: `[color]`\n\n**⚡ Engagement Title (Scoring Rules):**\nText: \"[text]\"\nColor: `[color]`\n\n💡 Use /set_top_title, /set_best_title, or /set_engagement_title to customize these settings"
+- Error (Invalid topic): Command is silently ignored
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /get_top_count
+
+Retrieves and displays the current number of users configured to show in the report 
+leaderboard. Shows either the configured value or indicates default value (10) is being used.
+
+**Usage:**
+```
+/get_top_count
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- No Admin Check: Any user can view top count configuration
+- States: No state management required
+- Flow: Single-step command execution with configuration retrieval
+
+**User Messages:**
+- Success (Configured): "Top count is set to [number]."
+- Success (Default): "No top count set (using default value of 10). Please set the top count using /set_top_count <count>"
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_best_title
+
+Sets the title text and color for the best tweet section in generated reports.
+Allows customization of the heading displayed above the highlighted best tweet.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_best_title "Tweet of the Day" #ff6b6b
+```
+```
+/set_best_title "Top Performance" #28a745
+```
+
+**Parameters:**
+- title_text (required): Text content for the title (in quotes if contains spaces)
+- color (required): Hex color code in #RRGGBB format (e.g., #ff6b6b)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Parameter Validation: Validates title text and hex color format
+- States: No state management required
+- Flow: Parameter parsing → Validation → Database storage
+
+**User Messages:**
+- Success: "✅ Best Title Updated Successfully!\n\n**New Best Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
+- Error (Missing parameters): "Please provide both title text and color. Example: /set_best_title \"Tweet of the Day\" #ff6b6b"
+- Error (Empty title): "Title text cannot be empty. Example: /set_best_title \"Tweet of the Day\" #ff6b6b"
+- Error (Invalid color): "Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
+- Error (Non-admin): "Only group administrators can change the best title settings."
+- Error (Invalid topic): Command is silently ignored
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_colors (Admin Only)
+
+Sets the HTML colors for displaying engagement metrics (Likes, Retweets, Replies, Quotes, Views) 
+in the leaderboard reports. Colors are stored as hexadecimal values and used for report generation.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_colors #536352 #536354 #536351 #536357 #536359
+```
+
+**Parameters:**
+- likes (required): HTML hex color for likes display (e.g., #FF0000 or #F00)
+- retweets (required): HTML hex color for retweets display (e.g., #00FF00)
+- replies (required): HTML hex color for replies display (e.g., #0000FF)
+- quotes (required): HTML hex color for quotes display (e.g., #FFFF00)
+- views (required): HTML hex color for views display (e.g., #FF00FF)
+- Validation: Each color must match HTML hex format (#RRGGBB or #RGB)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow: Single-step command execution with parameter validation
+
+**User Messages:**
+- Success: "New colors set.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
+- Error (Missing parameters): "Please provide 5 HTML hex colors. Example: /set_colors #536352 #536354 #536351 #536357 #536359"
+- Error (Invalid format): "Invalid color format. Please provide valid HTML hex colors (e.g., #FF0000 or #F00).\n\nExample: /set_colors #536352 #536354 #536351 #536357 #536359"
+- Error (Non-admin): "Only admins can set the colors."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_engagement_title
+
+Sets the title text and color for the engagement scoring section in generated reports.
+Allows customization of the heading displayed above engagement scoring rules and metrics.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_engagement_title "Scoring Rules" #28a745
+```
+```
+/set_engagement_title "Engagement Metrics" #6f42c1
+```
+
+**Parameters:**
+- title_text (required): Text content for the title (in quotes if contains spaces)
+- color (required): Hex color code in #RRGGBB format (e.g., #28a745)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Parameter Validation: Validates title text and hex color format
+- States: No state management required
+- Flow: Parameter parsing → Validation → Database storage
+
+**User Messages:**
+- Success: "✅ Engagement Title Updated Successfully!\n\n**New Engagement Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
+- Error (Missing parameters): "Please provide both title text and color. Example: /set_engagement_title \"Scoring Rules\" #28a745"
+- Error (Empty title): "Title text cannot be empty. Example: /set_engagement_title \"Scoring Rules\" #28a745"
+- Error (Invalid color): "Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
+- Error (Non-admin): "Only group administrators can change the engagement title settings."
+- Error (Invalid topic): Command is silently ignored
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_points (Admin Only)
+
+Sets the scoring multipliers for engagement metrics (Likes, Retweets, Replies, Quotes, Views) 
+used in leaderboard calculations. These multipliers determine how many points each type of 
+engagement contributes to a user's total score. Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_points 5 1 20 10 0.01
+```
+
+**Parameters:**
+- likes (required): Points awarded per like (positive number, can be decimal)
+- retweets (required): Points awarded per retweet (positive number, can be decimal)
+- replies (required): Points awarded per reply (positive number, can be decimal)
+- quotes (required): Points awarded per quote (positive number, can be decimal)
+- views (required): Points awarded per view (positive number, can be decimal)
+- Validation: Each value must match positive number format (regex: /^[0-9]+(\.[0-9]+)?$/)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow: Single-step command execution with parameter validation
+
+**User Messages:**
+- Success: "New points set.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
+- Error (Missing parameters): "Please provide 5 point values for likes, retweets, replies, quotes and views. Example: /set_points 5 1 20 10 0.01"
+- Error (Invalid format): "Invalid points format. Please provide valid points for likes, retweets, replies, quotes and views. Example: /set_points 5 1 20 10 0.01"
+- Error (Non-admin): "Only admins can set the points."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_top_count (Admin Only)
+
+Sets the number of users to display in the report leaderboard. This controls how many 
+top-performing users are shown in the generated reports. Only group administrators 
+can execute this command.
+
+**Usage:**
+```
+/set_top_count 10
+```
+
+**Parameters:**
+- count (required): Positive integer representing number of users to show in leaderboard
+- Validation: Must be a positive integer (regex: /^[1-9][0-9]*$/)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow: Single-step command execution with parameter validation
+
+**User Messages:**
+- Success: "Top count set to [number]."
+- Error (Missing parameter): "Please provide a valid number of users to show in the report leaderboard (e.g. /set_top_count 10)."
+- Error (Invalid format): "Invalid number format. Please provide a valid number of users to show in the report leaderboard (e.g. /set_top_count 10)."
+- Error (Non-admin): "Only admins can set the top count."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_top_title
+
+Sets the title text and color for the main leaderboard section in generated reports.
+Allows customization of the primary heading displayed at the top of leaderboard reports.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_top_title "Weekly Leaderboard" #476a30
+```
+```
+/set_top_title "X Engagement Rankings" #ff6b6b
+```
+
+**Parameters:**
+- title_text (required): Text content for the title (in quotes if contains spaces)
+- color (required): Hex color code in #RRGGBB format (e.g., #476a30)
+
+
+**Workflow:**
+- Execution Context: Groups only (checked via isValidTopic)
+- Admin Verification: Requires group administrator privileges
+- Parameter Validation: Validates title text and hex color format
+- States: No state management required
+- Flow: Parameter parsing → Validation → Database storage
+
+**User Messages:**
+- Success: "✅ Top Title Updated Successfully!\n\n**New Top Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
+- Error (Missing parameters): "❌ Please provide both title text and color. Example: /set_top_title \"Weekly Leaderboard\" #476a30"
+- Error (Empty title): "❌ Title text cannot be empty. Example: /set_top_title \"Weekly Leaderboard\" #476a30"
+- Error (Invalid color): "❌ Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
+- Error (Non-admin): "Only group administrators can change the top title settings."
+- Error (Invalid topic): Command is silently ignored
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Topic Management
+
+### /get_topic
+
+Retrieves and displays the currently configured topic (forum thread) where the bot 
+sends reports. Shows either the topic name or thread ID if configured.
+
+**Usage:**
+```
+/get_topic
+```
+
+**Parameters:**
+- None required
+
+
+**Workflow:**
+- Execution Context: Any context (no restrictions)
+- No Admin Check: Any user can view topic configuration
+- States: No state management required
+- Flow: Single-step configuration retrieval and display
+
+**User Messages:**
+- Success (With Name): "Bot will send reports to topic \"[topic name]\"."
+- Success (Without Name): "Bot will send reports to topic ID [thread_id]."
+- Success (Not Configured): "No topic set. Please set the topic using /set_topic in a topic chat."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /set_topic (Admin Only)
+
+Sets the specific topic (forum thread) where the bot should send reports in Telegram groups 
+that use forum-style topics. This command must be executed within the target topic thread.
+Only group administrators can execute this command.
+
+**Usage:**
+```
+/set_topic` (executed within the desired topic thread)
+```
+
+**Parameters:**
+- None required (automatically captures current topic context)
+
+
+**Workflow:**
+- Execution Context: Must be used within a forum topic thread
+- Admin Verification: Requires group administrator privileges
+- Topic Validation: Checks for is_topic_message and message_thread_id
+- States: No state management required
+- Flow: Single-step topic capture and storage
+
+**User Messages:**
+- Success (With Name): "Topic set to \"[topic name]\"."
+- Success (Without Name): "Topic set with ID [thread_id]."
+- Error (Non-admin): "Only admins can set the topic."
+- Error (Not in Topic): "This command can only be used in a topic chat."
+- Error (No Thread ID): "This command can only be used in a topic chat with an existing topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Admin
+
+### /add_admin
+
+Designates specific group administrators to receive private bot notifications (e.g., credit
+exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
+administrators. Only group administrators can execute this command.
+
+**Usage:**
+```
+/add_admin @user1 @user2 @user3` - Designate specific admins
+```
+```
+/add_admin clear` - Remove all designated admins (will notify all admins)
+```
+
+**Parameters:**
+- users (required): Mentioned users (via @username) or "clear" to remove all
+- Validation:
+- All mentioned users must be current group administrators
+- Maximum 10 admins can be designated
+- Overwrites previous list (does not append)
+
+
+**Workflow:**
+- Execution Context: Groups only (no DMs)
+- Admin Verification: Requires group administrator privileges
+- States: No state management required
+- Flow:
+1. Validate caller is admin
+2. Parse mentioned users from message entities
+3. Verify each mentioned user is admin via getChatMember
+4. Save verified admin IDs to settings
+5. Reply with success message listing added admins
+
+**User Messages:**
+- Success (Admins added): Lists designated admins with usernames
+- Success (Cleared): Confirmation that all designated admins were removed
+- Error (Non-admin): "Only administrators can designate notification recipients."
+- Error (Not in group): "This command can only be used in group chats."
+- Error (Users not admin): Lists users who are not administrators
+- Error (No users provided): Usage instructions
+- Error (Too many admins): "You can designate a maximum of 10 admins."
+- Error (Invalid topic): "This command is not allowed in this topic."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+## Subscription & Credits
 
 ### /buy
 
-Purchase X Bot Pro Edition credits using BWS tokens.
+Initiates the purchase process for X Bot Professional subscription. Handles complex multi-step
+workflow that starts in group chat and continues in private messages with Stripe integration.
+Creates checkout sessions for new purchases and manages subscription state transitions.
 
-Usage: `/buy`
-
-Parameters: None
-
-Where: Works in both group chats and Direct Messages (DM) with the bot
-
-🔒 PRIVACY RECOMMENDED: Use Direct Message (DM) for Private Purchases
-
-For complete privacy, send `/buy` in a Direct Message to [@BWS\_X\_Bot](https://t.me/BWS_X_Bot) instead of in the group chat. This keeps the entire purchase conversation private - only you will see the purchase link and transaction details.
-
-Examples:
-
-Recommended: In Direct Message with bot (completely private)
-
+**Usage:**
 ```
-/buy
+/buy` (executed in group chat to start purchase process)
 ```
 
-In group chat (visible to everyone in the group)
+**Parameters:**
+- None required (command triggered action)
 
-```
-/buy
-```
 
-What this does:
+**Workflow:**
+- Execution Context: Both group and private messages (context-aware behavior)
+- Group Flow: Checks PRO status → Creates checkout session → Sets user state → Sends private message
+- Private Flow: Continues purchase process or provides subscription management
+- States Managed:
+- 'waiting_for_purchase': User has active checkout session
+- Multi-step Workflow: Group command → Private message continuation → Stripe checkout → Payment confirmation
 
-* Provides secure purchase link for BWS token credit purchase
-* Redirects to purchase page at xbot.ninja
-* Credits are added to your group immediately after successful purchase
+**User Messages:**
+- Success (Group - New Purchase): Creates Stripe checkout session and sends private message with payment link
+- Success (Group - Already PRO): "You already have a PRO license for this group. Use /subscription to manage your subscription."
+- Success (Private - Continue Purchase): Provides checkout link or subscription management options
+- Error (Stripe Integration): Various Stripe-related error messages
+- Error (State Management): "An error occurred while processing your request. Please try again."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-How to purchase privately in DM:
+---
 
-{% stepper %}
-{% step %}
-#### Open a Direct Message with the bot
+### /get_credits
 
-Open a Direct Message with [@BWS\_X\_Bot](https://t.me/BWS_X_Bot).
-{% endstep %}
+Displays the current credit usage and availability for the bot. Shows different information based on 
+license type (FREE shows remaining credits, PRO shows unlimited usage). Credits are consumed when 
+fetching posts from X (Twitter) for report generation.
 
-{% step %}
-#### Send the buy command
-
-Send `/buy` command in the DM (not in the group).
-{% endstep %}
-
-{% step %}
-#### Receive private link
-
-Bot sends you a private purchase link that only you can see.
-{% endstep %}
-
-{% step %}
-#### Complete purchase
-
-Complete your purchase privately - no one in the group will see any part of the transaction.
-{% endstep %}
-
-{% step %}
-#### Credits applied
-
-Credits are automatically added to your group upon successful payment.
-{% endstep %}
-{% endstepper %}
-
-### /subscription
-
-View your current Pro subscription status.
-
-Usage: `/subscription`
-
-Parameters: None
-
-Admin Only: No
-
-Example:
-
-```
-/subscription
-```
-
-Response: Current subscription status, expiration date, and available credits.
-
-### /get\_credits
-
-View available Pro credits for your group.
-
-Usage: `/get_credits`
-
-Parameters: None
-
-Admin Only: No
-
-Example:
-
+**Usage:**
 ```
 /get_credits
 ```
 
-Response: Number of remaining Pro credits for report generation and other Pro features.
+**Parameters:**
+- None required
 
-## Command Tips & Best Practices
 
-### General Tips
+**Workflow:**
+- Execution Context: Both groups and private messages
+- License Check: Determines display format (FREE vs PRO)
+- States: No state management required
+- Flow: Single-step command execution with license-aware response
 
-1.  Use Quotes for Multi-Word Terms: Always use quotes when adding keywords with spaces:
+**User Messages:**
+- Success (PRO): "*[Month Year] - PRO Edition*\nConsumed Credits: [number]"
+- Success (FREE): "*[Month Year] - Free Edition*\nConsumed Credits: [number]\nRemaining: [number]\n\n💡 Upgrade to PRO for unlimited credits! Use /buy to upgrade."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
-    ```
-    /add_keywords "decentralized finance" "crypto trading"
-    ```
-2.  Include Symbols: Don't forget @ for accounts, # for hashtags, $ for cashtags:
+---
 
-    ```
-    /add_accounts @VitalikButerin
-    /add_keywords "#Bitcoin"
-    /add_cashtags $ETH
-    ```
-3.  Named Filters for Organization: Use named filters to keep different tracking scenarios organized:
+### /payment_cancelled
 
-    ```
-    /add_accounts @Client1 filter=client1
-    /recreate filter=client1
-    ```
-4. Schedule in UTC: Remember that schedule times are in UTC timezone. Convert from your local time.
+Handles payment cancellation when users exit Stripe checkout without completing payment.
+This command is automatically triggered when users return from cancelled Stripe payment flows
+via redirect URLs. Cleans up user state and provides guidance for retrying.
 
-### Performance Optimization
-
-* Start Small: Begin with a few accounts/keywords and expand based on results
-* Use Exclusions: Filter out spam and irrelevant content with exclusions
-* Regular Reports: Set daily schedules to track trends over time
-* Named Filters: Separate different campaigns or clients for clearer insights
-
-### Report Quality
-
-* Balanced Tracking: Track both accounts and keywords for comprehensive insights
-* Clean Data: Use ignore list to hide test accounts and bots
-* Custom Scoring: Adjust point weights to reflect what matters most to your community
-* Branding: Set custom titles and colors to match your brand
-
-### Privacy and Security
-
-* DM for Privacy: Use Direct Messages for sensitive commands like `/buy`
-* Admin Commands: Only admins can configure tracking and settings
-* Public Reports: Anyone in the group can view reports and current configuration
-* Filter Isolation: Named filters keep different client/campaign data separate
-
-### Troubleshooting
-
-{% stepper %}
-{% step %}
-#### No Data in Reports
-
-* Verify accounts/keywords are configured: `/get_accounts`, `/get_keywords`
-* Wait a few hours for X API to collect data
-* Ensure tracked accounts are public
-{% endstep %}
-
-{% step %}
-#### Reports Not Generating
-
-* Check schedule is set: `/get_schedule`
-* Verify time is in UTC
-* Manually test with `/recreate`
-{% endstep %}
-
-{% step %}
-#### Bot Not Responding
-
-* Verify bot has admin status in the group
-* Check if bot was removed or banned
-* Try removing and re-adding the bot
-{% endstep %}
-{% endstepper %}
-
-### Advanced Usage
-
-Multi-Client KOL Team Setup:
-
+**Usage:**
 ```
-# Client A
-/add_accounts @KOL1 @KOL2 filter=client_a
-/add_cashtags $TOKENA filter=client_a
-/set_schedule 10:00 filter=client_a
-
-# Client B
-/add_accounts @KOL1 @KOL3 filter=client_b
-/add_cashtags $TOKENB filter=client_b
-/set_schedule 14:00 filter=client_b
-
-# Generate separate reports
-/recreate filter=client_a
-/recreate filter=client_b
+/payment_cancelled` (automatically triggered by Stripe cancel URL redirect)
 ```
 
-Comprehensive Project Tracking:
+**Parameters:**
+- None required (callback command from Stripe)
 
+
+**Workflow:**
+- Execution Context: Private messages only (triggered after Stripe redirect)
+- State Cleanup: Removes 'waiting_for_purchase' state to reset user workflow
+- Recovery Guidance: Provides instructions for retrying purchase
+- States: Deletes 'waiting_for_purchase' state
+- Flow: Stripe cancel redirect → State cleanup → Retry guidance message
+
+**User Messages:**
+- Success: "❌ Payment was cancelled.\n\n💡 You can try again anytime by using the /buy command in your group."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /payment_success
+
+Handles successful payment confirmation after Stripe checkout completion. This command is
+automatically triggered when users return from successful Stripe payment flows via redirect URLs.
+Cleans up user state and provides confirmation messaging.
+
+**Usage:**
 ```
-# Official accounts
-/add_accounts @ProjectOfficial @ProjectFounder
-
-# Community cashtags
-/add_cashtags $PROJECTTOKEN
-
-# Track mentions of key accounts
-/add_mentions @ProjectOfficial @ProjectFounder
-
-# Exclude spam
-/add_exclusions "scam" "fake giveaway"
-
-# Hide internal accounts
-/add_ignore_list @ProjectTestAccount @InternalBot
-
-# Schedule daily reports
-/set_schedule 12:00
-
-# Customize branding
-/set_project_name "My Project"
-/set_project_description "Revolutionary DeFi protocol"
-/set_top_title "🏆 Top Community Contributors" "#FFD700"
+/payment_success` (automatically triggered by Stripe success URL redirect)
 ```
 
-This command reference is for X Bot Beta Version. Commands and features are subject to change as the platform improves.
+**Parameters:**
+- None required (callback command from Stripe)
+
+
+**Workflow:**
+- Execution Context: Private messages only (triggered after Stripe redirect)
+- State Cleanup: Removes 'waiting_for_purchase' state
+- Webhook Integration: Works in conjunction with Stripe webhooks for license activation
+- States: Deletes 'waiting_for_purchase' state
+- Flow: Stripe success redirect → State cleanup → Confirmation message
+
+**User Messages:**
+- Success: "🎉 Thank you for your payment! Your subscription is being activated and you'll receive confirmation shortly.\n\n✅ You can now return to your group and start using PRO features."
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+### /subscription
+
+Provides access to Stripe customer portal for subscription management including billing history,
+payment methods, and cancellation options. Handles both group and private message contexts
+with appropriate PRO license validation and customer portal URL generation.
+
+**Usage:**
+```
+/subscription` (executed in group or private chat for subscription management)
+```
+
+**Parameters:**
+- None required (management command)
+
+
+**Workflow:**
+- Execution Context: Both group and private messages (context-aware behavior)
+- Group Flow: Validates PRO license → Checks ownership → Provides portal access or guidance
+- Private Flow: Direct portal access for subscription management
+- License Validation: Ensures group has active PRO subscription
+- Ownership Check: Verifies user is subscription owner for management access
+- States: No state management required
+- Flow: Context detection → License validation → Ownership verification → Portal URL generation
+
+**User Messages:**
+- Success (Group - Owner): Provides Stripe customer portal link for subscription management
+- Success (Private - Owner): Direct portal access with management options
+- Error (Group - No PRO): "This group doesn't have a PRO subscription. Use /buy to upgrade."
+- Error (Group - Not Owner): "Only the subscription owner can manage the subscription. Please contact [owner] for assistance."
+- Error (Private - No Subscription): "You don't have an active subscription. Use /buy to subscribe."
+- Error (Stripe Portal): Error details from Stripe customer portal creation
+- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
+
+---
+
+
+---
+
+## Need Help?
+
+- 💬 Join our [Telegram Support Group](https://t.me/bws_xbot_support)
+- 📖 Visit [docs.bws.ninja](https://docs.bws.ninja) for guides
+- 🐛 Report issues on [GitHub](https://github.com/blockchain-web-services)
+
+---
+
+_This documentation is automatically synchronized from the X Bot source code._
