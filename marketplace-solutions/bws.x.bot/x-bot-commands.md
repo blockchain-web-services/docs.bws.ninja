@@ -1,6 +1,6 @@
 # X Bot Commands Reference
 
-> **Last Updated:** 2025-12-30
+> **Last Updated:** 2025-12-31
 >
 > This documentation is automatically generated from source code.
 
@@ -41,7 +41,7 @@ and configuration purposes. Only group administrators can execute this command.
 
 ---
 
-### /help
+### /help (Admin Only)
 
 Displays available bot commands and their descriptions. Shows different command sets based on whether
 the user is a group administrator (full command list) or regular user (limited command list).
@@ -141,21 +141,14 @@ Only group administrators can execute this command.
 
 ## Quick Filter Management
 
-### /add_accounts
+### /add_accounts (Admin Only)
 
+Parse filter parameter from command arguments Looks for filter=name pattern and extracts it @param {string[]} args - Command arguments
 
-
-
-
-
-
-
----
-
-### /add_cashtags
-
-
-
+**Usage:**
+```
+/add_accounts
+```
 
 
 
@@ -163,21 +156,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /add_excludes
+### /add_cashtags (Admin Only)
 
+Add cashtags to the filter configuration.
 
-
-
-
-
-
-
----
-
-### /add_ignore
-
-
-
+**Usage:**
+```
+/add_cashtags
+```
 
 
 
@@ -185,21 +171,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /add_keywords
+### /add_excludes (Admin Only)
 
+Add excludes to the filter configuration.
 
-
-
-
-
-
-
----
-
-### /add_mentions
-
-
-
+**Usage:**
+```
+/add_excludes
+```
 
 
 
@@ -207,21 +186,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /clear_accounts
+### /add_ignore (Admin Only)
 
+Add ignore to the filter configuration.
 
-
-
-
-
-
-
----
-
-### /clear_cashtags
-
-
-
+**Usage:**
+```
+/add_ignore
+```
 
 
 
@@ -229,21 +201,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /clear_excludes
+### /add_keywords (Admin Only)
 
+Add keywords to the filter configuration.
 
-
-
-
-
-
-
----
-
-### /clear_ignore
-
-
-
+**Usage:**
+```
+/add_keywords
+```
 
 
 
@@ -251,10 +216,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /clear_keywords
+### /add_mentions (Admin Only)
 
+Add mentions to the filter configuration.
 
-
+**Usage:**
+```
+/add_mentions
+```
 
 
 
@@ -262,10 +231,89 @@ Only group administrators can execute this command.
 
 ---
 
-### /clear_mentions
+### /clear_accounts (Admin Only)
+
+Clear all accounts from the filter.
+
+**Usage:**
+```
+/clear_accounts
+```
 
 
 
+
+
+---
+
+### /clear_cashtags (Admin Only)
+
+Clear all cashtags from the filter.
+
+**Usage:**
+```
+/clear_cashtags
+```
+
+
+
+
+
+---
+
+### /clear_excludes (Admin Only)
+
+Clear all excludes from the filter.
+
+**Usage:**
+```
+/clear_excludes
+```
+
+
+
+
+
+---
+
+### /clear_ignore (Admin Only)
+
+Clear all ignore from the filter.
+
+**Usage:**
+```
+/clear_ignore
+```
+
+
+
+
+
+---
+
+### /clear_keywords (Admin Only)
+
+Clear all keywords from the filter.
+
+**Usage:**
+```
+/clear_keywords
+```
+
+
+
+
+
+---
+
+### /clear_mentions (Admin Only)
+
+Clear all mentions from the filter.
+
+**Usage:**
+```
+/clear_mentions
+```
 
 
 
@@ -275,19 +323,12 @@ Only group administrators can execute this command.
 
 ### /list_filters
 
+Lists all filters for the current chat
 
-
-
-
-
-
-
----
-
-### /remove_accounts
-
-
-
+**Usage:**
+```
+/list_filters
+```
 
 
 
@@ -295,21 +336,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /remove_cashtags
+### /remove_accounts (Admin Only)
 
+Removes accounts from the default filter
 
-
-
-
-
-
-
----
-
-### /remove_excludes
-
-
-
+**Usage:**
+```
+/remove_accounts
+```
 
 
 
@@ -317,21 +351,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /remove_ignore
+### /remove_cashtags (Admin Only)
 
+Remove cashtags from the filter configuration.
 
-
-
-
-
-
-
----
-
-### /remove_keywords
-
-
-
+**Usage:**
+```
+/remove_cashtags
+```
 
 
 
@@ -339,10 +366,59 @@ Only group administrators can execute this command.
 
 ---
 
-### /remove_mentions
+### /remove_excludes (Admin Only)
+
+Remove excludes from the filter configuration.
+
+**Usage:**
+```
+/remove_excludes
+```
 
 
 
+
+
+---
+
+### /remove_ignore (Admin Only)
+
+Remove ignore from the filter configuration.
+
+**Usage:**
+```
+/remove_ignore
+```
+
+
+
+
+
+---
+
+### /remove_keywords (Admin Only)
+
+Remove keywords from the filter configuration.
+
+**Usage:**
+```
+/remove_keywords
+```
+
+
+
+
+
+---
+
+### /remove_mentions (Admin Only)
+
+Remove mentions from the filter configuration.
+
+**Usage:**
+```
+/remove_mentions
+```
 
 
 
@@ -352,8 +428,12 @@ Only group administrators can execute this command.
 
 ### /show_filter
 
+Shows the current configuration of the default filter
 
-
+**Usage:**
+```
+/show_filter
+```
 
 
 
@@ -564,7 +644,7 @@ None
 
 ---
 
-### /set_project_description
+### /set_project_description (Admin Only)
 
 Sets the project description for the community. This description provides
 context about the project's goals and purpose. Only group administrators 
@@ -586,7 +666,7 @@ can execute this command.
 
 ---
 
-### /set_project_logo
+### /set_project_logo (Admin Only)
 
 Initiates the project logo upload flow. After executing this command, the bot
 will wait for the user to send an image file which will be saved as the project logo.
@@ -609,7 +689,7 @@ Only group administrators can execute this command.
 
 ---
 
-### /set_project_long_description
+### /set_project_long_description (Admin Only)
 
 Sets the detailed project description for the community. This allows for longer,
 more comprehensive project information. Only group administrators can execute this command.
@@ -627,7 +707,7 @@ more comprehensive project information. Only group administrators can execute th
 
 ---
 
-### /set_project_name
+### /set_project_name (Admin Only)
 
 Sets the project name for the community. This name will be displayed in reports
 and on the website. Only group administrators can execute this command.
@@ -648,7 +728,7 @@ and on the website. Only group administrators can execute this command.
 
 ---
 
-### /set_project_urls
+### /set_project_urls (Admin Only)
 
 Sets project URLs (website, social media, documentation, etc.). 
 Accepts multiple URLs separated by spaces or commas.
@@ -673,11 +753,25 @@ Only group administrators can execute this command.
 
 ## Raid Commands
 
-### /auto_raid_config
+### /auto_raid_config (Admin Only)
 
+Configure automatic raid for best tweet of the day
 
+**Usage:**
+```
+/auto_raid_config [settings]
+```
 
-
+**Parameters:**
+- `enabled=yes/no` - Enable/disable auto-raid
+- `duration=360` - Raid duration in minutes (default: 360 = 6 hours)
+- `delay=5` - Delay before raid starts after report (default: 5 minutes)
+- `likes=N` - Target likes (default: 100)
+- `retweets=N` - Target retweets (default: 50)
+- `replies=N` - Target replies (default: 20)
+- `quotes=N` - Target quotes (default: 10)
+- `bookmarks=N` - Target bookmarks (default: 50)
+- `mute=yes/no` - Auto-mute chat during raid (default: no)
 
 
 
@@ -686,8 +780,12 @@ Only group administrators can execute this command.
 
 ### /get_auto_raid_config
 
+View current auto-raid settings
 
-
+**Usage:**
+```
+/get_auto_raid_config
+```
 
 
 
@@ -697,8 +795,12 @@ Only group administrators can execute this command.
 
 ### /get_raid_defaults
 
+View current raid settings
 
-
+**Usage:**
+```
+/get_raid_defaults
+```
 
 
 
@@ -708,8 +810,12 @@ Only group administrators can execute this command.
 
 ### /get_raid_message_behavior
 
+View current raid message update behavior
 
-
+**Usage:**
+```
+/get_raid_message_behavior
+```
 
 
 
@@ -719,8 +825,12 @@ Only group administrators can execute this command.
 
 ### /raid_history
 
+Show past raids
 
-
+**Usage:**
+```
+/raid_history
+```
 
 
 
@@ -730,8 +840,12 @@ Only group administrators can execute this command.
 
 ### /raid_status
 
+Check current raid progress
 
-
+**Usage:**
+```
+/raid_status
+```
 
 
 
@@ -739,10 +853,14 @@ Only group administrators can execute this command.
 
 ---
 
-### /raid_stop
+### /raid_stop (Admin Only)
 
+Stops an active raid before completion
 
-
+**Usage:**
+```
+/raid_stop &lt;raid_id&gt;
+```
 
 
 
@@ -788,11 +906,24 @@ Only group administrators can start raids.
 
 ---
 
-### /set_raid_defaults
+### /set_raid_defaults (Admin Only)
 
+Configure default raid settings
 
+**Usage:**
+```
+/set_raid_defaults [settings]
+```
 
-
+**Parameters:**
+- `likes=N` - Default target likes
+- `retweets=N` - Default target retweets
+- `replies=N` - Default target replies
+- `quotes=N` - Default target quotes
+- `bookmarks=N` - Default target bookmarks
+- `duration=30m` - Default duration (e.g. 30m, 2h, 1d)
+- `mute=yes/no` - Default auto-mute
+- `enabled=yes/no` - Enable/disable raids
 
 
 
@@ -828,10 +959,14 @@ in raid announcement messages. Only group administrators can execute this comman
 
 ---
 
-### /set_raid_message_behavior
+### /set_raid_message_behavior (Admin Only)
 
+Configure how raid status messages are updated (edit/repost/pin)
 
-
+**Usage:**
+```
+/set_raid_message_behavior &lt;mode&gt;
+```
 
 
 
@@ -1216,7 +1351,7 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 ---
 
-### /set_best_title
+### /set_best_title (Admin Only)
 
 Sets the title text and color for the best tweet section in generated reports.
 Allows customization of the heading displayed above the highlighted best tweet.
@@ -1289,7 +1424,7 @@ Only group administrators can execute this command.
 
 ---
 
-### /set_engagement_title
+### /set_engagement_title (Admin Only)
 
 Sets the title text and color for the engagement scoring section in generated reports.
 Allows customization of the heading displayed above engagement scoring rules and metrics.
@@ -1394,7 +1529,7 @@ can execute this command.
 
 ---
 
-### /set_top_title
+### /set_top_title (Admin Only)
 
 Sets the title text and color for the main leaderboard section in generated reports.
 Allows customization of the primary heading displayed at the top of leaderboard reports.
@@ -1497,7 +1632,7 @@ Only group administrators can execute this command.
 
 ## Admin
 
-### /add_admin
+### /add_admin (Admin Only)
 
 Designates specific group administrators to receive private bot notifications (e.g., credit
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
