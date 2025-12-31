@@ -12,26 +12,6 @@ with appropriate PRO license validation and customer portal URL generation.
 **Parameters:**
 - None required (management command)
 
-**Workflow:**
-- Execution Context: Both group and private messages (context-aware behavior)
-- Group Flow: Validates PRO license → Checks ownership → Provides portal access or guidance
-- Private Flow: Direct portal access for subscription management
-- License Validation: Ensures group has active PRO subscription
-- Ownership Check: Verifies user is subscription owner for management access
-- States: No state management required
-- Flow: Context detection → License validation → Ownership verification → Portal URL generation
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotState()` - Retrieves data from DynamoDB
-- `getSubscriptionOwnerId()` - Retrieves data from DynamoDB
-- `getStripeCustomerId()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `saveXBotState()` - Persists data to DynamoDB
-- `createCustomerPortalSession()` - Persists data to DynamoDB
-- `deleteXBotState()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (Group - Owner): Provides Stripe customer portal link for subscription management
 - Success (Private - Owner): Direct portal access with management options
@@ -57,24 +37,6 @@ Creates checkout sessions for new purchases and manages subscription state trans
 **Parameters:**
 - None required (command triggered action)
 
-**Workflow:**
-- Execution Context: Both group and private messages (context-aware behavior)
-- Group Flow: Checks PRO status → Creates checkout session → Sets user state → Sends private message
-- Private Flow: Continues purchase process or provides subscription management
-- States Managed:
-- 'waiting_for_purchase': User has active checkout session
-- Multi-step Workflow: Group command → Private message continuation → Stripe checkout → Payment confirmation
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotLicense()` - Retrieves data from DynamoDB
-- `getXBotState()` - Retrieves data from DynamoDB
-- `getUserAdminGroupsWithBot()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `saveXBotState()` - Persists data to DynamoDB
-- `deleteXBotState()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (Group - New Purchase): Creates Stripe checkout session and sends private message with payment link
 - Success (Group - Already PRO): "You already have a PRO license for this group. Use /subscription to manage your subscription."
@@ -99,18 +61,6 @@ fetching posts from X (Twitter) for report generation.
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Both groups and private messages
-- License Check: Determines display format (FREE vs PRO)
-- States: No state management required
-- Flow: Single-step command execution with license-aware response
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotLicense()` - Retrieves data from DynamoDB
-- `getXBotChatAvailableCredits()` - Retrieves data from DynamoDB
-- `getXBotChatAllStats()` - Retrieves data from DynamoDB
-
 **User Messages:**
 - Success (PRO): "*[Month Year] - PRO Edition*\nConsumed Credits: [number]"
 - Success (FREE): "*[Month Year] - Free Edition*\nConsumed Credits: [number]\nRemaining: [number]\n\n💡 Upgrade to PRO for unlimited credits! Use /buy to upgrade."
@@ -132,17 +82,6 @@ Cleans up user state and provides confirmation messaging.
 **Parameters:**
 - None required (callback command from Stripe)
 
-**Workflow:**
-- Execution Context: Private messages only (triggered after Stripe redirect)
-- State Cleanup: Removes 'waiting_for_purchase' state
-- Webhook Integration: Works in conjunction with Stripe webhooks for license activation
-- States: Deletes 'waiting_for_purchase' state
-- Flow: Stripe success redirect → State cleanup → Confirmation message
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `deleteXBotState()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "🎉 Thank you for your payment! Your subscription is being activated and you'll receive confirmation shortly.\n\n✅ You can now return to your group and start using PRO features."
 - Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
@@ -162,17 +101,6 @@ via redirect URLs. Cleans up user state and provides guidance for retrying.
 
 **Parameters:**
 - None required (callback command from Stripe)
-
-**Workflow:**
-- Execution Context: Private messages only (triggered after Stripe redirect)
-- State Cleanup: Removes 'waiting_for_purchase' state to reset user workflow
-- Recovery Guidance: Provides instructions for retrying purchase
-- States: Deletes 'waiting_for_purchase' state
-- Flow: Stripe cancel redirect → State cleanup → Retry guidance message
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "❌ Payment was cancelled.\n\n💡 You can try again anytime by using the /buy command in your group."

@@ -16,17 +16,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - None required (automatically captures current topic context)
 
-**Workflow:**
-- Execution Context: Must be used within a forum topic thread
-- Admin Verification: Requires group administrator privileges
-- Topic Validation: Checks for is_topic_message and message_thread_id
-- States: No state management required
-- Flow: Single-step topic capture and storage
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (With Name): "Topic set to \"[topic name]\"."
 - Success (Without Name): "Topic set with ID [thread_id]."
@@ -51,16 +40,6 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Any context (no restrictions)
-- No Admin Check: Any user can view topic configuration
-- States: No state management required
-- Flow: Single-step configuration retrieval and display
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (With Name): "Bot will send reports to topic \"[topic name]\"."

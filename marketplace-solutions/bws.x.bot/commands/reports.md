@@ -12,13 +12,6 @@ engagement statistics and rankings based on configured scoring rules.
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view reports
-- States: No state management required
-- Flow: Single-step report retrieval and display
-- Content: Sends both image (chart) and text (formatted data) versions
-
 **User Messages:**
 - Success: Sends report image followed by markdown-formatted text report
 - Success (No Reports): Message indicating no reports are available yet
@@ -48,19 +41,6 @@ queries to be configured.
 
 **Parameters:**
 - Optional: `delete-history` flag to remove existing report data from S3 storage
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Prerequisites: X Token must be configured, at least one filtering query must exist
-- Future Date Check: Cannot recreate if period start date is in the future
-- States: No state management required (triggers external workflow)
-- Flow: Validation → Optional S3 cleanup → Step Functions trigger
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
-- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success: "Recreating report (new credits will be consumed)... please wait."

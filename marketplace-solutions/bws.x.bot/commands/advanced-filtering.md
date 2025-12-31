@@ -27,23 +27,6 @@ Only group administrators can execute this command.
 - Supported operators: from:, mention:, keywords:, OR, AND, hashtags (#), mentions (@)
 - Complex queries with multiple conditions are supported
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Token Validation: Requires X token to be configured
-- Parameter Parsing: Complex parsing of filter name and query syntax
-- Duplicate Check: Prevents overwriting existing filters with same name
-- States: No state management required
-- Flow: Parameter validation → Token check → Query parsing → Database storage
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-- `saveXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "X filtering set for filter '[filter_name]' with query: [parsed_query]"
 - Error (Missing X Token): "X token not set. Please set the X token using /set_x_token <token>"
@@ -69,16 +52,6 @@ is being tracked for report generation.
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view filter configurations
-- States: No state management required
-- Flow: Single-step query retrieval and formatted display
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (With Filters): "Current X filtering queries:\n\n[List of numbered filters with names and queries]"
@@ -108,22 +81,6 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 - filter_identifier (required): 
 - Specific filter name to delete individual filter
 - "*" wildcard to delete all filters
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Parameter Validation: Checks for filter name or wildcard
-- Existence Check: Validates filter exists before deletion
-- States: No state management required
-- Flow: Parameter validation → Admin check → Filter lookup → Deletion operation
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `deleteXBotQueriesForChatId()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Specific Filter): "Filter '[filter_name]' deleted successfully."

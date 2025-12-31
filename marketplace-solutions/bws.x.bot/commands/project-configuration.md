@@ -18,18 +18,6 @@ and on the website. Only group administrators can execute this command.
 **Parameters:**
 - project_name (required): The name of the project
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 ---
 
 ## /get_project_name
@@ -43,16 +31,6 @@ displays a message indicating no project name has been configured.
 ```
 /get_project_name
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -77,18 +55,6 @@ can execute this command.
 **Parameters:**
 - project_description (required): The description of the project
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 ---
 
 ## /get_project_description
@@ -102,16 +68,6 @@ displays a message indicating no project description has been configured.
 ```
 /get_project_description
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -132,17 +88,6 @@ more comprehensive project information. Only group administrators can execute th
 **Parameters:**
 - long_description (required): The detailed description of the project
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 ---
 
 ## /get_project_long_description
@@ -158,16 +103,6 @@ Retrieves the current detailed project description.
 
 **Parameters:**
 None
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -185,16 +120,6 @@ Only group administrators can execute this command.
 /set_project_logo
 ```
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: Sets user state to 'waiting_for_project_logo' with chatId as info
-- Flow: Command → Set state → Wait for photo message → Process photo → Clear state
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotState()` - Persists data to DynamoDB
-
 ---
 
 ## /get_project_logo
@@ -208,16 +133,6 @@ displays a message indicating no project logo has been configured.
 ```
 /get_project_logo
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -242,18 +157,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - urls (required): One or more URLs separated by spaces or commas
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 ---
 
 ## /get_project_urls
@@ -269,16 +172,6 @@ Retrieves the current project URLs.
 
 **Parameters:**
 None
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 

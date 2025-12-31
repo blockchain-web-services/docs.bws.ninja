@@ -9,16 +9,6 @@ Lists all filters for the current chat
 /list_filters
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
-
 ---
 
 ## /show_filter
@@ -31,17 +21,6 @@ Shows the current configuration of the default filter
 ```
 /show_filter
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
 
 ---
 
@@ -61,23 +40,6 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 ```
 /add_accounts
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
 **User Messages:**
 **Warnings/Info:**
@@ -103,23 +65,6 @@ Add keywords to the filter configuration.
 /add_keywords
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide keywords.
@@ -144,23 +89,6 @@ Add cashtags to the filter configuration.
 /add_cashtags
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide cashtags to add.
@@ -184,23 +112,6 @@ Add mentions to the filter configuration.
 /add_mentions
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide mentions.
@@ -220,22 +131,6 @@ Add excludes to the filter configuration.
 ```
 /add_excludes
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
 **User Messages:**
 **Warnings/Info:**
@@ -261,23 +156,6 @@ Add ignore to the filter configuration.
 /add_ignore
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getOrCreateFilter()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide users to ignore.
@@ -302,23 +180,6 @@ Removes accounts from the default filter
 /remove_accounts
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide accounts to remove.
@@ -340,23 +201,6 @@ Remove keywords from the filter configuration.
 ```
 /remove_keywords
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 **Warnings/Info:**
@@ -381,23 +225,6 @@ Remove cashtags from the filter configuration.
 /remove_cashtags
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide cashtags to remove.
@@ -420,23 +247,6 @@ Remove mentions from the filter configuration.
 /remove_mentions
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide mentions to remove.
@@ -457,23 +267,6 @@ Remove excludes from the filter configuration.
 ```
 /remove_excludes
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 **Warnings/Info:**
@@ -497,23 +290,6 @@ Remove ignore from the filter configuration.
 /remove_ignore
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Warnings/Info:**
 - ⚠️ Please provide users to stop ignoring.
@@ -534,23 +310,6 @@ Clear all accounts from the filter.
 ```
 /clear_accounts
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 **Success:**
@@ -574,23 +333,6 @@ Clear all keywords from the filter.
 /clear_keywords
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Success:**
 - ✅ Cleared all keywords from filter.
@@ -612,23 +354,6 @@ Clear all cashtags from the filter.
 ```
 /clear_cashtags
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 **Success:**
@@ -652,23 +377,6 @@ Clear all mentions from the filter.
 /clear_mentions
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Success:**
 - ✅ Cleared all mentions from filter.
@@ -691,23 +399,6 @@ Clear all excludes from the filter.
 /clear_excludes
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
-
 **User Messages:**
 **Success:**
 - ✅ Cleared all exclusions from filter.
@@ -729,23 +420,6 @@ Clear all ignore from the filter.
 ```
 /clear_ignore
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-6. **Query Construction**: Builds X API query string from components
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotQuery()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateXBotQueryComponents()` - Persists data to DynamoDB
-- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 **Success:**

@@ -27,17 +27,6 @@ Only group administrators can start raids.
 - `duration=<time>` (optional): Raid duration (default from settings) - Format: 30m, 2h, 1d
 - `mute=<yes|no>` (optional): Auto-mute chat until targets met (default: no)
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `createRaidHandler()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: Raid announcement with targets and link
 - Error (Non-admin): "Only admins can start raids."
@@ -57,18 +46,6 @@ Check current raid progress
 ```
 /raid_status
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaid()` - Retrieves data from DynamoDB
-- `getActiveChatRaids()` - Retrieves data from DynamoDB
 
 **User Messages:**
 **Errors:**
@@ -90,21 +67,6 @@ Stops an active raid before completion
 /raid_stop &lt;raid_id&gt;
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaid()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateRaidStatus()` - Persists data to DynamoDB
-
 **User Messages:**
 **Errors:**
 - ❌ Only admins can stop raids.
@@ -122,17 +84,6 @@ Show past raids
 ```
 /raid_history
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getChatRaids()` - Retrieves data from DynamoDB
 
 **User Messages:**
 **Errors:**
@@ -161,22 +112,6 @@ Configure default raid settings
 - `mute=yes/no` - Default auto-mute
 - `enabled=yes/no` - Enable/disable raids
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateRaidSettings()` - Persists data to DynamoDB
-- `createDefaultRaidSettings()` - Persists data to DynamoDB
-
 **User Messages:**
 **Success:**
 - ✅ Raid default settings updated successfully.  Use /get_raid_defaults to view current settings.
@@ -197,16 +132,6 @@ View current raid settings
 /get_raid_defaults
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
-
 **User Messages:**
 **Errors:**
 - ❌ An error occurred while fetching settings.
@@ -224,22 +149,6 @@ Configure how raid status messages are updated (edit/repost/pin)
 /set_raid_message_behavior &lt;mode&gt;
 ```
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateRaidSettings()` - Persists data to DynamoDB
-- `createDefaultRaidSettings()` - Persists data to DynamoDB
-
 **User Messages:**
 **Errors:**
 - ❌ Only admins can change raid message behavior.
@@ -255,16 +164,6 @@ View current raid message update behavior
 ```
 /get_raid_message_behavior
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 **Errors:**
@@ -285,16 +184,6 @@ in raid announcement messages. Only group administrators can execute this comman
 ```
 /set_raid_image
 ```
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: Sets user state to 'waiting_for_raid_image' with chatId as info
-- Flow: Command → Set state → Wait for photo message → Process photo → Clear state
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (State saved): "Please send the raid image you'd like to use. This image will appear in all raid announcements for this chat."
@@ -327,22 +216,6 @@ Configure automatic raid for best tweet of the day
 - `bookmarks=N` - Target bookmarks (default: 50)
 - `mute=yes/no` - Auto-mute chat during raid (default: no)
 
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-2. **Admin Check**: Confirms user has administrator privileges in the group
-3. **Parameter Parsing**: Extracts and validates command arguments
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `updateRaidSettings()` - Persists data to DynamoDB
-- `createDefaultRaidSettings()` - Persists data to DynamoDB
-
 **User Messages:**
 **Success:**
 - ✅ Auto-raid settings updated successfully.  Use /get_auto_raid_config to view current settings.
@@ -362,16 +235,6 @@ View current auto-raid settings
 ```
 /get_auto_raid_config
 ```
-
-**Workflow:**
-1. **Topic Validation**: Verifies command is executed in allowed topic/thread
-4. **Input Validation**: Validates all provided parameters meet requirements
-5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
-8. **User Response**: Sends success/error message to the user
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getRaidSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 **Errors:**

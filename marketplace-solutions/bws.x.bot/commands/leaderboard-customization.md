@@ -21,16 +21,6 @@ engagement contributes to a user's total score. Only group administrators can ex
 - views (required): Points awarded per view (positive number, can be decimal)
 - Validation: Each value must match positive number format (regex: /^[0-9]+(\.[0-9]+)?$/)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow: Single-step command execution with parameter validation
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "New points set.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
 - Error (Missing parameters): "Please provide 5 point values for likes, retweets, replies, quotes and views. Example: /set_points 5 1 20 10 0.01"
@@ -56,16 +46,6 @@ Shows either configured values or indicates default values are being used.
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view points configuration
-- States: No state management required
-- Flow: Single-step command execution with configuration retrieval
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Points setup.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
@@ -98,16 +78,6 @@ Only group administrators can execute this command.
 - views (required): HTML hex color for views display (e.g., #FF00FF)
 - Validation: Each color must match HTML hex format (#RRGGBB or #RGB)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow: Single-step command execution with parameter validation
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "New colors set.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
 - Error (Missing parameters): "Please provide 5 HTML hex colors. Example: /set_colors #536352 #536354 #536351 #536357 #536359"
@@ -133,16 +103,6 @@ configured colors or default values if none are set.
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view color configuration
-- States: No state management required
-- Flow: Single-step command execution with configuration retrieval
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Colors setup.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
@@ -173,17 +133,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #476a30)
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Parameter Validation: Validates title text and hex color format
-- States: No state management required
-- Flow: Parameter parsing → Validation → Database storage
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "✅ Top Title Updated Successfully!\n\n**New Top Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
@@ -218,17 +167,6 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #ff6b6b)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Parameter Validation: Validates title text and hex color format
-- States: No state management required
-- Flow: Parameter parsing → Validation → Database storage
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "✅ Best Title Updated Successfully!\n\n**New Best Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
 - Error (Missing parameters): "Please provide both title text and color. Example: /set_best_title \"Tweet of the Day\" #ff6b6b"
@@ -262,17 +200,6 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #28a745)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Parameter Validation: Validates title text and hex color format
-- States: No state management required
-- Flow: Parameter parsing → Validation → Database storage
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "✅ Engagement Title Updated Successfully!\n\n**New Engagement Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
 - Error (Missing parameters): "Please provide both title text and color. Example: /set_engagement_title \"Scoring Rules\" #28a745"
@@ -300,16 +227,6 @@ Shows either configured values or default values for each section.
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view title configurations
-- States: No state management required
-- Flow: Single-step configuration retrieval and display formatting
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSetting()` - Retrieves data from DynamoDB
-
 **User Messages:**
 - Success: "🎨 Current Title Configuration:\n\n**📊 Top Title (Main Leaderboard):**\nText: \"[text]\"\nColor: `[color]`\n\n**🏆 Best Title (Best Tweet):**\nText: \"[text]\"\nColor: `[color]`\n\n**⚡ Engagement Title (Scoring Rules):**\nText: \"[text]\"\nColor: `[color]`\n\n💡 Use /set_top_title, /set_best_title, or /set_engagement_title to customize these settings"
 - Error (Invalid topic): Command is silently ignored
@@ -336,16 +253,6 @@ can execute this command.
 - count (required): Positive integer representing number of users to show in leaderboard
 - Validation: Must be a positive integer (regex: /^[1-9][0-9]*$/)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow: Single-step command execution with parameter validation
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "Top count set to [number]."
 - Error (Missing parameter): "Please provide a valid number of users to show in the report leaderboard (e.g. /set_top_count 10)."
@@ -370,16 +277,6 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view top count configuration
-- States: No state management required
-- Flow: Single-step command execution with configuration retrieval
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Top count is set to [number]."
