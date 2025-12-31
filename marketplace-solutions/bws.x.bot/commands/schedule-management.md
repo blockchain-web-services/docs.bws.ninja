@@ -37,24 +37,6 @@ can execute this command.
 - Day formats: Numbers (Monday=1-7), short names (Mon-Sun), long names (Monday-Sunday)
 - Valid AWS EventBridge cron syntax: cron(Minutes Hours Day-of-month Month Day-of-week Year)
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Schedule Validation: Validates either HH:MM format or cron expression
-- States: No state management required
-- Flow: Parameter validation → EventBridge rule creation → Database storage
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSchedule()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `saveXBotState()` - Persists data to DynamoDB
-- `saveXBotSchedule()` - Persists data to DynamoDB
-- `createScheduleRule()` - Persists data to DynamoDB
-- `deleteScheduleRule()` - Persists data to DynamoDB
-- `deleteXBotSchedule()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (Time): "Schedule set successfully. Reports will be generated daily at [HH:MM] UTC."
 - Success (Cron): "Schedule set successfully with custom cron expression: [expression]"
@@ -80,16 +62,6 @@ Shows the configured UTC time or indicates if no schedule is set.
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view schedule configuration
-- States: No state management required
-- Flow: Single-step schedule retrieval and display
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSchedule()` - Retrieves data from DynamoDB
-
 **User Messages:**
 - Success (Configured): "Current schedule: Reports are generated daily at [HH:MM] UTC."
 - Success (Not Configured): "No schedule set. Reports will be generated based on calendar settings or manually. Use /set_schedule HH:MM to set a daily schedule."
@@ -112,21 +84,6 @@ EventBridge rule and database entry. Only group administrators can execute this 
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Schedule Check: Verifies existing schedule before deletion
-- States: No state management required
-- Flow: Admin check → Schedule lookup → EventBridge rule deletion → Database cleanup
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSchedule()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `deleteScheduleRule()` - Persists data to DynamoDB
-- `deleteXBotSchedule()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "Schedule deleted successfully. Reports will no longer be generated automatically at the scheduled time."

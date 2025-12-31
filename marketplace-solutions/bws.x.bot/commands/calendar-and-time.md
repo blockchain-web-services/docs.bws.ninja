@@ -20,18 +20,6 @@ can execute this command.
 - start_date (required): Date in DD/MM/YYYY format (e.g., "20/06/2025")
 - cadence (required): Period in "Ndays" format (e.g., "7days", "14days")
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- Date Validation: Comprehensive parsing and validation of date format and future date requirement
-- States: No state management required
-- Flow: Parameter parsing → Date validation → Future date check → Database storage
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-- `deleteXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success: "Calendar set to start on [formatted_date] and repeat every [N] days."
 - Error (Missing params): "Please provide both start date and cadence. Example: /set_calendar 20/06/2025 7days"
@@ -58,16 +46,6 @@ for report generation. Shows the configured schedule or indicates if no calendar
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- No Admin Check: Any user can view calendar configuration
-- States: No state management required
-- Flow: Single-step configuration retrieval → Parsing → Display formatting
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Calendar is set to start on [formatted_date] and repeat every [N] days.\n\nAll times are processed and displayed in UTC."

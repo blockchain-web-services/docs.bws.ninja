@@ -23,21 +23,6 @@ administrators. Only group administrators can execute this command.
 - Maximum 10 admins can be designated
 - Overwrites previous list (does not append)
 
-**Workflow:**
-- Execution Context: Groups only (no DMs)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow:
-1. Validate caller is admin
-2. Parse mentioned users from message entities
-3. Verify each mentioned user is admin via getChatMember
-4. Save verified admin IDs to settings
-5. Reply with success message listing added admins
-
-**Data Layer Interaction:**
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (Admins added): Lists designated admins with usernames
 - Success (Cleared): Confirmation that all designated admins were removed

@@ -13,12 +13,6 @@ the user is a group administrator (full command list) or regular user (limited c
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Check: Determines which command set to display
-- States: No state management required
-- Flow: Single-step command execution with different outputs based on admin status
-
 **User Messages:**
 - Success (Admin): Full command list including cashtags management (/add_cashtags, /remove_cashtags, /clear_cashtags) and raid commands
 - Success (Regular User): Limited command list with basic commands (/help, /buy, /subscription, /report)
@@ -49,23 +43,6 @@ including payment confirmation, validation codes, and bot setup guidance.
 **Parameters:**
 - Optional: payment status parameter (payment_success, payment_cancelled)
 
-**Workflow:**
-- Execution Context: Both groups and private messages
-- Group Flow: Simple "X Bot is running" message + help reference
-- Private Message Flow: Complex state-based workflow management
-- States Managed:
-- 'waiting_for_validation_code': Shows validation code to user
-- 'waiting_for_purchase': Handles payment success/failure workflows
-- Multi-step Workflow: Payment process continues from /buy command through private messages
-
-**Data Layer Interaction:**
-**Retrieved:**
-- `getXBotState()` - Retrieves data from DynamoDB
-
-**Saved/Updated:**
-- `saveXBotSetting()` - Persists data to DynamoDB
-- `deleteXBotState()` - Persists data to DynamoDB
-
 **User Messages:**
 - Success (Group): "X Bot is running. Please use /help to see the available commands."
 - Success (Private - Default): "Welcome to BWS X Bot!" with "➕ Add to Group" inline button
@@ -92,12 +69,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - None required
 
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow: Single-step command execution in group chat
-
 **User Messages:**
 - Success: "BWS X Bot is running.\nPlease check https://docs.bws.ninja/telegram-bots/x-bot for more information on how to set up the bot. You can use /help to see the available commands."
 - Error (Non-admin): "Only admins can check the bot status."
@@ -120,12 +91,6 @@ and configuration purposes. Only group administrators can execute this command.
 
 **Parameters:**
 - None required
-
-**Workflow:**
-- Execution Context: Groups only (checked via isValidTopic)
-- Admin Verification: Requires group administrator privileges
-- States: No state management required
-- Flow: Single-step command execution returning chat ID
 
 **User Messages:**
 - Success: "Chat ID: [chat_id_value]"
