@@ -9,13 +9,7 @@ Configure Telegram topic/thread settings for bot operation.
 
 ---
 
-## Table of Contents
-- [/set_topic](#set_topic)
-- [/get_topic](#get_topic)
-
----
-
-### /set_topic
+## /set_topic
 
 Sets the specific topic (forum thread) where the bot should send reports in Telegram groups 
 that use forum-style topics. This command must be executed within the target topic thread.
@@ -54,7 +48,7 @@ Only group administrators can execute this command.
 
 ---
 
-### /get_topic
+## /get_topic
 
 Retrieves and displays the currently configured topic (forum thread) where the bot 
 sends reports. Shows either the topic name or thread ID if configured.
