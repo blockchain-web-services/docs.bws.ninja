@@ -9,7 +9,7 @@ Customize project metadata including name, description, logo, and URLs for repor
 
 ---
 
-## /set_project_name
+### /set_project_name
 
 Sets the project name for the community. This name will be displayed in reports
 and on the website. Only group administrators can execute this command.
@@ -43,7 +43,7 @@ and on the website. Only group administrators can execute this command.
 
 ---
 
-## /get_project_name
+### /get_project_name
 
 Retrieves and displays the current project name. If no name is set,
 displays a message indicating no project name has been configured.
@@ -67,7 +67,7 @@ displays a message indicating no project name has been configured.
 
 ---
 
-## /set_project_description
+### /set_project_description
 
 Sets the project description for the community. This description provides
 context about the project's goals and purpose. Only group administrators 
@@ -102,7 +102,7 @@ can execute this command.
 
 ---
 
-## /get_project_description
+### /get_project_description
 
 Retrieves and displays the current project description. If no description is set,
 displays a message indicating no project description has been configured.
@@ -126,7 +126,7 @@ displays a message indicating no project description has been configured.
 
 ---
 
-## /set_project_long_description
+### /set_project_long_description
 
 Sets the detailed project description for the community. This allows for longer,
 more comprehensive project information. Only group administrators can execute this command.
@@ -156,7 +156,7 @@ more comprehensive project information. Only group administrators can execute th
 
 ---
 
-## /get_project_long_description
+### /get_project_long_description
 
 Retrieves the current detailed project description.
 
@@ -182,7 +182,7 @@ None
 
 ---
 
-## /set_project_logo
+### /set_project_logo
 
 Initiates the project logo upload flow. After executing this command, the bot
 will wait for the user to send an image file which will be saved as the project logo.
@@ -208,7 +208,7 @@ Only group administrators can execute this command.
 
 ---
 
-## /get_project_logo
+### /get_project_logo
 
 Retrieves and displays the current project logo URL. If no logo is set,
 displays a message indicating no project logo has been configured.
@@ -232,7 +232,7 @@ displays a message indicating no project logo has been configured.
 
 ---
 
-## /set_project_urls
+### /set_project_urls
 
 Sets project URLs (website, social media, documentation, etc.). 
 Accepts multiple URLs separated by spaces or commas.
@@ -267,7 +267,7 @@ Only group administrators can execute this command.
 
 ---
 
-## /get_project_urls
+### /get_project_urls
 
 Retrieves the current project URLs.
 

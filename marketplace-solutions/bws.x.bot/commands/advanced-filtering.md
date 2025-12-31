@@ -9,7 +9,7 @@ Create named filters for complex tracking scenarios and multi-project management
 
 ---
 
-## /set_x_filtering
+### /set_x_filtering
 
 Sets up monitoring filters for X (Twitter) content that will be tracked and included in reports.
 Supports multiple filter types including user mentions, keywords, and account filtering.
@@ -67,7 +67,7 @@ Only group administrators can execute this command.
 
 ---
 
-## /get_x_filtering
+### /get_x_filtering
 
 Retrieves and displays all currently configured X (Twitter) monitoring filters for the group.
 Shows filter names and their associated query syntax, helping users understand what content
@@ -99,7 +99,7 @@ is being tracked for report generation.
 
 ---
 
-## /delete_x_filtering
+### /delete_x_filtering
 
 Deletes specific X (Twitter) monitoring filters or all filters for the group. 
 Allows administrators to remove individual filters by name or clear all filters

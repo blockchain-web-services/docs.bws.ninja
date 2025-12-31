@@ -9,7 +9,7 @@ Manage billing, subscriptions, credits, and usage tracking.
 
 ---
 
-## /subscription
+### /subscription
 
 Provides access to Stripe customer portal for subscription management including billing history,
 payment methods, and cancellation options. Handles both group and private message contexts
@@ -54,7 +54,7 @@ with appropriate PRO license validation and customer portal URL generation.
 
 ---
 
-## /buy
+### /buy
 
 Initiates the purchase process for X Bot Professional subscription. Handles complex multi-step
 workflow that starts in group chat and continues in private messages with Stripe integration.
@@ -96,7 +96,7 @@ Creates checkout sessions for new purchases and manages subscription state trans
 
 ---
 
-## /get_credits
+### /get_credits
 
 Displays the current credit usage and availability for the bot. Shows different information based on 
 license type (FREE shows remaining credits, PRO shows unlimited usage). Credits are consumed when 
@@ -129,7 +129,7 @@ fetching posts from X (Twitter) for report generation.
 
 ---
 
-## /payment_success
+### /payment_success
 
 Handles successful payment confirmation after Stripe checkout completion. This command is
 automatically triggered when users return from successful Stripe payment flows via redirect URLs.
@@ -160,7 +160,7 @@ Cleans up user state and provides confirmation messaging.
 
 ---
 
-## /payment_cancelled
+### /payment_cancelled
 
 Handles payment cancellation when users exit Stripe checkout without completing payment.
 This command is automatically triggered when users return from cancelled Stripe payment flows

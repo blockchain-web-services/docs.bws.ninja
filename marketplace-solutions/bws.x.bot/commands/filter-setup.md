@@ -11,7 +11,7 @@ Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, 
 
 ## View Filters
 
-## /list_filters
+### /list_filters
 
 Lists all filters for the current chat
 
@@ -32,7 +32,7 @@ Lists all filters for the current chat
 
 ---
 
-## /show_filter
+### /show_filter
 
 Shows the current configuration of the default filter
 
@@ -58,7 +58,7 @@ Shows the current configuration of the default filter
 
 ## Add Filters
 
-## /add_accounts
+### /add_accounts
 
 Parse filter parameter from command arguments Looks for filter=name pattern and extracts it @param {string[]} args - Command arguments
 
@@ -99,7 +99,7 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 
 ---
 
-## /add_keywords
+### /add_keywords
 
 Add keywords to the filter configuration.
 
@@ -140,7 +140,7 @@ Add keywords to the filter configuration.
 
 ---
 
-## /add_cashtags
+### /add_cashtags
 
 Add cashtags to the filter configuration.
 
@@ -181,7 +181,7 @@ Add cashtags to the filter configuration.
 
 ---
 
-## /add_mentions
+### /add_mentions
 
 Add mentions to the filter configuration.
 
@@ -219,7 +219,7 @@ Add mentions to the filter configuration.
 
 ---
 
-## /add_excludes
+### /add_excludes
 
 Add excludes to the filter configuration.
 
@@ -257,7 +257,7 @@ Add excludes to the filter configuration.
 
 ---
 
-## /add_ignore
+### /add_ignore
 
 Add ignore to the filter configuration.
 
@@ -299,7 +299,7 @@ Add ignore to the filter configuration.
 
 ## Remove/Clear Filters
 
-## /remove_accounts
+### /remove_accounts
 
 Removes accounts from the default filter
 
@@ -339,7 +339,7 @@ Removes accounts from the default filter
 
 ---
 
-## /remove_keywords
+### /remove_keywords
 
 Remove keywords from the filter configuration.
 
@@ -378,7 +378,7 @@ Remove keywords from the filter configuration.
 
 ---
 
-## /remove_cashtags
+### /remove_cashtags
 
 Remove cashtags from the filter configuration.
 
@@ -418,7 +418,7 @@ Remove cashtags from the filter configuration.
 
 ---
 
-## /remove_mentions
+### /remove_mentions
 
 Remove mentions from the filter configuration.
 
@@ -456,7 +456,7 @@ Remove mentions from the filter configuration.
 
 ---
 
-## /remove_excludes
+### /remove_excludes
 
 Remove excludes from the filter configuration.
 
@@ -494,7 +494,7 @@ Remove excludes from the filter configuration.
 
 ---
 
-## /remove_ignore
+### /remove_ignore
 
 Remove ignore from the filter configuration.
 
@@ -533,7 +533,7 @@ Remove ignore from the filter configuration.
 
 ---
 
-## /clear_accounts
+### /clear_accounts
 
 Clear all accounts from the filter.
 
@@ -572,7 +572,7 @@ Clear all accounts from the filter.
 
 ---
 
-## /clear_keywords
+### /clear_keywords
 
 Clear all keywords from the filter.
 
@@ -611,7 +611,7 @@ Clear all keywords from the filter.
 
 ---
 
-## /clear_cashtags
+### /clear_cashtags
 
 Clear all cashtags from the filter.
 
@@ -650,7 +650,7 @@ Clear all cashtags from the filter.
 
 ---
 
-## /clear_mentions
+### /clear_mentions
 
 Clear all mentions from the filter.
 
@@ -689,7 +689,7 @@ Clear all mentions from the filter.
 
 ---
 
-## /clear_excludes
+### /clear_excludes
 
 Clear all excludes from the filter.
 
@@ -728,7 +728,7 @@ Clear all excludes from the filter.
 
 ---
 
-## /clear_ignore
+### /clear_ignore
 
 Clear all ignore from the filter.
 

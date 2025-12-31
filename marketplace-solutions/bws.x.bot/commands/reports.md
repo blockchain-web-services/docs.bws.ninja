@@ -9,7 +9,7 @@ Generate and manage performance analytics reports for tracked X content.
 
 ---
 
-## /report
+### /report
 
 Displays the last generated report for the group. Retrieves and sends the most recent 
 leaderboard report including both image and text components. The report shows user 
@@ -38,7 +38,7 @@ engagement statistics and rankings based on configured scoring rules.
 
 ---
 
-## /recreate
+### /recreate
 
 Forces the generation of a new report by triggering the tweet fetching and report generation 
 process. This command consumes credits and can optionally delete existing report history.

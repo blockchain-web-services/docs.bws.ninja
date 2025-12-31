@@ -9,7 +9,7 @@ Administrative functions for managing bot notifications and permissions.
 
 ---
 
-## /add_admin
+### /add_admin
 
 Designates specific group administrators to receive private bot notifications (e.g., credit
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
