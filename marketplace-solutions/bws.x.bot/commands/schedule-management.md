@@ -9,14 +9,7 @@ Configure automated report generation schedules with custom intervals.
 
 ---
 
-## Table of Contents
-- [/set_schedule](#set_schedule)
-- [/get_schedule](#get_schedule)
-- [/delete_schedule](#delete_schedule)
-
----
-
-### /set_schedule
+## /set_schedule
 
 Sets a schedule for when reports should be automatically generated. Supports both simple
 daily time scheduling (HH:MM format) and advanced cron expressions for complex schedules.
@@ -85,7 +78,7 @@ can execute this command.
 
 ---
 
-### /get_schedule
+## /get_schedule
 
 Retrieves and displays the current scheduled time for automatic report generation.
 Shows the configured UTC time or indicates if no schedule is set.
@@ -116,7 +109,7 @@ Shows the configured UTC time or indicates if no schedule is set.
 
 ---
 
-### /delete_schedule
+## /delete_schedule
 
 Removes the configured daily schedule for automatic report generation. Deletes the 
 EventBridge rule and database entry. Only group administrators can execute this command.

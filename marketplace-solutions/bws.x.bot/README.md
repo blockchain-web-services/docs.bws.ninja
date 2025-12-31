@@ -14,7 +14,7 @@ X Bot is a Telegram-based analytics platform that provides accurate X (Twitter) 
 - [Basic Commands](commands/basic-commands) (4 commands) - Essential commands to begin using X Bot
 
 ### 🔍 Filtering & Tracking
-- [Quick Filter Management](commands/quick-filters) (20 commands) - Add/remove/clear tracking filters
+- [Filter Setup](commands/filter-setup) (20 commands) - Add/remove/clear tracking filters
 - [Advanced Filtering](commands/advanced-filtering) (3 commands) - Named filters & complex setups
 
 ### ⚙️ Configuration
@@ -37,7 +37,7 @@ X Bot is a Telegram-based analytics platform that provides accurate X (Twitter) 
 ## Quick Start
 
 1. **Initialize**: Run [/start](commands/basic-commands#start) to set up the bot
-2. **Add Tracking**: Use [/add_accounts](commands/quick-filters#add_accounts) to track X accounts
+2. **Add Tracking**: Use [/add_accounts](commands/filter-setup#add_accounts) to track X accounts
 3. **Generate Report**: Run [/recreate](commands/reports#recreate) to see analytics
 
 ## Resources

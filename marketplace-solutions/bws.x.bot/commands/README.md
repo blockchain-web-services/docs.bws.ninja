@@ -12,8 +12,8 @@ Use the sidebar navigation to browse categories, or use the search feature to fi
 
 | Category | Count | Page |
 |----------|-------|------|
+| **Filter Setup** | 20 | [View Commands](filter-setup) |
 | **Basic Commands** | 4 | [View Commands](basic-commands) |
-| **Quick Filter Management** | 20 | [View Commands](quick-filters) |
 | **Advanced Filtering** | 3 | [View Commands](advanced-filtering) |
 | **Project Configuration** | 10 | [View Commands](project-configuration) |
 | **Raid Commands** | 11 | [View Commands](raid-commands) |
@@ -29,7 +29,7 @@ Use the sidebar navigation to browse categories, or use the search feature to fi
 
 ### First Time Setup
 1. [/start](basic-commands#start) - Initialize the bot for your group
-2. [/add_accounts](quick-filters#add_accounts) - Add X accounts to track
+2. [/add_accounts](filter-setup#add_accounts) - Add X accounts to track
 3. [/set_project_name](project-configuration#set_project_name) - Configure project name
 4. [/recreate](reports#recreate) - Generate your first analytics report
 
@@ -45,6 +45,34 @@ Use the sidebar navigation to browse categories, or use the search feature to fi
 
 ## All Commands by Category
 
+### Filter Setup (20 commands)
+
+Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
+
+**Commands:**
+- [/list_filters](filter-setup#list_filters) - Lists all filters for the current chat.
+- [/show_filter](filter-setup#show_filter) - Shows the current configuration of the default filter.
+- [/add_accounts](filter-setup#add_accounts) - Parse filter parameter from command arguments Looks for filter&#x3D;name pattern and extracts it @param {string[]} args - Command arguments.
+- [/add_keywords](filter-setup#add_keywords) - Add keywords to the filter configuration.
+- [/add_cashtags](filter-setup#add_cashtags) - Add cashtags to the filter configuration.
+- [/add_mentions](filter-setup#add_mentions) - Add mentions to the filter configuration.
+- [/add_excludes](filter-setup#add_excludes) - Add excludes to the filter configuration.
+- [/add_ignore](filter-setup#add_ignore) - Add ignore to the filter configuration.
+- [/remove_accounts](filter-setup#remove_accounts) - Removes accounts from the default filter.
+- [/remove_keywords](filter-setup#remove_keywords) - Remove keywords from the filter configuration.
+- [/remove_cashtags](filter-setup#remove_cashtags) - Remove cashtags from the filter configuration.
+- [/remove_mentions](filter-setup#remove_mentions) - Remove mentions from the filter configuration.
+- [/remove_excludes](filter-setup#remove_excludes) - Remove excludes from the filter configuration.
+- [/remove_ignore](filter-setup#remove_ignore) - Remove ignore from the filter configuration.
+- [/clear_accounts](filter-setup#clear_accounts) - Clear all accounts from the filter.
+- [/clear_keywords](filter-setup#clear_keywords) - Clear all keywords from the filter.
+- [/clear_cashtags](filter-setup#clear_cashtags) - Clear all cashtags from the filter.
+- [/clear_mentions](filter-setup#clear_mentions) - Clear all mentions from the filter.
+- [/clear_excludes](filter-setup#clear_excludes) - Clear all excludes from the filter.
+- [/clear_ignore](filter-setup#clear_ignore) - Clear all ignore from the filter.
+
+---
+
 ### Basic Commands (4 commands)
 
 Essential bot operations including help, initialization, and status checks.
@@ -54,34 +82,6 @@ Essential bot operations including help, initialization, and status checks.
 - [/start](basic-commands#start) - Bot initialization command that handles different workflows based on context and user state.
 - [/status](basic-commands#status) - Checks the bot&#x27;s operational status and provides basic information about bot availability.
 - [/get_chatid](basic-commands#get_chatid) - Returns the chat ID of the group where the command is executed.
-
----
-
-### Quick Filter Management (20 commands)
-
-Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-
-**Commands:**
-- [/list_filters](quick-filters#list_filters) - Lists all filters for the current chat.
-- [/show_filter](quick-filters#show_filter) - Shows the current configuration of the default filter.
-- [/add_accounts](quick-filters#add_accounts) - Parse filter parameter from command arguments Looks for filter&#x3D;name pattern and extracts it @param {string[]} args - Command arguments.
-- [/add_keywords](quick-filters#add_keywords) - Add keywords to the filter configuration.
-- [/add_cashtags](quick-filters#add_cashtags) - Add cashtags to the filter configuration.
-- [/add_mentions](quick-filters#add_mentions) - Add mentions to the filter configuration.
-- [/add_excludes](quick-filters#add_excludes) - Add excludes to the filter configuration.
-- [/add_ignore](quick-filters#add_ignore) - Add ignore to the filter configuration.
-- [/remove_accounts](quick-filters#remove_accounts) - Removes accounts from the default filter.
-- [/remove_keywords](quick-filters#remove_keywords) - Remove keywords from the filter configuration.
-- [/remove_cashtags](quick-filters#remove_cashtags) - Remove cashtags from the filter configuration.
-- [/remove_mentions](quick-filters#remove_mentions) - Remove mentions from the filter configuration.
-- [/remove_excludes](quick-filters#remove_excludes) - Remove excludes from the filter configuration.
-- [/remove_ignore](quick-filters#remove_ignore) - Remove ignore from the filter configuration.
-- [/clear_accounts](quick-filters#clear_accounts) - Clear all accounts from the filter.
-- [/clear_keywords](quick-filters#clear_keywords) - Clear all keywords from the filter.
-- [/clear_cashtags](quick-filters#clear_cashtags) - Clear all cashtags from the filter.
-- [/clear_mentions](quick-filters#clear_mentions) - Clear all mentions from the filter.
-- [/clear_excludes](quick-filters#clear_excludes) - Clear all excludes from the filter.
-- [/clear_ignore](quick-filters#clear_ignore) - Clear all ignore from the filter.
 
 ---
 
