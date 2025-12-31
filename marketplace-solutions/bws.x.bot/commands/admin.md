@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Admin
+[Home](../) > [Commands](./) > Admin
 
 # Admin
 
@@ -70,12 +70,12 @@ administrators. Only group administrators can execute this command.
 
 ## Related Pages
 
-- [Topic Management](topic-management.md) - Configure Telegram topic/thread settings for bot operation.
-- [Raid Commands](raid-commands.md) - Coordinate X (Twitter) engagement raids to amplify post visibility and reach.
+- [Topic Management](topic-management) - Configure Telegram topic/thread settings for bot operation.
+- [Raid Commands](raid-commands) - Coordinate X (Twitter) engagement raids to amplify post visibility and reach.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

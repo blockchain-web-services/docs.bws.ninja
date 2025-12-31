@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Leaderboard Customization
+[Home](../) > [Commands](./) > Leaderboard Customization
 
 # Leaderboard Customization
 
@@ -417,12 +417,12 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 ## Related Pages
 
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
-- [Project Configuration](project-configuration.md) - Customize project metadata including name, description, logo, and URLs for reports.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
+- [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

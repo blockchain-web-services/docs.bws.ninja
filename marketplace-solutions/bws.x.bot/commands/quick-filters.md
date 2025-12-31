@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Quick Filter Management
+[Home](../) > [Commands](./) > Quick Filter Management
 
 # Quick Filter Management
 
@@ -788,13 +788,13 @@ Clear all ignore from the filter.
 
 ## Related Pages
 
-- [Advanced Filtering](advanced-filtering.md) - Create named filters for complex tracking scenarios and multi-project management.
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
-- [Project Configuration](project-configuration.md) - Customize project metadata including name, description, logo, and URLs for reports.
+- [Advanced Filtering](advanced-filtering) - Create named filters for complex tracking scenarios and multi-project management.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
+- [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

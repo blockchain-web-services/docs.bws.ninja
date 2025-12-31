@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Reports
+[Home](../) > [Commands](./) > Reports
 
 # Reports
 
@@ -93,13 +93,13 @@ queries to be configured.
 
 ## Related Pages
 
-- [Quick Filter Management](quick-filters.md) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-- [Leaderboard Customization](leaderboard-customization.md) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
-- [Project Configuration](project-configuration.md) - Customize project metadata including name, description, logo, and URLs for reports.
+- [Quick Filter Management](quick-filters) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
+- [Leaderboard Customization](leaderboard-customization) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
+- [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

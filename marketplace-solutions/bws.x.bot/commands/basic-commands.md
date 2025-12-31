@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Basic Commands
+[Home](../) > [Commands](./) > Basic Commands
 
 # Basic Commands
 
@@ -157,12 +157,12 @@ and configuration purposes. Only group administrators can execute this command.
 
 ## Related Pages
 
-- [Quick Filter Management](quick-filters.md) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
+- [Quick Filter Management](quick-filters) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

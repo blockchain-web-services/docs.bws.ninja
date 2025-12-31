@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Project Configuration
+[Home](../) > [Commands](./) > Project Configuration
 
 # Project Configuration
 
@@ -310,13 +310,13 @@ None
 
 ## Related Pages
 
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
-- [Leaderboard Customization](leaderboard-customization.md) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
-- [Quick Filter Management](quick-filters.md) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
+- [Leaderboard Customization](leaderboard-customization) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
+- [Quick Filter Management](quick-filters) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

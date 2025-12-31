@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Advanced Filtering
+[Home](../) > [Commands](./) > Advanced Filtering
 
 # Advanced Filtering
 
@@ -158,12 +158,12 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 
 ## Related Pages
 
-- [Quick Filter Management](quick-filters.md) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-- [Schedule Management](schedule-management.md) - Configure automated report generation schedules with custom intervals.
+- [Quick Filter Management](quick-filters) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
+- [Schedule Management](schedule-management) - Configure automated report generation schedules with custom intervals.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)
