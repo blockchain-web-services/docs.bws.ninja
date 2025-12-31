@@ -20,16 +20,6 @@ can execute this command.
 - start_date (required): Date in DD/MM/YYYY format (e.g., "20/06/2025")
 - cadence (required): Period in "Ndays" format (e.g., "7days", "14days")
 
-**User Messages:**
-- Success: "Calendar set to start on [formatted_date] and repeat every [N] days."
-- Error (Missing params): "Please provide both start date and cadence. Example: /set_calendar 20/06/2025 7days"
-- Error (Invalid date format): "Invalid date format. Please use DD/MM/YYYY format. Example: /set_calendar 20/06/2025 7days"
-- Error (Invalid cadence): "Invalid cadence format. Please use format like '7days' or '14days'. Example: /set_calendar 20/06/2025 7days"
-- Error (Past date): "Start date must be in the future. Please provide a future date."
-- Error (Non-admin): "Only admins can set the calendar."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_calendar
@@ -46,13 +36,6 @@ for report generation. Shows the configured schedule or indicates if no calendar
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (Configured): "Calendar is set to start on [formatted_date] and repeat every [N] days.\n\nAll times are processed and displayed in UTC."
-- Success (Not Configured): "No calendar set. Please set the calendar using /set_calendar <start day> <cadence in days>"
-- Error (Parse Failure): "Invalid calendar format found in database. Please reconfigure using /set_calendar."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 

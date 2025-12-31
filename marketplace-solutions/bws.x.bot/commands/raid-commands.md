@@ -27,13 +27,6 @@ Only group administrators can start raids.
 - `duration=<time>` (optional): Raid duration (default from settings) - Format: 30m, 2h, 1d
 - `mute=<yes|no>` (optional): Auto-mute chat until targets met (default: no)
 
-**User Messages:**
-- Success: Raid announcement with targets and link
-- Error (Non-admin): "Only admins can start raids."
-- Error (Invalid URL): "Invalid X post URL."
-- Error (Raids disabled): "Raids are disabled for this chat."
-- Error (Max active): "Maximum active raids reached. Please wait for current raids to complete."
-
 ---
 
 ## /raid_status
@@ -46,11 +39,6 @@ Check current raid progress
 ```
 /raid_status
 ```
-
-**User Messages:**
-**Errors:**
-- ❌ Raid not found.
-- ❌ An error occurred while checking raid status.
 
 ---
 
@@ -67,13 +55,6 @@ Stops an active raid before completion
 /raid_stop &lt;raid_id&gt;
 ```
 
-**User Messages:**
-**Errors:**
-- ❌ Only admins can stop raids.
-- ❌ Usage: /raid_stop &lt;raid_id&gt;  Use /raid_status to see active raids.
-- ❌ Raid not found.
-- ❌ An error occurred while stopping the raid.
-
 ---
 
 ## /raid_history
@@ -84,10 +65,6 @@ Show past raids
 ```
 /raid_history
 ```
-
-**User Messages:**
-**Errors:**
-- ❌ An error occurred while fetching raid history.
 
 ---
 
@@ -112,15 +89,6 @@ Configure default raid settings
 - `mute=yes/no` - Default auto-mute
 - `enabled=yes/no` - Enable/disable raids
 
-**User Messages:**
-**Success:**
-- ✅ Raid default settings updated successfully.  Use /get_raid_defaults to view current settings.
-
-**Errors:**
-- ❌ Only admins can change raid settings.
-- ❌ No valid settings provided.
-- ❌ An error occurred while updating settings.
-
 ---
 
 ## /get_raid_defaults
@@ -131,10 +99,6 @@ View current raid settings
 ```
 /get_raid_defaults
 ```
-
-**User Messages:**
-**Errors:**
-- ❌ An error occurred while fetching settings.
 
 ---
 
@@ -149,11 +113,6 @@ Configure how raid status messages are updated (edit/repost/pin)
 /set_raid_message_behavior &lt;mode&gt;
 ```
 
-**User Messages:**
-**Errors:**
-- ❌ Only admins can change raid message behavior.
-- ❌ An error occurred while updating message behavior.
-
 ---
 
 ## /get_raid_message_behavior
@@ -164,10 +123,6 @@ View current raid message update behavior
 ```
 /get_raid_message_behavior
 ```
-
-**User Messages:**
-**Errors:**
-- ❌ An error occurred while fetching message behavior.
 
 ---
 
@@ -184,13 +139,6 @@ in raid announcement messages. Only group administrators can execute this comman
 ```
 /set_raid_image
 ```
-
-**User Messages:**
-- Success (State saved): "Please send the raid image you'd like to use. This image will appear in all raid announcements for this chat."
-- Success (Photo uploaded): "Raid image uploaded successfully! Your image will now appear in future raid announcements."
-- Error (Non-admin): "Only admins can set the raid image."
-- Error (Invalid topic): Topic-specific error message
-- Error (Upload failed): "Failed to upload raid image. Please try again."
 
 ---
 
@@ -216,15 +164,6 @@ Configure automatic raid for best tweet of the day
 - `bookmarks=N` - Target bookmarks (default: 50)
 - `mute=yes/no` - Auto-mute chat during raid (default: no)
 
-**User Messages:**
-**Success:**
-- ✅ Auto-raid settings updated successfully.  Use /get_auto_raid_config to view current settings.
-
-**Errors:**
-- ❌ Only admins can change auto-raid settings.
-- ❌ No valid settings provided.
-- ❌ An error occurred while updating auto-raid settings.
-
 ---
 
 ## /get_auto_raid_config
@@ -235,10 +174,6 @@ View current auto-raid settings
 ```
 /get_auto_raid_config
 ```
-
-**User Messages:**
-**Errors:**
-- ❌ An error occurred while fetching auto-raid settings.
 
 ---
 

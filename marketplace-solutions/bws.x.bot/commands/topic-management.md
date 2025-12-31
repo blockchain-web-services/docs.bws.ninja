@@ -16,14 +16,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - None required (automatically captures current topic context)
 
-**User Messages:**
-- Success (With Name): "Topic set to \"[topic name]\"."
-- Success (Without Name): "Topic set with ID [thread_id]."
-- Error (Non-admin): "Only admins can set the topic."
-- Error (Not in Topic): "This command can only be used in a topic chat."
-- Error (No Thread ID): "This command can only be used in a topic chat with an existing topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_topic
@@ -40,12 +32,6 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (With Name): "Bot will send reports to topic \"[topic name]\"."
-- Success (Without Name): "Bot will send reports to topic ID [thread_id]."
-- Success (Not Configured): "No topic set. Please set the topic using /set_topic in a topic chat."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 

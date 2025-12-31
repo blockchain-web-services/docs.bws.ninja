@@ -12,12 +12,6 @@ engagement statistics and rankings based on configured scoring rules.
 **Parameters:**
 - None required
 
-**User Messages:**
-- Success: Sends report image followed by markdown-formatted text report
-- Success (No Reports): Message indicating no reports are available yet
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /recreate
@@ -41,15 +35,6 @@ queries to be configured.
 
 **Parameters:**
 - Optional: `delete-history` flag to remove existing report data from S3 storage
-
-**User Messages:**
-- Success: "Recreating report (new credits will be consumed)... please wait."
-- Error (Non-admin): "Only admins can recreate the report."
-- Error (No X Token): "X token not set. Please set the X token using /set_x_token <token>"
-- Error (No Queries): "No queries found. Please set a query using /set_x_filtering <filter name> <filtering>"
-- Error (Future Start Date): "Cannot recreate report. The calendar period start date ([date]) is set in the future. The report generation will automatically begin when the period starts."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
