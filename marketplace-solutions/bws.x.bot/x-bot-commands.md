@@ -13,10 +13,12 @@ This reference lists all available commands for the X Bot. Commands are organize
 
 ## Basic Commands
 
-### /get_chatid (Admin Only)
+### /get_chatid
 
 Returns the chat ID of the group where the command is executed. Useful for debugging 
 and configuration purposes. Only group administrators can execute this command.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -25,7 +27,6 @@ and configuration purposes. Only group administrators can execute this command.
 
 **Parameters:**
 - None required
-
 
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
@@ -41,10 +42,12 @@ and configuration purposes. Only group administrators can execute this command.
 
 ---
 
-### /help (Admin Only)
+### /help
 
 Displays available bot commands and their descriptions. Shows different command sets based on whether
 the user is a group administrator (full command list) or regular user (limited command list).
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -53,7 +56,6 @@ the user is a group administrator (full command list) or regular user (limited c
 
 **Parameters:**
 - None required
-
 
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
@@ -75,6 +77,8 @@ Bot initialization command that handles different workflows based on context and
 In groups, shows simple bot running message. In private messages, manages complex state-based workflows
 including payment confirmation, validation codes, and bot setup guidance.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /start` - Basic initialization
@@ -89,7 +93,6 @@ including payment confirmation, validation codes, and bot setup guidance.
 **Parameters:**
 - Optional: payment status parameter (payment_success, payment_cancelled)
 
-
 **Workflow:**
 - Execution Context: Both groups and private messages
 - Group Flow: Simple "X Bot is running" message + help reference
@@ -98,6 +101,14 @@ including payment confirmation, validation codes, and bot setup guidance.
 - 'waiting_for_validation_code': Shows validation code to user
 - 'waiting_for_purchase': Handles payment success/failure workflows
 - Multi-step Workflow: Payment process continues from /buy command through private messages
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotState()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
+- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Group): "X Bot is running. Please use /help to see the available commands."
@@ -110,10 +121,12 @@ including payment confirmation, validation codes, and bot setup guidance.
 
 ---
 
-### /status (Admin Only)
+### /status
 
 Checks the bot's operational status and provides basic information about bot availability.
 Only group administrators can execute this command.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -122,7 +135,6 @@ Only group administrators can execute this command.
 
 **Parameters:**
 - None required
-
 
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
@@ -141,183 +153,476 @@ Only group administrators can execute this command.
 
 ## Quick Filter Management
 
-### /add_accounts (Admin Only)
+### /add_accounts
 
 Parse filter parameter from command arguments Looks for filter=name pattern and extracts it @param {string[]} args - Command arguments
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+- Includes automatic handling of X API query length limits (512 characters)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_accounts
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide accounts to add.
+- ⚠️ Please provide accounts to add.
+- ⚠️ No valid accounts provided. Accounts should start with @ and contain only letters, numbers, and underscores.
+- ⚠️ Please provide accounts to add.\n\n
 
 ---
 
-### /add_cashtags (Admin Only)
+### /add_cashtags
 
 Add cashtags to the filter configuration.
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+- Includes automatic handling of X API query length limits (512 characters)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_cashtags
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide cashtags to add.
+- ⚠️ Please provide cashtags to add.
+- ⚠️ No valid cashtags provided. Cashtags must start with $ and contain only letters and numbers (e.g., $BWS, $BUILD, $DEGEN).
+- ⚠️ Please provide cashtags to add.\n\n
 
 ---
 
-### /add_excludes (Admin Only)
+### /add_excludes
 
 Add excludes to the filter configuration.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_excludes
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide exclusion options.
+- ⚠️ No valid exclusion options provided.
+- ⚠️ Please provide exclusion options.\n\n
+- ⚠️ No valid exclusion options provided.\n
 
 ---
 
-### /add_ignore (Admin Only)
+### /add_ignore
 
 Add ignore to the filter configuration.
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+- Includes automatic handling of X API query length limits (512 characters)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_ignore
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide users to ignore.
+- ⚠️ No valid usernames provided.
+- ⚠️ Please provide users to ignore.\n\n
 
 ---
 
-### /add_keywords (Admin Only)
+### /add_keywords
 
 Add keywords to the filter configuration.
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+- Includes automatic handling of X API query length limits (512 characters)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_keywords
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide keywords.
+- ⚠️ Please provide keywords.
+- ⚠️ No valid keywords provided.
+- ⚠️ Please provide keywords.\n\n
 
 ---
 
-### /add_mentions (Admin Only)
+### /add_mentions
 
 Add mentions to the filter configuration.
+
+- Updates the X API query filter automatically
+- Includes automatic handling of X API query length limits (512 characters)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /add_mentions
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+7. **Overflow Check**: Ensures query stays within X API limits (512 chars)
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getOrCreateFilter()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide mentions.
+- ⚠️ Please provide mentions.\n\n
 
 ---
 
-### /clear_accounts (Admin Only)
+### /clear_accounts
 
 Clear all accounts from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_accounts
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all accounts from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
-### /clear_cashtags (Admin Only)
+### /clear_cashtags
 
 Clear all cashtags from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_cashtags
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all cashtags from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
-### /clear_excludes (Admin Only)
+### /clear_excludes
 
 Clear all excludes from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_excludes
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all exclusions from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
-### /clear_ignore (Admin Only)
+### /clear_ignore
 
 Clear all ignore from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_ignore
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all ignored users from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
-### /clear_keywords (Admin Only)
+### /clear_keywords
 
 Clear all keywords from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_keywords
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all keywords from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
-### /clear_mentions (Admin Only)
+### /clear_mentions
 
 Clear all mentions from the filter.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /clear_mentions
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Success:**
+- ✅ Cleared all mentions from filter.
+
+**Warnings/Info:**
+- ⚠️ No filter configured.
 
 ---
 
@@ -330,99 +635,249 @@ Lists all filters for the current chat
 /list_filters
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
 
 ---
 
-### /remove_accounts (Admin Only)
+### /remove_accounts
 
 Removes accounts from the default filter
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_accounts
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide accounts to remove.
+- ⚠️ Please provide accounts to remove.
+- ⚠️ No filter configured. Use /add_accounts to start.
+- ⚠️ Please provide accounts to remove.\n\n
 
 ---
 
-### /remove_cashtags (Admin Only)
+### /remove_cashtags
 
 Remove cashtags from the filter configuration.
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_cashtags
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide cashtags to remove.
+- ⚠️ Please provide cashtags to remove.
+- ⚠️ No filter configured. Use /add_cashtags to start.
+- ⚠️ Please provide cashtags to remove.\n\n
 
 ---
 
-### /remove_excludes (Admin Only)
+### /remove_excludes
 
 Remove excludes from the filter configuration.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_excludes
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide exclusions to remove.
+- ⚠️ No filter configured.
+- ⚠️ Please provide exclusions to remove.\n\n
 
 ---
 
-### /remove_ignore (Admin Only)
+### /remove_ignore
 
 Remove ignore from the filter configuration.
+
+- Validates input format before processing
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_ignore
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide users to stop ignoring.
+- ⚠️ No filter configured.
+- ⚠️ Please provide users to stop ignoring.\n\n
 
 ---
 
-### /remove_keywords (Admin Only)
+### /remove_keywords
 
 Remove keywords from the filter configuration.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_keywords
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide keywords to remove.
+- ⚠️ Please provide keywords to remove.
+- ⚠️ No filter configured.
+- ⚠️ Please provide keywords to remove.\n\n
 
 ---
 
-### /remove_mentions (Admin Only)
+### /remove_mentions
 
 Remove mentions from the filter configuration.
+
+- Updates the X API query filter automatically
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /remove_mentions
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+6. **Query Construction**: Builds X API query string from components
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateXBotQueryComponents()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
+**User Messages:**
+**Warnings/Info:**
+- ⚠️ Please provide mentions to remove.
+- ⚠️ No filter configured.
+- ⚠️ Please provide mentions to remove.\n\n
 
 ---
 
@@ -430,25 +885,36 @@ Remove mentions from the filter configuration.
 
 Shows the current configuration of the default filter
 
+- Includes automatic handling of X API query length limits (512 characters)
+
 **Usage:**
 ```
 /show_filter
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
 
 ---
 
 
 ## Advanced Filtering
 
-### /delete_x_filtering (Admin Only)
+### /delete_x_filtering
 
 Deletes specific X (Twitter) monitoring filters or all filters for the group. 
 Allows administrators to remove individual filters by name or clear all filters
 using the wildcard "*" parameter. Only group administrators can execute this command.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -463,7 +929,6 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 - Specific filter name to delete individual filter
 - "*" wildcard to delete all filters
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
@@ -471,6 +936,14 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 - Existence Check: Validates filter exists before deletion
 - States: No state management required
 - Flow: Parameter validation → Admin check → Filter lookup → Deletion operation
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `deleteXBotQueriesForChatId()` - Persists data to DynamoDB
+- `deleteXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Specific Filter): "Filter '[filter_name]' deleted successfully."
@@ -498,12 +971,15 @@ is being tracked for report generation.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view filter configurations
 - States: No state management required
 - Flow: Single-step query retrieval and formatted display
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (With Filters): "Current X filtering queries:\n\n[List of numbered filters with names and queries]"
@@ -513,12 +989,17 @@ is being tracked for report generation.
 
 ---
 
-### /set_x_filtering (Admin Only)
+### /set_x_filtering
 
 Sets up monitoring filters for X (Twitter) content that will be tracked and included in reports.
 Supports multiple filter types including user mentions, keywords, and account filtering.
 Each filter is saved with a unique name and can contain complex query syntax.
 Only group administrators can execute this command.
+
+- Includes automatic handling of X API query length limits (512 characters)
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -537,7 +1018,6 @@ Only group administrators can execute this command.
 - Supported operators: from:, mention:, keywords:, OR, AND, hashtags (#), mentions (@)
 - Complex queries with multiple conditions are supported
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
@@ -546,6 +1026,14 @@ Only group administrators can execute this command.
 - Duplicate Check: Prevents overwriting existing filters with same name
 - States: No state management required
 - Flow: Parameter validation → Token check → Query parsing → Database storage
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotQuery()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
+- `saveXBotQuery()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "X filtering set for filter '[filter_name]' with query: [parsed_query]"
@@ -567,14 +1055,22 @@ Only group administrators can execute this command.
 Retrieves and displays the current project description. If no description is set,
 displays a message indicating no project description has been configured.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_project_description
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -583,20 +1079,30 @@ displays a message indicating no project description has been configured.
 Retrieves and displays the current project logo URL. If no logo is set,
 displays a message indicating no project logo has been configured.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_project_logo
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
 ### /get_project_long_description
 
 Retrieves the current detailed project description.
+
+- Persists configuration in the database for future use
 
 **Usage:**
 ```
@@ -606,8 +1112,15 @@ Retrieves the current detailed project description.
 **Parameters:**
 None
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
@@ -616,20 +1129,30 @@ None
 Retrieves and displays the current project name. If no name is set,
 displays a message indicating no project name has been configured.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_project_name
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
 ### /get_project_urls
 
 Retrieves the current project URLs.
+
+- Persists configuration in the database for future use
 
 **Usage:**
 ```
@@ -639,16 +1162,27 @@ Retrieves the current project URLs.
 **Parameters:**
 None
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 ---
 
-### /set_project_description (Admin Only)
+### /set_project_description
 
 Sets the project description for the community. This description provides
 context about the project's goals and purpose. Only group administrators 
 can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -661,24 +1195,33 @@ can execute this command.
 **Parameters:**
 - project_description (required): The description of the project
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 ---
 
-### /set_project_logo (Admin Only)
+### /set_project_logo
 
 Initiates the project logo upload flow. After executing this command, the bot
 will wait for the user to send an image file which will be saved as the project logo.
 The logo is uploaded to the website S3 bucket for public access.
 Only group administrators can execute this command.
 
+**Admin Only:** Yes - Only group administrators can execute this command.
+
 **Usage:**
 ```
 /set_project_logo
 ```
-
-
 
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
@@ -686,13 +1229,20 @@ Only group administrators can execute this command.
 - States: Sets user state to 'waiting_for_project_logo' with chatId as info
 - Flow: Command → Set state → Wait for photo message → Process photo → Clear state
 
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotState()` - Persists data to DynamoDB
 
 ---
 
-### /set_project_long_description (Admin Only)
+### /set_project_long_description
 
 Sets the detailed project description for the community. This allows for longer,
 more comprehensive project information. Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -702,15 +1252,27 @@ more comprehensive project information. Only group administrators can execute th
 **Parameters:**
 - long_description (required): The detailed description of the project
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 ---
 
-### /set_project_name (Admin Only)
+### /set_project_name
 
 Sets the project name for the community. This name will be displayed in reports
 and on the website. Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -723,16 +1285,29 @@ and on the website. Only group administrators can execute this command.
 **Parameters:**
 - project_name (required): The name of the project
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 ---
 
-### /set_project_urls (Admin Only)
+### /set_project_urls
 
 Sets project URLs (website, social media, documentation, etc.). 
 Accepts multiple URLs separated by spaces or commas.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -745,17 +1320,28 @@ Only group administrators can execute this command.
 **Parameters:**
 - urls (required): One or more URLs separated by spaces or commas
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
-
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 ---
 
 
 ## Raid Commands
 
-### /auto_raid_config (Admin Only)
+### /auto_raid_config
 
 Configure automatic raid for best tweet of the day
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -773,8 +1359,30 @@ Configure automatic raid for best tweet of the day
 - `bookmarks=N` - Target bookmarks (default: 50)
 - `mute=yes/no` - Auto-mute chat during raid (default: no)
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateRaidSettings()` - Persists data to DynamoDB
+- `createDefaultRaidSettings()` - Persists data to DynamoDB
+
+**User Messages:**
+**Success:**
+- ✅ Auto-raid settings updated successfully.  Use /get_auto_raid_config to view current settings.
+
+**Errors:**
+- ❌ Only admins can change auto-raid settings.
+- ❌ No valid settings provided.
+- ❌ An error occurred while updating auto-raid settings.
 
 ---
 
@@ -787,9 +1395,19 @@ View current auto-raid settings
 /get_auto_raid_config
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
-
+**User Messages:**
+**Errors:**
+- ❌ An error occurred while fetching auto-raid settings.
 
 ---
 
@@ -802,9 +1420,19 @@ View current raid settings
 /get_raid_defaults
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
-
+**User Messages:**
+**Errors:**
+- ❌ An error occurred while fetching settings.
 
 ---
 
@@ -817,9 +1445,19 @@ View current raid message update behavior
 /get_raid_message_behavior
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
-
+**User Messages:**
+**Errors:**
+- ❌ An error occurred while fetching message behavior.
 
 ---
 
@@ -832,9 +1470,20 @@ Show past raids
 /raid_history
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getChatRaids()` - Retrieves data from DynamoDB
 
-
+**User Messages:**
+**Errors:**
+- ❌ An error occurred while fetching raid history.
 
 ---
 
@@ -842,37 +1491,76 @@ Show past raids
 
 Check current raid progress
 
+- Manages raid lifecycle and status tracking
+
 **Usage:**
 ```
 /raid_status
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaid()` - Retrieves data from DynamoDB
+- `getActiveChatRaids()` - Retrieves data from DynamoDB
 
-
+**User Messages:**
+**Errors:**
+- ❌ Raid not found.
+- ❌ An error occurred while checking raid status.
 
 ---
 
-### /raid_stop (Admin Only)
+### /raid_stop
 
 Stops an active raid before completion
+
+- Manages raid lifecycle and status tracking
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /raid_stop &lt;raid_id&gt;
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaid()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateRaidStatus()` - Persists data to DynamoDB
 
+**User Messages:**
+**Errors:**
+- ❌ Only admins can stop raids.
+- ❌ Usage: /raid_stop &lt;raid_id&gt;  Use /raid_status to see active raids.
+- ❌ Raid not found.
+- ❌ An error occurred while stopping the raid.
 
 ---
 
-### /raidx (Admin Only)
+### /raidx
 
 Starts a new raid on an X (Twitter) post. Allows community members to engage with the post
 (likes, retweets, replies, quotes) and tracks progress toward target goals.
 Only group administrators can start raids.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -895,7 +1583,16 @@ Only group administrators can start raids.
 - `duration=<time>` (optional): Raid duration (default from settings) - Format: 30m, 2h, 1d
 - `mute=<yes|no>` (optional): Auto-mute chat until targets met (default: no)
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `createRaidHandler()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: Raid announcement with targets and link
@@ -906,9 +1603,11 @@ Only group administrators can start raids.
 
 ---
 
-### /set_raid_defaults (Admin Only)
+### /set_raid_defaults
 
 Configure default raid settings
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -925,30 +1624,56 @@ Configure default raid settings
 - `mute=yes/no` - Default auto-mute
 - `enabled=yes/no` - Enable/disable raids
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateRaidSettings()` - Persists data to DynamoDB
+- `createDefaultRaidSettings()` - Persists data to DynamoDB
+
+**User Messages:**
+**Success:**
+- ✅ Raid default settings updated successfully.  Use /get_raid_defaults to view current settings.
+
+**Errors:**
+- ❌ Only admins can change raid settings.
+- ❌ No valid settings provided.
+- ❌ An error occurred while updating settings.
 
 ---
 
-### /set_raid_image (Admin Only)
+### /set_raid_image
 
 Initiates the raid image upload flow. After executing this command, the bot
 will wait for the user to send an image file which will be saved as the raid image.
 The image is uploaded to the website S3 bucket for public access and displayed
 in raid announcement messages. Only group administrators can execute this command.
 
+**Admin Only:** Yes - Only group administrators can execute this command.
+
 **Usage:**
 ```
 /set_raid_image
 ```
-
-
 
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - States: Sets user state to 'waiting_for_raid_image' with chatId as info
 - Flow: Command → Set state → Wait for photo message → Process photo → Clear state
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (State saved): "Please send the raid image you'd like to use. This image will appear in all raid announcements for this chat."
@@ -959,28 +1684,49 @@ in raid announcement messages. Only group administrators can execute this comman
 
 ---
 
-### /set_raid_message_behavior (Admin Only)
+### /set_raid_message_behavior
 
 Configure how raid status messages are updated (edit/repost/pin)
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
 /set_raid_message_behavior &lt;mode&gt;
 ```
 
+**Workflow:**
+1. **Topic Validation**: Verifies command is executed in allowed topic/thread
+2. **Admin Check**: Confirms user has administrator privileges in the group
+3. **Parameter Parsing**: Extracts and validates command arguments
+4. **Input Validation**: Validates all provided parameters meet requirements
+5. **Database Operations**: Retrieves/updates relevant data in DynamoDB
+8. **User Response**: Sends success/error message to the user
 
+**Data Layer Interaction:**
+**Retrieved:**
+- `getRaidSettings()` - Retrieves data from DynamoDB
 
+**Saved/Updated:**
+- `updateRaidSettings()` - Persists data to DynamoDB
+- `createDefaultRaidSettings()` - Persists data to DynamoDB
 
+**User Messages:**
+**Errors:**
+- ❌ Only admins can change raid message behavior.
+- ❌ An error occurred while updating message behavior.
 
 ---
 
 
 ## Schedule Management
 
-### /delete_schedule (Admin Only)
+### /delete_schedule
 
 Removes the configured daily schedule for automatic report generation. Deletes the 
 EventBridge rule and database entry. Only group administrators can execute this command.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -990,13 +1736,20 @@ EventBridge rule and database entry. Only group administrators can execute this 
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Schedule Check: Verifies existing schedule before deletion
 - States: No state management required
 - Flow: Admin check → Schedule lookup → EventBridge rule deletion → Database cleanup
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSchedule()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `deleteScheduleRule()` - Persists data to DynamoDB
+- `deleteXBotSchedule()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "Schedule deleted successfully. Reports will no longer be generated automatically at the scheduled time."
@@ -1021,12 +1774,15 @@ Shows the configured UTC time or indicates if no schedule is set.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view schedule configuration
 - States: No state management required
 - Flow: Single-step schedule retrieval and display
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSchedule()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Current schedule: Reports are generated daily at [HH:MM] UTC."
@@ -1036,12 +1792,14 @@ Shows the configured UTC time or indicates if no schedule is set.
 
 ---
 
-### /set_schedule (Admin Only)
+### /set_schedule
 
 Sets a schedule for when reports should be automatically generated. Supports both simple
 daily time scheduling (HH:MM format) and advanced cron expressions for complex schedules.
 Creates an EventBridge rule for scheduled report generation. Only group administrators 
 can execute this command.
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1073,13 +1831,23 @@ can execute this command.
 - Day formats: Numbers (Monday=1-7), short names (Mon-Sun), long names (Monday-Sunday)
 - Valid AWS EventBridge cron syntax: cron(Minutes Hours Day-of-month Month Day-of-week Year)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Schedule Validation: Validates either HH:MM format or cron expression
 - States: No state management required
 - Flow: Parameter validation → EventBridge rule creation → Database storage
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSchedule()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `saveXBotState()` - Persists data to DynamoDB
+- `saveXBotSchedule()` - Persists data to DynamoDB
+- `createScheduleRule()` - Persists data to DynamoDB
+- `deleteScheduleRule()` - Persists data to DynamoDB
+- `deleteXBotSchedule()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Time): "Schedule set successfully. Reports will be generated daily at [HH:MM] UTC."
@@ -1101,6 +1869,8 @@ can execute this command.
 Retrieves and displays the current calendar configuration including start date and cadence 
 for report generation. Shows the configured schedule or indicates if no calendar is set.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_calendar
@@ -1109,12 +1879,15 @@ for report generation. Shows the configured schedule or indicates if no calendar
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view calendar configuration
 - States: No state management required
 - Flow: Single-step configuration retrieval → Parsing → Display formatting
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Calendar is set to start on [formatted_date] and repeat every [N] days.\n\nAll times are processed and displayed in UTC."
@@ -1125,11 +1898,15 @@ for report generation. Shows the configured schedule or indicates if no calendar
 
 ---
 
-### /set_calendar (Admin Only)
+### /set_calendar
 
 Configures the start date and cadence (period) for report generation. Sets up a calendar-based 
 schedule that determines when reports are automatically generated. Only group administrators 
 can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1143,13 +1920,17 @@ can execute this command.
 - start_date (required): Date in DD/MM/YYYY format (e.g., "20/06/2025")
 - cadence (required): Period in "Ndays" format (e.g., "7days", "14days")
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Date Validation: Comprehensive parsing and validation of date format and future date requirement
 - States: No state management required
 - Flow: Parameter parsing → Date validation → Future date check → Database storage
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
+- `deleteXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "Calendar set to start on [formatted_date] and repeat every [N] days."
@@ -1166,12 +1947,16 @@ can execute this command.
 
 ## Reports
 
-### /recreate (Admin Only)
+### /recreate
 
 Forces the generation of a new report by triggering the tweet fetching and report generation 
 process. This command consumes credits and can optionally delete existing report history.
 Only group administrators can execute this command, and requires X token and filtering 
 queries to be configured.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1184,7 +1969,6 @@ queries to be configured.
 **Parameters:**
 - Optional: `delete-history` flag to remove existing report data from S3 storage
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
@@ -1192,6 +1976,11 @@ queries to be configured.
 - Future Date Check: Cannot recreate if period start date is in the future
 - States: No state management required (triggers external workflow)
 - Flow: Validation → Optional S3 cleanup → Step Functions trigger
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
+- `getXBotQueriesForChatId()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success: "Recreating report (new credits will be consumed)... please wait."
@@ -1218,7 +2007,6 @@ engagement statistics and rankings based on configured scoring rules.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view reports
@@ -1243,6 +2031,8 @@ Retrieves and displays the current HTML color configuration for engagement metri
 (Likes, Retweets, Replies, Quotes, Views) used in leaderboard reports. Shows either 
 configured colors or default values if none are set.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_colors
@@ -1251,12 +2041,15 @@ configured colors or default values if none are set.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view color configuration
 - States: No state management required
 - Flow: Single-step command execution with configuration retrieval
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Colors setup.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
@@ -1272,6 +2065,8 @@ Retrieves and displays the current scoring multipliers for engagement metrics
 (Likes, Retweets, Replies, Quotes, Views) used in leaderboard calculations. 
 Shows either configured values or indicates default values are being used.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_points
@@ -1280,12 +2075,15 @@ Shows either configured values or indicates default values are being used.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view points configuration
 - States: No state management required
 - Flow: Single-step command execution with configuration retrieval
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Points setup.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
@@ -1301,6 +2099,8 @@ Retrieves and displays all current title configurations for the report sections 
 top title (main leaderboard), best title (best tweet), and engagement title (scoring rules).
 Shows either configured values or default values for each section.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_titles
@@ -1309,12 +2109,15 @@ Shows either configured values or default values for each section.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view title configurations
 - States: No state management required
 - Flow: Single-step configuration retrieval and display formatting
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSetting()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success: "🎨 Current Title Configuration:\n\n**📊 Top Title (Main Leaderboard):**\nText: \"[text]\"\nColor: `[color]`\n\n**🏆 Best Title (Best Tweet):**\nText: \"[text]\"\nColor: `[color]`\n\n**⚡ Engagement Title (Scoring Rules):**\nText: \"[text]\"\nColor: `[color]`\n\n💡 Use /set_top_title, /set_best_title, or /set_engagement_title to customize these settings"
@@ -1328,6 +2131,8 @@ Shows either configured values or default values for each section.
 Retrieves and displays the current number of users configured to show in the report 
 leaderboard. Shows either the configured value or indicates default value (10) is being used.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_top_count
@@ -1336,12 +2141,15 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - No Admin Check: Any user can view top count configuration
 - States: No state management required
 - Flow: Single-step command execution with configuration retrieval
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (Configured): "Top count is set to [number]."
@@ -1351,11 +2159,15 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 ---
 
-### /set_best_title (Admin Only)
+### /set_best_title
 
 Sets the title text and color for the best tweet section in generated reports.
 Allows customization of the heading displayed above the highlighted best tweet.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1369,13 +2181,16 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #ff6b6b)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Parameter Validation: Validates title text and hex color format
 - States: No state management required
 - Flow: Parameter parsing → Validation → Database storage
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "✅ Best Title Updated Successfully!\n\n**New Best Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
@@ -1388,11 +2203,15 @@ Only group administrators can execute this command.
 
 ---
 
-### /set_colors (Admin Only)
+### /set_colors
 
 Sets the HTML colors for displaying engagement metrics (Likes, Retweets, Replies, Quotes, Views) 
 in the leaderboard reports. Colors are stored as hexadecimal values and used for report generation.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1407,12 +2226,15 @@ Only group administrators can execute this command.
 - views (required): HTML hex color for views display (e.g., #FF00FF)
 - Validation: Each color must match HTML hex format (#RRGGBB or #RGB)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - States: No state management required
 - Flow: Single-step command execution with parameter validation
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "New colors set.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
@@ -1424,11 +2246,15 @@ Only group administrators can execute this command.
 
 ---
 
-### /set_engagement_title (Admin Only)
+### /set_engagement_title
 
 Sets the title text and color for the engagement scoring section in generated reports.
 Allows customization of the heading displayed above engagement scoring rules and metrics.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1442,13 +2268,16 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #28a745)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Parameter Validation: Validates title text and hex color format
 - States: No state management required
 - Flow: Parameter parsing → Validation → Database storage
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "✅ Engagement Title Updated Successfully!\n\n**New Engagement Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
@@ -1461,11 +2290,15 @@ Only group administrators can execute this command.
 
 ---
 
-### /set_points (Admin Only)
+### /set_points
 
 Sets the scoring multipliers for engagement metrics (Likes, Retweets, Replies, Quotes, Views) 
 used in leaderboard calculations. These multipliers determine how many points each type of 
 engagement contributes to a user's total score. Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1480,12 +2313,15 @@ engagement contributes to a user's total score. Only group administrators can ex
 - views (required): Points awarded per view (positive number, can be decimal)
 - Validation: Each value must match positive number format (regex: /^[0-9]+(\.[0-9]+)?$/)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - States: No state management required
 - Flow: Single-step command execution with parameter validation
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "New points set.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
@@ -1497,11 +2333,15 @@ engagement contributes to a user's total score. Only group administrators can ex
 
 ---
 
-### /set_top_count (Admin Only)
+### /set_top_count
 
 Sets the number of users to display in the report leaderboard. This controls how many 
 top-performing users are shown in the generated reports. Only group administrators 
 can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1512,12 +2352,15 @@ can execute this command.
 - count (required): Positive integer representing number of users to show in leaderboard
 - Validation: Must be a positive integer (regex: /^[1-9][0-9]*$/)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - States: No state management required
 - Flow: Single-step command execution with parameter validation
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "Top count set to [number]."
@@ -1529,11 +2372,15 @@ can execute this command.
 
 ---
 
-### /set_top_title (Admin Only)
+### /set_top_title
 
 Sets the title text and color for the main leaderboard section in generated reports.
 Allows customization of the primary heading displayed at the top of leaderboard reports.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1547,13 +2394,16 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #476a30)
 
-
 **Workflow:**
 - Execution Context: Groups only (checked via isValidTopic)
 - Admin Verification: Requires group administrator privileges
 - Parameter Validation: Validates title text and hex color format
 - States: No state management required
 - Flow: Parameter parsing → Validation → Database storage
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "✅ Top Title Updated Successfully!\n\n**New Top Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
@@ -1574,6 +2424,8 @@ Only group administrators can execute this command.
 Retrieves and displays the currently configured topic (forum thread) where the bot 
 sends reports. Shows either the topic name or thread ID if configured.
 
+- Persists configuration in the database for future use
+
 **Usage:**
 ```
 /get_topic
@@ -1582,12 +2434,15 @@ sends reports. Shows either the topic name or thread ID if configured.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Any context (no restrictions)
 - No Admin Check: Any user can view topic configuration
 - States: No state management required
 - Flow: Single-step configuration retrieval and display
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotSettings()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (With Name): "Bot will send reports to topic \"[topic name]\"."
@@ -1597,11 +2452,15 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 ---
 
-### /set_topic (Admin Only)
+### /set_topic
 
 Sets the specific topic (forum thread) where the bot should send reports in Telegram groups 
 that use forum-style topics. This command must be executed within the target topic thread.
 Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1611,13 +2470,16 @@ Only group administrators can execute this command.
 **Parameters:**
 - None required (automatically captures current topic context)
 
-
 **Workflow:**
 - Execution Context: Must be used within a forum topic thread
 - Admin Verification: Requires group administrator privileges
 - Topic Validation: Checks for is_topic_message and message_thread_id
 - States: No state management required
 - Flow: Single-step topic capture and storage
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (With Name): "Topic set to \"[topic name]\"."
@@ -1632,11 +2494,15 @@ Only group administrators can execute this command.
 
 ## Admin
 
-### /add_admin (Admin Only)
+### /add_admin
 
 Designates specific group administrators to receive private bot notifications (e.g., credit
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
 administrators. Only group administrators can execute this command.
+
+- Persists configuration in the database for future use
+
+**Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
 ```
@@ -1653,7 +2519,6 @@ administrators. Only group administrators can execute this command.
 - Maximum 10 admins can be designated
 - Overwrites previous list (does not append)
 
-
 **Workflow:**
 - Execution Context: Groups only (no DMs)
 - Admin Verification: Requires group administrator privileges
@@ -1664,6 +2529,10 @@ administrators. Only group administrators can execute this command.
 3. Verify each mentioned user is admin via getChatMember
 4. Save verified admin IDs to settings
 5. Reply with success message listing added admins
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `saveXBotSetting()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Admins added): Lists designated admins with usernames
@@ -1695,7 +2564,6 @@ Creates checkout sessions for new purchases and manages subscription state trans
 **Parameters:**
 - None required (command triggered action)
 
-
 **Workflow:**
 - Execution Context: Both group and private messages (context-aware behavior)
 - Group Flow: Checks PRO status → Creates checkout session → Sets user state → Sends private message
@@ -1703,6 +2571,16 @@ Creates checkout sessions for new purchases and manages subscription state trans
 - States Managed:
 - 'waiting_for_purchase': User has active checkout session
 - Multi-step Workflow: Group command → Private message continuation → Stripe checkout → Payment confirmation
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotLicense()` - Retrieves data from DynamoDB
+- `getXBotState()` - Retrieves data from DynamoDB
+- `getUserAdminGroupsWithBot()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `saveXBotState()` - Persists data to DynamoDB
+- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Group - New Purchase): Creates Stripe checkout session and sends private message with payment link
@@ -1728,12 +2606,17 @@ fetching posts from X (Twitter) for report generation.
 **Parameters:**
 - None required
 
-
 **Workflow:**
 - Execution Context: Both groups and private messages
 - License Check: Determines display format (FREE vs PRO)
 - States: No state management required
 - Flow: Single-step command execution with license-aware response
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotLicense()` - Retrieves data from DynamoDB
+- `getXBotChatAvailableCredits()` - Retrieves data from DynamoDB
+- `getXBotChatAllStats()` - Retrieves data from DynamoDB
 
 **User Messages:**
 - Success (PRO): "*[Month Year] - PRO Edition*\nConsumed Credits: [number]"
@@ -1756,13 +2639,16 @@ via redirect URLs. Cleans up user state and provides guidance for retrying.
 **Parameters:**
 - None required (callback command from Stripe)
 
-
 **Workflow:**
 - Execution Context: Private messages only (triggered after Stripe redirect)
 - State Cleanup: Removes 'waiting_for_purchase' state to reset user workflow
 - Recovery Guidance: Provides instructions for retrying purchase
 - States: Deletes 'waiting_for_purchase' state
 - Flow: Stripe cancel redirect → State cleanup → Retry guidance message
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "❌ Payment was cancelled.\n\n💡 You can try again anytime by using the /buy command in your group."
@@ -1784,13 +2670,16 @@ Cleans up user state and provides confirmation messaging.
 **Parameters:**
 - None required (callback command from Stripe)
 
-
 **Workflow:**
 - Execution Context: Private messages only (triggered after Stripe redirect)
 - State Cleanup: Removes 'waiting_for_purchase' state
 - Webhook Integration: Works in conjunction with Stripe webhooks for license activation
 - States: Deletes 'waiting_for_purchase' state
 - Flow: Stripe success redirect → State cleanup → Confirmation message
+
+**Data Layer Interaction:**
+**Saved/Updated:**
+- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success: "🎉 Thank you for your payment! Your subscription is being activated and you'll receive confirmation shortly.\n\n✅ You can now return to your group and start using PRO features."
@@ -1812,7 +2701,6 @@ with appropriate PRO license validation and customer portal URL generation.
 **Parameters:**
 - None required (management command)
 
-
 **Workflow:**
 - Execution Context: Both group and private messages (context-aware behavior)
 - Group Flow: Validates PRO license → Checks ownership → Provides portal access or guidance
@@ -1821,6 +2709,17 @@ with appropriate PRO license validation and customer portal URL generation.
 - Ownership Check: Verifies user is subscription owner for management access
 - States: No state management required
 - Flow: Context detection → License validation → Ownership verification → Portal URL generation
+
+**Data Layer Interaction:**
+**Retrieved:**
+- `getXBotState()` - Retrieves data from DynamoDB
+- `getSubscriptionOwnerId()` - Retrieves data from DynamoDB
+- `getStripeCustomerId()` - Retrieves data from DynamoDB
+
+**Saved/Updated:**
+- `saveXBotState()` - Persists data to DynamoDB
+- `createCustomerPortalSession()` - Persists data to DynamoDB
+- `deleteXBotState()` - Persists data to DynamoDB
 
 **User Messages:**
 - Success (Group - Owner): Provides Stripe customer portal link for subscription management
