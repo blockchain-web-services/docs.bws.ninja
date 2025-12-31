@@ -27,16 +27,6 @@ Only group administrators can execute this command.
 - Supported operators: from:, mention:, keywords:, OR, AND, hashtags (#), mentions (@)
 - Complex queries with multiple conditions are supported
 
-**User Messages:**
-- Success: "X filtering set for filter '[filter_name]' with query: [parsed_query]"
-- Error (Missing X Token): "X token not set. Please set the X token using /set_x_token <token>"
-- Error (Missing Parameters): "Please provide filter name and filtering query. Example: /set_x_filtering my_filter from:@user1 OR keywords:crypto"
-- Error (Duplicate Filter): "Filter name '[filter_name]' already exists. Use a different name or delete the existing filter first."
-- Error (Invalid Query): Various parsing error messages based on query format issues
-- Error (Non-admin): "Only admins can set X filtering."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_x_filtering
@@ -52,12 +42,6 @@ is being tracked for report generation.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (With Filters): "Current X filtering queries:\n\n[List of numbered filters with names and queries]"
-- Success (No Filters): "No X filtering queries found. Please set a query using /set_x_filtering <filter name> <filtering>"
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -81,16 +65,6 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 - filter_identifier (required): 
 - Specific filter name to delete individual filter
 - "*" wildcard to delete all filters
-
-**User Messages:**
-- Success (Specific Filter): "Filter '[filter_name]' deleted successfully."
-- Success (All Filters): "All X filtering queries deleted successfully."
-- Error (Missing Parameter): "Please provide the filter name to delete or '*' to delete all. Example: /delete_x_filtering my_filter"
-- Error (Filter Not Found): "Filter '[filter_name]' not found."
-- Error (No Filters): "No filters found to delete."
-- Error (Non-admin): "Only admins can delete X filtering."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 

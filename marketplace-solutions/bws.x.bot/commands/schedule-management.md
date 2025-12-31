@@ -37,16 +37,6 @@ can execute this command.
 - Day formats: Numbers (Monday=1-7), short names (Mon-Sun), long names (Monday-Sunday)
 - Valid AWS EventBridge cron syntax: cron(Minutes Hours Day-of-month Month Day-of-week Year)
 
-**User Messages:**
-- Success (Time): "Schedule set successfully. Reports will be generated daily at [HH:MM] UTC."
-- Success (Cron): "Schedule set successfully with custom cron expression: [expression]"
-- Error (Missing): "Please provide a schedule (HH:MM or cron expression)"
-- Error (Invalid format): "Invalid schedule format. Use HH:MM or cron expression."
-- Error (EventBridge failure): Error details from EventBridge rule creation
-- Error (Non-admin): "Only admins can set the schedule."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_schedule
@@ -61,12 +51,6 @@ Shows the configured UTC time or indicates if no schedule is set.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (Configured): "Current schedule: Reports are generated daily at [HH:MM] UTC."
-- Success (Not Configured): "No schedule set. Reports will be generated based on calendar settings or manually. Use /set_schedule HH:MM to set a daily schedule."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -84,14 +68,6 @@ EventBridge rule and database entry. Only group administrators can execute this 
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success: "Schedule deleted successfully. Reports will no longer be generated automatically at the scheduled time."
-- Success (No Schedule): "No schedule found to delete."
-- Error (EventBridge failure): Error details from EventBridge rule deletion
-- Error (Non-admin): "Only admins can delete the schedule."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 

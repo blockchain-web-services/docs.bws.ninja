@@ -23,17 +23,6 @@ administrators. Only group administrators can execute this command.
 - Maximum 10 admins can be designated
 - Overwrites previous list (does not append)
 
-**User Messages:**
-- Success (Admins added): Lists designated admins with usernames
-- Success (Cleared): Confirmation that all designated admins were removed
-- Error (Non-admin): "Only administrators can designate notification recipients."
-- Error (Not in group): "This command can only be used in group chats."
-- Error (Users not admin): Lists users who are not administrators
-- Error (No users provided): Usage instructions
-- Error (Too many admins): "You can designate a maximum of 10 admins."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 

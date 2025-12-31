@@ -21,14 +21,6 @@ engagement contributes to a user's total score. Only group administrators can ex
 - views (required): Points awarded per view (positive number, can be decimal)
 - Validation: Each value must match positive number format (regex: /^[0-9]+(\.[0-9]+)?$/)
 
-**User Messages:**
-- Success: "New points set.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
-- Error (Missing parameters): "Please provide 5 point values for likes, retweets, replies, quotes and views. Example: /set_points 5 1 20 10 0.01"
-- Error (Invalid format): "Invalid points format. Please provide valid points for likes, retweets, replies, quotes and views. Example: /set_points 5 1 20 10 0.01"
-- Error (Non-admin): "Only admins can set the points."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_points
@@ -46,12 +38,6 @@ Shows either configured values or indicates default values are being used.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (Configured): "Points setup.\n\nLikes: [value] per each like\nRetweets: [value] per each retweet\nReplies: [value] per each reply\nQuotes: [value] per each quote\nViews: [value] per each view"
-- Success (Default): "No points set (using default values). Please set the points using /set_points <likes> <retweets> <replies> <quotes> <views>"
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -78,14 +64,6 @@ Only group administrators can execute this command.
 - views (required): HTML hex color for views display (e.g., #FF00FF)
 - Validation: Each color must match HTML hex format (#RRGGBB or #RGB)
 
-**User Messages:**
-- Success: "New colors set.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
-- Error (Missing parameters): "Please provide 5 HTML hex colors. Example: /set_colors #536352 #536354 #536351 #536357 #536359"
-- Error (Invalid format): "Invalid color format. Please provide valid HTML hex colors (e.g., #FF0000 or #F00).\n\nExample: /set_colors #536352 #536354 #536351 #536357 #536359"
-- Error (Non-admin): "Only admins can set the colors."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_colors
@@ -103,12 +81,6 @@ configured colors or default values if none are set.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (Configured): "Colors setup.\n\nLikes: [color1]\nRetweets: [color2]\nReplies: [color3]\nQuotes: [color4]\nViews: [color5]"
-- Success (Default): "Colors setup (using default values).\n\nLikes: #7dc9ad\nRetweets: #87a861\nReplies: #d9feb9\nQuotes: #f3fd9c\nViews: #92f327"
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -134,15 +106,6 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #476a30)
 
-**User Messages:**
-- Success: "✅ Top Title Updated Successfully!\n\n**New Top Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
-- Error (Missing parameters): "❌ Please provide both title text and color. Example: /set_top_title \"Weekly Leaderboard\" #476a30"
-- Error (Empty title): "❌ Title text cannot be empty. Example: /set_top_title \"Weekly Leaderboard\" #476a30"
-- Error (Invalid color): "❌ Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
-- Error (Non-admin): "Only group administrators can change the top title settings."
-- Error (Invalid topic): Command is silently ignored
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /set_best_title
@@ -166,15 +129,6 @@ Only group administrators can execute this command.
 **Parameters:**
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #ff6b6b)
-
-**User Messages:**
-- Success: "✅ Best Title Updated Successfully!\n\n**New Best Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
-- Error (Missing parameters): "Please provide both title text and color. Example: /set_best_title \"Tweet of the Day\" #ff6b6b"
-- Error (Empty title): "Title text cannot be empty. Example: /set_best_title \"Tweet of the Day\" #ff6b6b"
-- Error (Invalid color): "Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
-- Error (Non-admin): "Only group administrators can change the best title settings."
-- Error (Invalid topic): Command is silently ignored
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -200,15 +154,6 @@ Only group administrators can execute this command.
 - title_text (required): Text content for the title (in quotes if contains spaces)
 - color (required): Hex color code in #RRGGBB format (e.g., #28a745)
 
-**User Messages:**
-- Success: "✅ Engagement Title Updated Successfully!\n\n**New Engagement Title:** \"[title_text]\"\n**Color:** `[color]`\n\n💡 Use /get_titles to view all current title settings"
-- Error (Missing parameters): "Please provide both title text and color. Example: /set_engagement_title \"Scoring Rules\" #28a745"
-- Error (Empty title): "Title text cannot be empty. Example: /set_engagement_title \"Scoring Rules\" #28a745"
-- Error (Invalid color): "Invalid hex color format. Please use format: #RRGGBB (e.g., #476a30)"
-- Error (Non-admin): "Only group administrators can change the engagement title settings."
-- Error (Invalid topic): Command is silently ignored
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_titles
@@ -226,11 +171,6 @@ Shows either configured values or default values for each section.
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success: "🎨 Current Title Configuration:\n\n**📊 Top Title (Main Leaderboard):**\nText: \"[text]\"\nColor: `[color]`\n\n**🏆 Best Title (Best Tweet):**\nText: \"[text]\"\nColor: `[color]`\n\n**⚡ Engagement Title (Scoring Rules):**\nText: \"[text]\"\nColor: `[color]`\n\n💡 Use /set_top_title, /set_best_title, or /set_engagement_title to customize these settings"
-- Error (Invalid topic): Command is silently ignored
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 
@@ -253,14 +193,6 @@ can execute this command.
 - count (required): Positive integer representing number of users to show in leaderboard
 - Validation: Must be a positive integer (regex: /^[1-9][0-9]*$/)
 
-**User Messages:**
-- Success: "Top count set to [number]."
-- Error (Missing parameter): "Please provide a valid number of users to show in the report leaderboard (e.g. /set_top_count 10)."
-- Error (Invalid format): "Invalid number format. Please provide a valid number of users to show in the report leaderboard (e.g. /set_top_count 10)."
-- Error (Non-admin): "Only admins can set the top count."
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
-
 ---
 
 ## /get_top_count
@@ -277,12 +209,6 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 **Parameters:**
 - None required
-
-**User Messages:**
-- Success (Configured): "Top count is set to [number]."
-- Success (Default): "No top count set (using default value of 10). Please set the top count using /set_top_count <count>"
-- Error (Invalid topic): "This command is not allowed in this topic."
-- Error (Exception): Generic exception message from XBotMessages.getCommandExceptionMessage()
 
 ---
 

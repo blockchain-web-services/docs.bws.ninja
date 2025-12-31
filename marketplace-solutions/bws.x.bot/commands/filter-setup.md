@@ -41,13 +41,6 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 /add_accounts
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide accounts to add.
-- ⚠️ Please provide accounts to add.
-- ⚠️ No valid accounts provided. Accounts should start with @ and contain only letters, numbers, and underscores.
-- ⚠️ Please provide accounts to add.\n\n
-
 ---
 
 ## /add_keywords
@@ -64,13 +57,6 @@ Add keywords to the filter configuration.
 ```
 /add_keywords
 ```
-
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide keywords.
-- ⚠️ Please provide keywords.
-- ⚠️ No valid keywords provided.
-- ⚠️ Please provide keywords.\n\n
 
 ---
 
@@ -89,13 +75,6 @@ Add cashtags to the filter configuration.
 /add_cashtags
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide cashtags to add.
-- ⚠️ Please provide cashtags to add.
-- ⚠️ No valid cashtags provided. Cashtags must start with $ and contain only letters and numbers (e.g., $BWS, $BUILD, $DEGEN).
-- ⚠️ Please provide cashtags to add.\n\n
-
 ---
 
 ## /add_mentions
@@ -112,11 +91,6 @@ Add mentions to the filter configuration.
 /add_mentions
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide mentions.
-- ⚠️ Please provide mentions.\n\n
-
 ---
 
 ## /add_excludes
@@ -131,13 +105,6 @@ Add excludes to the filter configuration.
 ```
 /add_excludes
 ```
-
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide exclusion options.
-- ⚠️ No valid exclusion options provided.
-- ⚠️ Please provide exclusion options.\n\n
-- ⚠️ No valid exclusion options provided.\n
 
 ---
 
@@ -155,12 +122,6 @@ Add ignore to the filter configuration.
 ```
 /add_ignore
 ```
-
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide users to ignore.
-- ⚠️ No valid usernames provided.
-- ⚠️ Please provide users to ignore.\n\n
 
 ---
 
@@ -180,13 +141,6 @@ Removes accounts from the default filter
 /remove_accounts
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide accounts to remove.
-- ⚠️ Please provide accounts to remove.
-- ⚠️ No filter configured. Use /add_accounts to start.
-- ⚠️ Please provide accounts to remove.\n\n
-
 ---
 
 ## /remove_keywords
@@ -201,13 +155,6 @@ Remove keywords from the filter configuration.
 ```
 /remove_keywords
 ```
-
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide keywords to remove.
-- ⚠️ Please provide keywords to remove.
-- ⚠️ No filter configured.
-- ⚠️ Please provide keywords to remove.\n\n
 
 ---
 
@@ -225,13 +172,6 @@ Remove cashtags from the filter configuration.
 /remove_cashtags
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide cashtags to remove.
-- ⚠️ Please provide cashtags to remove.
-- ⚠️ No filter configured. Use /add_cashtags to start.
-- ⚠️ Please provide cashtags to remove.\n\n
-
 ---
 
 ## /remove_mentions
@@ -247,12 +187,6 @@ Remove mentions from the filter configuration.
 /remove_mentions
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide mentions to remove.
-- ⚠️ No filter configured.
-- ⚠️ Please provide mentions to remove.\n\n
-
 ---
 
 ## /remove_excludes
@@ -267,12 +201,6 @@ Remove excludes from the filter configuration.
 ```
 /remove_excludes
 ```
-
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide exclusions to remove.
-- ⚠️ No filter configured.
-- ⚠️ Please provide exclusions to remove.\n\n
 
 ---
 
@@ -290,12 +218,6 @@ Remove ignore from the filter configuration.
 /remove_ignore
 ```
 
-**User Messages:**
-**Warnings/Info:**
-- ⚠️ Please provide users to stop ignoring.
-- ⚠️ No filter configured.
-- ⚠️ Please provide users to stop ignoring.\n\n
-
 ---
 
 ## /clear_accounts
@@ -310,13 +232,6 @@ Clear all accounts from the filter.
 ```
 /clear_accounts
 ```
-
-**User Messages:**
-**Success:**
-- ✅ Cleared all accounts from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
 
 ---
 
@@ -333,13 +248,6 @@ Clear all keywords from the filter.
 /clear_keywords
 ```
 
-**User Messages:**
-**Success:**
-- ✅ Cleared all keywords from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
-
 ---
 
 ## /clear_cashtags
@@ -354,13 +262,6 @@ Clear all cashtags from the filter.
 ```
 /clear_cashtags
 ```
-
-**User Messages:**
-**Success:**
-- ✅ Cleared all cashtags from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
 
 ---
 
@@ -377,13 +278,6 @@ Clear all mentions from the filter.
 /clear_mentions
 ```
 
-**User Messages:**
-**Success:**
-- ✅ Cleared all mentions from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
-
 ---
 
 ## /clear_excludes
@@ -399,13 +293,6 @@ Clear all excludes from the filter.
 /clear_excludes
 ```
 
-**User Messages:**
-**Success:**
-- ✅ Cleared all exclusions from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
-
 ---
 
 ## /clear_ignore
@@ -420,13 +307,6 @@ Clear all ignore from the filter.
 ```
 /clear_ignore
 ```
-
-**User Messages:**
-**Success:**
-- ✅ Cleared all ignored users from filter.
-
-**Warnings/Info:**
-- ⚠️ No filter configured.
 
 ---
 
