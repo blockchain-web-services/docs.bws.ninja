@@ -1,15 +1,4 @@
-[Home](../) > [Commands](./) > Admin
-
-# Admin
-
-Administrative functions for managing bot notifications and permissions.
-
-> **Commands in this category:** 1
-> **Last Updated:** 2025-12-31
-
----
-
-### /add_admin
+## /add_admin
 
 Designates specific group administrators to receive private bot notifications (e.g., credit
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group

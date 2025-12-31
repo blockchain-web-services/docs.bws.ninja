@@ -1,15 +1,4 @@
-[Home](../) > [Commands](./) > Calendar &amp; Time
-
-# Calendar &amp; Time
-
-Manage calendar settings and time periods for report generation cycles.
-
-> **Commands in this category:** 2
-> **Last Updated:** 2025-12-31
-
----
-
-### /set_calendar
+## /set_calendar
 
 Configures the start date and cadence (period) for report generation. Sets up a calendar-based 
 schedule that determines when reports are automatically generated. Only group administrators 
@@ -55,7 +44,7 @@ can execute this command.
 
 ---
 
-### /get_calendar
+## /get_calendar
 
 Retrieves and displays the current calendar configuration including start date and cadence 
 for report generation. Shows the configured schedule or indicates if no calendar is set.
