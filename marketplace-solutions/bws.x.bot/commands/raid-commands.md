@@ -1,15 +1,4 @@
-[Home](../) > [Commands](./) > Raid Commands
-
-# Raid Commands
-
-Coordinate X (Twitter) engagement raids to amplify post visibility and reach.
-
-> **Commands in this category:** 11
-> **Last Updated:** 2025-12-31
-
----
-
-### /raidx
+## /raidx
 
 Starts a new raid on an X (Twitter) post. Allows community members to engage with the post
 (likes, retweets, replies, quotes) and tracks progress toward target goals.
@@ -58,7 +47,7 @@ Only group administrators can start raids.
 
 ---
 
-### /raid_status
+## /raid_status
 
 Check current raid progress
 
@@ -88,7 +77,7 @@ Check current raid progress
 
 ---
 
-### /raid_stop
+## /raid_stop
 
 Stops an active raid before completion
 
@@ -125,7 +114,7 @@ Stops an active raid before completion
 
 ---
 
-### /raid_history
+## /raid_history
 
 Show past raids
 
@@ -151,7 +140,7 @@ Show past raids
 
 ---
 
-### /set_raid_defaults
+## /set_raid_defaults
 
 Configure default raid settings
 
@@ -199,7 +188,7 @@ Configure default raid settings
 
 ---
 
-### /get_raid_defaults
+## /get_raid_defaults
 
 View current raid settings
 
@@ -224,7 +213,7 @@ View current raid settings
 
 ---
 
-### /set_raid_message_behavior
+## /set_raid_message_behavior
 
 Configure how raid status messages are updated (edit/repost/pin)
 
@@ -258,7 +247,7 @@ Configure how raid status messages are updated (edit/repost/pin)
 
 ---
 
-### /get_raid_message_behavior
+## /get_raid_message_behavior
 
 View current raid message update behavior
 
@@ -283,7 +272,7 @@ View current raid message update behavior
 
 ---
 
-### /set_raid_image
+## /set_raid_image
 
 Initiates the raid image upload flow. After executing this command, the bot
 will wait for the user to send an image file which will be saved as the raid image.
@@ -316,7 +305,7 @@ in raid announcement messages. Only group administrators can execute this comman
 
 ---
 
-### /auto_raid_config
+## /auto_raid_config
 
 Configure automatic raid for best tweet of the day
 
@@ -365,7 +354,7 @@ Configure automatic raid for best tweet of the day
 
 ---
 
-### /get_auto_raid_config
+## /get_auto_raid_config
 
 View current auto-raid settings
 
