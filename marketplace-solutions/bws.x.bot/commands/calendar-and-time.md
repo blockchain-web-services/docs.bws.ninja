@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Calendar &amp; Time
+[Home](../) > [Commands](./) > Calendar &amp; Time
 
 # Calendar &amp; Time
 
@@ -98,12 +98,12 @@ for report generation. Shows the configured schedule or indicates if no calendar
 
 ## Related Pages
 
-- [Schedule Management](schedule-management.md) - Configure automated report generation schedules with custom intervals.
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
+- [Schedule Management](schedule-management) - Configure automated report generation schedules with custom intervals.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

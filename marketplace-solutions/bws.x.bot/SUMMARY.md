@@ -1,9 +1,6 @@
-# Table of Contents
+# Summary
 
 * [X Bot Commands](README.md)
-
-## Commands
-
 * [Command Reference](commands/README.md)
   * [Basic Commands](commands/basic-commands.md)
   * [Quick Filter Management](commands/quick-filters.md)
@@ -17,8 +14,3 @@
   * [Topic Management](commands/topic-management.md)
   * [Admin](commands/admin.md)
   * [Subscription &amp; Credits](commands/subscription-and-credits.md)
-
-## Resources
-
-* [Support](https://t.me/bws_xbot_support)
-* [BWS Ninja](https://www.bws.ninja)

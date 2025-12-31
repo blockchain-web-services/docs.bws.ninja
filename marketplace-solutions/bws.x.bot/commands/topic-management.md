@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Topic Management
+[Home](../) > [Commands](./) > Topic Management
 
 # Topic Management
 
@@ -90,12 +90,12 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 ## Related Pages
 
-- [Admin](admin.md) - Administrative functions for managing bot notifications and permissions.
-- [Basic Commands](basic-commands.md) - Essential bot operations including help, initialization, and status checks.
+- [Admin](admin) - Administrative functions for managing bot notifications and permissions.
+- [Basic Commands](basic-commands) - Essential bot operations including help, initialization, and status checks.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

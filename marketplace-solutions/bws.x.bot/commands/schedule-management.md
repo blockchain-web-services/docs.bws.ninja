@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Schedule Management
+[Home](../) > [Commands](./) > Schedule Management
 
 # Schedule Management
 
@@ -159,13 +159,13 @@ EventBridge rule and database entry. Only group administrators can execute this 
 
 ## Related Pages
 
-- [Calendar &amp; Time](calendar-and-time.md) - Manage calendar settings and time periods for report generation cycles.
-- [Reports](reports.md) - Generate and manage performance analytics reports for tracked X content.
-- [Advanced Filtering](advanced-filtering.md) - Create named filters for complex tracking scenarios and multi-project management.
+- [Calendar &amp; Time](calendar-and-time) - Manage calendar settings and time periods for report generation cycles.
+- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
+- [Advanced Filtering](advanced-filtering) - Create named filters for complex tracking scenarios and multi-project management.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)

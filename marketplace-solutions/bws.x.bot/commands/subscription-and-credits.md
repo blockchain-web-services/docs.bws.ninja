@@ -1,4 +1,4 @@
-[Home](../README.md) > [Commands](README.md) > Subscription &amp; Credits
+[Home](../) > [Commands](./) > Subscription &amp; Credits
 
 # Subscription &amp; Credits
 
@@ -203,12 +203,12 @@ via redirect URLs. Cleans up user state and provides guidance for retrying.
 
 ## Related Pages
 
-- [Admin](admin.md) - Administrative functions for managing bot notifications and permissions.
-- [Basic Commands](basic-commands.md) - Essential bot operations including help, initialization, and status checks.
+- [Admin](admin) - Administrative functions for managing bot notifications and permissions.
+- [Basic Commands](basic-commands) - Essential bot operations including help, initialization, and status checks.
 
 ---
 
 **Need Help?**
 - 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](README.md)
-- 🏠 [Home](../README.md)
+- 📖 [Command Reference](./)
+- 🏠 [Home](../)
