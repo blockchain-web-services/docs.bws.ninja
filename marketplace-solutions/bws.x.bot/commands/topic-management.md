@@ -10,6 +10,12 @@ Only group administrators can execute this command.
 /set_topic` (executed within the desired topic thread)
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `(executed` |
+
 ---
 
 ## /get_topic

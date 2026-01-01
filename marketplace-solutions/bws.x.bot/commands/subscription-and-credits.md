@@ -8,6 +8,12 @@ with appropriate PRO license validation and customer portal URL generation.
 /subscription` (executed in group or private chat for subscription management)
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `(executed` |
+
 ---
 
 ## /buy
@@ -19,6 +25,12 @@ Creates checkout sessions for new purchases and manages subscription state trans
 ```
 /buy` (executed in group chat to start purchase process)
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `(executed` |
 
 ---
 
@@ -44,6 +56,12 @@ Cleans up user state and provides confirmation messaging.
 /payment_success` (automatically triggered by Stripe success URL redirect)
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `(automatically` |
+
 ---
 
 ## /payment_cancelled
@@ -55,6 +73,12 @@ via redirect URLs. Cleans up user state and provides guidance for retrying.
 ```
 /payment_cancelled` (automatically triggered by Stripe cancel URL redirect)
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `(automatically` |
 
 ---
 

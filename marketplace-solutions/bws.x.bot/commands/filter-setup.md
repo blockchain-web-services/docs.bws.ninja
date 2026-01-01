@@ -29,8 +29,17 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 **Admin Only**
 
 ```
-/add_accounts
+/add_accounts @CryptoHayes @IncomeSharks
 ```
+```
+/add_accounts @CryptoHayes @IncomeSharks
+```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@CryptoHayes` |
 
 ---
 
@@ -40,6 +49,9 @@ Add keywords to the filter configuration.
 
 **Admin Only**
 
+```
+/add_keywords
+```
 ```
 /add_keywords
 ```
@@ -53,8 +65,17 @@ Add cashtags to the filter configuration.
 **Admin Only**
 
 ```
-/add_cashtags
+/add_cashtags $BWS $BUILD
 ```
+```
+/add_cashtags $BWS $BUILD
+```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| tags | required | `$BWS` |
 
 ---
 
@@ -65,8 +86,14 @@ Add mentions to the filter configuration.
 **Admin Only**
 
 ```
-/add_mentions
+/add_mentions @BWSCommunity @MyProject
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@BWSCommunity` |
 
 ---
 
@@ -77,8 +104,14 @@ Add excludes to the filter configuration.
 **Admin Only**
 
 ```
-/add_excludes
+/add_excludes retweet quote
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `retweet` |
 
 ---
 
@@ -89,8 +122,14 @@ Add ignore to the filter configuration.
 **Admin Only**
 
 ```
-/add_ignore
+/add_ignore @spamuser1 @botaccount
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@spamuser1` |
 
 ---
 
@@ -103,8 +142,17 @@ Removes accounts from the default filter
 **Admin Only**
 
 ```
-/remove_accounts
+/remove_accounts @CryptoHayes
 ```
+```
+/remove_accounts @CryptoHayes
+```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@CryptoHayes` |
 
 ---
 
@@ -114,6 +162,9 @@ Remove keywords from the filter configuration.
 
 **Admin Only**
 
+```
+/remove_keywords
+```
 ```
 /remove_keywords
 ```
@@ -127,8 +178,17 @@ Remove cashtags from the filter configuration.
 **Admin Only**
 
 ```
-/remove_cashtags
+/remove_cashtags $BWS
 ```
+```
+/remove_cashtags $BWS
+```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| tags | required | `$BWS` |
 
 ---
 
@@ -139,8 +199,14 @@ Remove mentions from the filter configuration.
 **Admin Only**
 
 ```
-/remove_mentions
+/remove_mentions @BWSCommunity
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@BWSCommunity` |
 
 ---
 
@@ -151,8 +217,14 @@ Remove excludes from the filter configuration.
 **Admin Only**
 
 ```
-/remove_excludes
+/remove_excludes retweet
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `retweet` |
 
 ---
 
@@ -163,8 +235,14 @@ Remove ignore from the filter configuration.
 **Admin Only**
 
 ```
-/remove_ignore
+/remove_ignore @spamuser1
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| accounts | required | `@spamuser1` |
 
 ---
 
