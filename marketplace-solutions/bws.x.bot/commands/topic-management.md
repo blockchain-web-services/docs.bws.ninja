@@ -29,8 +29,3 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 ---
 
-
-## Related Pages
-
-- [Admin](admin) - Administrative functions for managing bot notifications and permissions.
-- [Basic Commands](basic-commands) - Essential bot operations including help, initialization, and status checks.

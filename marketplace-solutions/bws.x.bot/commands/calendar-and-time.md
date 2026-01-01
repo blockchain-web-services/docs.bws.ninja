@@ -30,8 +30,3 @@ for report generation. Shows the configured schedule or indicates if no calendar
 
 ---
 
-
-## Related Pages
-
-- [Schedule Management](schedule-management) - Configure automated report generation schedules with custom intervals.
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.

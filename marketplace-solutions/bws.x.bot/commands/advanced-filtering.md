@@ -55,8 +55,3 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 
 ---
 
-
-## Related Pages
-
-- [Filter Setup](filter-setup) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-- [Schedule Management](schedule-management) - Configure automated report generation schedules with custom intervals.

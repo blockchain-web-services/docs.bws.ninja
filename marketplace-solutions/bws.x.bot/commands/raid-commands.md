@@ -168,8 +168,3 @@ View current auto-raid settings
 
 ---
 
-
-## Related Pages
-
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
-- [Admin](admin) - Administrative functions for managing bot notifications and permissions.
