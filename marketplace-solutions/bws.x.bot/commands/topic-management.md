@@ -4,8 +4,6 @@ Sets the specific topic (forum thread) where the bot should send reports in Tele
 that use forum-style topics. This command must be executed within the target topic thread.
 Only group administrators can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -22,8 +20,6 @@ Only group administrators can execute this command.
 
 Retrieves and displays the currently configured topic (forum thread) where the bot 
 sends reports. Shows either the topic name or thread ID if configured.
-
-- Persists configuration in the database for future use
 
 **Usage:**
 ```

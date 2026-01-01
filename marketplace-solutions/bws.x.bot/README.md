@@ -1,6 +1,6 @@
 # X Bot Commands Reference
 
-> **Last Updated:** 2025-12-31
+> **Last Updated:** 2026-01-01
 > **Total Commands:** 73
 > This documentation is automatically generated from source code.
 

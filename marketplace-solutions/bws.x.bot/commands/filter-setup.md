@@ -15,8 +15,6 @@ Lists all filters for the current chat
 
 Shows the current configuration of the default filter
 
-- Includes automatic handling of X API query length limits (512 characters)
-
 **Usage:**
 ```
 /show_filter
@@ -29,10 +27,6 @@ Shows the current configuration of the default filter
 ## /add_accounts
 
 Parse filter parameter from command arguments Looks for filter=name pattern and extracts it @param {string[]} args - Command arguments
-
-- Validates input format before processing
-- Updates the X API query filter automatically
-- Includes automatic handling of X API query length limits (512 characters)
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -47,10 +41,6 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 
 Add keywords to the filter configuration.
 
-- Validates input format before processing
-- Updates the X API query filter automatically
-- Includes automatic handling of X API query length limits (512 characters)
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -63,10 +53,6 @@ Add keywords to the filter configuration.
 ## /add_cashtags
 
 Add cashtags to the filter configuration.
-
-- Validates input format before processing
-- Updates the X API query filter automatically
-- Includes automatic handling of X API query length limits (512 characters)
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -81,9 +67,6 @@ Add cashtags to the filter configuration.
 
 Add mentions to the filter configuration.
 
-- Updates the X API query filter automatically
-- Includes automatic handling of X API query length limits (512 characters)
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -97,8 +80,6 @@ Add mentions to the filter configuration.
 
 Add excludes to the filter configuration.
 
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -111,10 +92,6 @@ Add excludes to the filter configuration.
 ## /add_ignore
 
 Add ignore to the filter configuration.
-
-- Validates input format before processing
-- Updates the X API query filter automatically
-- Includes automatic handling of X API query length limits (512 characters)
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -131,9 +108,6 @@ Add ignore to the filter configuration.
 
 Removes accounts from the default filter
 
-- Validates input format before processing
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -146,8 +120,6 @@ Removes accounts from the default filter
 ## /remove_keywords
 
 Remove keywords from the filter configuration.
-
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -162,9 +134,6 @@ Remove keywords from the filter configuration.
 
 Remove cashtags from the filter configuration.
 
-- Validates input format before processing
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -177,8 +146,6 @@ Remove cashtags from the filter configuration.
 ## /remove_mentions
 
 Remove mentions from the filter configuration.
-
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -193,8 +160,6 @@ Remove mentions from the filter configuration.
 
 Remove excludes from the filter configuration.
 
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -207,9 +172,6 @@ Remove excludes from the filter configuration.
 ## /remove_ignore
 
 Remove ignore from the filter configuration.
-
-- Validates input format before processing
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -224,8 +186,6 @@ Remove ignore from the filter configuration.
 
 Clear all accounts from the filter.
 
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -238,8 +198,6 @@ Clear all accounts from the filter.
 ## /clear_keywords
 
 Clear all keywords from the filter.
-
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -254,8 +212,6 @@ Clear all keywords from the filter.
 
 Clear all cashtags from the filter.
 
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -268,8 +224,6 @@ Clear all cashtags from the filter.
 ## /clear_mentions
 
 Clear all mentions from the filter.
-
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -284,8 +238,6 @@ Clear all mentions from the filter.
 
 Clear all excludes from the filter.
 
-- Updates the X API query filter automatically
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -298,8 +250,6 @@ Clear all excludes from the filter.
 ## /clear_ignore
 
 Clear all ignore from the filter.
-
-- Updates the X API query filter automatically
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
