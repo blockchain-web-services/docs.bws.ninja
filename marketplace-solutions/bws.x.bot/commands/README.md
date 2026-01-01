@@ -149,8 +149,8 @@ Configure automated report generation schedules with custom intervals.
 Manage calendar settings and time periods for report generation cycles.
 
 **Commands:**
-- [/set_calendar](calendar-and-time#set_calendar) - Configures the start date and cadence (period) for report generation.
-- [/get_calendar](calendar-and-time#get_calendar) - Retrieves and displays the current calendar configuration including start date and cadence.
+- [/set_calendar](calendar-and-time#set_calendar) - Sets up a recurring calendar schedule for automatic report generation.
+- [/get_calendar](calendar-and-time#get_calendar) - Displays the current calendar schedule configuration for automatic reports, showing the start date and how often.
 
 ---
 
@@ -159,8 +159,8 @@ Manage calendar settings and time periods for report generation cycles.
 Generate and manage performance analytics reports for tracked X content.
 
 **Commands:**
-- [/report](reports#report) - Displays the last generated report for the group.
-- [/recreate](reports#recreate) - Forces the generation of a new report by triggering the tweet fetching and report generation.
+- [/report](reports#report) - Displays the most recently generated leaderboard report for your community.
+- [/recreate](reports#recreate) - Triggers immediate generation of a fresh report by fetching latest X (Twitter) data and creating new leaderboards.
 
 ---
 
@@ -187,8 +187,8 @@ Customize scoring points, colors, titles, and display settings for leaderboard r
 Configure Telegram topic/thread settings for bot operation.
 
 **Commands:**
-- [/set_topic](topic-management#set_topic) - Sets the specific topic (forum thread) where the bot should send reports in Telegram groups.
-- [/get_topic](topic-management#get_topic) - Retrieves and displays the currently configured topic (forum thread) where the bot.
+- [/set_topic](topic-management#set_topic) - Configures which forum topic (thread) the bot should send reports to in Telegram groups that use forum-style topics.
+- [/get_topic](topic-management#get_topic) - Displays which forum topic (thread) is currently configured to receive bot reports.
 
 ---
 
@@ -197,7 +197,7 @@ Configure Telegram topic/thread settings for bot operation.
 Administrative functions for managing bot notifications and permissions.
 
 **Commands:**
-- [/add_admin](admin#add_admin) - Designates specific group administrators to receive private bot notifications (e.
+- [/add_admin](admin#add_admin) - Designates specific group administrators to receive important bot notifications via private messages, such as.
 
 ---
 
