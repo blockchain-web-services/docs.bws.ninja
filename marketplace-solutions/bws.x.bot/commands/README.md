@@ -50,26 +50,26 @@ Use the sidebar navigation to browse categories, or use the search feature to fi
 Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
 
 **Commands:**
-- [/list_filters](filter-setup#list_filters) - Lists all filters for the current chat.
-- [/show_filter](filter-setup#show_filter) - Shows the current configuration of the default filter.
-- [/add_accounts](filter-setup#add_accounts) - Parse filter parameter from command arguments Looks for filter&#x3D;name pattern and extracts it @param {string[]} args - Command arguments.
-- [/add_keywords](filter-setup#add_keywords) - Add keywords to the filter configuration.
-- [/add_cashtags](filter-setup#add_cashtags) - Add cashtags to the filter configuration.
-- [/add_mentions](filter-setup#add_mentions) - Add mentions to the filter configuration.
-- [/add_excludes](filter-setup#add_excludes) - Add excludes to the filter configuration.
-- [/add_ignore](filter-setup#add_ignore) - Add ignore to the filter configuration.
-- [/remove_accounts](filter-setup#remove_accounts) - Removes accounts from the default filter.
-- [/remove_keywords](filter-setup#remove_keywords) - Remove keywords from the filter configuration.
-- [/remove_cashtags](filter-setup#remove_cashtags) - Remove cashtags from the filter configuration.
-- [/remove_mentions](filter-setup#remove_mentions) - Remove mentions from the filter configuration.
-- [/remove_excludes](filter-setup#remove_excludes) - Remove excludes from the filter configuration.
-- [/remove_ignore](filter-setup#remove_ignore) - Remove ignore from the filter configuration.
-- [/clear_accounts](filter-setup#clear_accounts) - Clear all accounts from the filter.
-- [/clear_keywords](filter-setup#clear_keywords) - Clear all keywords from the filter.
-- [/clear_cashtags](filter-setup#clear_cashtags) - Clear all cashtags from the filter.
-- [/clear_mentions](filter-setup#clear_mentions) - Clear all mentions from the filter.
-- [/clear_excludes](filter-setup#clear_excludes) - Clear all excludes from the filter.
-- [/clear_ignore](filter-setup#clear_ignore) - Clear all ignore from the filter.
+- [/list_filters](filter-setup#list_filters) - Lists all configured filters for the current group, showing their names and a summary of what each.
+- [/show_filter](filter-setup#show_filter) - Displays the complete configuration of a filter including all tracked accounts, keywords, cashtags,.
+- [/add_accounts](filter-setup#add_accounts) - Adds one or more X (Twitter) accounts to track.
+- [/add_keywords](filter-setup#add_keywords) - Adds keywords or phrases to track in X posts.
+- [/add_cashtags](filter-setup#add_cashtags) - Adds cashtags (token symbols) to track in X posts.
+- [/add_mentions](filter-setup#add_mentions) - Adds X handles to track when they are mentioned in posts.
+- [/add_excludes](filter-setup#add_excludes) - Adds keywords or phrases to exclude from tracking.
+- [/add_ignore](filter-setup#add_ignore) - Adds X accounts to ignore.
+- [/remove_accounts](filter-setup#remove_accounts) - Removes specific X accounts from tracking.
+- [/remove_keywords](filter-setup#remove_keywords) - Removes specific keywords or phrases from tracking.
+- [/remove_cashtags](filter-setup#remove_cashtags) - Removes specific cashtags from tracking.
+- [/remove_mentions](filter-setup#remove_mentions) - Removes X handles from mention tracking.
+- [/remove_excludes](filter-setup#remove_excludes) - Removes keywords from the exclusion list.
+- [/remove_ignore](filter-setup#remove_ignore) - Removes X accounts from the ignore list.
+- [/clear_accounts](filter-setup#clear_accounts) - Removes ALL tracked accounts from the filter.
+- [/clear_keywords](filter-setup#clear_keywords) - Removes ALL keywords from the filter.
+- [/clear_cashtags](filter-setup#clear_cashtags) - Removes ALL cashtags from the filter.
+- [/clear_mentions](filter-setup#clear_mentions) - Removes ALL mentions from the filter.
+- [/clear_excludes](filter-setup#clear_excludes) - Removes ALL excluded keywords from the filter.
+- [/clear_ignore](filter-setup#clear_ignore) - Removes ALL ignored accounts from the filter.
 
 ---
 
