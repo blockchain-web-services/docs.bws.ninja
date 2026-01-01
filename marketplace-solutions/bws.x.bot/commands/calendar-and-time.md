@@ -7,10 +7,7 @@ can execute this command.
 **Admin Only**
 
 ```
-/set_calendar 20/06/2025 7days` - Start reports on June 20, 2025, every 7 days
-```
-```
-/set_calendar 01/01/2025 14days` - Start reports on January 1, 2025, every 14 days
+/set_calendar 20/06/2025 7days
 ```
 
 **Parameters:**

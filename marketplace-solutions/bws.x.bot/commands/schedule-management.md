@@ -8,22 +8,16 @@ can execute this command.
 **Admin Only**
 
 ```
-/set_schedule 12:30` - Generate reports daily at 12:30 UTC
+/set_schedule 12:30
 ```
 ```
-/set_schedule 14:30 Mon Wed Fri` - Generate reports on Monday, Wednesday, Friday at 14:30 UTC
+/set_schedule 09:00 1 7
 ```
 ```
-/set_schedule 09:00 1 7` - Generate reports on Monday (1) and Sunday (7) at 09:00 UTC
+/set_schedule 14:30 Mon Wed Fri
 ```
 ```
-/set_schedule 16:00 Monday Wednesday` - Generate reports on Monday and Wednesday at 16:00 UTC
-```
-```
-/set_schedule cron(0 12 ? * MON-FRI *)` - Generate reports at 12:00 UTC on weekdays only
-```
-```
-/set_schedule cron(0 9 ? * MON *)` - Generate reports every Monday at 09:00 UTC
+/set_schedule cron(0 12 ? * MON-FRI *)
 ```
 
 **Parameters:**

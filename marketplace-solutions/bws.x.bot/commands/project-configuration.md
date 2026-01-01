@@ -8,9 +8,6 @@ and on the website. Only group administrators can execute this command.
 ```
 /set_project_name My Awesome Project
 ```
-```
-/set_project_name "Community Token Project"
-```
 
 **Parameters:**
 
@@ -41,9 +38,6 @@ can execute this command.
 
 ```
 /set_project_description A revolutionary DeFi platform for community governance
-```
-```
-/set_project_description "Building the future of decentralized social networks"
 ```
 
 **Parameters:**

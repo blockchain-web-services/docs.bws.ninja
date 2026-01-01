@@ -20,17 +20,17 @@ queries to be configured.
 **Admin Only**
 
 ```
-/recreate` - Generate new report keeping existing data
+/recreate
 ```
 ```
-/recreate delete-history` - Generate new report and delete all existing tweets/reports
+/recreate delete-history
 ```
 
 **Parameters:**
 
 | Name | Type | Example |
 |------|------|---------|
-| value | required | `-` |
+| value | required | `delete-history` |
 
 ---
 
