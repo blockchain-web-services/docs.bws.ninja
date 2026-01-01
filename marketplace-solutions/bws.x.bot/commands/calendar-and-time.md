@@ -4,9 +4,8 @@ Configures the start date and cadence (period) for report generation. Sets up a 
 schedule that determines when reports are automatically generated. Only group administrators 
 can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_calendar 20/06/2025 7days` - Start reports on June 20, 2025, every 7 days
 ```
@@ -15,8 +14,11 @@ can execute this command.
 ```
 
 **Parameters:**
-- start_date (required): Date in DD/MM/YYYY format (e.g., "20/06/2025")
-- cadence (required): Period in "Ndays" format (e.g., "7days", "14days")
+
+| Name | Type | Example |
+|------|------|---------|
+| start_date | required | `20/06/2025` |
+| cadence | required | `7days` |
 
 ---
 
@@ -25,13 +27,9 @@ can execute this command.
 Retrieves and displays the current calendar configuration including start date and cadence 
 for report generation. Shows the configured schedule or indicates if no calendar is set.
 
-**Usage:**
 ```
 /get_calendar
 ```
-
-**Parameters:**
-- None required
 
 ---
 

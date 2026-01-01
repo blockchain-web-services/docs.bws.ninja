@@ -5,9 +5,8 @@ daily time scheduling (HH:MM format) and advanced cron expressions for complex s
 Creates an EventBridge rule for scheduled report generation. Only group administrators 
 can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_schedule 12:30` - Generate reports daily at 12:30 UTC
 ```
@@ -28,14 +27,10 @@ can execute this command.
 ```
 
 **Parameters:**
-- schedule (required): Either:
-- Time in HH:MM format (24-hour, UTC timezone) for daily schedules
-- Time and days: HH:MM followed by day names/numbers (e.g. "14:30 Mon Wed Fri")
-- AWS EventBridge cron expression for complex schedules
-- Validation:
-- HH:MM format with valid hours (00-23) and minutes (00-59)
-- Day formats: Numbers (Monday=1-7), short names (Mon-Sun), long names (Monday-Sunday)
-- Valid AWS EventBridge cron syntax: cron(Minutes Hours Day-of-month Month Day-of-week Year)
+
+| Name | Type | Example |
+|------|------|---------|
+| schedule | required | `value` |
 
 ---
 
@@ -44,13 +39,9 @@ can execute this command.
 Retrieves and displays the current scheduled time for automatic report generation.
 Shows the configured UTC time or indicates if no schedule is set.
 
-**Usage:**
 ```
 /get_schedule
 ```
-
-**Parameters:**
-- None required
 
 ---
 
@@ -59,15 +50,11 @@ Shows the configured UTC time or indicates if no schedule is set.
 Removes the configured daily schedule for automatic report generation. Deletes the 
 EventBridge rule and database entry. Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /delete_schedule
 ```
-
-**Parameters:**
-- None required
 
 ---
 

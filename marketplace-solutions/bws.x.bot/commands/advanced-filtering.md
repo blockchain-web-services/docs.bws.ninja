@@ -5,9 +5,8 @@ Supports multiple filter types including user mentions, keywords, and account fi
 Each filter is saved with a unique name and can contain complex query syntax.
 Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_x_filtering my_kols_1 from:@CryptoHayes OR from:@IncomeSharks keywords:BWS mention:@BWSCommunity
 ```
@@ -19,10 +18,11 @@ Only group administrators can execute this command.
 ```
 
 **Parameters:**
-- filter_name (required): Unique identifier for this filter configuration
-- filtering_query (required): X search query syntax using supported operators
-- Supported operators: from:, mention:, keywords:, OR, AND, hashtags (#), mentions (@)
-- Complex queries with multiple conditions are supported
+
+| Name | Type | Example |
+|------|------|---------|
+| filter_name | required | `my_filter` |
+| filtering_query | required | `my_filter` |
 
 ---
 
@@ -32,13 +32,9 @@ Retrieves and displays all currently configured X (Twitter) monitoring filters f
 Shows filter names and their associated query syntax, helping users understand what content
 is being tracked for report generation.
 
-**Usage:**
 ```
 /get_x_filtering
 ```
-
-**Parameters:**
-- None required
 
 ---
 
@@ -48,20 +44,14 @@ Deletes specific X (Twitter) monitoring filters or all filters for the group.
 Allows administrators to remove individual filters by name or clear all filters
 using the wildcard "*" parameter. Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /delete_x_filtering my_kols_1` - Delete specific filter named "my_kols_1"
 ```
 ```
 /delete_x_filtering *` - Delete all filtering queries for the group
 ```
-
-**Parameters:**
-- filter_identifier (required): 
-- Specific filter name to delete individual filter
-- "*" wildcard to delete all filters
 
 ---
 
