@@ -31,9 +31,6 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 ```
 /add_accounts @CryptoHayes @IncomeSharks
 ```
-```
-/add_accounts @CryptoHayes @IncomeSharks
-```
 
 **Parameters:**
 
@@ -52,9 +49,6 @@ Add keywords to the filter configuration.
 ```
 /add_keywords
 ```
-```
-/add_keywords
-```
 
 ---
 
@@ -64,9 +58,6 @@ Add cashtags to the filter configuration.
 
 **Admin Only**
 
-```
-/add_cashtags $BWS $BUILD
-```
 ```
 /add_cashtags $BWS $BUILD
 ```
@@ -144,9 +135,6 @@ Removes accounts from the default filter
 ```
 /remove_accounts @CryptoHayes
 ```
-```
-/remove_accounts @CryptoHayes
-```
 
 **Parameters:**
 
@@ -165,9 +153,6 @@ Remove keywords from the filter configuration.
 ```
 /remove_keywords
 ```
-```
-/remove_keywords
-```
 
 ---
 
@@ -177,9 +162,6 @@ Remove cashtags from the filter configuration.
 
 **Admin Only**
 
-```
-/remove_cashtags $BWS
-```
 ```
 /remove_cashtags $BWS
 ```

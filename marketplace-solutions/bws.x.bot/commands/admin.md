@@ -7,10 +7,10 @@ administrators. Only group administrators can execute this command.
 **Admin Only**
 
 ```
-/add_admin @user1 @user2 @user3` - Designate specific admins
+/add_admin clear
 ```
 ```
-/add_admin clear` - Remove all designated admins (will notify all admins)
+/add_admin @user1 @user2 @user3
 ```
 
 **Parameters:**

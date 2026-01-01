@@ -8,13 +8,10 @@ Only group administrators can execute this command.
 **Admin Only**
 
 ```
-/set_x_filtering my_kols_1 from:@CryptoHayes OR from:@IncomeSharks keywords:BWS mention:@BWSCommunity
-```
-```
 /set_x_filtering project_mentions mention:@MyProject OR #MyProjectToken
 ```
 ```
-/set_x_filtering trending_topics #DeFi OR #crypto OR #blockchain
+/set_x_filtering my_kols_1 from:@CryptoHayes OR from:@IncomeSharks keywords:BWS mention:@BWSCommunity
 ```
 
 **Parameters:**
@@ -47,17 +44,14 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 **Admin Only**
 
 ```
-/delete_x_filtering my_kols_1` - Delete specific filter named "my_kols_1"
-```
-```
-/delete_x_filtering *` - Delete all filtering queries for the group
+/delete_x_filtering my_kols_1
 ```
 
 **Parameters:**
 
 | Name | Type | Example |
 |------|------|---------|
-| value | required | `my_kols_1&#x60;` |
+| value | required | `my_kols_1` |
 
 ---
 

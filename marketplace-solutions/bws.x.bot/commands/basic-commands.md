@@ -18,20 +18,17 @@ In groups, shows simple bot running message. In private messages, manages comple
 including payment confirmation, validation codes, and bot setup guidance.
 
 ```
-/start` - Basic initialization
+/start
 ```
 ```
-/start payment_success` - Payment confirmation workflow
-```
-```
-/start payment_cancelled` - Payment cancellation workflow
+/start payment_success
 ```
 
 **Parameters:**
 
 | Name | Type | Example |
 |------|------|---------|
-| value | required | `-` |
+| value | required | `payment_success` |
 
 ---
 

@@ -103,10 +103,10 @@ Only group administrators can execute this command.
 **Admin Only**
 
 ```
-/set_best_title "Tweet of the Day" #ff6b6b
-```
-```
 /set_best_title "Top Performance" #28a745
+```
+```
+/set_best_title "Tweet of the Day" #ff6b6b
 ```
 
 **Parameters:**
@@ -128,9 +128,6 @@ Only group administrators can execute this command.
 
 ```
 /set_engagement_title "Scoring Rules" #28a745
-```
-```
-/set_engagement_title "Engagement Metrics" #6f42c1
 ```
 
 **Parameters:**
