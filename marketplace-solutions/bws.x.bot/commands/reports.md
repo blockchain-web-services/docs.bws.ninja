@@ -1,8 +1,11 @@
 ## /report
 
-Displays the last generated report for the group. Retrieves and sends the most recent 
-leaderboard report including both image and text components. The report shows user 
-engagement statistics and rankings based on configured scoring rules.
+Displays the most recently generated leaderboard report for your community. The bot sends both a visual chart image
+and formatted text showing engagement statistics and rankings for tracked accounts based on your configured scoring rules.
+Use this to quickly share the latest community performance data without waiting for the next scheduled report. Any
+community member can view reports - no admin privileges required.
+
+**Admin Only**
 
 ```
 /report
@@ -12,10 +15,10 @@ engagement statistics and rankings based on configured scoring rules.
 
 ## /recreate
 
-Forces the generation of a new report by triggering the tweet fetching and report generation 
-process. This command consumes credits and can optionally delete existing report history.
-Only group administrators can execute this command, and requires X token and filtering 
-queries to be configured.
+Triggers immediate generation of a fresh report by fetching latest X (Twitter) data and creating new leaderboards.
+This bypasses the normal scheduled report generation and consumes credits. Use this when you want an updated report
+outside the regular schedule, such as after adding new accounts to track or when preparing for a presentation. You
+can optionally delete all existing report history to start completely fresh.
 
 **Admin Only**
 
@@ -30,7 +33,7 @@ queries to be configured.
 
 | Name | Type | Example |
 |------|------|---------|
-| value | required | `delete-history` |
+| delete-history | optional | `value` |
 
 ---
 
