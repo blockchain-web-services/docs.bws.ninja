@@ -3,8 +3,6 @@
 Sets the project name for the community. This name will be displayed in reports
 and on the website. Only group administrators can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -25,8 +23,6 @@ and on the website. Only group administrators can execute this command.
 Retrieves and displays the current project name. If no name is set,
 displays a message indicating no project name has been configured.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_project_name
@@ -39,8 +35,6 @@ displays a message indicating no project name has been configured.
 Sets the project description for the community. This description provides
 context about the project's goals and purpose. Only group administrators 
 can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -62,8 +56,6 @@ can execute this command.
 Retrieves and displays the current project description. If no description is set,
 displays a message indicating no project description has been configured.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_project_description
@@ -75,8 +67,6 @@ displays a message indicating no project description has been configured.
 
 Sets the detailed project description for the community. This allows for longer,
 more comprehensive project information. Only group administrators can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -93,8 +83,6 @@ more comprehensive project information. Only group administrators can execute th
 ## /get_project_long_description
 
 Retrieves the current detailed project description.
-
-- Persists configuration in the database for future use
 
 **Usage:**
 ```
@@ -127,8 +115,6 @@ Only group administrators can execute this command.
 Retrieves and displays the current project logo URL. If no logo is set,
 displays a message indicating no project logo has been configured.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_project_logo
@@ -141,8 +127,6 @@ displays a message indicating no project logo has been configured.
 Sets project URLs (website, social media, documentation, etc.). 
 Accepts multiple URLs separated by spaces or commas.
 Only group administrators can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -162,8 +146,6 @@ Only group administrators can execute this command.
 ## /get_project_urls
 
 Retrieves the current project URLs.
-
-- Persists configuration in the database for future use
 
 **Usage:**
 ```

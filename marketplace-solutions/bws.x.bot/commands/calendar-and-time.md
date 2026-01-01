@@ -4,8 +4,6 @@ Configures the start date and cadence (period) for report generation. Sets up a 
 schedule that determines when reports are automatically generated. Only group administrators 
 can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -26,8 +24,6 @@ can execute this command.
 
 Retrieves and displays the current calendar configuration including start date and cadence 
 for report generation. Shows the configured schedule or indicates if no calendar is set.
-
-- Persists configuration in the database for future use
 
 **Usage:**
 ```

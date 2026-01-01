@@ -4,8 +4,6 @@ Designates specific group administrators to receive private bot notifications (e
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
 administrators. Only group administrators can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**

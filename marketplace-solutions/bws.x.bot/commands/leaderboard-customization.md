@@ -4,8 +4,6 @@ Sets the scoring multipliers for engagement metrics (Likes, Retweets, Replies, Q
 used in leaderboard calculations. These multipliers determine how many points each type of 
 engagement contributes to a user's total score. Only group administrators can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -29,8 +27,6 @@ Retrieves and displays the current scoring multipliers for engagement metrics
 (Likes, Retweets, Replies, Quotes, Views) used in leaderboard calculations. 
 Shows either configured values or indicates default values are being used.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_points
@@ -46,8 +42,6 @@ Shows either configured values or indicates default values are being used.
 Sets the HTML colors for displaying engagement metrics (Likes, Retweets, Replies, Quotes, Views) 
 in the leaderboard reports. Colors are stored as hexadecimal values and used for report generation.
 Only group administrators can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -72,8 +66,6 @@ Retrieves and displays the current HTML color configuration for engagement metri
 (Likes, Retweets, Replies, Quotes, Views) used in leaderboard reports. Shows either 
 configured colors or default values if none are set.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_colors
@@ -89,8 +81,6 @@ configured colors or default values if none are set.
 Sets the title text and color for the main leaderboard section in generated reports.
 Allows customization of the primary heading displayed at the top of leaderboard reports.
 Only group administrators can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -114,8 +104,6 @@ Sets the title text and color for the best tweet section in generated reports.
 Allows customization of the heading displayed above the highlighted best tweet.
 Only group administrators can execute this command.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
@@ -137,8 +125,6 @@ Only group administrators can execute this command.
 Sets the title text and color for the engagement scoring section in generated reports.
 Allows customization of the heading displayed above engagement scoring rules and metrics.
 Only group administrators can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -162,8 +148,6 @@ Retrieves and displays all current title configurations for the report sections 
 top title (main leaderboard), best title (best tweet), and engagement title (scoring rules).
 Shows either configured values or default values for each section.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /get_titles
@@ -179,8 +163,6 @@ Shows either configured values or default values for each section.
 Sets the number of users to display in the report leaderboard. This controls how many 
 top-performing users are shown in the generated reports. Only group administrators 
 can execute this command.
-
-- Persists configuration in the database for future use
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 
@@ -199,8 +181,6 @@ can execute this command.
 
 Retrieves and displays the current number of users configured to show in the report 
 leaderboard. Shows either the configured value or indicates default value (10) is being used.
-
-- Persists configuration in the database for future use
 
 **Usage:**
 ```

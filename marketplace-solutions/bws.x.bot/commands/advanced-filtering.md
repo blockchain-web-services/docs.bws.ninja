@@ -5,9 +5,6 @@ Supports multiple filter types including user mentions, keywords, and account fi
 Each filter is saved with a unique name and can contain complex query syntax.
 Only group administrators can execute this command.
 
-- Includes automatic handling of X API query length limits (512 characters)
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**

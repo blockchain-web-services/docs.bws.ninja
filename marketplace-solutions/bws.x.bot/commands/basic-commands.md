@@ -21,8 +21,6 @@ Bot initialization command that handles different workflows based on context and
 In groups, shows simple bot running message. In private messages, manages complex state-based workflows
 including payment confirmation, validation codes, and bot setup guidance.
 
-- Persists configuration in the database for future use
-
 **Usage:**
 ```
 /start` - Basic initialization

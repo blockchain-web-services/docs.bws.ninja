@@ -33,8 +33,6 @@ Only group administrators can start raids.
 
 Check current raid progress
 
-- Manages raid lifecycle and status tracking
-
 **Usage:**
 ```
 /raid_status
@@ -45,8 +43,6 @@ Check current raid progress
 ## /raid_stop
 
 Stops an active raid before completion
-
-- Manages raid lifecycle and status tracking
 
 **Admin Only:** Yes - Only group administrators can execute this command.
 

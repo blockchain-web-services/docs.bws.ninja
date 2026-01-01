@@ -21,8 +21,6 @@ process. This command consumes credits and can optionally delete existing report
 Only group administrators can execute this command, and requires X token and filtering 
 queries to be configured.
 
-- Persists configuration in the database for future use
-
 **Admin Only:** Yes - Only group administrators can execute this command.
 
 **Usage:**
