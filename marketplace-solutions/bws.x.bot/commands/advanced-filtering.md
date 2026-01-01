@@ -60,10 +60,3 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 
 - [Filter Setup](filter-setup) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
 - [Schedule Management](schedule-management) - Configure automated report generation schedules with custom intervals.
-
----
-
-**Need Help?**
-- 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](./)
-- 🏠 [Home](../)
