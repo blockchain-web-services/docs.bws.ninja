@@ -58,8 +58,3 @@ and configuration purposes. Only group administrators can execute this command.
 
 ---
 
-
-## Related Pages
-
-- [Filter Setup](filter-setup) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.

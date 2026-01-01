@@ -21,8 +21,3 @@ administrators. Only group administrators can execute this command.
 
 ---
 
-
-## Related Pages
-
-- [Topic Management](topic-management) - Configure Telegram topic/thread settings for bot operation.
-- [Raid Commands](raid-commands) - Coordinate X (Twitter) engagement raids to amplify post visibility and reach.

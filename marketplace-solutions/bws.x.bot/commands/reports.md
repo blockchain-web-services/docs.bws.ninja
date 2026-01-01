@@ -34,9 +34,3 @@ queries to be configured.
 
 ---
 
-
-## Related Pages
-
-- [Quick Filter Management](quick-filter-management) - 
-- [Leaderboard Customization](leaderboard-customization) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
-- [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.

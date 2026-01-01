@@ -300,9 +300,3 @@ Clear all ignore from the filter.
 
 ---
 
-
-## Related Pages
-
-- [Advanced Filtering](advanced-filtering) - Create named filters for complex tracking scenarios and multi-project management.
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
-- [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.

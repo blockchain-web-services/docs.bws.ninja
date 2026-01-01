@@ -147,9 +147,3 @@ Retrieves the current project URLs.
 
 ---
 
-
-## Related Pages
-
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
-- [Leaderboard Customization](leaderboard-customization) - Customize scoring points, colors, titles, and display settings for leaderboard reports.
-- [Filter Setup](filter-setup) - Manage tracking filters for accounts, keywords, cashtags, mentions, exclusions, and ignore lists.

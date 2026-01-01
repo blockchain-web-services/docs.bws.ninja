@@ -52,9 +52,3 @@ EventBridge rule and database entry. Only group administrators can execute this 
 
 ---
 
-
-## Related Pages
-
-- [Calendar &amp; Time](calendar-and-time) - Manage calendar settings and time periods for report generation cycles.
-- [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
-- [Advanced Filtering](advanced-filtering) - Create named filters for complex tracking scenarios and multi-project management.
