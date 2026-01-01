@@ -27,6 +27,12 @@ including payment confirmation, validation codes, and bot setup guidance.
 /start payment_cancelled` - Payment cancellation workflow
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `-` |
+
 ---
 
 ## /status

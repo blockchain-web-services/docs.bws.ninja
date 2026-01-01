@@ -53,6 +53,12 @@ using the wildcard "*" parameter. Only group administrators can execute this com
 /delete_x_filtering *` - Delete all filtering queries for the group
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `my_kols_1&#x60;` |
+
 ---
 
 

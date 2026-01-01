@@ -51,6 +51,12 @@ Stops an active raid before completion
 /raid_stop &lt;raid_id&gt;
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `&amp;lt;raid_id&amp;gt;` |
+
 ---
 
 ## /raid_history
@@ -73,6 +79,12 @@ Configure default raid settings
 /set_raid_defaults [settings]
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `[settings]` |
+
 ---
 
 ## /get_raid_defaults
@@ -94,6 +106,12 @@ Configure how raid status messages are updated (edit/repost/pin)
 ```
 /set_raid_message_behavior &lt;mode&gt;
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `&amp;lt;mode&amp;gt;` |
 
 ---
 
@@ -131,6 +149,12 @@ Configure automatic raid for best tweet of the day
 ```
 /auto_raid_config [settings]
 ```
+
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `[settings]` |
 
 ---
 

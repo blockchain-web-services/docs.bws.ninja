@@ -26,6 +26,12 @@ queries to be configured.
 /recreate delete-history` - Generate new report and delete all existing tweets/reports
 ```
 
+**Parameters:**
+
+| Name | Type | Example |
+|------|------|---------|
+| value | required | `-` |
+
 ---
 
 
