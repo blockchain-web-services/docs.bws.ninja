@@ -4,13 +4,9 @@ Displays the last generated report for the group. Retrieves and sends the most r
 leaderboard report including both image and text components. The report shows user 
 engagement statistics and rankings based on configured scoring rules.
 
-**Usage:**
 ```
 /report
 ```
-
-**Parameters:**
-- None required
 
 ---
 
@@ -21,18 +17,14 @@ process. This command consumes credits and can optionally delete existing report
 Only group administrators can execute this command, and requires X token and filtering 
 queries to be configured.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /recreate` - Generate new report keeping existing data
 ```
 ```
 /recreate delete-history` - Generate new report and delete all existing tweets/reports
 ```
-
-**Parameters:**
-- Optional: `delete-history` flag to remove existing report data from S3 storage
 
 ---
 

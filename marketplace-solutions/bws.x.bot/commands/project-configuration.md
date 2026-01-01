@@ -3,9 +3,8 @@
 Sets the project name for the community. This name will be displayed in reports
 and on the website. Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_project_name My Awesome Project
 ```
@@ -14,7 +13,10 @@ and on the website. Only group administrators can execute this command.
 ```
 
 **Parameters:**
-- project_name (required): The name of the project
+
+| Name | Type | Example |
+|------|------|---------|
+| project_name | required | `My Project` |
 
 ---
 
@@ -23,7 +25,6 @@ and on the website. Only group administrators can execute this command.
 Retrieves and displays the current project name. If no name is set,
 displays a message indicating no project name has been configured.
 
-**Usage:**
 ```
 /get_project_name
 ```
@@ -36,9 +37,8 @@ Sets the project description for the community. This description provides
 context about the project's goals and purpose. Only group administrators 
 can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_project_description A revolutionary DeFi platform for community governance
 ```
@@ -47,7 +47,10 @@ can execute this command.
 ```
 
 **Parameters:**
-- project_description (required): The description of the project
+
+| Name | Type | Example |
+|------|------|---------|
+| project_description | required | `value` |
 
 ---
 
@@ -56,7 +59,6 @@ can execute this command.
 Retrieves and displays the current project description. If no description is set,
 displays a message indicating no project description has been configured.
 
-**Usage:**
 ```
 /get_project_description
 ```
@@ -68,15 +70,17 @@ displays a message indicating no project description has been configured.
 Sets the detailed project description for the community. This allows for longer,
 more comprehensive project information. Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_project_long_description This is a comprehensive description of our project...
 ```
 
 **Parameters:**
-- long_description (required): The detailed description of the project
+
+| Name | Type | Example |
+|------|------|---------|
+| long_description | required | `value` |
 
 ---
 
@@ -84,13 +88,9 @@ more comprehensive project information. Only group administrators can execute th
 
 Retrieves the current detailed project description.
 
-**Usage:**
 ```
 /get_project_long_description
 ```
-
-**Parameters:**
-None
 
 ---
 
@@ -101,9 +101,8 @@ will wait for the user to send an image file which will be saved as the project 
 The logo is uploaded to the website S3 bucket for public access.
 Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_project_logo
 ```
@@ -115,7 +114,6 @@ Only group administrators can execute this command.
 Retrieves and displays the current project logo URL. If no logo is set,
 displays a message indicating no project logo has been configured.
 
-**Usage:**
 ```
 /get_project_logo
 ```
@@ -128,9 +126,8 @@ Sets project URLs (website, social media, documentation, etc.).
 Accepts multiple URLs separated by spaces or commas.
 Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /set_project_urls https://example.com https://twitter.com/project
 ```
@@ -139,7 +136,10 @@ Only group administrators can execute this command.
 ```
 
 **Parameters:**
-- urls (required): One or more URLs separated by spaces or commas
+
+| Name | Type | Example |
+|------|------|---------|
+| urls | required | `https://example.com` |
 
 ---
 
@@ -147,13 +147,9 @@ Only group administrators can execute this command.
 
 Retrieves the current project URLs.
 
-**Usage:**
 ```
 /get_project_urls
 ```
-
-**Parameters:**
-None
 
 ---
 

@@ -4,7 +4,6 @@
 
 Lists all filters for the current chat
 
-**Usage:**
 ```
 /list_filters
 ```
@@ -15,7 +14,6 @@ Lists all filters for the current chat
 
 Shows the current configuration of the default filter
 
-**Usage:**
 ```
 /show_filter
 ```
@@ -28,9 +26,8 @@ Shows the current configuration of the default filter
 
 Parse filter parameter from command arguments Looks for filter=name pattern and extracts it @param {string[]} args - Command arguments
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_accounts
 ```
@@ -41,9 +38,8 @@ Parse filter parameter from command arguments Looks for filter=name pattern and 
 
 Add keywords to the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_keywords
 ```
@@ -54,9 +50,8 @@ Add keywords to the filter configuration.
 
 Add cashtags to the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_cashtags
 ```
@@ -67,9 +62,8 @@ Add cashtags to the filter configuration.
 
 Add mentions to the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_mentions
 ```
@@ -80,9 +74,8 @@ Add mentions to the filter configuration.
 
 Add excludes to the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_excludes
 ```
@@ -93,9 +86,8 @@ Add excludes to the filter configuration.
 
 Add ignore to the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_ignore
 ```
@@ -108,9 +100,8 @@ Add ignore to the filter configuration.
 
 Removes accounts from the default filter
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_accounts
 ```
@@ -121,9 +112,8 @@ Removes accounts from the default filter
 
 Remove keywords from the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_keywords
 ```
@@ -134,9 +124,8 @@ Remove keywords from the filter configuration.
 
 Remove cashtags from the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_cashtags
 ```
@@ -147,9 +136,8 @@ Remove cashtags from the filter configuration.
 
 Remove mentions from the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_mentions
 ```
@@ -160,9 +148,8 @@ Remove mentions from the filter configuration.
 
 Remove excludes from the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_excludes
 ```
@@ -173,9 +160,8 @@ Remove excludes from the filter configuration.
 
 Remove ignore from the filter configuration.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /remove_ignore
 ```
@@ -186,9 +172,8 @@ Remove ignore from the filter configuration.
 
 Clear all accounts from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_accounts
 ```
@@ -199,9 +184,8 @@ Clear all accounts from the filter.
 
 Clear all keywords from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_keywords
 ```
@@ -212,9 +196,8 @@ Clear all keywords from the filter.
 
 Clear all cashtags from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_cashtags
 ```
@@ -225,9 +208,8 @@ Clear all cashtags from the filter.
 
 Clear all mentions from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_mentions
 ```
@@ -238,9 +220,8 @@ Clear all mentions from the filter.
 
 Clear all excludes from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_excludes
 ```
@@ -251,9 +232,8 @@ Clear all excludes from the filter.
 
 Clear all ignore from the filter.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /clear_ignore
 ```

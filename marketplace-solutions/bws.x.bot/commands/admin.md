@@ -4,9 +4,8 @@ Designates specific group administrators to receive private bot notifications (e
 exhaustion, errors). If no admins are designated, the bot will attempt to notify all group
 administrators. Only group administrators can execute this command.
 
-**Admin Only:** Yes - Only group administrators can execute this command.
+**Admin Only**
 
-**Usage:**
 ```
 /add_admin @user1 @user2 @user3` - Designate specific admins
 ```
@@ -15,11 +14,10 @@ administrators. Only group administrators can execute this command.
 ```
 
 **Parameters:**
-- users (required): Mentioned users (via @username) or "clear" to remove all
-- Validation:
-- All mentioned users must be current group administrators
-- Maximum 10 admins can be designated
-- Overwrites previous list (does not append)
+
+| Name | Type | Example |
+|------|------|---------|
+| users | required | `@user1` |
 
 ---
 
