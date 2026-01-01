@@ -34,10 +34,3 @@ sends reports. Shows either the topic name or thread ID if configured.
 
 - [Admin](admin) - Administrative functions for managing bot notifications and permissions.
 - [Basic Commands](basic-commands) - Essential bot operations including help, initialization, and status checks.
-
----
-
-**Need Help?**
-- 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](./)
-- 🏠 [Home](../)

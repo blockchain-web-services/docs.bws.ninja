@@ -214,8 +214,3 @@ Manage billing, subscriptions, credits, and usage tracking.
 
 ---
 
-
-## Need Help?
-
-- 💬 Join our [Telegram Support Group](https://t.me/bws_xbot_support)
-- 🏠 Return to [Home](../)

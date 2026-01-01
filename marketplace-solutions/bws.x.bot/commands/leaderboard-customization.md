@@ -187,10 +187,3 @@ leaderboard. Shows either the configured value or indicates default value (10) i
 
 - [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
 - [Project Configuration](project-configuration) - Customize project metadata including name, description, logo, and URLs for reports.
-
----
-
-**Need Help?**
-- 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](./)
-- 🏠 [Home](../)

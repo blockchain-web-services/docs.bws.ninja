@@ -173,10 +173,3 @@ View current auto-raid settings
 
 - [Reports](reports) - Generate and manage performance analytics reports for tracked X content.
 - [Admin](admin) - Administrative functions for managing bot notifications and permissions.
-
----
-
-**Need Help?**
-- 💬 [Telegram Support](https://t.me/bws_xbot_support)
-- 📖 [Command Reference](./)
-- 🏠 [Home](../)
