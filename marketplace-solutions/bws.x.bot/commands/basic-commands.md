@@ -1,7 +1,8 @@
 ## /help
 
-Displays available bot commands and their descriptions. Shows different command sets based on whether
-the user is a group administrator (full command list) or regular user (limited command list).
+Displays a complete list of available bot commands and their descriptions. Group administrators see
+all commands including advanced configuration options, while regular users see a limited list of basic
+commands they can use. Use this to discover what the bot can do and get quick command references.
 
 **Admin Only**
 
@@ -13,29 +14,24 @@ the user is a group administrator (full command list) or regular user (limited c
 
 ## /start
 
-Bot initialization command that handles different workflows based on context and user state.
-In groups, shows simple bot running message. In private messages, manages complex state-based workflows
-including payment confirmation, validation codes, and bot setup guidance.
+Initializes the bot and provides welcome messages. In group chats, confirms the bot is running and
+directs you to use /help for available commands. In private messages with the bot, shows a welcome
+message with an "Add to Group" button to install the bot in your Telegram group. Also handles payment
+confirmations when you complete a subscription purchase.
+
+**Admin Only**
 
 ```
 /start
 ```
-```
-/start payment_success
-```
-
-**Parameters:**
-
-| Name | Type | Example |
-|------|------|---------|
-| value | required | `payment_success` |
 
 ---
 
 ## /status
 
-Checks the bot's operational status and provides basic information about bot availability.
-Only group administrators can execute this command.
+Checks if the bot is operational and running properly in your group. Confirms the bot is active and
+provides a link to the documentation for setup instructions. Useful for verifying the bot is responsive
+after installation or troubleshooting connection issues.
 
 **Admin Only**
 
@@ -47,8 +43,9 @@ Only group administrators can execute this command.
 
 ## /get_chatid
 
-Returns the chat ID of the group where the command is executed. Useful for debugging 
-and configuration purposes. Only group administrators can execute this command.
+Displays your Telegram group's unique chat ID. This identifier is useful for technical configurations,
+integrations with other systems, or when contacting support. The chat ID is a unique number that Telegram
+assigns to each group and is required for certain advanced features and API integrations.
 
 **Admin Only**
 
