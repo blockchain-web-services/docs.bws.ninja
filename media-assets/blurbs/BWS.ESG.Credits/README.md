@@ -10,7 +10,7 @@ description: >-
 Target audience-specific communications explaining what ESG Credits is, how it works,
 and why it matters to different types of end-customers.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>ESG Credits</td><td>2025-12-28</td><td><a href="https://esgcredits.io">esgcredits.io</a></td><td>3</td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>ESG Credits</td><td>2026-01-04</td><td><a href="https://esgcredits.io">esgcredits.io</a></td><td>3</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**
@@ -25,14 +25,16 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 
 ### Product Blurb
 
-**Target:** 100-200 words | **Actual:** 153 words, 1066 chars
+**Target:** 100-200 words | **Actual:** 151 words, 1136 chars
 
 ```
-Here is the Product Blurb for ESG Credits based on the complete documentation provided:
+ESG Credits: Easily Add ESG Impact Benefits to Your Digital Channels
 
-ESG Credits enables you to easily integrate detailed ESG impact reporting into your digital channels and investor reports. By leveraging your investments in green assets, you can provide your customers with transparent, auditable impact data aligned with ICMA frameworks or custom taxonomies.
+ESG Credits is the perfect solution for financial institutions looking to quickly integrate ESG impact benefits into their digital channels and investment reporting. With ESG Credits, you can create detailed impact reports based on investments made in green assets, tailored for banks, investment advisors, institutional investors, venture capitalists, and issuers.
 
-With ESG Credits, you can flexibly calculate impact amounts per annum or instrument term based on the unique "impact profile" of each green framework. Consolidate benefit characteristics from the green projects you've invested in to build your own framework. Tie UN SDGs and EU Environmental Objectives to impact categories, support multiple currencies, and make your impact data accessible in any language. For added trust and integrity, immutably store your framework's impact profile on the blockchain and issue customer-specific investment certificates. ESG Credits helps you demonstrate your ESG commitment while preventing double-counting of project benefits across the market.
+The flexible solution supports ICMA frameworks and custom taxonomies, allowing you to calculate impact amounts per annum or instrument term. Build your green framework's "impact profile" by consolidating benefit characteristics of invested green projects. Tie UN SDGs and EU Environmental Objectives to impact categories, support multiple currencies, and make your taxonomy multilingual. Leverage blockchain to demonstrate commitment by immutably storing framework profiles and issuing customer investment certificates. 🌿
+
+Accelerate your development and start providing ESG impact reporting to your customers today with ESG Credits! Contact us to learn more: https://www.greenassets.io/#contact-us
 ```
 
 ---
@@ -40,8 +42,8 @@ With ESG Credits, you can flexibly calculate impact amounts per annum or instrum
 ## Target Audiences
 
 1. **Financial Institutions** - Banks, investment advisors, and institutional investors who want to provide ESG impact reporting to their clients and stakeholders
-2. **Issuers of Green Assets** - Organizations that issue green bonds, loans or other financial instruments and need to report on the ESG impact of the funded projects
-3. **Certification Bodies** - Organizations that certify and validate the ESG impact of green investments and need to publish quality-assured impact data
+2. **Issuers of Green Assets** - Organizations issuing green bonds, loans or other financial instruments who need to report on the ESG impact of the funded projects
+3. **Certification Bodies** - Organizations that certify the ESG impact of green investments and need to publish quality-assured impact data
 
 ---
 
@@ -53,20 +55,16 @@ With ESG Credits, you can flexibly calculate impact amounts per annum or instrum
 
 **For:** Financial Institutions
 
-**Target:** 280 chars | **Actual:** 348 chars
+**Target:** 280 chars | **Actual:** 285 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 Empower your ESG impact reporting with ESG Credits! 📊
+🌿 Elevate your ESG impact reporting with ESG Credits! 📈
 
-Provide detailed ESG impact reports to clients & stakeholders by leveraging green asset investments. Supports ICMA frameworks & custom taxonomies.
+Seamlessly integrate positive ESG benefits into your digital channels and investment reports. Leverage green asset investments to create detailed impact reports for stakeholders.
 
-🔒 Secure, immutable storage on blockchain
-🌍 Multilingual support 
-💰 Flexible currency handling
-
-#ESGimpact #sustainablefinance #greenbonds
+#ESGimpact #SustainableInvesting #GreenFinance
 ```
 
 
@@ -74,31 +72,29 @@ Provide detailed ESG impact reports to clients & stakeholders by leveraging gree
 
 **For:** Financial Institutions
 
-**Target:** 150-250 words | **Actual:** 166 words, 1217 chars
+**Target:** 150-250 words | **Actual:** 133 words, 955 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 **Introducing ESG Credits - Seamless ESG Impact Reporting for Financial Institutions!** 🏦
+🌿 Introducing **ESG Credits** - the smart way to showcase your positive ESG impact! 📊
 
-With ESG Credits, you can easily:
+With ESG Credits, you can:
 
-✅ Integrate positive ESG impact benefits into your digital channels and investment reporting
+✅ Quickly integrate ESG benefits into your digital channels and investment reporting 
+✅ Create detailed impact reports for clients and stakeholders
+✅ Leverage your investments in green assets to demonstrate ESG leadership
 
-✅ Create detailed ESG impact reports for clients and stakeholders based on green asset investments
+🌍 Support ICMA frameworks and custom taxonomies to align with global standards. Plus, ESG Credits seamlessly integrates with blockchain for secure, immutable storage and certification of green investments.
 
-✅ Support ICMA frameworks and custom taxonomies for flexible impact calculations
+💡 Key features:
+- Flexible impact calculations 
+- Prevent double-counting of impact
+- Ensure transparency for stakeholders
 
-**How it works:**
-1️⃣ Build your taxonomy structure, including UN SDGs and EU Environmental Development Objectives 
-2️⃣ Input category volumes and indicator values to create your green framework
-3️⃣ Register green projects and their benefit characteristics to consolidate into a framework
+🏦 Perfect for banks, investment advisors, institutional investors, venture capitalists, and green asset issuers looking to showcase ESG excellence.
 
-🔒 ESG Credits integrates seamlessly with blockchain for secure, immutable storage and certification of green investments, preventing double-counting and ensuring transparency.
-
-Whether you're a bank, investment advisor, institutional investor, venture capitalist, or green asset issuer, ESG Credits empowers you to deliver the ESG impact reporting your clients and stakeholders demand.
-
-Ready to showcase your positive ESG impact? Contact us to get started with ESG Credits today! 
+Contact us today to learn how ESG Credits can elevate your ESG reporting and engage clients! 
 https://www.greenassets.io/#contact-us
 ```
 
@@ -107,20 +103,20 @@ https://www.greenassets.io/#contact-us
 
 **For:** Financial Institutions
 
-**Target:** 50-100 words | **Actual:** 64 words, 431 chars
+**Target:** 50-100 words | **Actual:** 54 words, 381 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 **Unlock the Power of ESG Reporting for Your Clients** 🌍
+📊 Upgrade your ESG reporting game! 📈
 
-ESG Credits empowers you to seamlessly integrate ESG impact benefits into your digital channels and investment reporting.
+ESG Credits empowers you to easily integrate detailed ESG impact benefits into your digital channels and investment reporting.
 
-💼 Serve your clients with detailed, certified ESG impact reports backed by blockchain security.
+🌿 Leverage your green investments
+🌍 Support ICMA frameworks & custom taxonomies 
+🔒 Secure, immutable storage on blockchain
 
-📊 Support ICMA frameworks, custom taxonomies, and flexible calculations.
-
-💡 Ready to elevate your ESG offerings? Learn more and get started today!
+📣 Stand out as an ESG leader! Get started now: https://www.greenassets.io/#contact-us
 ```
 
 
@@ -128,26 +124,26 @@ ESG Credits empowers you to seamlessly integrate ESG impact benefits into your d
 
 ## Issuers of Green Assets
 
-*Organizations that issue green bonds, loans or other financial instruments and need to report on the ESG impact of the funded projects*
+*Organizations issuing green bonds, loans or other financial instruments who need to report on the ESG impact of the funded projects*
 
 ### X (Twitter) Single Post
 
 **For:** Issuers of Green Assets
 
-**Target:** 280 chars | **Actual:** 368 chars
+**Target:** 280 chars | **Actual:** 322 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿📊 ESG Credits: Streamline your ESG impact reporting for green assets
+🌿 Streamline your ESG impact reporting with ESG Credits 📊
 
-Easily create detailed reports for stakeholders, support ICMA frameworks & custom taxonomies, and ensure secure data with blockchain integration.
+Create detailed reports for green bonds & loans, track funded projects, and showcase positive impact to investors.
 
-🔒 Prevent double-counting
-🌍 Align with UN SDGs & EU objectives 
-📈 Flexible impact calculations
+🔒 Secure storage on blockchain
+🌍 Supports ICMA & custom frameworks
+🔢 Flexible impact calculations
 
-#ESGreporting #greenfinance #sustainableinvesting
+#ESGReporting #GreenFinance #Sustainability
 ```
 
 
@@ -155,27 +151,26 @@ Easily create detailed reports for stakeholders, support ICMA frameworks & custo
 
 **For:** Issuers of Green Assets
 
-**Target:** 150-250 words | **Actual:** 83 words, 575 chars
+**Target:** 150-250 words | **Actual:** 106 words, 780 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 Attention Green Asset Issuers! 🌿
+🌿 **Attention Green Asset Issuers!** 📊 Streamline your ESG impact reporting with ESG Credits!
 
-Easily report on the **ESG impact** of your green bonds and loans with ESG Credits! 📊
+🔍 Easily create detailed reports for stakeholders
+🌍 Support ICMA frameworks & custom taxonomies
+🔢 Flexible impact calculations for your green projects
 
-Here's how it helps you:
+⛓️ With blockchain, securely store and certify your green investments, prevent double-counting, and ensure full transparency.
 
-✅ Create detailed impact reports for stakeholders
-✅ Support ICMA frameworks & custom taxonomies 
-✅ Flexible impact calculations
-✅ Seamless blockchain integration for secure, certified data
+🏦 ESG Credits seamlessly integrates with your digital channels and investment reporting, so you can showcase the positive impact of your green assets.
 
-🔒 Blockchain ensures your green investments are immutable and prevents double-counting.
+💡 Elevate your ESG game and build trust with investors and regulators!
 
-Ready to showcase your positive ESG impact? Learn more about ESG Credits and get started today!
+Learn more about ESG Credits and how it can supercharge your green asset reporting 👉 https://www.greenassets.io/#contact-us
 
-#ESGimpact #GreenFinance #SustainableInvesting
+#ESGReporting #GreenFinance #SustainableInvesting
 ```
 
 
@@ -183,20 +178,18 @@ Ready to showcase your positive ESG impact? Learn more about ESG Credits and get
 
 **For:** Issuers of Green Assets
 
-**Target:** 50-100 words | **Actual:** 49 words, 381 chars
+**Target:** 50-100 words | **Actual:** 44 words, 345 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 **Streamline your ESG impact reporting with ESG Credits!** 📊
+🌿📊 **ESG Credits: Streamline your ESG impact reporting**
 
-Easily create detailed reports for stakeholders on the positive impact of your green bonds and loans. 💪
+Easily create detailed reports for your green bonds and loans, showcasing the positive impact of funded projects. 
 
-Supports ICMA frameworks, custom taxonomies, and seamless blockchain integration. 🔒
+Supports ICMA frameworks, custom taxonomies, and blockchain integration for secure, certified data.
 
-👉 Learn more about simplifying ESG reporting at https://www.greenassets.io/
-
-#ESGReporting #GreenBonds #SustainableFinance
+📩 Contact us to get started: https://www.greenassets.io/#contact-us
 ```
 
 
@@ -204,22 +197,22 @@ Supports ICMA frameworks, custom taxonomies, and seamless blockchain integration
 
 ## Certification Bodies
 
-*Organizations that certify and validate the ESG impact of green investments and need to publish quality-assured impact data*
+*Organizations that certify the ESG impact of green investments and need to publish quality-assured impact data*
 
 ### X (Twitter) Single Post
 
 **For:** Certification Bodies
 
-**Target:** 280 chars | **Actual:** 282 chars
+**Target:** 280 chars | **Actual:** 280 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 Calling all Certification Bodies! 📜
+📢 Calling all Certification Bodies! 🌿
 
-Effortlessly publish quality-assured ESG impact data with our **ESG Credits** solution. 🌍💰
+Publish quality-assured ESG impact data with ease using ESG Credits API. 📊
 
-Integrate seamlessly, support ICMA frameworks & custom taxonomies, and ensure transparency. 🔒
+Integrate seamlessly with blockchain for secure, immutable storage and certification of green investments. 🔒
 
 #ESGimpact #CertificationBodies #SustainableFinance
 ```
@@ -229,34 +222,24 @@ Integrate seamlessly, support ICMA frameworks & custom taxonomies, and ensure tr
 
 **For:** Certification Bodies
 
-**Target:** 150-250 words | **Actual:** 172 words, 1253 chars
+**Target:** 150-250 words | **Actual:** 83 words, 636 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 **Attention Certification Bodies!** 📊 Streamline your ESG impact data publishing with ESG Credits! 🌍
+🌿 **Attention Certification Bodies!** 📊 Easily publish quality-assured ESG impact data with ESG Credits!
 
-Here's how it helps you:
+🔍 ESG Credits lets you:
+- Certify green investments on the blockchain for transparency 
+- Prevent double-counting of impact benefits
+- Integrate with ICMA frameworks & custom taxonomies
 
-✅ Easily publish quality-assured ESG impact data
-✅ Support ICMA frameworks and custom taxonomies
-✅ Flexible impact calculations for detailed reporting
+✅ With ESG Credits, you can provide your clients with detailed, trustworthy ESG impact reports backed by immutable blockchain records. 
 
-**How it works:** 
-1️⃣ Build your taxonomy structure with categories, indicators, and UN SDG connections
-2️⃣ Input category volumes and indicator values to create your green framework
-3️⃣ Register green projects and their benefit characteristics
-4️⃣ Consolidate project portfolios into frameworks
+🔗 Streamline your certification process and enhance your services with ESG Credits! Contact us to learn more:
+https://www.greenassets.io/#contact-us
 
-🔒 With blockchain integration, you can ensure secure, immutable storage and certification of green investments. This prevents double-counting and provides full transparency.
-
-🌐 Make your services multilingual by adding taxonomy phrases in multiple languages - easily switch between them in API calls.
-
-💰 Define supported currencies and set annual foreign exchange rates for seamless global reporting.
-
-📈 Empower financial institutions with detailed, credible ESG impact reports to showcase the positive impact of their green investments.
-
-Get started today and elevate your ESG certification services! Contact us to learn more: https://www.greenassets.io/#contact-us
+#ESGimpact #CertificationBodies #BlockchainCertified
 ```
 
 
@@ -264,20 +247,20 @@ Get started today and elevate your ESG certification services! Contact us to lea
 
 **For:** Certification Bodies
 
-**Target:** 50-100 words | **Actual:** 42 words, 310 chars
+**Target:** 50-100 words | **Actual:** 48 words, 384 chars
 
 📋 **Ready to Copy & Paste:**
 
 ```
-🌿 **Attention Certification Bodies!** 📊
+🌿📈 **ESG Credits: Streamline Impact Reporting for Certified Green Investments**
 
-Streamline your ESG impact data publishing with ESG Credits! 💪
+Easily publish quality-assured ESG impact data for certified green investments with our API.
 
-Leverage our API to easily share quality-assured, immutable impact data on the blockchain 🔒
+✅ Support ICMA frameworks & custom taxonomies
+✅ Flexible impact calculations 
+✅ Seamless blockchain integration to prevent double-counting
 
-**Get started now and elevate your ESG certification game!** 🚀
-
-#ESGimpact #CertificationBodies #ImpactData
+Contact us to learn more! 👉 https://www.greenassets.io/#contact-us
 ```
 
 
@@ -299,8 +282,8 @@ These blurbs are starting points for end-customer communications. Feel free to:
 Each set of blurbs is optimized for a specific audience:
 
 * **Financial Institutions**: Banks, investment advisors, and institutional investors who want to provide ESG impact reporting to their clients and stakeholders
-* **Issuers of Green Assets**: Organizations that issue green bonds, loans or other financial instruments and need to report on the ESG impact of the funded projects
-* **Certification Bodies**: Organizations that certify and validate the ESG impact of green investments and need to publish quality-assured impact data
+* **Issuers of Green Assets**: Organizations issuing green bonds, loans or other financial instruments who need to report on the ESG impact of the funded projects
+* **Certification Bodies**: Organizations that certify the ESG impact of green investments and need to publish quality-assured impact data
 
 ---
 
