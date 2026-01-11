@@ -1,13 +1,18 @@
 {
   "productKey": "BWS.NFT.zK",
   "productName": "NFT.zK",
-  "generated": "2026-01-04T03:52:02.407Z",
-  "errors": {},
+  "generated": "2026-01-11T03:36:34.810Z",
+  "errors": {
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf9VpuS76E5kJp1p5M\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf9suEHL8GLdVg6jH3\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztfCE31ostgAVWXpRTP\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztfCgKaLFJV5gsPNn2R\"}"
+  },
   "summary": {
-    "totalAudiences": 3,
+    "totalAudiences": 1,
     "totalChannels": 4,
-    "totalCombinations": 12,
-    "successful": 12,
-    "failed": 0
+    "totalCombinations": 4,
+    "successful": 0,
+    "failed": 4
   }
 }

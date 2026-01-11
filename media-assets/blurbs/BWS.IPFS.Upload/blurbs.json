@@ -1,13 +1,18 @@
 {
   "productKey": "BWS.IPFS.Upload",
   "productName": "IPFS Upload",
-  "generated": "2026-01-04T03:50:22.308Z",
-  "errors": {},
+  "generated": "2026-01-11T03:36:33.710Z",
+  "errors": {
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf6SXTw9buhXTQhPW2\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf6qb8srxS9tyaQPmv\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf7WmQRdthLsAbj2Z5\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf7zYVjRthS2piPmDQ\"}"
+  },
   "summary": {
-    "totalAudiences": 3,
+    "totalAudiences": 1,
     "totalChannels": 4,
-    "totalCombinations": 12,
-    "successful": 12,
-    "failed": 0
+    "totalCombinations": 4,
+    "successful": 0,
+    "failed": 4
   }
 }

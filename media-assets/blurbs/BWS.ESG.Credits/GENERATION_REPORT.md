@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** ESG Credits (BWS.ESG.Credits)
-**Generated:** 2026-01-04T03:43:09.621Z
+**Generated:** 2026-01-11T03:36:31.301Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Financial Institutions** - Banks, investment advisors, and institutional investors who want to provide ESG impact reporting to their clients and stakeholders
-2. **Issuers of Green Assets** - Organizations issuing green bonds, loans or other financial instruments who need to report on the ESG impact of the funded projects
-3. **Certification Bodies** - Organizations that certify the ESG impact of green investments and need to publish quality-assured impact data
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Financial Institutions
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
-
-### Issuers of Green Assets
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Certification Bodies
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztevRGfgMiS1HMzSscR"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztevqaHyrEyfnpZpHJm"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztewG8HCVEsRGisZrW5"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztewgRoEn3trxFTHMfP"}
 
 ## API Usage
 
-- Input tokens: 135,676
-- Output tokens: 1,985
-- Total tokens: 137,661
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

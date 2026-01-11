@@ -1,13 +1,18 @@
 {
   "productKey": "BWS.Blockchain.Save",
   "productName": "Blockchain Save",
-  "generated": "2026-01-04T03:46:44.062Z",
-  "errors": {},
+  "generated": "2026-01-11T03:36:32.482Z",
+  "errors": {
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf1RewVonKTZjiTZmK\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf1qDP7Rr5MVuRGrEN\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf2GW5j9QS88bosaLB\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztf2i3naNSJRWZy3jU2\"}"
+  },
   "summary": {
-    "totalAudiences": 3,
+    "totalAudiences": 1,
     "totalChannels": 4,
-    "totalCombinations": 12,
-    "successful": 12,
-    "failed": 0
+    "totalCombinations": 4,
+    "successful": 0,
+    "failed": 4
   }
 }

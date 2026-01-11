@@ -1,13 +1,18 @@
 {
   "productKey": "BWS.ESG.Credits",
   "productName": "ESG Credits",
-  "generated": "2026-01-04T03:43:09.621Z",
-  "errors": {},
+  "generated": "2026-01-11T03:36:31.301Z",
+  "errors": {
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztevRGfgMiS1HMzSscR\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztevqaHyrEyfnpZpHJm\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztewG8HCVEsRGisZrW5\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztewgRoEn3trxFTHMfP\"}"
+  },
   "summary": {
-    "totalAudiences": 3,
+    "totalAudiences": 1,
     "totalChannels": 4,
-    "totalCombinations": 12,
-    "successful": 12,
-    "failed": 0
+    "totalCombinations": 4,
+    "successful": 0,
+    "failed": 4
   }
 }

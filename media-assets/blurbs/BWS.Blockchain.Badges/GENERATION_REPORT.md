@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** Blockchain Badges (BWS.Blockchain.Badges)
-**Generated:** 2026-01-04T03:38:33.320Z
+**Generated:** 2026-01-11T03:36:30.091Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Educational Institutions** - Schools, universities, and online course providers need to issue verifiable digital credentials to students for completed courses and degrees.
-2. **Professional Associations** - Industry associations and professional organizations need to award their members with trusted, verifiable certifications and designations.
-3. **Employers** - Companies need a reliable way to verify job applicants' credentials and track employee training and development achievements.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Educational Institutions
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Professional Associations
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Employers
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztepsu3vDE2X9KuTsuq"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWzteqKSg6bnugg39k4o7"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWzteqjVobKrcNCtFAdNH"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWzterFkS2wp6YfbRZipt"}
 
 ## API Usage
 
-- Input tokens: 35,994
-- Output tokens: 1,714
-- Total tokens: 37,708
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

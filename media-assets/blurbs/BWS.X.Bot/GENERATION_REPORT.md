@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** X Bot (BWS.X.Bot)
-**Generated:** 2026-01-04T03:45:09.785Z
+**Generated:** 2026-01-11T03:36:31.895Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Crypto Projects** - Crypto projects seeking to boost authentic community engagement on X (Twitter) and track performance metrics.
-2. **Individual KOLs** - Individual key opinion leaders looking to showcase their X (Twitter) engagement competencies and get discovered by projects.
-3. **KOL Teams** - Teams of key opinion leaders aiming to track team performance on X (Twitter) and demonstrate ROI to clients.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Crypto Projects
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Individual KOLs
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short ⚠ (1 warning)
-
-### KOL Teams
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post
-- ✓ Telegram Short
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztexxKWwToCwWFgVvYw"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWzteyP7xCdcCTSksEXBV"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWzteynS4tzZcfYYeH33e"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztezEiLCSQSVcui914G"}
 
 ## API Usage
 
-- Input tokens: 53,898
-- Output tokens: 2,101
-- Total tokens: 55,999
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

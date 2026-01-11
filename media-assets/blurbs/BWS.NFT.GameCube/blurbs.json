@@ -1,13 +1,18 @@
 {
   "productKey": "BWS.NFT.GameCube",
   "productName": "NFT Game Cube",
-  "generated": "2026-01-04T03:40:49.291Z",
-  "errors": {},
+  "generated": "2026-01-11T03:36:30.679Z",
+  "errors": {
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztespWSkJgjW4YFuQ57\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztetEosutT2bXAMoBWN\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWztetdcpa7HeK4vMMGXw\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CWzteu2gY7ZBGGPhChTJT\"}"
+  },
   "summary": {
-    "totalAudiences": 3,
+    "totalAudiences": 1,
     "totalChannels": 4,
-    "totalCombinations": 12,
-    "successful": 12,
-    "failed": 0
+    "totalCombinations": 4,
+    "successful": 0,
+    "failed": 4
   }
 }

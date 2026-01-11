@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** Blockchain Save (BWS.Blockchain.Save)
-**Generated:** 2026-01-04T03:46:44.063Z
+**Generated:** 2026-01-11T03:36:32.483Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Blockchain Developers** - Developers building blockchain applications who need a simple way to store data on-chain without dealing with blockchain infrastructure complexities.
-2. **Data Integrity Managers** - Professionals responsible for ensuring data integrity and authenticity who can leverage blockchain's immutability for secure data storage and verification.
-3. **Blockchain Curious Individuals** - People interested in exploring blockchain technology and its potential use cases who want an easy entry point to interact with and store data on a blockchain.
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Blockchain Developers
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
-
-### Data Integrity Managers
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Blockchain Curious Individuals
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf1RewVonKTZjiTZmK"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf1qDP7Rr5MVuRGrEN"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf2GW5j9QS88bosaLB"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf2i3naNSJRWZy3jU2"}
 
 ## API Usage
 
-- Input tokens: 17,879
-- Output tokens: 1,707
-- Total tokens: 19,586
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0

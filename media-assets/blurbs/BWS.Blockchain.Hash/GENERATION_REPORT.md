@@ -1,43 +1,27 @@
 # Blurb Generation Summary
 
 **Product:** Blockchain Hash (BWS.Blockchain.Hash)
-**Generated:** 2026-01-04T03:48:24.025Z
+**Generated:** 2026-01-11T03:36:33.059Z
 **Mode:** Audience-Segmented
-**Status:** 12/12 successful
-**Audiences:** 3
+**Status:** 0/4 successful
+**Audiences:** 1
 **Channels:** 4
 
 ## Target Audiences
 
-1. **Data Security Professionals** - Individuals responsible for ensuring data integrity and security who need a trusted, transparent, and tamper-proof storage solution
-2. **Blockchain Enthusiasts** - People interested in exploring and leveraging blockchain technology for efficient and secure data storage and retrieval
-3. **Businesses with Sensitive Data** - Organizations dealing with sensitive information that require a secure, transparent, and verifiable data storage system to maintain client trust
+1. **General Users** - End-customers who want to use this solution for their specific needs
 
 ## Results by Audience
 
-### Data Security Professionals
+### General Users
 
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short ⚠ (1 warning)
-
-### Blockchain Enthusiasts
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post ⚠ (1 warning)
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
-
-### Businesses with Sensitive Data
-
-- ✓ Product Blurb
-- ✓ X (Twitter) Single Post
-- ✓ Telegram Post ⚠ (1 warning)
-- ✓ Telegram Short
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf3xhpdXNJa3zwyutW"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf4LmYffSKQXJgeHAF"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf4oZFJZzRZeRMoDUe"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf5DcBHtupbZdpdELH"}
 
 ## API Usage
 
-- Input tokens: 14,490
-- Output tokens: 1,820
-- Total tokens: 16,310
+- Input tokens: 0
+- Output tokens: 0
+- Total tokens: 0
