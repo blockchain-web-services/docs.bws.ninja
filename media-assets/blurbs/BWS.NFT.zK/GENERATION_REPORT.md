@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** NFT.zK (BWS.NFT.zK)
-**Generated:** 2026-01-11T03:36:34.811Z
+**Generated:** 2026-01-18T03:35:32.096Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf9VpuS76E5kJp1p5M"}
-- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztf9suEHL8GLdVg6jH3"}
-- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztfCE31ostgAVWXpRTP"}
-- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CWztfCgKaLFJV5gsPNn2R"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EySxs61YvMS7BpBKY"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EyjLQYpb2gvYtK2nQ"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9Ez4Rn6VyjaCBPWuyG"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EzMnQMWrTf2KsyLby"}
 
 ## API Usage
 
