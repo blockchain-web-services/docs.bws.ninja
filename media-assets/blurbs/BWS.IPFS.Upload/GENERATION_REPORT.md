@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** IPFS Upload (BWS.IPFS.Upload)
-**Generated:** 2026-01-18T03:35:31.675Z
+**Generated:** 2026-01-25T03:38:34.781Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EwabmbhoCDWuvHHRA"}
-- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EwuhR1sgPJQjNWQR8"}
-- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9ExBZuQSxw7LeykDuy"}
-- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9ExUg7YNje9ZYPZk8r"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8rKUFY4Kk3aa8aZdT"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8rZ7HBTBpke6yuThs"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8rsTVvKCqLz2FKyQ9"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8s95vxf3fi7H247BK"}
 
 ## API Usage
 

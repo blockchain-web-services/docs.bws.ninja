@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** NFT Game Cube (BWS.NFT.GameCube)
-**Generated:** 2026-01-18T03:35:29.183Z
+**Generated:** 2026-01-25T03:38:32.930Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EkjjiFC7fuFe15zKs"}
-- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9Em6pHr4Yo3cfnCUA8"}
-- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EmabAPtbzXmv32T5V"}
-- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXE9EmtwRgVRGEdNsDUA4"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8iPj2sS2M4PkrvL8A"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8icsT9bfUpu9ZK1fE"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8irWL7VhFQNnyVX9S"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXTQ8jD5xLaCLMtqQUp4d"}
 
 ## API Usage
 
