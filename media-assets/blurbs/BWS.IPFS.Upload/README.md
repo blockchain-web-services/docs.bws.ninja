@@ -10,7 +10,7 @@ description: >-
 Target audience-specific communications explaining what IPFS Upload is, how it works,
 and why it matters to different types of end-customers.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>IPFS Upload</td><td>2026-02-01</td><td>1</td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>IPFS Upload</td><td>2026-02-08</td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**
