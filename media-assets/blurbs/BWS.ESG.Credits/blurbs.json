@@ -1,12 +1,12 @@
 {
   "productKey": "BWS.ESG.Credits",
   "productName": "ESG Credits",
-  "generated": "2026-02-08T04:01:46.115Z",
+  "generated": "2026-02-15T03:54:01.846Z",
   "errors": {
-    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEDpPHaBeSofukPJJt\"}",
-    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEEJf3EYF9RLfo27Hx\"}",
-    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEEiTfextXbpy6P7bQ\"}",
-    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEF81uRw19NtHMzNQF\"}"
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJPv9MA9Z88mSHbt7u\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJQUPHiVbgndxryYdG\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJREGzMv3W6RFAnDj6\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJRoWDdQUJ3KEqLq7a\"}"
   },
   "summary": {
     "totalAudiences": 1,

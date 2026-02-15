@@ -1,12 +1,12 @@
 {
   "productKey": "BWS.NFT.GameCube",
   "productName": "NFT Game Cube",
-  "generated": "2026-02-08T04:01:45.533Z",
+  "generated": "2026-02-15T03:54:01.079Z",
   "errors": {
-    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEAUDunJeyJpAPPT3G\"}",
-    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEB4STx1TRmqhV5XUf\"}",
-    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEBSkxvFBLCr4bHN2Y\"}",
-    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CXuwEBqpeFFTKRj9doAUr\"}"
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJMY2ChxXWTdd53f28\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJMtrbvwnKCRdUMAss\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJNKegoR2MD3hZWKMM\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CY9BJNixcSCiUDpiQLk5X\"}"
   },
   "summary": {
     "totalAudiences": 1,

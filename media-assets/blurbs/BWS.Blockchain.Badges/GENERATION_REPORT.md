@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** Blockchain Badges (BWS.Blockchain.Badges)
-**Generated:** 2026-02-08T04:01:44.743Z
+**Generated:** 2026-02-15T03:54:00.388Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXuwE7ri9YMBRAvYUhmCE"}
-- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXuwE8FXWJ9PzETAir8Xf"}
-- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXuwE8rEo7JcmG1pzNwQQ"}
-- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CXuwE9L1eVFYuDa9kQo3G"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CY9BJJg89gFduwNKPCzAS"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CY9BJK2i8SFCANm1NzeWv"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CY9BJKNYuRUkR4Ajzu2MU"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CY9BJKkrze8KfPFo1QJ3Q"}
 
 ## API Usage
 
