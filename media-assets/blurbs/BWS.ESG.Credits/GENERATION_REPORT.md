@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** ESG Credits (BWS.ESG.Credits)
-**Generated:** 2026-02-22T03:50:31.028Z
+**Generated:** 2026-03-01T03:53:46.266Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYNRhGbBfNhsgRVXBZXoa"}
-- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYNRhHAfJswcPJV4VTLm5"}
-- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYNRhHhQuTX2EUwcsXN7Y"}
-- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYNRhJKN6KQSYvwvx6WVC"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYbgc5g1Zc1ScGKHxCtb1"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYbgc63b1LHXAaDTzC6AD"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYbgc6bKpHQyu1ajdPCFD"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CYbgc6vfrWZTS2NT9rrwo"}
 
 ## API Usage
 
