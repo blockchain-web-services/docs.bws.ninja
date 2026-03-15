@@ -8,7 +8,7 @@ description: >-
 
 Product media library including website section captures, social media optimized images, and workflow demonstration videos.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-03-08</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-03-15</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Assets**

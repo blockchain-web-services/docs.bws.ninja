@@ -10,7 +10,7 @@ description: >-
 Target audience-specific communications explaining what Blockchain Badges is, how it works,
 and why it matters to different types of end-customers.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-03-08</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td><td>1</td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-03-15</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**

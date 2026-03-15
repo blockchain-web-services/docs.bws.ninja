@@ -1,12 +1,12 @@
 {
   "productKey": "BWS.Blockchain.Hash",
   "productName": "Blockchain Hash",
-  "generated": "2026-03-08T03:49:08.105Z",
+  "generated": "2026-03-15T04:00:09.296Z",
   "errors": {
-    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CYpvuzepbxJ5nj1xqZW1e\"}",
-    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CYpvuzvhBypcgfAcbTjFA\"}",
-    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CYpvv1FYCsyD4iYHUvKW6\"}",
-    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CYpvv1XezsTDs39vNi3tc\"}"
+    "General Users:product-blurb": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CZ4CR8Uy455F39Wp55Noh\"}",
+    "General Users:x-single": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CZ4CR8wVuxWEcpFQPpWXe\"}",
+    "General Users:telegram": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CZ4CR9PYCbLrHSg7Pzh6s\"}",
+    "General Users:telegram-short": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CZ4CRA6D5GD7F9J2nnGvK\"}"
   },
   "summary": {
     "totalAudiences": 1,
