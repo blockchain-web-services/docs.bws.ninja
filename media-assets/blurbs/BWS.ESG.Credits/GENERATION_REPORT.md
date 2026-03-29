@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** ESG Credits (BWS.ESG.Credits)
-**Generated:** 2026-03-22T03:51:35.571Z
+**Generated:** 2026-03-29T04:00:31.365Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRfvW4nWJSYCDPdj23"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRgUVi9uStksYTQvHZ"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRgv2uh9ZTerQmr6Fa"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRhR3k2mkguR42QF9N"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmb5A1QDc8tXiW9zhj"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmbQ1FUQiSq7y9Bdzg"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmbi7BrZfyV1iDqXBe"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmc1xQCBAEM6nkTUkD"}
 
 ## API Usage
 

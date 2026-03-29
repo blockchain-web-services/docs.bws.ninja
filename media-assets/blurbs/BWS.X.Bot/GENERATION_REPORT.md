@@ -1,7 +1,7 @@
 # Blurb Generation Summary
 
 **Product:** X Bot (BWS.X.Bot)
-**Generated:** 2026-03-22T03:51:36.221Z
+**Generated:** 2026-03-29T04:00:31.822Z
 **Mode:** Audience-Segmented
 **Status:** 0/4 successful
 **Audiences:** 1
@@ -15,10 +15,10 @@
 
 ### General Users
 
-- ✗ product-blurb: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRirN9f8JQK5Yki9Hj"}
-- ✗ x-single: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRjKti7vyjKSdyPUiz"}
-- ✗ telegram: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRjjwwHyQTV9oYFPv4"}
-- ✗ telegram-short: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CZHSRkAk6jVwqVkKNyBW5"}
+- ✗ product-blurb: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmcykZmBscwnJLS5jc"}
+- ✗ x-single: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmdJ7AYjkkv2h8uCzf"}
+- ✗ telegram: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmdcx3LZ3jymirYmEx"}
+- ✗ telegram-short: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-opus-20240229"},"request_id":"req_011CZWhmdwYqkyYYYjdhf9jk"}
 
 ## API Usage
 
