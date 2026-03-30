@@ -31,7 +31,7 @@ In any scenario, we handle all the blockchain complexities. You interact with th
 
 ### Pricing Example
 
-Suppose you subscribe to Blockchain Web Services and want to create 100 new NFTs on the Polygon blockchain using [BWS.NFT.zK](../solutions/bws.nft.zk/) to create the NFTs, and [BWS.IPFS.Upload](../solutions/bws.ipfs.upload/) to save your images to IPFS.
+Suppose you subscribe to Blockchain Web Services and want to create 100 new NFTs on the Polygon blockchain using [BWS.NFT.zK](../solutions/bws.nft.zk/) to create the NFTs, and [IPFS Ninja](https://ipfs.ninja/docs/overview) to save your images to IPFS.
 
 Creating those 100 NFTs will cost you:
 

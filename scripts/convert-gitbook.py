@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
-Convert GitBook documentation to MkDocs Material format.
+Convert GitBook documentation to VitePress format.
 
 This script:
 1. Copies all markdown files to site-content/
-2. Copies .gitbook/assets/ to site-content/assets/images/
-3. Transforms GitBook-specific syntax to MkDocs Material equivalents
-4. Parses SUMMARY.md to generate mkdocs.yml nav section
+2. Copies .gitbook/assets/ to site-content/public/images/
+3. Renames README.md -> index.md (VitePress convention)
+4. Transforms GitBook-specific syntax to VitePress equivalents
+5. Parses SUMMARY.md to generate .vitepress/config.mjs sidebar
+6. Creates VitePress theme files (custom CSS)
 """
 
+import json
 import os
 import re
 import shutil
@@ -22,7 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT
 DEST = ROOT / "site-content"
 ASSETS_SRC = ROOT / ".gitbook" / "assets"
-ASSETS_DEST = DEST / "assets" / "images"
+ASSETS_DEST = DEST / "public" / "images"
 
 # Files/dirs to skip when copying
 SKIP = {
@@ -62,12 +65,51 @@ def copy_source_files():
 
 
 def copy_assets():
-    """Copy .gitbook/assets/ to site-content/assets/images/."""
+    """Copy .gitbook/assets/ to site-content/public/images/."""
     if ASSETS_SRC.exists():
         if ASSETS_DEST.exists():
             shutil.rmtree(ASSETS_DEST)
         shutil.copytree(ASSETS_SRC, ASSETS_DEST)
     print(f"  Copied {sum(1 for _ in ASSETS_DEST.rglob('*') if _.is_file())} assets")
+
+
+def rename_readmes_to_index():
+    """Rename all README.md files to index.md (VitePress convention)."""
+    count = 0
+    for readme in list(DEST.rglob("README.md")):
+        target = readme.parent / "index.md"
+        readme.rename(target)
+        count += 1
+    print(f"  Renamed {count} README.md -> index.md")
+
+
+def move_colocated_assets_to_public():
+    """Move non-markdown files from content dirs to public/ and rewrite paths.
+
+    VitePress treats relative image paths in HTML as module imports, which breaks
+    during SSR. Moving them to public/ and using absolute paths avoids this.
+    """
+    public_dir = DEST / "public"
+    image_exts = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".mp4", ".webm", ".pdf", ".ico"}
+    moved = 0
+
+    for f in list(DEST.rglob("*")):
+        if f.is_file() and f.suffix.lower() in image_exts:
+            # Skip files already in public/
+            try:
+                f.relative_to(public_dir)
+                continue
+            except ValueError:
+                pass
+
+            # Compute the path relative to DEST
+            rel = f.relative_to(DEST)
+            dest = public_dir / "colocated" / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(f), str(dest))
+            moved += 1
+
+    print(f"  Moved {moved} co-located assets to public/colocated/")
 
 
 def clean_frontmatter(content):
@@ -82,7 +124,6 @@ def clean_frontmatter(content):
     fm_text = content[3:end].strip()
     rest = content[end + 3:]
 
-    # Parse and filter frontmatter
     try:
         fm = yaml.safe_load(fm_text)
         if not isinstance(fm, dict):
@@ -90,7 +131,6 @@ def clean_frontmatter(content):
     except yaml.YAMLError:
         return content
 
-    # Keep only useful fields
     keep_keys = {"description", "title"}
     cleaned = {k: v for k, v in fm.items() if k in keep_keys and v}
 
@@ -101,60 +141,73 @@ def clean_frontmatter(content):
         return rest.lstrip("\n")
 
 
+def normalize_pre_code_blocks(content):
+    """Convert <pre class="language-X"><code class="lang-X">...</code></pre> to fenced code blocks."""
+    pattern = r'<pre[^>]*class="language-(\w+)"[^>]*>\s*<code[^>]*>(.*?)</code>\s*</pre>'
+
+    def replace_pre(match):
+        lang = match.group(1)
+        code = match.group(2).strip()
+        # Unescape HTML entities in code
+        code = code.replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&")
+        # Remove <strong> tags that GitBook adds
+        code = re.sub(r'</?strong>', '', code)
+        return f"```{lang}\n{code}\n```"
+
+    return re.sub(pattern, replace_pre, content, flags=re.DOTALL)
+
+
 def convert_hints(content):
-    """Convert {% hint style="X" %}...{% endhint %} to MkDocs admonitions."""
+    """Convert {% hint style="X" %}...{% endhint %} to VitePress custom containers."""
     pattern = r'{%\s*hint\s+style="(\w+)"\s*%}(.*?){%\s*endhint\s*%}'
 
     def replace_hint(match):
         style = match.group(1)
         body = match.group(2).strip()
 
-        # Map GitBook styles to MkDocs admonition types
+        # Map GitBook styles to VitePress container types
         style_map = {
             "info": "info",
             "warning": "warning",
-            "success": "success",
+            "success": "tip",
             "danger": "danger",
         }
-        admonition_type = style_map.get(style, "note")
+        container_type = style_map.get(style, "info")
 
-        # Indent each line of the body by 4 spaces
-        indented_lines = []
-        for line in body.split("\n"):
-            if line.strip():
-                indented_lines.append(f"    {line}")
-            else:
-                indented_lines.append("")
-        indented_body = "\n".join(indented_lines)
-
-        return f"!!! {admonition_type}\n\n{indented_body}\n"
+        return f"::: {container_type}\n{body}\n:::\n"
 
     return re.sub(pattern, replace_hint, content, flags=re.DOTALL)
 
 
 def convert_tabs(content):
-    """Convert {% tabs %}...{% endtabs %} to MkDocs Material content tabs."""
+    """Convert {% tabs %}...{% endtabs %} to VitePress code-group."""
 
     def replace_tabs_block(match):
         tabs_content = match.group(1)
-        result_parts = []
 
         # Find all tab blocks
         tab_pattern = r'{%\s*tab\s+title="([^"]+)"\s*%}(.*?)(?={%\s*(?:endtab|tab\s+title)\s*%})'
         tabs = re.findall(tab_pattern, tabs_content, re.DOTALL)
 
+        if not tabs:
+            return ""
+
+        result_parts = ["::: code-group\n"]
+
         for title, body in tabs:
             body = body.strip()
-            # Indent each line by 4 spaces for the tab content
-            indented_lines = []
-            for line in body.split("\n"):
-                if line.strip():
-                    indented_lines.append(f"    {line}")
-                else:
-                    indented_lines.append("")
-            indented_body = "\n".join(indented_lines)
-            result_parts.append(f'=== "{title}"\n\n{indented_body}\n')
 
+            # Check if body contains a fenced code block
+            code_match = re.match(r'^```(\w*)\n(.*?)```\s*$', body, re.DOTALL)
+            if code_match:
+                lang = code_match.group(1) or "text"
+                code = code_match.group(2)
+                result_parts.append(f"```{lang} [{title}]\n{code}```\n")
+            else:
+                # Non-code tab content: wrap as text
+                result_parts.append(f"```text [{title}]\n{body}\n```\n")
+
+        result_parts.append(":::\n")
         return "\n".join(result_parts)
 
     tabs_block_pattern = r'{%\s*tabs\s*%}(.*?){%\s*endtabs\s*%}'
@@ -166,28 +219,52 @@ def convert_tabs(content):
     return content
 
 
-def rewrite_asset_paths(content):
-    """Rewrite .gitbook/assets/ paths to assets/images/."""
-    # Handle various relative path patterns to .gitbook/assets/
-    # e.g., ../../.gitbook/assets/, ../.gitbook/assets/, .gitbook/assets/
+def rewrite_asset_paths(content, filepath):
+    """Rewrite image paths to absolute paths served from public/."""
+    # .gitbook/assets/ -> /images/
     content = re.sub(
         r'(?:\.\./)*\.gitbook/assets/',
-        'assets/images/',
+        '/images/',
         content
     )
+
+    # Rewrite relative image paths in HTML img tags to /colocated/ absolute paths
+    # e.g., src="api/linkedin-api.jpg" -> src="/colocated/media-assets/snapshots/BWS.Blockchain.Badges/api/linkedin-api.jpg"
+    try:
+        file_rel_dir = filepath.relative_to(DEST).parent
+    except ValueError:
+        return content
+
+    def fix_html_img(match):
+        prefix = match.group(1)
+        src = match.group(2)
+        # Skip absolute paths and external URLs
+        if src.startswith(("/", "http://", "https://")):
+            return match.group(0)
+        # Skip markdown images (handled by VitePress)
+        abs_path = f"/colocated/{file_rel_dir}/{src}"
+        return f'{prefix}"{abs_path}"'
+
+    # Fix all HTML src attributes (img, source, video, etc.)
+    content = re.sub(r'(<(?:img|source|video)[^>]*\bsrc=)"([^"]+)"', fix_html_img, content)
+    return content
+
+
+def clean_gitbook_anchors(content):
+    """Remove GitBook-generated anchor tags like <a href="#x" id="x"></a>."""
+    content = re.sub(r'\s*<a\s+href="#[^"]*"\s+id="[^"]*"\s*>\s*</a>', '', content)
     return content
 
 
 def clean_entities(content):
     """Clean GitBook-specific entities, preserving code blocks."""
-    # Replace &#x20; with space
     content = content.replace("&#x20;", " ")
 
     # Replace trailing backslash line breaks with two spaces,
-    # but NOT inside fenced code blocks (where \ is line continuation)
+    # but NOT inside fenced code blocks
     parts = re.split(r'(```[\s\S]*?```)', content)
     for i, part in enumerate(parts):
-        if i % 2 == 0:  # Not inside a code block
+        if i % 2 == 0:
             parts[i] = re.sub(r'\\\n', '  \n', part)
     content = ''.join(parts)
 
@@ -195,13 +272,23 @@ def clean_entities(content):
 
 
 def convert_card_tables(content):
-    """Convert GitBook card tables to MkDocs Material grid cards."""
-    # Find card tables
+    """Convert GitBook card tables to plain HTML card grid."""
     pattern = r'<table\s+data-view="cards"[^>]*>.*?</table>'
 
     def replace_card_table(match):
         html = match.group(0)
         soup = BeautifulSoup(html, "html.parser")
+
+        # Determine which columns are hidden (card-target, card-cover) from header
+        target_cols = set()
+        cover_cols = set()
+        header_row = soup.find("thead")
+        if header_row:
+            for i, th in enumerate(header_row.find_all("th")):
+                if th.get("data-card-target") is not None:
+                    target_cols.add(i)
+                if th.get("data-card-cover") is not None:
+                    cover_cols.add(i)
 
         cards = []
         for row in soup.find_all("tr"):
@@ -209,30 +296,21 @@ def convert_card_tables(content):
             if not cells:
                 continue
 
-            # Extract card data from cells
             title = ""
             description = ""
             link = ""
-            image = ""
 
-            # First pass: get hidden data cells
-            for cell in cells:
-                if cell.get("data-card-target") is not None:
+            for i, cell in enumerate(cells):
+                # Check by column index (from header) or by cell attribute
+                if i in target_cols or cell.get("data-card-target") is not None:
                     a = cell.find("a")
                     if a:
                         link = a.get("href", "")
                     continue
-                if cell.get("data-card-cover") is not None:
-                    a = cell.find("a")
-                    if a:
-                        image = a.get("href", "")
+                if i in cover_cols or cell.get("data-card-cover") is not None:
                     continue
 
-            # Second pass: get visible content cells (those without data-hidden)
-            visible_cells = [c for c in cells
-                            if c.get("data-card-target") is None
-                            and c.get("data-card-cover") is None]
-            for cell in visible_cells:
+                # Visible content cell
                 text = cell.get_text(strip=True)
                 if not text:
                     continue
@@ -245,27 +323,44 @@ def convert_card_tables(content):
                     description = text
 
             if title:
-                if image:
-                    image = re.sub(r'(?:\.\./)*\.gitbook/assets/', 'assets/images/', image)
+                # Fix internal links
+                if link and not link.startswith("http"):
+                    if not link.endswith(".md") and not link.endswith("/"):
+                        link = link + "/"
+                    # README.md -> index.md
+                    link = link.replace("README.md", "index.md")
 
-                card_md = f"-   **{title}**\n\n    ---\n\n    {description}\n"
+                card_html = f'  <div class="card">\n    <h3>{title}</h3>\n    <p>{description}</p>\n'
                 if link:
-                    if not link.startswith("http"):
-                        if not link.endswith(".md") and not link.endswith("/"):
-                            link = link + "/README.md"
-                        elif link.endswith("/"):
-                            link = link + "README.md"
-                    card_md += f"\n    [:octicons-arrow-right-24: Learn more]({link})\n"
-
-                cards.append(card_md)
+                    card_html += f'    <a href="{link}">Learn more →</a>\n'
+                card_html += '  </div>'
+                cards.append(card_html)
 
         if not cards:
-            return match.group(0)  # Return original if parsing failed
+            return match.group(0)
 
         cards_content = "\n".join(cards)
-        return f'<div class="grid cards" markdown>\n\n{cards_content}\n</div>'
+        return f'<div class="card-grid">\n{cards_content}\n</div>'
 
     return re.sub(pattern, replace_card_table, content, flags=re.DOTALL)
+
+
+def convert_code_blocks(content):
+    """Convert {% code title="X" %}...{% endcode %} to plain fenced code blocks."""
+    content = re.sub(r'{%\s*code\s+title="[^"]*"\s*%}\s*', '', content)
+    content = re.sub(r'{%\s*endcode\s*%}', '', content)
+    return content
+
+
+def convert_file_embeds(content):
+    """Convert {% file src="X" %} to download links."""
+    def replace_file(match):
+        src = match.group(1)
+        filename = src.rsplit("/", 1)[-1] if "/" in src else src
+        return f'[📄 {filename}]({src})'
+
+    content = re.sub(r'{%\s*file\s+src="([^"]+)"\s*%}', replace_file, content)
+    return content
 
 
 def convert_stepper(content):
@@ -275,24 +370,21 @@ def convert_stepper(content):
     def replace_stepper(match):
         body = match.group(1)
         steps = re.findall(r'{%\s*step\s*%}(.*?)(?={%\s*(?:endstep|step)\s*%})', body, re.DOTALL)
-
         result = []
         for i, step_content in enumerate(steps, 1):
             step_content = step_content.strip()
             result.append(f"{i}. {step_content}")
-
         return "\n\n".join(result)
 
     return re.sub(pattern, replace_stepper, content, flags=re.DOTALL)
 
 
 def fix_internal_links(content, file_path):
-    """Fix internal markdown links for MkDocs."""
+    """Fix internal markdown links for VitePress."""
     file_dir = file_path.parent
 
     def resolve_md_path(path_str):
         """Resolve a path to an existing .md file."""
-        # Split anchor if present
         anchor = ""
         base = path_str
         if "#" in path_str:
@@ -300,45 +392,51 @@ def fix_internal_links(content, file_path):
             anchor = f"#{anchor}"
 
         if not base:
-            return path_str  # anchor-only link
-
-        # Already has .md extension
-        if base.endswith(".md"):
             return path_str
 
-        # Try path.md first, then path/README.md
+        if base.endswith(".md"):
+            # Replace README.md with index.md
+            base = base.replace("README.md", "index.md")
+            return f"{base}{anchor}"
+
+        # Try path.md first, then path/index.md
         test_base = base.rstrip("/")
         resolved = file_dir / f"{test_base}.md"
         if resolved.exists():
             return f"{test_base}.md{anchor}"
 
+        resolved = file_dir / test_base / "index.md"
+        if resolved.exists():
+            if base.endswith("/"):
+                return f"{base}index.md{anchor}"
+            return f"{test_base}/index.md{anchor}"
+
+        # Check for README.md (pre-rename, in case called before rename)
         resolved = file_dir / test_base / "README.md"
         if resolved.exists():
             if base.endswith("/"):
                 return f"{base}README.md{anchor}"
             return f"{test_base}/README.md{anchor}"
 
-        # Default: try .md extension
         return f"{test_base}.md{anchor}"
 
     def fix_link(match):
         prefix = match.group(1)
         path = match.group(2)
 
-        # Skip external links, anchors, and asset links
-        if path.startswith(("http://", "https://", "#", "assets/", "mailto:")):
+        if path.startswith(("http://", "https://", "#", "/images/", "mailto:")):
             return match.group(0)
 
-        # Skip image extensions
         if any(path.lower().endswith(ext) for ext in (".png", ".jpg", ".jpeg", ".gif", ".svg", ".pdf")):
             return match.group(0)
 
         if not path.endswith(".md"):
             path = resolve_md_path(path)
+        else:
+            path = path.replace("README.md", "index.md")
 
         return f"[{prefix}]({path})"
 
-    # Match markdown links: [text](path) but not images ![text](path)
     content = re.sub(r'(?<!!)\[((?:[^\[\]]|\[[^\]]*\])*)\]\(([^)]+)\)', fix_link, content)
     return content
 
@@ -348,11 +446,15 @@ def process_file(filepath):
     content = filepath.read_text(encoding="utf-8")
 
     content = clean_frontmatter(content)
+    content = normalize_pre_code_blocks(content)
+    content = convert_code_blocks(content)
+    content = convert_file_embeds(content)
     content = convert_hints(content)
     content = convert_tabs(content)
     content = convert_card_tables(content)
     content = convert_stepper(content)
-    content = rewrite_asset_paths(content)
+    content = rewrite_asset_paths(content, filepath)
+    content = clean_gitbook_anchors(content)
     content = clean_entities(content)
     content = fix_internal_links(content, filepath)
 
@@ -360,11 +462,10 @@ def process_file(filepath):
 
 
 def parse_summary():
-    """Parse SUMMARY.md to generate mkdocs.yml nav structure with proper nesting."""
+    """Parse SUMMARY.md to generate VitePress sidebar structure."""
     summary_path = ROOT / "SUMMARY.md"
     content = summary_path.read_text(encoding="utf-8")
 
-    # Parse all entries with their indent level
     entries = []
     current_section_header = None
 
@@ -373,37 +474,35 @@ def parse_summary():
         if not stripped:
             continue
 
-        # Skip the ToC header
         if stripped.startswith("# "):
             continue
 
-        # Section headers like ## PLATFORM APIs
         if stripped.startswith("## "):
             section_title = re.sub(r'\s*<a[^>]*>.*?</a>\s*', '', stripped[3:]).strip()
             current_section_header = section_title
             continue
 
-        # Parse list items with links: * [Title](path)
         match = re.match(r'^(\s*)\*\s+\[([^\]]+)\]\(([^)]+)\)', line)
         if match:
             indent = len(match.group(1))
             title = match.group(2)
             path = match.group(3)
 
-            # Skip anchor-only sub-items (they're just page sections, not separate pages)
             if "#" in path:
                 base = path.split("#")[0]
                 if not base:
                     continue
-                # Skip if same file as parent (anchor sub-sections)
                 path = base
-                # Check if this is a duplicate of the parent
-                if entries and entries[-1]["path"] == _normalize_path(path):
+                # Skip anchor sub-items that point to same page as any previous entry
+                normalized = _normalize_path(path).replace("README.md", "index.md")
+                if any(e["path"] == normalized for e in entries):
                     continue
 
             path = _normalize_path(path)
 
-            # Check if the file actually exists in site-content
+            # Convert README.md to index.md for VitePress
+            path = path.replace("README.md", "index.md")
+
             if not (DEST / path).exists() and DEST.exists():
                 print(f"  WARN: Skipping nav entry '{title}' -> '{path}' (file not found)")
                 continue
@@ -414,17 +513,13 @@ def parse_summary():
                 "path": path,
                 "section_header": current_section_header,
             })
-            # Clear section header after first use
             if current_section_header:
                 current_section_header = None
             continue
 
-        # Label-only items (no link): * Platform APIs
-        # These are grouping labels in GitBook - skip them
         continue
 
-    # Build nested nav structure
-    return _build_nested_nav(entries)
+    return _build_vitepress_sidebar(entries)
 
 
 def _normalize_path(path):
@@ -437,68 +532,84 @@ def _normalize_path(path):
     return path
 
 
-def _build_nested_nav(entries):
-    """Build nested MkDocs nav from flat entries with indent levels."""
+def _path_to_link(path):
+    """Convert a file path to a VitePress link."""
+    # Remove .md extension and convert index to /
+    link = "/" + path
+    if link.endswith("/index.md"):
+        link = link[:-len("index.md")]
+    elif link.endswith(".md"):
+        link = link[:-3]
+    return link
+
+
+def _build_vitepress_sidebar(entries):
+    """Build VitePress sidebar from flat entries with indent levels."""
     if not entries:
         return []
 
-    nav = []
+    sidebar = []
     i = 0
     last_section_header = None
 
     while i < len(entries):
         entry = entries[i]
 
-        # Check if this entry starts a new section (## header)
         if entry.get("section_header") and entry["section_header"] != last_section_header:
             last_section_header = entry["section_header"]
-            # Collect all entries under this section header
             section_entries = []
             while i < len(entries):
                 e = entries[i]
-                # Stop if we hit a new section header (but not the current one)
                 if (e.get("section_header")
                         and e["section_header"] != last_section_header
                         and i > 0):
                     break
                 section_entries.append(e)
                 i += 1
-            section_nav = _build_nav_level(section_entries, 0)
-            nav.append({last_section_header: section_nav})
+            section_items = _build_sidebar_level(section_entries, 0)
+            sidebar.append({
+                "text": last_section_header,
+                "collapsed": False,
+                "items": section_items,
+            })
             continue
 
-        # Top-level entry with potential children
         children = []
         base_indent = entry["indent"]
         j = i + 1
         while j < len(entries) and entries[j]["indent"] > base_indent:
-            # Stop if we hit a section header
             if entries[j].get("section_header"):
                 break
             children.append(entries[j])
             j += 1
 
         if children:
-            child_nav = _build_nav_level(children, base_indent + 2)
-            child_nav.insert(0, {"Overview": entry["path"]})
-            nav.append({entry["title"]: child_nav})
+            child_items = _build_sidebar_level(children, base_indent + 2)
+            child_items.insert(0, {"text": "Overview", "link": _path_to_link(entry["path"])})
+            sidebar.append({
+                "text": entry["title"],
+                "collapsed": True,
+                "items": child_items,
+            })
         else:
-            nav.append({entry["title"]: entry["path"]})
+            sidebar.append({
+                "text": entry["title"],
+                "link": _path_to_link(entry["path"]),
+            })
 
         i = j
 
-    return nav
+    return sidebar
 
 
-def _build_nav_level(entries, base_indent):
-    """Recursively build nav for a group of entries at a given indent level."""
+def _build_sidebar_level(entries, base_indent):
+    """Recursively build sidebar for a group of entries at a given indent level."""
     result = []
     i = 0
 
     while i < len(entries):
         entry = entries[i]
 
-        # Find children (entries with deeper indent)
         children = []
         j = i + 1
         while j < len(entries) and entries[j]["indent"] > entry["indent"]:
@@ -506,109 +617,80 @@ def _build_nav_level(entries, base_indent):
             j += 1
 
         if children:
-            child_nav = _build_nav_level(children, entry["indent"] + 2)
-            child_nav.insert(0, {"Overview": entry["path"]})
-            result.append({entry["title"]: child_nav})
+            child_items = _build_sidebar_level(children, entry["indent"] + 2)
+            child_items.insert(0, {"text": "Overview", "link": _path_to_link(entry["path"])})
+            result.append({
+                "text": entry["title"],
+                "collapsed": True,
+                "items": child_items,
+            })
         else:
-            result.append({entry["title"]: entry["path"]})
+            result.append({
+                "text": entry["title"],
+                "link": _path_to_link(entry["path"]),
+            })
 
         i = j
 
     return result
 
 
-def generate_mkdocs_yml(nav):
-    """Generate mkdocs.yml configuration."""
-    config = {
-        "site_name": "Blockchain Web Services",
-        "site_url": "https://docs.bws.ninja",
-        "site_description": "BWS Documentation - Simplifying blockchain integration through a unified REST API",
-        "docs_dir": "site-content",
-        "theme": {
-            "name": "material",
-            "palette": [
-                {
-                    "scheme": "default",
-                    "primary": "indigo",
-                    "accent": "indigo",
-                    "toggle": {
-                        "icon": "material/brightness-7",
-                        "name": "Switch to dark mode",
-                    },
-                },
-                {
-                    "scheme": "slate",
-                    "primary": "indigo",
-                    "accent": "indigo",
-                    "toggle": {
-                        "icon": "material/brightness-4",
-                        "name": "Switch to light mode",
-                    },
-                },
-            ],
-            "features": [
-                "navigation.instant",
-                "navigation.instant.progress",
-                "navigation.tracking",
-                "navigation.tabs",
-                "navigation.sections",
-                "navigation.expand",
-                "navigation.top",
-                "search.suggest",
-                "search.highlight",
-                "content.tabs.link",
-                "content.code.copy",
-            ],
-            "icon": {
-                "repo": "fontawesome/brands/github",
-            },
-        },
-        "markdown_extensions": [
-            "admonition",
-            "pymdownx.details",
-            {"pymdownx.superfences": {}},
-            {"pymdownx.tabbed": {"alternate_style": True}},
-            "attr_list",
-            "md_in_html",
-            "tables",
-            {"pymdownx.highlight": {"anchor_linenums": True}},
-            "pymdownx.inlinehilite",
-            "pymdownx.snippets",
-            {"pymdownx.emoji": {
-                "emoji_index": "!!python/name:material.extensions.emoji.twemoji",
-                "emoji_generator": "!!python/name:material.extensions.emoji.to_svg",
-            }},
-        ],
-        "plugins": [
-            "search",
-            "glightbox",
-        ],
-        "extra_css": [
-            "stylesheets/extra.css",
-        ],
-        "nav": nav,
-    }
+def generate_vitepress_config(sidebar):
+    """Generate .vitepress/config.mjs."""
+    config_dir = DEST / ".vitepress"
+    config_dir.mkdir(parents=True, exist_ok=True)
 
-    mkdocs_path = ROOT / "mkdocs.yml"
+    sidebar_json = json.dumps(sidebar, indent=6, ensure_ascii=False)
 
-    # Use yaml dump but we need to handle the !!python/name specially
-    yaml_str = yaml.dump(config, default_flow_style=False, allow_unicode=True, sort_keys=False)
+    config_content = f"""\
+import {{ defineConfig }} from 'vitepress'
 
-    # Fix the python/name references that yaml escapes
-    yaml_str = yaml_str.replace("'!!python/name:material.extensions.emoji.twemoji'",
-                                 "!!python/name:material.extensions.emoji.twemoji")
-    yaml_str = yaml_str.replace("'!!python/name:material.extensions.emoji.to_svg'",
-                                 "!!python/name:material.extensions.emoji.to_svg")
+export default defineConfig({{
+  title: 'Blockchain Web Services',
+  description: 'BWS Documentation - Simplifying blockchain integration through a unified REST API',
 
-    mkdocs_path.write_text(yaml_str, encoding="utf-8")
-    print(f"  Generated mkdocs.yml with {len(nav)} top-level nav entries")
+  head: [
+    ['link', {{ rel: 'icon', href: '/images/logo.svg' }}],
+  ],
+
+  themeConfig: {{
+    logo: '/images/logo-large.svg',
+    siteTitle: '| documentation',
+
+    nav: [],
+
+    sidebar: {sidebar_json},
+
+    search: {{
+      provider: 'local',
+    }},
+
+    outline: 'deep',
+  }},
+}})
+"""
+
+    (config_dir / "config.mjs").write_text(config_content, encoding="utf-8")
+    print(f"  Generated .vitepress/config.mjs with {len(sidebar)} top-level sidebar entries")
 
 
-def create_extra_css():
-    """Create custom CSS for mark tags and card grids."""
-    css_dir = DEST / "stylesheets"
-    css_dir.mkdir(parents=True, exist_ok=True)
+def create_vitepress_theme():
+    """Create VitePress theme extension with custom CSS."""
+    theme_dir = DEST / ".vitepress" / "theme"
+    theme_dir.mkdir(parents=True, exist_ok=True)
 
+    # Theme index.js
+    index_js = """\
+import DefaultTheme from 'vitepress/theme'
+import './custom.css'
+
+export default {
+  extends: DefaultTheme,
+}
+"""
+    (theme_dir / "index.js").write_text(index_js, encoding="utf-8")
+
+    # Custom CSS
     css_content = """\
 /* GitBook mark tag compatibility */
 mark {
@@ -669,15 +751,48 @@ mark[style*="background-color: yellow"] {
     font-weight: 600;
 }
 
-/* Card grid enhancements */
-.grid.cards > ul > li {
-    border: 1px solid var(--md-default-fg-color--lightest);
-    border-radius: 8px;
-    transition: box-shadow 0.2s;
+/* Card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
-.grid.cards > ul > li:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.card-grid .card {
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card-grid .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--vp-c-brand-1);
+}
+
+.card-grid .card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.card-grid .card p {
+    margin: 0 0 0.75rem 0;
+    color: var(--vp-c-text-2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.card-grid .card a {
+    color: var(--vp-c-brand-1);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.card-grid .card a:hover {
+    text-decoration: underline;
 }
 
 /* Figure captions */
@@ -694,7 +809,7 @@ figure img {
 
 figcaption {
     font-size: 0.85em;
-    color: var(--md-default-fg-color--light);
+    color: var(--vp-c-text-2);
     margin-top: 0.5em;
     font-style: italic;
 }
@@ -710,31 +825,41 @@ table th, table td {
 }
 
 /* Dark mode adjustments */
-[data-md-color-scheme="slate"] mark[style*="color:green"] {
+.dark mark[style*="color:green"] {
     color: #85e89d !important;
     background-color: #1b3a26 !important;
 }
 
-[data-md-color-scheme="slate"] mark[style*="color:red"] {
+.dark mark[style*="color:red"] {
     color: #f97583 !important;
 }
 
-[data-md-color-scheme="slate"] figure img {
+.dark figure img {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
+.dark .card-grid .card {
+    border-color: var(--vp-c-divider);
+}
+
+.dark .card-grid .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 """
-    (css_dir / "extra.css").write_text(css_content, encoding="utf-8")
-    print("  Created stylesheets/extra.css")
+    (theme_dir / "custom.css").write_text(css_content, encoding="utf-8")
+    print("  Created .vitepress/theme/index.js and custom.css")
 
 
 def create_cname():
     """Create CNAME file for custom domain."""
-    (DEST / "CNAME").write_text("docs.bws.ninja\n", encoding="utf-8")
-    print("  Created CNAME file")
+    public_dir = DEST / "public"
+    public_dir.mkdir(parents=True, exist_ok=True)
+    (public_dir / "CNAME").write_text("docs.bws.ninja\n", encoding="utf-8")
+    print("  Created public/CNAME")
 
 
 def main():
-    print("=== GitBook to MkDocs Material Converter ===\n")
+    print("=== GitBook to VitePress Converter ===\n")
 
     print("Step 1: Copying source files...")
     copy_source_files()
@@ -743,13 +868,19 @@ def main():
     print("Step 2: Copying assets...")
     copy_assets()
 
-    print("Step 3: Creating custom CSS...")
-    create_extra_css()
+    print("Step 3: Renaming README.md -> index.md...")
+    rename_readmes_to_index()
 
-    print("Step 4: Creating CNAME...")
+    print("Step 4: Moving co-located assets to public/...")
+    move_colocated_assets_to_public()
+
+    print("Step 5: Creating VitePress theme...")
+    create_vitepress_theme()
+
+    print("Step 6: Creating CNAME...")
     create_cname()
 
-    print("Step 5: Cleaning up non-documentation files...")
+    print("Step 7: Cleaning up non-documentation files...")
     cleaned = 0
     for pattern in CLEANUP_PATTERNS:
         for f in DEST.rglob(pattern):
@@ -757,7 +888,7 @@ def main():
             cleaned += 1
     print(f"  Removed {cleaned} non-documentation files")
 
-    print("Step 6: Converting markdown files...")
+    print("Step 8: Converting markdown files...")
     md_files = list(DEST.rglob("*.md"))
     converted = 0
     errors = []
@@ -771,22 +902,31 @@ def main():
 
     print(f"  Converted {converted} files ({len(errors)} errors)")
 
-    print("Step 7: Parsing SUMMARY.md and generating mkdocs.yml...")
-    nav = parse_summary()
-    generate_mkdocs_yml(nav)
+    print("Step 9: Parsing SUMMARY.md and generating VitePress config...")
+    sidebar = parse_summary()
 
-    # Remove SUMMARY.md from site-content (not needed by MkDocs)
+    # Inject external links into Marketplace Solutions sidebar section
+    for section in sidebar:
+        if isinstance(section, dict) and section.get("text") == "Marketplace Solutions":
+            section["items"].insert(0, {
+                "text": "IPFS Ninja",
+                "link": "https://ipfs.ninja/docs/overview",
+            })
+            break
+
+    generate_vitepress_config(sidebar)
+
+    # Remove SUMMARY.md from site-content
     summary_dest = DEST / "SUMMARY.md"
     if summary_dest.exists():
         summary_dest.unlink()
 
     print("\n=== Conversion complete! ===")
     print(f"  Output directory: {DEST}")
-    print(f"  Config file: {ROOT / 'mkdocs.yml'}")
     print("\nNext steps:")
-    print("  1. pip install -r requirements.txt")
-    print("  2. mkdocs serve")
-    print("  3. Open http://localhost:8000")
+    print("  1. npm install")
+    print("  2. npx vitepress dev site-content")
+    print("  3. Open http://localhost:5173")
 
     if errors:
         print(f"\n  WARNING: {len(errors)} files had errors:")

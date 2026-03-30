@@ -24,6 +24,6 @@ test/docker-compose.worktree.yml
 # Ignore the entire .trees/ directory (contains all worktrees)
 .trees/
 
-# MkDocs build output and generated content
+# Documentation build output and generated content
 site/
 site-content/

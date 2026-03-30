@@ -24,18 +24,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Python dependencies
+        run: pip install beautifulsoup4 pyyaml
+
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: Run conversion script
         run: python scripts/convert-gitbook.py
 
       - name: Build documentation
-        run: mkdocs build --strict
+        run: npx vitepress build site-content
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site/
+          path: site-content/.vitepress/dist/
 
   deploy:
     needs: build

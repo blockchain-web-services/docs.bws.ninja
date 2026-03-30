@@ -1,2 +1,0 @@
-# FAN Game Cube API
-
