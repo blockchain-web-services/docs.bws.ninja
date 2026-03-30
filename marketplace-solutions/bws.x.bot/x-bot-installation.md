@@ -15,9 +15,9 @@ Before installing X Bot, ensure you have:
 
 Select the setup guide that matches your use case:
 
-* [Crypto Project Setup](how-to-install.md#crypto-project-setup): Track your project's X engagement and community activity
-* [Individual KOL Setup](how-to-install.md#individual-kol-setup): Monitor your personal X performance metrics
-* [KOL Team Setup](how-to-install.md#kol-team-setup): Track multiple team members' performance in one place
+* [Crypto Project Setup](#crypto-project-setup): Track your project's X engagement and community activity
+* [Individual KOL Setup](#individual-kol-setup): Monitor your personal X performance metrics
+* [KOL Team Setup](#kol-team-setup): Track multiple team members' performance in one place
 
 ***
 
