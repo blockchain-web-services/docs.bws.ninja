@@ -42,8 +42,6 @@
 ## PLATFORM APIs <a href="#solutions" id="solutions"></a>
 
 * [BWS.IPFS.Upload](solutions/bws.ipfs.upload/README.md)
-  * [Solution Overview](solutions/bws.ipfs.upload/solution-overview.md)
-  * [Operations](solutions/bws.ipfs.upload/operations.md)
 * [BWS.Blockchain.Save](solutions/bws.blockchain.save/README.md)
   * [Solution Overview](solutions/bws.blockchain.save/solution-overview.md)
   * [Operations](solutions/bws.blockchain.save/operations.md)

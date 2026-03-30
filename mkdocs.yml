@@ -90,10 +90,7 @@ nav:
     - FAN Game Cube: media-assets/snapshots/BWS.NFT.GameCube/README.md
     - X Bot: media-assets/snapshots/BWS.X.Bot/README.md
 - PLATFORM APIs:
-  - BWS.IPFS.Upload:
-    - Overview: solutions/bws.ipfs.upload/README.md
-    - Solution Overview: solutions/bws.ipfs.upload/solution-overview.md
-    - Operations: solutions/bws.ipfs.upload/operations.md
+  - BWS.IPFS.Upload: solutions/bws.ipfs.upload/README.md
   - BWS.Blockchain.Save:
     - Overview: solutions/bws.blockchain.save/README.md
     - Solution Overview: solutions/bws.blockchain.save/solution-overview.md
