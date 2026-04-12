@@ -1,12 +1,12 @@
 {
   "productKey": "BWS.Blockchain.Badges",
   "productName": "Blockchain Badges",
-  "generated": "2026-04-05T05:08:00.962Z",
+  "generated": "2026-04-12T05:20:07.041Z",
   "errors": {
-    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3aWNCzwudxWfpaQn8J\"}",
-    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3aWoFjmzFL6PWnikRe\"}",
-    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3aX9at9j563NWd36BF\"}",
-    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3aXXQbvATr7KBkpvra\"}"
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKASigEpGEEkCZdXAtU\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKASwaLT1XHdnGY5sAg\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKATFRutWMR3TaW67eb\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKATbGF9qXjjY9T5QML\"}"
   },
   "summary": {
     "totalAudiences": 1,

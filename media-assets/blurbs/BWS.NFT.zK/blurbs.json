@@ -1,12 +1,12 @@
 {
   "productKey": "BWS.NFT.zK",
   "productName": "NFT.zK",
-  "generated": "2026-04-05T05:08:03.392Z",
+  "generated": "2026-04-12T05:20:10.509Z",
   "errors": {
-    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3agaNX2aSezct2gm4M\"}",
-    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3ah4PvhkQwLDGoSEBh\"}",
-    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3ahRU13EmENmHC5PKN\"}",
-    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZk3ahqH9FCUCyM1ZVQyq\"}"
+    "General Users:product-blurb": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKAhYuHKpDxPcYuJK2u\"}",
+    "General Users:x-single": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKAhoHZEZsz2HUuSrai\"}",
+    "General Users:telegram": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKAi1gXywXhiJ5RKYoQ\"}",
+    "General Users:telegram-short": "404 {\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-3-opus-20240229\"},\"request_id\":\"req_011CZyKAiG4htFsyHLkEMvQs\"}"
   },
   "summary": {
     "totalAudiences": 1,
