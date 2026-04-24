@@ -58,12 +58,6 @@
 
 ## Marketplace Solutions
 
-* [Blockchain Badges](marketplace-solutions/bws.blockchain.badges/README.md)
-  * [Badges User Interface](marketplace-solutions/bws.blockchain.badges/badges-user-interface.md)
-  * [Badges API](marketplace-solutions/bws.blockchain.badges/badges-api/README.md)
-    * [Issuers](marketplace-solutions/bws.blockchain.badges/badges-api/issuers.md)
-    * [Badges](marketplace-solutions/bws.blockchain.badges/badges-api/badges.md)
-    * [Awards (Credentials)](marketplace-solutions/bws.blockchain.badges/badges-api/awards-credentials.md)
 * [X Bot](marketplace-solutions/bws.x.bot/README.md)
   * [X Bot Overview](marketplace-solutions/bws.x.bot/x-bot-overview.md)
   * [X Bot Installation](marketplace-solutions/bws.x.bot/x-bot-installation.md)

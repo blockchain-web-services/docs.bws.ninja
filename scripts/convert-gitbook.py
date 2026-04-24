@@ -912,6 +912,10 @@ def main():
                 "text": "IPFS Ninja",
                 "link": "https://ipfs.ninja/docs/overview",
             })
+            section["items"].insert(1, {
+                "text": "Badges.Ninja",
+                "link": "https://badges.ninja",
+            })
             break
 
     generate_vitepress_config(sidebar)
