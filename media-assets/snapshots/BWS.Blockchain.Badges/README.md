@@ -8,7 +8,7 @@ description: >-
 
 Product media library including website section captures, social media optimized images, and workflow demonstration videos.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-04-19</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-04-26</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Assets**
@@ -40,6 +40,15 @@ Hero section with badge creation preview
 <figure><img src="hero/twitter-hero.jpg" alt="Twitter - Hero"><figcaption><p>Twitter (1200x675px)</p></figcaption></figure>
 
 <figure><img src="hero/desktop-hero.png" alt="Desktop - Hero"><figcaption><p>Desktop (Full Resolution)</p></figcaption></figure>
+
+
+## Pricing
+
+Pricing plans - Unlimited Free Plan
+
+<figure><img src="pricing/raw-pricing.png" alt="Raw - Pricing"><figcaption><p>Raw (1080x1080px)</p></figcaption></figure>
+
+<figure><img src="pricing/desktop-pricing.png" alt="Desktop - Pricing"><figcaption><p>Desktop (Full Resolution)</p></figcaption></figure>
 
 
 ## Workflow Video

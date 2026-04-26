@@ -10,7 +10,7 @@ description: >-
 Target audience-specific communications explaining what X Bot is, how it works,
 and why it matters to different types of end-customers.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>X Bot</td><td>2026-04-19</td><td>1</td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>X Bot</td><td>2026-04-26</td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**

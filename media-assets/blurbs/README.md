@@ -22,7 +22,7 @@ blockchain integration details, and business benefits.
 
 ### Marketplace Solutions
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Blockchain Badges</strong></td><td>View marketing blurbs</td><td><a href="BWS.Blockchain.Badges/">BWS.Blockchain.Badges/</a></td></tr><tr><td><strong>X Bot</strong></td><td>View marketing blurbs</td><td><a href="BWS.X.Bot/">BWS.X.Bot/</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>X Bot</strong></td><td>View marketing blurbs</td><td><a href="BWS.X.Bot/">BWS.X.Bot/</a></td></tr></tbody></table>
 
 ### Platform APIs
 
