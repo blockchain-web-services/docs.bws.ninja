@@ -11,7 +11,7 @@ All of your calls must contain your API key by using the `'X-Api-Key'`header att
 
 A javascript code example showing how to include your API Key.
 
-```javascript
+````javascript
 $.ajax({
     ...
     headers: {
@@ -20,5 +20,6 @@ $.ajax({
     },
     ...
 });
-```
+```</div>
+````
 {% endhint %}

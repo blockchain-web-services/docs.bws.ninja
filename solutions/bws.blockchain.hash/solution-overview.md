@@ -12,7 +12,7 @@ A hash database is a type of database that uses **hash keys** to efficiently ret
 
 #### **An example: saving client data to the blockchain.**
 
-Businesses can use **BWS.Blockchain.Hash** to manage client data by storing essential information (e.g., customer profiles or transaction records) in a blockchain-based hash database. The system uses unique keys, such as client IDs or transaction numbers, to retrieve data effortlessly.&#x20;
+Businesses can use **BWS.Blockchain.Hash** to manage client data by storing essential information (e.g., customer profiles or transaction records) in a blockchain-based hash database. The system uses unique keys, such as client IDs or transaction numbers, to retrieve data effortlessly.
 
 Here's how this could work:
 
@@ -27,10 +27,6 @@ Here's how this could work:
 
 This solution is perfect for individuals and businesses that want to take advantage of blockchain as a trusted and efficient hash-based storage system. With **BWS.Blockchain.Hash**, you can store and retrieve data securely, gain the benefits of blockchain transparency, and provide clients with a [Certificate of Trust](../../certificate-of-trust.md) for each entry—ensuring their data is handled responsibly and verifiably.
 
-## Available Networks
-
-{% hint style="warning" %}
-We're currently updating this solution smart contracts for Polygon (main) and Mumbai (test). Please use Matchain.
-{% endhint %}
+## Available NetworksWe're currently updating this solution smart contracts for Polygon (main) and Mumbai (test). Please use Matchain.
 
 <table><thead><tr><th width="158.33333333333334">Network Id</th><th width="461">Contract Address</th><th>Version</th></tr></thead><tbody><tr><td>matchain</td><td><a href="https://matchscan.io/address/0xB5be4d761EfFE0A88941928722Ce9DCe0303B9f8">0xB5be4d761EfFE0A88941928722Ce9DCe0303B9f8</a></td><td>1</td></tr><tr><td>polygon</td><td></td><td>1</td></tr><tr><td>mumbai</td><td></td><td>1</td></tr></tbody></table>

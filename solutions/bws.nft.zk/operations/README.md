@@ -4,13 +4,7 @@ description: BWS.NFT.zK API Operations.
 
 # Operations
 
-## [Create NFT](./#create-nft)
-
-{% hint style="info" %}
-This operation is asynchronous (the blockchain network takes a while to confirm transactions). Check the blockchain transaction status and receipt using the [fetch API](../../../api-how-tos/main-api-methods/fetch-api-method.md) and the provided`jobId.`
-{% endhint %}
-
-## Creates a new NFT.
+## [Create NFT](./#create-nft)This operation is asynchronous (the blockchain network takes a while to confirm transactions). Check the blockchain transaction status and receipt using the [fetch API](../../../api-how-tos/main-api-methods/fetch-api-method.md) and the provided`jobId.`## Creates a new NFT.
 
 <mark style="color:green;">`POST`</mark> `https://api.bws.ninja/v1/call`
 
@@ -18,61 +12,35 @@ Use this operation to create (Mint) a new NFT on a selected blockchain Network.
 
 #### Request Body
 
-| Name                                         | Type   | Description                                                                                          |
-| -------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                                           |
-| version<mark style="color:red;">\*</mark>    | number | 1                                                                                                    |
-| network<mark style="color:red;">\*</mark>    | string | check [available networks](../../bws.blockchain.save/#networks)                                      |
-| operation<mark style="color:red;">\*</mark>  | string | **new**                                                                                              |
-| parameters<mark style="color:red;">\*</mark> | JSON   | <p>check<a href="./#create-nft-method-parameters"> <strong>Method Parameters</strong></a></p><p></p> |
+| Name                                         | Type   | Description                                                                                                                              |
+| -------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                                                                               |
+| version<mark style="color:red;">\*</mark>    | number | 1                                                                                                                                        |
+| network<mark style="color:red;">\*</mark>    | string | check [available networks](https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.blockchain.save#networks) |
+| operation<mark style="color:red;">\*</mark>  | string | **new**                                                                                                                                  |
+| parameters<mark style="color:red;">\*</mark> | JSON   | check[ **Method Parameters**](./#create-nft-method-parameters)                                                                           |
+| "statusCode": 200,                           |        |                                                                                                                                          |
 
-{% tabs %}
-{% tab title="200 Returns the related job Id" %}
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>    "statusCode": 200,
-    "statusMessage": "",
-    "info": {
-        "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
-    }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-### Create NFT Method Parameters
-
-<table><thead><tr><th width="193">Parameter</th><th width="175.33333333333331">Type</th><th>Desciption</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>Name of your NFT.</td></tr><tr><td>description</td><td>string</td><td>The NFT description.</td></tr><tr><td>image</td><td>URL (or IPFS URI)</td><td>This is the URL or IPFS URI of your NFT image.</td></tr><tr><td>attributes  <mark style="background-color:red;">optional</mark></td><td>JSON</td><td>These are the attributes of your NFT.</td></tr></tbody></table>
-
-#### Create NFT Request Example
-
-{% tabs %}
-{% tab title="cURL" %}
-```json
-curl --location 'https://api.bws.ninja/v1/call' \
---header 'X-Api-Key: XqaLg...729v' \
---header 'Content-Type: application/json' \
---data '{
-    "solution": "BWS.NFT.zK",
-    "version": 1,
-    "network": "mumbai",
-    "operation": "new",
-    "parameters": {
-        "name": "BWS NFT",
-        "description": "My First NFT",
-        "image": "https://uploads-ssl.webflow.com/6474d385cfec71cb21a92251/647dde8bbe8f094f5a0ee2c1_bws-violet.svg",
-        "attributes":[
-            {       
-                "trait_type": "Rarity",
-                "value": "Ultra rare" 
-            }
-        ]
-    }
-}'
 ```
-{% endtab %}
-{% endtabs %}
+"statusMessage": "",
+"info": {
+    "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
+}
+```
 
-### Create NFT Fetch Response
+} ### Create NFT Method Parameters
+
+<table><thead><tr><th width="193">Parameter</th><th width="175.33333333333331">Type</th><th>Desciption</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>Name of your NFT.</td></tr><tr><td>description</td><td>string</td><td>The NFT description.</td></tr><tr><td>image</td><td>URL (or IPFS URI)</td><td>This is the URL or IPFS URI of your NFT image.</td></tr><tr><td>attributes <mark style="background-color:red;">optional</mark></td><td>JSON</td><td>These are the attributes of your NFT.</td></tr></tbody></table>
+
+#### Create NFT Request Example\`\`\`json
+
+curl --location 'https://api.bws.ninja/v1/call'\
+\--header 'X-Api-Key: XqaLg...729v'\
+\--header 'Content-Type: application/json'\
+\--data '{ "solution": "BWS.NFT.zK", "version": 1, "network": "mumbai", "operation": "new", "parameters": { "name": "BWS NFT", "description": "My First NFT", "image": "https://uploads-ssl.webflow.com/6474d385cfec71cb21a92251/647dde8bbe8f094f5a0ee2c1\_bws-violet.svg", "attributes":\[ {\
+"trait\_type": "Rarity", "value": "Ultra rare" } ] } }'
+
+````</div></div>###
 
 <details>
 
@@ -218,13 +186,11 @@ curl --location 'https://api.bws.ninja/v1/call' \
         "timestampInMillis": 1698684152535
     }
 }
-```
+````
 
-</details>
+The [fetch operation](../../../api-how-tos/main-api-methods/fetch-api-method.md), once the NFT creation job is completed, will return the following:
 
-The [fetch operation](../../../api-how-tos/main-api-methods/fetch-api-method.md), once the NFT creation job is completed, will return the following:&#x20;
-
-<table><thead><tr><th width="208">Parameter</th><th width="108.33333333333331">Type</th><th>Description</th></tr></thead><tbody><tr><td>guid</td><td>string</td><td>NFT unique id</td></tr><tr><td>network</td><td>string</td><td>Network the NFT has been created in.</td></tr><tr><td>nftTxHash</td><td>string</td><td>Blockchain transaction hash</td></tr><tr><td>nftId</td><td>string</td><td>NFT id</td></tr><tr><td>nftIPFSHash</td><td>string</td><td>NFT metadata file IPFS hash</td></tr><tr><td>nftImageIPFSHash</td><td>string</td><td>NFT image file IPFS hash</td></tr><tr><td>nftJson</td><td>json</td><td>NFT metadata json</td></tr><tr><td>url</td><td>json</td><td>(check <a href="./#nft-urls">NFT Urls</a>)</td></tr><tr><td>status</td><td>string</td><td>The NFT status: "created" or "transferred" </td></tr><tr><td>transferCodes</td><td>json</td><td>(check <a href="./#transfer-codes">Transfer Codes</a>)</td></tr></tbody></table>
+<table><thead><tr><th width="208">Parameter</th><th width="108.33333333333331">Type</th><th>Description</th></tr></thead><tbody><tr><td>guid</td><td>string</td><td>NFT unique id</td></tr><tr><td>network</td><td>string</td><td>Network the NFT has been created in.</td></tr><tr><td>nftTxHash</td><td>string</td><td>Blockchain transaction hash</td></tr><tr><td>nftId</td><td>string</td><td>NFT id</td></tr><tr><td>nftIPFSHash</td><td>string</td><td>NFT metadata file IPFS hash</td></tr><tr><td>nftImageIPFSHash</td><td>string</td><td>NFT image file IPFS hash</td></tr><tr><td>nftJson</td><td>json</td><td>NFT metadata json</td></tr><tr><td>url</td><td>json</td><td>(check <a href="./#nft-urls">NFT Urls</a>)</td></tr><tr><td>status</td><td>string</td><td>The NFT status: "created" or "transferred"</td></tr><tr><td>transferCodes</td><td>json</td><td>(check <a href="./#transfer-codes">Transfer Codes</a>)</td></tr></tbody></table>
 
 #### <mark style="color:purple;">**NFT Urls**</mark>
 
@@ -253,63 +219,50 @@ Get the list of your NFTs.
 | solution<mark style="color:red;">\*</mark>  | string | BWS.NFT.zK                                                |
 | operation<mark style="color:red;">\*</mark> | string | list                                                      |
 | parameters                                  | JSON   | check [Methods Parameters](./#list-nft-method-parameters) |
+| {                                           |        |                                                           |
 
-{% tabs %}
-{% tab title="200 Returns the list of your NFTs." %}
-```json
-{
-    "statusCode": 200,
-    "info": [
-        {
-            "guid": "c1eee213-e9cb-409b-9e58-6aa3c8ea1cc5",
-            "nftTxHash": "0x84c41984e2bb16d6978f84e149e6bed559de9e4c8eb1be16693b54ec729599f1",
-            "nftId": "1480",
-            "nftIPFSHash": "QmTzNJ4tpWvYP2t5YxVnbgtX2pvkKyLPoHcdH1JBFXpW9W",
-            "nftImageIPFSHash": "QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
-            "nftJson": {
-                "name": "BWS NFT Limited Edition",
-                "description": "This NFT is a limited edition, meticulously designed by selected artists.",
-                "image": "ipfs://QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
-                "attributes": [
-                    {
-                        "value": "Ultra rare"
-                    }
-                ]
-            },
-            "url": {
-                "nft": "https://ipfs.bws.ninja/ipfs/QmTzNJ4tpWvYP2t5YxVnbgtX2pvkKyLPoHcdH1JBFXpW9W",
-                "image": "https://ipfs.bws.ninja/ipfs/QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
-                "transaction": "https://mumbai.polygonscan.com/tx/0x84c41984e2bb16d6978f84e149e6bed559de9e4c8eb1be16693b54ec729599f1"
-            },
-            "status": "created",
-            "network": "mumbai",
-            "transferCodes": {
-                "owner": "4106935b-....03cc7cc",
-                "receiver": "6..cc"
-            },
-            "timestamp": "1701157329154"
-        }
-    ]
-}
 ```
-{% endtab %}
-{% endtabs %}
+"statusCode": 200,
+"info": [
+    {
+        "guid": "c1eee213-e9cb-409b-9e58-6aa3c8ea1cc5",
+        "nftTxHash": "0x84c41984e2bb16d6978f84e149e6bed559de9e4c8eb1be16693b54ec729599f1",
+        "nftId": "1480",
+        "nftIPFSHash": "QmTzNJ4tpWvYP2t5YxVnbgtX2pvkKyLPoHcdH1JBFXpW9W",
+        "nftImageIPFSHash": "QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
+        "nftJson": {
+            "name": "BWS NFT Limited Edition",
+            "description": "This NFT is a limited edition, meticulously designed by selected artists.",
+            "image": "ipfs://QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
+            "attributes": [
+                {
+                    "value": "Ultra rare"
+                }
+            ]
+        },
+        "url": {
+            "nft": "https://ipfs.bws.ninja/ipfs/QmTzNJ4tpWvYP2t5YxVnbgtX2pvkKyLPoHcdH1JBFXpW9W",
+            "image": "https://ipfs.bws.ninja/ipfs/QmcduEBAppXxnyn37deHHf33Ep7cPbYxn1mH36Nvvowkiu",
+            "transaction": "https://mumbai.polygonscan.com/tx/0x84c41984e2bb16d6978f84e149e6bed559de9e4c8eb1be16693b54ec729599f1"
+        },
+        "status": "created",
+        "network": "mumbai",
+        "transferCodes": {
+            "owner": "4106935b-....03cc7cc",
+            "receiver": "6..cc"
+        },
+        "timestamp": "1701157329154"
+    }
+]
+```
 
-### [List NFT Method Parameters](./#list-nft-method-parameters)
+}
 
-{% hint style="info" %}
-If no range is defined, the last 20 NFTs are returned.
-{% endhint %}
-
-<table><thead><tr><th width="161">Parameter</th><th width="168.33333333333331">Type</th><th>Desciption</th></tr></thead><tbody><tr><td>from</td><td>long</td><td>Number of milliseconds representing a timestamp to select NFTs from.</td></tr><tr><td>to</td><td>long</td><td>Number of milliseconds representing a timestamp to select NFTs to.</td></tr></tbody></table>
+````</div></div>###
 
 ### [List IPFS Files call Response](./#list-ipfs-files-call-response)
 
-#### LIST NFT Request Example
-
-{% tabs %}
-{% tab title="cURL" %}
-```json
+#### LIST NFT Request Example<div data-gb-custom-block data-tag="tabs"><div data-gb-custom-block data-tag="tab" data-title='cURL'>```json
 curl --location 'https://api.staging.bws.ninja/v1/call' \
 --header 'X-Api-Key: XqaLg...729v' \
 --header 'Content-Type: application/json' \
@@ -317,11 +270,7 @@ curl --location 'https://api.staging.bws.ninja/v1/call' \
     "solution": "BWS.NFT.zK",
     "operation": "list"
 }'
-```
-{% endtab %}
-{% endtabs %}
-
-### List NFT Response
+```</div></div>### List NFT Response
 
 The list operation returns the list of your NFTs, including NFT-relevant data and the network you created the NFT in.
 
@@ -395,18 +344,11 @@ The list operation returns the list of your NFTs, including NFT-relevant data an
     ]
 }
 
-```
+````
 
-</details>
+## [Transfer NFT](./#transfer-nft)This operation is asynchronous. \\
 
-## [Transfer NFT](./#transfer-nft)
-
-{% hint style="info" %}
-This operation is asynchronous. \
-(once executed, check the results using [fetch API](../../../api-how-tos/main-api-methods/fetch-api-method.md) and the provided`jobId)`
-{% endhint %}
-
-## Transfer an NFT ownership.
+(once executed, check the results using [fetch API](../../../api-how-tos/main-api-methods/fetch-api-method.md) and the provided`jobId)`## Transfer an NFT ownership.
 
 <mark style="color:green;">`POST`</mark> `https://api.bws.ninja/v1/call`
 
@@ -414,54 +356,35 @@ Transfer an NFT ownership by using the new owner's wallet or email address.
 
 #### Request Body
 
-| Name                                         | Type   | Description                                                                           |
-| -------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                            |
-| version<mark style="color:red;">\*</mark>    | number | 1                                                                                     |
-| network<mark style="color:red;">\*</mark>    | string | check [available networks](../../bws.blockchain.save/#networks)                       |
-| operation<mark style="color:red;">\*</mark>  | string | **transfer**                                                                          |
-| parameters<mark style="color:red;">\*</mark> | JSON   | <p>check <a href="./#transfer-nft-method-parameters">Method Parameters</a></p><p></p> |
+| Name                                         | Type   | Description                                                                                                                              |
+| -------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                                                                               |
+| version<mark style="color:red;">\*</mark>    | number | 1                                                                                                                                        |
+| network<mark style="color:red;">\*</mark>    | string | check [available networks](https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.blockchain.save#networks) |
+| operation<mark style="color:red;">\*</mark>  | string | **transfer**                                                                                                                             |
+| parameters<mark style="color:red;">\*</mark> | JSON   | check [Method Parameters](./#transfer-nft-method-parameters)                                                                             |
+| "statusCode": 200,                           |        |                                                                                                                                          |
 
-{% tabs %}
-{% tab title="200 Returns the related job Id" %}
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>    "statusCode": 200,
-    "statusMessage": "",
-    "info": {
-        "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
-    }
+```
+"statusMessage": "",
+"info": {
+    "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
 }
-</code></pre>
-{% endtab %}
-{% endtabs %}
+```
 
-### Transfer NFT Method Parameters
+} ### Transfer NFT Method Parameters
 
 <table><thead><tr><th width="146">Parameter</th><th width="115">Type</th><th>Desciption</th><th data-hidden>Type</th></tr></thead><tbody><tr><td>nftId</td><td>string</td><td>The unique identifier of the NFT to be transferred.</td><td>string</td></tr><tr><td>address</td><td>string</td><td>Wallet address to send the NFT to (check <a href="../solution-overview/#networks">NFT Owerneship</a>)</td><td></td></tr></tbody></table>
 
-#### Transfer NFT Request Example
+#### Transfer NFT Request Example\`\`\`json
 
-{% tabs %}
-{% tab title="cURL" %}
-```json
-curl --location 'https://api.bws.ninja/v1/call' \
---header 'X-Api-Key: XqaLg...729v' \
---header 'Content-Type: application/json' \
---data '{
-    "solution": "BWS.NFT.zK",
-    "version": 1,
-    "network": "mumbai",
-    "operation": "transfer",
-    "parameters": {
-        "nftId": "8",
-        "address": "0x45577Ff414b766B31701181fE970a0B659a6FDF8"    
-    }
-}'
-```
-{% endtab %}
-{% endtabs %}
+curl --location 'https://api.bws.ninja/v1/call'\
+\--header 'X-Api-Key: XqaLg...729v'\
+\--header 'Content-Type: application/json'\
+\--data '{ "solution": "BWS.NFT.zK", "version": 1, "network": "mumbai", "operation": "transfer", "parameters": { "nftId": "8", "address": "0x45577Ff414b766B31701181fE970a0B659a6FDF8"\
+} }'
 
-### Transfer NFT Fetch Response
+````</div></div>###
 
 The [fetch operation](../../../api-how-tos/main-api-methods/fetch-api-method.md) for the NFT transfer API call will mainly state if the transfer has been successful ([completed](../../../api-how-tos/main-api-methods/fetch-api-method.md#fetch-status)) and the related costs.
 
@@ -497,9 +420,7 @@ The [fetch operation](../../../api-how-tos/main-api-methods/fetch-api-method.md)
         "timestampInMillis": 1698751777654
     }
 }
-```
-
-</details>
+````
 
 ## [Send NFT by Email](./#send-nft-by-email)
 
@@ -511,51 +432,34 @@ Send an NFT by using the new owner's email address.
 
 #### Request Body
 
-| Name                                         | Type   | Description                                                                           |
-| -------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
-| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                            |
-| network<mark style="color:red;">\*</mark>    | string | check [available networks](../../bws.blockchain.save/#networks)                       |
-| operation<mark style="color:red;">\*</mark>  | string | **send**                                                                              |
-| parameters<mark style="color:red;">\*</mark> | JSON   | <p>check <a href="./#transfer-nft-method-parameters">Method Parameters</a></p><p></p> |
+| Name                                         | Type   | Description                                                                                                                              |
+| -------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| solution<mark style="color:red;">\*</mark>   | string | BWS.NFT.zK                                                                                                                               |
+| network<mark style="color:red;">\*</mark>    | string | check [available networks](https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.blockchain.save#networks) |
+| operation<mark style="color:red;">\*</mark>  | string | **send**                                                                                                                                 |
+| parameters<mark style="color:red;">\*</mark> | JSON   | check [Method Parameters](./#transfer-nft-method-parameters)                                                                             |
+| "statusCode": 200,                           |        |                                                                                                                                          |
 
-{% tabs %}
-{% tab title="200 Returns the related job Id" %}
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>    "statusCode": 200,
-    "statusMessage": "",
-    "info": {
-        "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
-    }
+```
+"statusMessage": "",
+"info": {
+    "jobId": "59d0f46b-0b58-4972-8aca-51d06f69f25e"
 }
-</code></pre>
-{% endtab %}
-{% endtabs %}
+```
 
-### Send NFT Method Parameters
+} ### Send NFT Method Parameters
 
 <table><thead><tr><th width="146">Parameter</th><th width="115">Type</th><th>Desciption</th><th data-hidden>Type</th></tr></thead><tbody><tr><td>nftId</td><td>string</td><td>The unique identifier of the NFT to be transferred.</td><td>string</td></tr><tr><td>email</td><td>string</td><td>Email address to send the NFT to (check <a href="../solution-overview/#networks">NFT Owerneship</a>)</td><td></td></tr></tbody></table>
 
-#### Send NFT Request Example
+#### Send NFT Request Example\`\`\`json
 
-{% tabs %}
-{% tab title="cURL" %}
-```json
-curl --location 'https://api.bws.ninja/v1/call' \
---header 'X-Api-Key: XqaLg...729v' \
---header 'Content-Type: application/json' \
---data '{
-    "solution": "BWS.NFT.zK",
-    "version": 1,
-    "network": "mumbai",
-    "operation": "send",
-    "parameters": {
-        "nftId": "8",
-        "email": "email@bws.ninja"    
-    }
-}'
-```
-{% endtab %}
-{% endtabs %}
+curl --location 'https://api.bws.ninja/v1/call'\
+\--header 'X-Api-Key: XqaLg...729v'\
+\--header 'Content-Type: application/json'\
+\--data '{ "solution": "BWS.NFT.zK", "version": 1, "network": "mumbai", "operation": "send", "parameters": { "nftId": "8", "email": "email@bws.ninja"\
+} }'
+
+````</div></div>
 
 ### Send NFT by Email Response
 
@@ -599,7 +503,4 @@ As a confirmation message response, if the NFT send is confirmed you will get yo
         "timestamp": "1701157244215"
     }
 }
-```
-
-</details>
-
+````

@@ -4,13 +4,13 @@ description: We take care of everything.
 
 # Platform Fees
 
-Calling blockchain smart contracts requires funds: “It is the fuel that allows it to operate”.&#x20;
+Calling blockchain smart contracts requires funds: “It is the fuel that allows it to operate”.
 
 {% hint style="info" %}
 Fees compensate miners for their computational efforts in processing and securing transactions on the network. They are fundamental to the blockchain's sustainability, security, and efficiency, ensuring the network remains robust and decentralized.
 {% endhint %}
 
-Blockchain Web Services (BWS) aims to transform the blockchain market by making innovative solutions accessible to a broad audience, including those without technical or Web3 experience.&#x20;
+Blockchain Web Services (BWS) aims to transform the blockchain market by making innovative solutions accessible to a broad audience, including those without technical or Web3 experience.
 
 ## [Fees Calculator](./#fees-calculator)
 
@@ -20,10 +20,11 @@ Interacting with blockchain requires paying fees, so it's important to understan
 In any scenario, we handle all the blockchain complexities. You interact with the blockchain(s) we support using our simplified API, and you don't need to worry about anything other than naming the blockchain you want to use.
 {% endhint %}
 
-* If you haven't entered your credit card, you can test our blockchain solutions for free using the Mumbai or Sepolia test networks.
-  * You can run 100 blockchain transactions for free.&#x20;
-  * We use our token pools to pay network fees, and you are not charged.
-  * Using test networks does not consume $BWS tokens.
+\* If you haven't entered your credit card, you can test our blockchain solutions for free using the Mumbai or Sepolia test networks.
+
+* You can run 100 blockchain transactions for free.
+* We use our token pools to pay network fees, and you are not charged.
+* Using test networks does not consume $BWS tokens.
 * Once you move into subscription mode by entering your credit card details,
   * You can run 1000 testnet transactions for free.
   * When running on main networks, we do real-time trading, convert US dollars to the required network token, and pay the fees for you. You will then be charged for those fees on your next bill, using 0.01 USD as the minimum billable unit.
@@ -31,7 +32,7 @@ In any scenario, we handle all the blockchain complexities. You interact with th
 
 ### Pricing Example
 
-Suppose you subscribe to Blockchain Web Services and want to create 100 new NFTs on the Polygon blockchain using [BWS.NFT.zK](../solutions/bws.nft.zk/) to create the NFTs, and [IPFS Ninja](https://ipfs.ninja/docs/overview) to save your images to IPFS.
+Suppose you subscribe to Blockchain Web Services and want to create 100 new NFTs on the Polygon blockchain using [BWS.NFT.zK](https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.nft.zk) to create the NFTs, and [IPFS Ninja](https://ipfs.ninja/docs/overview) to save your images to IPFS.
 
 Creating those 100 NFTs will cost you:
 
@@ -53,4 +54,3 @@ We use the Blockchain Credit Fee as the minimum billable unit, 0.01 USD. If, for
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/Plan_usage (1).png" alt=""><figcaption><p>Credits Usage balance.</p></figcaption></figure>
-

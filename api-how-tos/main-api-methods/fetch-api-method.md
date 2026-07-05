@@ -6,15 +6,11 @@ description: POST https://api.bws.ninja/v1/fetch
 
 Blockchain operations are mostly asynchronous, meaning you request something and need to wait until the response or confirmation is available.
 
-Because of that, you will find most Blockchain Web Services API calls are also asynchronous, meaning you get a `jobId` you can use it to fetch the operation status and results.\
-
-
-{% hint style="info" %}
-**CODE EXAMPLE**
+Because of that, you will find most Blockchain Web Services API calls are also asynchronous, meaning you get a `jobId` you can use it to fetch the operation status and results.\<div data-gb-custom-block data-tag="hint" data-style='info'>**CODE EXAMPLE**
 
 Javascript code example to 'fetch' job status and results.
 
-```javascript
+````javascript
 var parameters = {
   "jobId": "b064cc6b-f394-4ca4-9c51-be506e4cc59d",
 };
@@ -29,10 +25,7 @@ $.ajax({
     'X-Api-Key': 'ExV0d92KzQ8QgsTVnevddpbB8cUaAfPs7ntVF8g0'
   }
 });
-```
-{% endhint %}
-
-## Fetch
+```</div>## Fetch
 
 Use this operation to fetch the status and results of a previously called operation.
 
@@ -46,10 +39,7 @@ Use this operation to fetch the status and results of a previously called operat
 
 #### Method Parameters
 
-<table><thead><tr><th width="141">Parameter</th><th width="160.33333333333334">Type</th><th>Value(s)</th></tr></thead><tbody><tr><td>jobId</td><td>string</td><td>The jobId you get when running a <a href="call-api-method.md">call API method</a>.</td></tr></tbody></table>
-
-{% hint style="info" %}
-**API RESPONSE EXAMPLE (BWS.NFT.zK)**
+<table><thead><tr><th width="141">Parameter</th><th width="160.33333333333334">Type</th><th>Value(s)</th></tr></thead><tbody><tr><td>jobId</td><td>string</td><td>The jobId you get when running a <a href="call-api-method.md">call API method</a>.</td></tr></tbody></table><div data-gb-custom-block data-tag="hint" data-style='info'>**API RESPONSE EXAMPLE (BWS.NFT.zK)**
 
 A response showing a job has correctly been registered.
 
@@ -115,8 +105,7 @@ A response showing a job has correctly been registered.
         "timestampInMillis": 1698684152535
     }
 }
-```
-{% endhint %}
+```</div>
 
 ## Blockchain Job Status List
 
@@ -124,3 +113,4 @@ When calling `fetch` API endpoint to get a job status, you can get one of the fo
 
 <table><thead><tr><th width="165">Status</th><th>Description</th></tr></thead><tbody><tr><td>registered</td><td>The job has correctly been registered for execution.</td></tr><tr><td>calling</td><td>The transaction is been called.</td></tr><tr><td>running</td><td>The transaction is running on Blockchain Network.</td></tr><tr><td>transferring</td><td>In some scenarios, there is a transfer (e.g. transferring an NFT).</td></tr><tr><td>snapshotting</td><td>The blockchain transaction has finished, and BWS is creating the <a href="../../certificate-of-trust.md">Certificate Of Trust</a> (optional).</td></tr><tr><td>completed</td><td>Call has completed (success).</td></tr><tr><td>failed</td><td>Call execution has failed.</td></tr></tbody></table>
 
+````

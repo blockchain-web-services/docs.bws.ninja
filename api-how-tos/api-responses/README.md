@@ -11,16 +11,17 @@ When no transport layer error is returned, you will get a JSON message including
 <table><thead><tr><th width="179">Parameter</th><th width="123.33333333333334">Type</th><th>Description</th></tr></thead><tbody><tr><td>statusCode</td><td>number</td><td>The api call result code (200 if there is no error).</td></tr><tr><td>statusMessage</td><td>string</td><td>The status code related message (optional).</td></tr><tr><td>info</td><td>object</td><td>The requested information.</td></tr></tbody></table>
 
 {% hint style="info" %}
-**API RESPONSE EXAMPLE**
+\*\*API RESPONSE EXAMPLE\*\*
 
 An API call response indicating the job id you can use to fetch results.
 
-```json
+````json
 {
   "statusCode": 200,
   "info": {
     "jobId": "543433243"
   }
 }
-```
+```</div>
+````
 {% endhint %}

@@ -18,21 +18,21 @@
 * [Media Assets](media-assets/README.md)
   * [BWS Logo](media-assets/bws-logo.md)
   * [Blurbs](media-assets/blurbs/README.md)
-    * Platform APIs
+    * [Platform APIs](media-assets/blurbs/platform-apis/README.md)
       * [BWS.IPFS.Upload](media-assets/blurbs/BWS.IPFS.Upload/README.md)
       * [BWS.Blockchain.Save](media-assets/blurbs/BWS.Blockchain.Save/README.md)
       * [BWS.Blockchain.Hash](media-assets/blurbs/BWS.Blockchain.Hash/README.md)
       * [BWS.NFT.zK](media-assets/blurbs/BWS.NFT.zK/README.md)
-    * Marketplace Solutions
+    * [Marketplace Solutions](media-assets/blurbs/marketplace-solutions/README.md)
       * [Blockchain Badges](media-assets/blurbs/BWS.Blockchain.Badges/README.md)
       * [X Bot](media-assets/blurbs/BWS.X.Bot/README.md)
   * [Snapshots](media-assets/snapshots/README.md)
-    * Platform APIs
-      * [BWS.IPFS.Upload](media-assets/snapshots/BWS.IPFS.Upload/README.md)
-      * [BWS.Blockchain.Save](media-assets/snapshots/BWS.Blockchain.Save/README.md)
-      * [BWS.Blockchain.Hash](media-assets/snapshots/BWS.Blockchain.Hash/README.md)
-      * [BWS.NFT.zK](media-assets/snapshots/BWS.NFT.zK/README.md)
-    * Marketplace Solutions
+    * [Platform APIs](media-assets/snapshots/platform-apis/README.md)
+      * [BWS.IPFS.Upload](media-assets/snapshots/platform-apis/bws.ipfs.upload.md)
+      * [BWS.Blockchain.Save](media-assets/snapshots/platform-apis/bws.blockchain.save.md)
+      * [BWS.Blockchain.Hash](media-assets/snapshots/platform-apis/bws.blockchain.hash.md)
+      * [BWS.NFT.zK](media-assets/snapshots/platform-apis/bws.nft.zk.md)
+    * [Marketplace Solutions](media-assets/snapshots/marketplace-solutions/README.md)
       * [Blockchain Badges](media-assets/snapshots/BWS.Blockchain.Badges/README.md)
       * [X Bot](media-assets/snapshots/BWS.X.Bot/README.md)
 

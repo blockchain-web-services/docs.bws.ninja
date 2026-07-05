@@ -1,12 +1,6 @@
-# Overview
+# X Bot Overview
 
-## What is X Bot?
-
-{% hint style="info" %}
-X Bot is a Telegram-based analytics platform that provides trusted X (Twitter) analytics for crypto communities. It enables tracking, analysis, and reporting of X activity directly within Telegram groups.
-{% endhint %}
-
-_X analytics you can trust_
+## What is X Bot?X Bot is a Telegram-based analytics platform that provides trusted X (Twitter) analytics for crypto communities. It enables tracking, analysis, and reporting of X activity directly within Telegram groups._X analytics you can trust_
 
 X Bot uses the **official X API** to ensure accuracy and reliability. We tested several cheaper alternatives and even built our own "posts crawler," but none matched the accuracy of the official API. Many third-party analytics tools you find online show **up to 50% discrepancies** in their metrics. With X Bot, you get data directly from the source you can trust.
 
@@ -134,25 +128,25 @@ X Bot curates high-quality data from projects and KOL teams through a selection 
 
 {% stepper %}
 {% step %}
-#### X Bot Installation
+\#### X Bot Installation
 
 Must have successfully installed and configured X Bot in their Telegram community. Demonstrates commitment to transparent analytics.
 {% endstep %}
 
 {% step %}
-#### Minimum Performance Threshold
+\#### Minimum Performance Threshold
 
 Achieve a minimum performance score indicating sustained X activity, showing genuine engagement over time.
 {% endstep %}
 
 {% step %}
-#### Active Community Engagement
+\#### Active Community Engagement
 
 Consistent posting and meaningful interactions, authentic community growth patterns, and regular engagement from community members.
 {% endstep %}
 
 {% step %}
-#### Quality Content Standards
+\#### Quality Content Standards
 
 High-quality X presence with genuine engagement metrics, no artificial inflation or bot-driven activity, and authentic interactions and conversations.
 {% endstep %}

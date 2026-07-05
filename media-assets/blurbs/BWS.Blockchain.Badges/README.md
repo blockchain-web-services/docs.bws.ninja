@@ -1,25 +1,23 @@
 ---
 description: >-
-  End-customer marketing blurbs for Blockchain Badges -
-  content tailored for specific target audiences across
-  multiple channels including email, social media, and technical briefs.
+  End-customer marketing blurbs for Blockchain Badges - content tailored for
+  specific target audiences across multiple channels including email, social
+  media, and technical briefs.
 ---
 
-# Blockchain Badges - Marketing Blurbs
+# Blockchain Badges
 
-Target audience-specific communications explaining what Blockchain Badges is, how it works,
-and why it matters to different types of end-customers.
+Target audience-specific communications explaining what Blockchain Badges is, how it works, and why it matters to different types of end-customers.
 
 <table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Website</th><th>Audiences</th></tr></thead><tbody><tr><td>Blockchain Badges</td><td>2026-04-19</td><td><a href="https://blockchainbadges.com">blockchainbadges.com</a></td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**
 
-Content is tailored for specific end-customer audiences and optimized for different communication channels.
-Each blurb speaks directly to the audience's needs and explains blockchain benefits in accessible terms.
+Content is tailored for specific end-customer audiences and optimized for different communication channels. Each blurb speaks directly to the audience's needs and explains blockchain benefits in accessible terms.
 {% endhint %}
 
----
+***
 
 ## Product Blurb
 
@@ -42,19 +40,19 @@ Built on the BWS platform, it provides secure, transparent, and verifiable opera
 • X/Twitter: https://x.com/BWScommunity
 ```
 
----
+***
 
 ## Target Audiences
 
 1. **General Users** - End-customers who want to use this solution for their specific needs
 
----
+***
 
 ## General Users
 
-*End-customers who want to use this solution for their specific needs*
+_End-customers who want to use this solution for their specific needs_
 
----
+***
 
 ## Usage Guidelines
 
@@ -73,9 +71,8 @@ Each set of blurbs is optimized for a specific audience:
 
 * **General Users**: End-customers who want to use this solution for their specific needs
 
----
+***
 
 ## Related Resources
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="/marketplace-solutions/bws.blockchain.badges">/marketplace-solutions/bws.blockchain.badges</a></td></tr><tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr><tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/BWS.Blockchain.Badges">/media-assets/snapshots/BWS.Blockchain.Badges</a></td></tr></tbody></table>
-
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/marketplace-solutions/bws.blockchain.badges">https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/marketplace-solutions/bws.blockchain.badges</a></td></tr><tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">..</a></td></tr><tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.Blockchain.Badges">https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.Blockchain.Badges</a></td></tr></tbody></table>

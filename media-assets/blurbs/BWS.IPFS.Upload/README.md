@@ -1,25 +1,23 @@
 ---
 description: >-
-  End-customer marketing blurbs for IPFS Upload -
-  content tailored for specific target audiences across
-  multiple channels including email, social media, and technical briefs.
+  End-customer marketing blurbs for IPFS Upload - content tailored for specific
+  target audiences across multiple channels including email, social media, and
+  technical briefs.
 ---
 
-# IPFS Upload - Marketing Blurbs
+# BWS.IPFS.Upload
 
-Target audience-specific communications explaining what IPFS Upload is, how it works,
-and why it matters to different types of end-customers.
+Target audience-specific communications explaining what IPFS Upload is, how it works, and why it matters to different types of end-customers.
 
 <table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>IPFS Upload</td><td>2026-03-29</td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**
 
-Content is tailored for specific end-customer audiences and optimized for different communication channels.
-Each blurb speaks directly to the audience's needs and explains blockchain benefits in accessible terms.
+Content is tailored for specific end-customer audiences and optimized for different communication channels. Each blurb speaks directly to the audience's needs and explains blockchain benefits in accessible terms.
 {% endhint %}
 
----
+***
 
 ## Product Blurb
 
@@ -45,19 +43,19 @@ Easily upload Images, PDF and JSON files to IPFS.
 • X/Twitter: https://x.com/BWScommunity
 ```
 
----
+***
 
 ## Target Audiences
 
 1. **General Users** - End-customers who want to use this solution for their specific needs
 
----
+***
 
 ## General Users
 
-*End-customers who want to use this solution for their specific needs*
+_End-customers who want to use this solution for their specific needs_
 
----
+***
 
 ## Usage Guidelines
 
@@ -76,9 +74,8 @@ Each set of blurbs is optimized for a specific audience:
 
 * **General Users**: End-customers who want to use this solution for their specific needs
 
----
+***
 
 ## Related Resources
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="/solutions/bws.ipfs.upload">/solutions/bws.ipfs.upload</a></td></tr><tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="/media-assets/blurbs">/media-assets/blurbs</a></td></tr><tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="/media-assets/snapshots/BWS.IPFS.Upload">/media-assets/snapshots/BWS.IPFS.Upload</a></td></tr></tbody></table>
-
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Product Documentation</strong></td><td>Full technical documentation</td><td><a href="https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.ipfs.upload">https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/solutions/bws.ipfs.upload</a></td></tr><tr><td><strong>All Product Blurbs</strong></td><td>Browse blurbs for all products</td><td><a href="../">..</a></td></tr><tr><td><strong>Product Snapshots</strong></td><td>Visual media assets</td><td><a href="https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.IPFS.Upload">https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.IPFS.Upload</a></td></tr></tbody></table>
