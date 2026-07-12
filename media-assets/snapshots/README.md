@@ -4,7 +4,7 @@ description: >-
   optimized for documentation and social media marketing.
 ---
 
-# Snapshots
+# Product Snapshots
 
 Browse the complete media library for all BWS products. Each product page includes website section captures, social media optimized images, and workflow demonstration videos.
 
@@ -14,13 +14,13 @@ Browse the complete media library for all BWS products. Each product page includ
 All product snapshots are automatically captured and updated weekly from live websites. Images are optimized for different platforms including social media (Twitter, LinkedIn, Instagram) and documentation.
 {% endhint %}
 
-***
+---
 
 ## Marketplace Solutions
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Blockchain Badges</strong></td><td>View media assets and snapshots</td><td><a href="https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.Blockchain.Badges">https://github.com/blockchain-web-services/docs.bws.ninja/blob/master/media-assets/snapshots/BWS.Blockchain.Badges</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Blockchain Badges</strong></td><td>View media assets and snapshots</td><td><a href="BWS.Blockchain.Badges/">BWS.Blockchain.Badges/</a></td></tr></tbody></table>
 
-***
+---
 
 ## Asset Usage Guide
 
@@ -56,7 +56,7 @@ Or use social media optimized versions:
 ![Twitter Card](BWS.Blockchain.Badges/hero/twitter-hero.jpg)
 ```
 
-***
+---
 
 ## Brand Guidelines
 
@@ -64,6 +64,6 @@ For proper usage of BWS brand assets and guidelines, refer to:
 
 {% file src="../../.gitbook/assets/BWS Brand Guideline v0.1.pdf" %}
 
-***
+---
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>BWS Logo</strong></td><td>Official BWS logos and variations</td><td><a href="../bws-logo.md">bws-logo.md</a></td></tr><tr><td><strong>Brand Guidelines</strong></td><td>Complete brand usage guidelines</td><td><a href="../">..</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>BWS Logo</strong></td><td>Official BWS logos and variations</td><td><a href="../bws-logo.md">bws-logo.md</a></td></tr><tr><td><strong>Brand Guidelines</strong></td><td>Complete brand usage guidelines</td><td><a href="../">../</a></td></tr></tbody></table>

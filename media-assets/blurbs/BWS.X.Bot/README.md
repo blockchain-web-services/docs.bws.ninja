@@ -10,7 +10,7 @@ description: >-
 Target audience-specific communications explaining what X Bot is, how it works,
 and why it matters to different types of end-customers.
 
-<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>X Bot</td><td>2026-07-05</td><td>1</td></tr></tbody></table>
+<table><thead><tr><th width="180">Product</th><th width="140">Last Updated</th><th>Audiences</th></tr></thead><tbody><tr><td>X Bot</td><td>2026-07-12</td><td>1</td></tr></tbody></table>
 
 {% hint style="info" %}
 **About These Blurbs**
@@ -28,7 +28,7 @@ Each blurb speaks directly to the audience's needs and explains blockchain benef
 ```
 🚀 **X Bot**
 
-> **Last Updated:** 2026-01-01 > **Total Commands:** 73 > This documentation is automatically generated from source code.
+> **Last Updated:** 2026-01-01 **Total Commands:** 73 This documentation is automatically generated from source code.
 
 ✨ **Key Features:**
 • Track X (Twitter) accounts, hashtags, cashtags, and mentions
