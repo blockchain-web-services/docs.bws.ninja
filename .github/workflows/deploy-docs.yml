@@ -1,4 +1,9 @@
-name: Deploy Documentation
+name: Deploy Redirect
+
+# docs.bws.ninja is deprecated. This workflow publishes a static redirect
+# stub (redirect/) that sends every path to https://www.bws.ninja/.
+# The documentation build (VitePress) has been retired; the source markdown
+# remains in git history.
 
 on:
   push:
@@ -15,42 +20,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install Python dependencies
-        run: pip install beautifulsoup4 pyyaml
-
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Run conversion script
-        run: python scripts/convert-gitbook.py
-
-      - name: Build documentation
-        run: npx vitepress build site-content
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site-content/.vitepress/dist/
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: redirect/
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -7,6 +7,10 @@ coverY: 0
 
 # Welcome!
 
+> **Deprecated.** docs.bws.ninja is no longer maintained. The site now serves a
+> redirect to <https://www.bws.ninja/>; the redirect stub lives in `redirect/`.
+> The documentation source below is kept for archival reference only.
+
 Blockchain Web Services (aka BWS) aims to transform the blockchain market by making innovative solutions accessible to a broad audience, including those without technical or Web3 experience.\
 \
 Read Blockchain Web Services's [White Paper](https://www.bws.ninja/white-paper).
